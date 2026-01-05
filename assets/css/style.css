@@ -41,8 +41,14 @@
 /* Icônes du header en vert */
 .navbar i,
 .container-fluid.bg-dark i {
-    color: #198754; /* vert Bootstrap */
+    color: #1877F2; 
 }
+
+/* Icône WhatsApp du bouton desktop en blanc */
+.navbar .btn-success i {
+    color: #ffffff !important;
+}
+
 
 /* Header : enlever le soulignement des liens */
 .container-fluid.bg-dark a {
@@ -104,8 +110,14 @@
 
 /* icônes vertes dans le footer (text-primary) */
 .footer .text-primary {
-    color: #198754 !important;           /* vert bootstrap success-like */
+    color: #1877F2 !important;           /* vert bootstrap success-like */
 }
+
+/* Icône WhatsApp blanche dans le bouton du footer */
+.footer .btn-success i {
+    color: #ffffff !important;
+}
+
 
 /* bandeau bas */
 .copyright {
