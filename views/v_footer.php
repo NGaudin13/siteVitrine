@@ -13,17 +13,17 @@
 
                 <p class="mb-2">
                     <i class="fa fa-map-marker-alt text-primary me-3"></i>
-                    Lyon, 69100 Villeurbanne, FR
+                    110 cours tolstoi 69100 Villeurbanne , FR
                 </p>
 
                 <p class="mb-2">
                     <i class="fa fa-phone-alt text-primary me-3"></i>
-                    +33 6 12 34 56 78
+                    +33 7 66 80 16 68
                 </p>
 
                 <p class="mb-2">
                     <i class="fa fa-envelope text-primary me-3"></i>
-                    contact@nbsolutions.fr
+                    oflabim@gmail.com
                 </p>
 
                 <div class="d-flex pt-2">
@@ -73,7 +73,7 @@
                 </p>
 
                 <a
-                    href="https://wa.me/33612345678"
+                    href="https://wa.me/33766801668"
                      class="btn btn-success py-2 px-4"
                     target="_blank"
                 >

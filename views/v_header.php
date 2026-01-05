@@ -1,6 +1,6 @@
 <?php
 // Variables globales simples (tu pourras les centraliser plus tard)
-$pageTitle = $pageTitle ?? "NBsolutions | Bureau d'Études & Ingénierie";
+$pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
 $metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
 $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
 ?>
@@ -69,15 +69,15 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
         <div class="col-lg-7 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center me-4">
                 <i class="fa fa-phone-alt me-2"></i>
-                <a class="text-light" href="tel:+33612345678">
-                    +33 6 12 34 56 78
+                <a class="text-light" href="tel:+33766801668">
+                    +33 7 66 80 16 68
                 </a>
             </div>
 
             <div class="h-100 d-inline-flex align-items-center">
                 <i class="fa fa-envelope me-2"></i>
-                <a class="text-light" href="mailto:contact@nbsolutions.fr">
-                    contact@nbsolutions.fr
+                <a class="text-light" href="mailto:oflabim@gmail.com">
+                    oflabim@gmail.com
                 </a>
             </div>
         </div>
@@ -119,7 +119,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
     >
         <img
             src="assets/images/logo.png"
-            alt="NBsolutions"
+            alt="OFLABIM"
             style="height:45px;"
         >
     </a>
@@ -127,9 +127,9 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
     <!-- Mobile: WhatsApp icon + burger (comme le site modèle) -->
     <div class="d-flex align-items-center ms-auto d-lg-none">
         <a
-            href="index.php?page=appelWhatzapp"
+            href="https://wa.me/33766801668"
             class="me-3"
-            target="_self"
+            target="_blank"
             aria-label="WhatsApp"
             title="WhatsApp"
         >
@@ -196,12 +196,15 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
         </div>
 
         <!-- Desktop CTA -->
-        <a
-            href="index.php?page=appelWhatzapp"
+         <a
+            href="https://wa.me/33766801668"
             class="btn btn-success btn-sm px-4 py-2 d-none d-lg-inline-flex align-items-center"
+            target="_blank"
+            rel="noopener"
         >
             <i class="fab fa-whatsapp me-2"></i>
             Appeler-Nous
         </a>
+
     </div>
 </nav>

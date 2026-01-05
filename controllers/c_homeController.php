@@ -24,10 +24,6 @@ switch ($page) {
         require_once(PATH_VIEWS . 'contact.php');
         break;
 
-    case 'appelWhatzapp':
-        require_once(PATH_VIEWS . 'appelWhatzapp.php');
-        break;
-
     case 'conditions':
         require_once(PATH_VIEWS . 'conditions.php');
         break;
