@@ -23,7 +23,7 @@
 
                 <p class="mb-2">
                     <i class="fa fa-envelope text-primary me-3"></i>
-                    oflabim@gmail.com
+                    contact@oflabim.fr
                 </p>
 
                 <div class="d-flex pt-2">

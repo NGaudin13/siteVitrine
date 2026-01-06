@@ -93,8 +93,8 @@ require_once(PATH_VIEWS . 'header.php');
             </div>
             <div class="ms-3 ms-sm-4 flex-grow-1" style="min-width:0;">
               <p class="mb-1 text-muted">Email</p>
-              <a class="fw-semibold text-decoration-none text-break d-block" href="mailto:oflabim@gmail.com">
-                oflabim@gmail.com
+              <a class="fw-semibold text-decoration-none text-break d-block" href="mailto:contact@oflabim.fr">
+                contact@oflabim.fr
               </a>
             </div>
           </div>

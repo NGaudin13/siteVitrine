@@ -73,8 +73,8 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
 
             <div class="h-100 d-inline-flex align-items-center">
                 <i class="fa fa-envelope me-2"></i>
-                <a class="text-light" href="mailto:oflabim@gmail.com">
-                    oflabim@gmail.com
+                <a class="text-light" href="mailto:contact@oflabim.fr">
+                    contact@oflabim.fr
                 </a>
             </div>
         </div>
