@@ -8,8 +8,8 @@
 
 /* Augmente légèrement l'espace vertical de la topbar */
 .container-fluid.bg-dark .row {
-    padding-top: 6px;
-    padding-bottom: 6px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 /* Navbar : un peu plus d'air */
@@ -22,6 +22,7 @@
 .navbar .nav-link {
     padding-top: 10px;
     padding-bottom: 10px;
+    font-size: 1.1rem; /* max raisonnable */
     line-height: 1.2;
     font-weight: 500;
 }
@@ -110,7 +111,7 @@
 
 /* icônes vertes dans le footer (text-primary) */
 .footer .text-primary {
-    color: #1877F2 !important;           /* vert bootstrap success-like */
+    color: #1877F2 !important;   
 }
 
 /* Icône WhatsApp blanche dans le bouton du footer */
@@ -134,3 +135,49 @@
 .copyright a:hover {
     text-decoration: underline;
 }
+
+/* ================= PAGE CONTACT ================= */
+/* ================= PAGE CONTACT / HEADER ================= */
+
+.header-contact {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=70")
+              center center / cover no-repeat;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+/* Overlay sombre pour lisibilité */
+.header-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Contenu au-dessus de l’overlay */
+.header-contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Breadcrumbs lisibles sur fond sombre */
+.header-contact .breadcrumb-item + .breadcrumb-item::before {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 991.98px) {
+  .header-contact {
+    min-height: 240px;
+    text-align: center;
+  }
+
+  .header-contact .btn {
+    margin-top: 1rem;
+  }
+}
+
+

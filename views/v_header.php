@@ -29,9 +29,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
     <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
-
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,11 +150,11 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
         <div class="navbar-nav ms-auto p-4 p-lg-0">
 
             <a href="index.php?page=accueil" class="nav-item nav-link">
-                Accueil
+                ACCUEIL
             </a>
 
             <a href="index.php?page=presentation" class="nav-item nav-link">
-                Présentation
+                PRESENTATION
             </a>
 
             <div class="nav-item dropdown">
@@ -166,7 +163,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
                     class="nav-link dropdown-toggle"
                     data-bs-toggle="dropdown"
                 >
-                    Expertises
+                    EXPERTISES
                 </a>
 
                 <div class="dropdown-menu fade-up m-0">
@@ -186,11 +183,11 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
             </div>
 
             <a href="index.php?page=references" class="nav-item nav-link">
-                Références
+                REFERENCES
             </a>
 
             <a href="index.php?page=contact" class="nav-item nav-link">
-                Contact
+                CONTACT
             </a>
 
         </div>
