@@ -288,6 +288,231 @@ require_once(PATH_VIEWS . 'header.php');
   </div>
 </section>
 
+<!-- ================= ACCUEIL / À PROPOS ================= -->
+<section class="home-about py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Col gauche : texte + stats -->
+      <div class="col-lg-6">
+        <div class="home-about__content">
+
+          <h2 class="home-about__title display-6 fw-bold mb-3">
+            À propos de nous
+          </h2>
+
+          <p class="home-about__text text-muted mb-4">
+            OFLABIM accompagne vos projets de construction avec une approche claire et rigoureuse :
+            modélisation BIM, coordination, études techniques et optimisation des solutions.
+            Notre objectif : sécuriser les décisions, réduire les risques et livrer un résultat exploitable
+            par tous les acteurs du projet.
+          </p>
+
+          <div class="home-about__stats row g-4">
+            <div class="col-6">
+              <div class="home-about__stat">
+                <div class="home-about__number display-5 fw-bold text-primary mb-1">45+</div>
+                <div class="home-about__label fw-semibold">Projets terminés</div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="home-about__stat">
+                <div class="home-about__number display-5 fw-bold text-primary mb-1">100%</div>
+                <div class="home-about__label fw-semibold">Clients satisfaits</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="home-about__actions mt-4 d-flex gap-2 flex-wrap">
+            <a href="index.php?page=presentation" class="btn btn-dark px-4">
+              En savoir plus
+            </a>
+            <a href="index.php?page=service" class="btn btn-outline-dark px-4">
+              Nos services
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Col droite : image -->
+      <div class="col-lg-6">
+        <div class="home-about__media position-relative">
+          <img
+            class="home-about__img img-fluid rounded-3 shadow-sm w-100"
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=70"
+            alt="Bureau d’études et ingénierie BIM"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACCUEIL / LIVRABLES ================= -->
+<section class="home-deliverables py-5">
+  <div class="container">
+
+    <div class="text-center mx-auto mb-4" style="max-width: 760px;">
+      <h2 class="h3 mb-2">Ce que vous recevez</h2>
+      <p class="text-muted mb-0">
+        Des livrables clairs, exploitables sur chantier et en maîtrise d’œuvre, avec une méthode BIM structurée.
+      </p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- LEFT: Livrables -->
+      <div class="col-lg-6">
+        <div class="p-4 border rounded-3 h-100">
+          <h3 class="h5 mb-3">Livrables</h3>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="d-flex gap-3">
+                  <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                       style="width:46px;height:46px;">
+                    <i class="fa fa-cube text-white"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Maquette BIM</div>
+                    <div class="text-muted small">Structurée, propre, prête à coordonner.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="d-flex gap-3">
+                  <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                       style="width:46px;height:46px;">
+                    <i class="fa fa-layer-group text-white"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Plans & coupes</div>
+                    <div class="text-muted small">PDF/DWG avec une mise en page pro.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="d-flex gap-3">
+                  <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                       style="width:46px;height:46px;">
+                    <i class="fa fa-check-double text-white"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Coordination / clash</div>
+                    <div class="text-muted small">Détection + rapport clair des conflits.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="d-flex gap-3">
+                  <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                       style="width:46px;height:46px;">
+                    <i class="fa fa-file-invoice text-white"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold">Quantités</div>
+                    <div class="text-muted small">Tableaux de quantités pour chiffrage.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="index.php?page=service" class="btn btn-outline-dark px-4">
+              Voir nos services
+            </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Outils / standards -->
+      <div class="col-lg-6">
+        <div class="p-4 border rounded-3 h-100">
+          <h3 class="h5 mb-3">Outils & standards</h3>
+          <p class="text-muted mb-3">
+            Interopérabilité, méthodes et livrables adaptés à votre organisation.
+          </p>
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="fw-semibold mb-1">Formats</div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge text-bg-dark">IFC</span>
+                  <span class="badge text-bg-dark">RVT</span>
+                  <span class="badge text-bg-dark">DWG</span>
+                  <span class="badge text-bg-dark">PDF</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="fw-semibold mb-1">Coordination</div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge text-bg-dark">BCF</span>
+                  <span class="badge text-bg-dark">Clash</span>
+                  <span class="badge text-bg-dark">Synthèse</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="fw-semibold mb-1">Qualité</div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge text-bg-dark">Nommage</span>
+                  <span class="badge text-bg-dark">Niveaux</span>
+                  <span class="badge text-bg-dark">Phasage</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="bg-light rounded-3 p-3 h-100">
+                <div class="fw-semibold mb-1">Documentation</div>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge text-bg-dark">BEP</span>
+                  <span class="badge text-bg-dark">DOE</span>
+                  <span class="badge text-bg-dark">Fiches</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3 rounded-3 bg-light">
+            <div class="d-flex gap-3 align-items-start">
+              <i class="fa fa-shield-alt mt-1"></i>
+              <div>
+                <div class="fw-semibold">Engagement</div>
+                <div class="text-muted small">
+                  Livrables propres, lisibles et exploitables — pas de “maquette brouillon”.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
 
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>
