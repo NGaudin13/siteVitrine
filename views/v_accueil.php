@@ -513,6 +513,128 @@ require_once(PATH_VIEWS . 'header.php');
   </div>
 </section>
 
+<!-- ================= ACCUEIL / TEMOIGNAGES ================= -->
+<section class="home-testimonials py-5">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="home-testimonials__head text-center mx-auto mb-4" style="max-width: 760px;">
+      <span class="home-testimonials__kicker badge text-bg-light text-uppercase px-3 py-2">
+        Témoignages
+      </span>
+
+      <h2 class="home-testimonials__title h2 mt-3 mb-2">
+        Depuis qu’ils ont testé, ils nous recommandent.
+      </h2>
+
+      <p class="home-testimonials__subtitle text-muted mb-0">
+        Des clients nous font confiance pour la modélisation BIM, la coordination et la qualité des livrables.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="row g-4">
+
+      <!-- Testimonial 1 -->
+      <div class="col-lg-4">
+        <article class="home-testimonials__card h-100 p-4 border rounded-3 bg-white">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img
+              class="home-testimonials__avatar rounded-circle"
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=70"
+              alt="Portrait client"
+              width="48"
+              height="48"
+              loading="lazy"
+            >
+            <div class="min-w-0">
+              <div class="fw-semibold">Claire</div>
+              <div class="text-muted small">Maîtrise d’œuvre</div>
+            </div>
+          </div>
+
+          <div class="home-testimonials__stars text-warning mb-3" aria-label="Note 5 sur 5">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+
+          <p class="mb-0">
+            <strong>Livrables très propres et faciles à exploiter.</strong>
+            La coordination a été fluide et les retours rapides. On a gagné du temps sur la synthèse.
+          </p>
+        </article>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="col-lg-4">
+        <article class="home-testimonials__card h-100 p-4 border rounded-3 bg-white">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img
+              class="home-testimonials__avatar rounded-circle"
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=70"
+              alt="Portrait client"
+              width="48"
+              height="48"
+              loading="lazy"
+            >
+            <div class="min-w-0">
+              <div class="fw-semibold">Mehdi</div>
+              <div class="text-muted small">Architecte</div>
+            </div>
+          </div>
+
+          <div class="home-testimonials__stars text-warning mb-3" aria-label="Note 5 sur 5">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+
+          <p class="mb-0">
+            <strong>Réactivité et méthode.</strong>
+            La maquette est structurée, les échanges sont clairs, et le résultat est vraiment pro.
+          </p>
+        </article>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="col-lg-4">
+        <article class="home-testimonials__card h-100 p-4 border rounded-3 bg-white">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img
+              class="home-testimonials__avatar rounded-circle"
+              src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=120&q=70"
+              alt="Portrait client"
+              width="48"
+              height="48"
+              loading="lazy"
+            >
+            <div class="min-w-0">
+              <div class="fw-semibold">Sophie</div>
+              <div class="text-muted small">Entreprise (GO)</div>
+            </div>
+          </div>
+
+          <div class="home-testimonials__stars text-warning mb-3" aria-label="Note 5 sur 5">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+
+          <p class="mb-0">
+            <strong>On évite les erreurs avant chantier.</strong>
+            Les clashes et corrections sont anticipés, ça se ressent direct sur l’organisation.
+          </p>
+        </article>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-4">
+      <a href="index.php?page=contact" class="btn btn-primary px-4 py-3">
+        Contact
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
 
 
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

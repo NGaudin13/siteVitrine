@@ -13,7 +13,7 @@ require_once(PATH_VIEWS . 'header.php');
 <section
   class="header-contact page-header-contact mt-4 py-5 mb-5"
   style="
-    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=70');
+    background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -218,6 +218,94 @@ require_once(PATH_VIEWS . 'header.php');
     </div>
   </div>
 </section>
+
+<!-- ================= CONTACT / LOCALISATION ================= -->
+<section class="contact-location py-5">
+  <div class="container">
+
+    <div class="contact-location__head text-center mx-auto mb-4" style="max-width: 720px;">
+      <h2 class="h4 mb-2">Nous localiser</h2>
+      <p class="text-muted mb-0">
+        Retrouvez-nous sur la carte. Interventions en France, et à distance selon les projets.
+      </p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Infos -->
+      <div class="col-lg-4">
+        <div class="contact-location__info h-100 bg-light p-4 rounded-3">
+          <h3 class="h6 mb-3">Adresse</h3>
+
+          <div class="d-flex gap-3 mb-3">
+            <div class="contact-location__icon d-flex align-items-center justify-content-center bg-dark rounded"
+                 style="width:42px;height:42px;">
+              <i class="fa fa-map-marker-alt text-white"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">OFLABIM</div>
+              <div class="text-muted">
+                110 cours Tolstoï<br>
+                69100 Villeurbanne, France
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 mb-3">
+            <div class="contact-location__icon d-flex align-items-center justify-content-center bg-dark rounded"
+                 style="width:42px;height:42px;">
+              <i class="fa fa-phone-alt text-white"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">Téléphone</div>
+              <a class="text-decoration-none" href="tel:+33766801668">+33 7 66 80 16 68</a>
+            </div>
+          </div>
+
+          <div class="d-flex gap-3">
+            <div class="contact-location__icon d-flex align-items-center justify-content-center bg-dark rounded"
+                 style="width:42px;height:42px;">
+              <i class="fa fa-envelope text-white"></i>
+            </div>
+            <div>
+              <div class="fw-semibold">Email</div>
+              <a class="text-decoration-none" href="mailto:contact@oflabim.fr">contact@oflabim.fr</a>
+            </div>
+          </div>
+
+          <hr class="my-4">
+
+          <a
+            class="btn btn-outline-primary w-100 d-inline-flex align-items-center justify-content-center"
+            href="https://www.google.com/maps?q=110+cours+Tolsto%C3%AF,+69100+Villeurbanne"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa fa-directions me-2"></i>
+            Itinéraire Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Carte -->
+      <div class="col-lg-8">
+        <div class="contact-location__map bg-light rounded-3 overflow-hidden h-100">
+          <div class="contact-location__map-inner ratio ratio-16x9">
+            <iframe
+              title="Carte - OFLABIM"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=110%20cours%20Tolsto%C3%AF%2069100%20Villeurbanne&output=embed"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
 <?php require_once(PATH_VIEWS . 'footer.php'); ?>

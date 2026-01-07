@@ -1,3 +1,4 @@
+/* =============================================================== */
 /* ========== HEADER : aération + bouton CTA plus petit ========== */
 
 /* Top bar un peu plus haute */
@@ -56,10 +57,8 @@
     text-decoration: none;
 }
 
-
-/* =========================
-   Footer (style proche modèle)
-   ========================= */
+/* ================================================================================ */
+/* ========================= Footer (style proche modèle) ========================= */
 
 .footer {
     background: #1f2326;  /* fond dark proche */
@@ -136,7 +135,7 @@
     text-decoration: underline;
 }
 
-/* ================= PAGE ACCUEIL ================= */
+/* ============================ PAGE ACCUEIL ========================== */
 /* ================= ACCUEIL / HEADER / HERO CAROUSEL ================= */
 
 .home-hero__slide { position: relative; }
@@ -157,8 +156,6 @@
   background: rgba(0,0,0,0.55);
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media (max-width: 991.98px){
   .home-hero__img{ height: 420px; }
   .home-hero__overlay{ text-align: center; }
@@ -173,7 +170,7 @@
   .home-hero .btn{ width: 100%; max-width: 320px; }
 }
 
-/* ================= HOME / SERVICES + VALUE ================= */
+/* ================= ACCUEIL / HOME / SERVICES + VALUE ================= */
 
 .home-services-value__icon{
   width: 46px;
@@ -213,6 +210,21 @@
   }
 }
 
+/* ================= ACCUEIL / TEMOIGNAGES ================= */
+.home-testimonials__card{
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.home-testimonials__card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.home-testimonials__avatar{
+  object-fit: cover;
+}
+
+
 
 /* ================= PAGE CONTACT ================= */
 /* ================= PAGE CONTACT / HEADER ================= */
@@ -243,8 +255,6 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media (max-width: 991.98px) {
   .header-contact {
     min-height: 240px;
@@ -255,5 +265,17 @@
     margin-top: 1rem;
   }
 }
+
+/* ================= CONTACT / LOCALISATION ================= */
+.contact-location__map {
+  min-height: 320px; /* évite une carte trop petite */
+}
+
+@media (max-width: 991.98px) {
+  .contact-location__map {
+    min-height: 260px;
+  }
+}
+
 
 
