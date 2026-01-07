@@ -12,8 +12,8 @@ switch ($page) {
         require_once(PATH_VIEWS . 'presentation.php');
         break;
 
-    case 'expertise':
-        require_once(PATH_VIEWS . 'expertise.php');
+    case 'service':
+        require_once(PATH_VIEWS . 'service.php');
         break;
 
     case 'contact':

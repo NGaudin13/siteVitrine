@@ -10,45 +10,55 @@ require_once(PATH_VIEWS . 'header.php');
 <?php require_once(PATH_VIEWS . 'alert.php'); ?>
 
 <!-- ================= PAGE CONTACT / HEADER ================= -->
-<section class="header-contact page-header-contact mt-4 mb-5">
+<section
+  class="header-contact page-header-contact mt-4 py-5 mb-5"
+  style="
+    background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=70');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   "
+  >
   <div class="container py-5">
-    <div class="row align-items-center g-4">
 
-      <div class="col-lg-8">
-        <h1 class="display-5 text-white mb-3">
-          Contact
-        </h1>
+    <h1 class="display-5 text-white mb-3">
+      Contact
+    </h1>
 
-        <p class="lead text-white-50 mb-4">
-          Une question, un besoin BIM ou structure ?  
-          Décrivez votre projet, on vous répond rapidement.
-        </p>
+    <p class="lead text-white-50 mb-4" style="max-width: 700px;">
+      Une question, un besoin BIM ou structure ?  
+      Décrivez votre projet, on vous répond rapidement.
+    </p>
 
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb text-uppercase mb-0">
-            <li class="breadcrumb-item">
-              <a class="text-white-50 text-decoration-none" href="index.php?page=accueil">
-                Accueil
-              </a>
-            </li>
-            <li class="breadcrumb-item text-white active" aria-current="page">
-              Contact
-            </li>
-          </ol>
-        </nav>
-      </div>
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
 
-      <div class="col-lg-4 text-lg-end">
-        <a
-          href="https://wa.me/33766801668"
-          class="btn btn-success btn-lg d-inline-flex align-items-center"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-whatsapp me-2"></i>
-          Écrire sur WhatsApp
-        </a>
-      </div>
+      <!-- Breadcrumb -->
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb text-uppercase mb-0">
+          <li class="breadcrumb-item">
+            <a
+              class="text-white-50 text-decoration-none"
+              href="index.php?page=accueil"
+            >
+              Accueil
+            </a>
+          </li>
+          <li class="breadcrumb-item text-white active" aria-current="page">
+            Contact
+          </li>
+        </ol>
+      </nav>
+
+      <!-- CTA WhatsApp -->
+      <a
+        href="https://wa.me/33766801668"
+        class="btn btn-success btn-lg d-inline-flex align-items-center"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fab fa-whatsapp me-2"></i>
+        Nous-Joindre
+      </a>
 
     </div>
   </div>

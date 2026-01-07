@@ -13,7 +13,7 @@ $page = preg_replace('/[^a-zA-Z0-9_]/', '', $page);
 $publicPages = [
     'accueil',
     'presentation',
-    'expertise',
+    'service',
     'references',
     'contact',
     'appelWhatzapp',

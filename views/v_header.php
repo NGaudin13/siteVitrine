@@ -163,20 +163,20 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
                     class="nav-link dropdown-toggle"
                     data-bs-toggle="dropdown"
                 >
-                    EXPERTISES
+                    SERVICES
                 </a>
 
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="index.php?page=expertise" class="dropdown-item">
+                    <a href="index.php?page=service" class="dropdown-item">
                         Ingénierie BIM
                     </a>
-                    <a href="index.php?page=expertise" class="dropdown-item">
+                    <a href="index.php?page=service" class="dropdown-item">
                         Structures béton
                     </a>
-                    <a href="index.php?page=expertise" class="dropdown-item">
+                    <a href="index.php?page=service" class="dropdown-item">
                         Structures métalliques
                     </a>
-                    <a href="index.php?page=expertise" class="dropdown-item">
+                    <a href="index.php?page=service" class="dropdown-item">
                         Ossature bois
                     </a>
                 </div>
@@ -200,7 +200,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
             rel="noopener"
         >
             <i class="fab fa-whatsapp me-2"></i>
-            Appeler-Nous
+            Nous-Joindre
         </a>
 
     </div>

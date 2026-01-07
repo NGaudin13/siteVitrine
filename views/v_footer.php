@@ -78,7 +78,7 @@
                     target="_blank"
                 >
                     <i class="fab fa-whatsapp me-2"></i>
-                    Appeler-Nous
+                    Nous-Joindre
                 </a>
             </div>
 
@@ -93,7 +93,7 @@
                     © <?= date('Y') ?> NBsolutions —
                     Réalisé par
                     <a href="#" class="text-decoration-none text-light">
-                        NBsolutions
+                        NBsolutions - BERTRAND Baptiste -  GAUDIN Nicolas
                     </a>
                 </div>
             </div>
@@ -103,6 +103,7 @@
 
 <!-- ================= JS ================= -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
