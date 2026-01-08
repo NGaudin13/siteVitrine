@@ -127,7 +127,7 @@ require_once(PATH_VIEWS . 'header.php');
   </div>
 </section>
 
-<!-- ================= PRÉSENTATION / PARCOURS ================= -->
+<!-- ================= PRÉSENTATION / PARCOURS VERSION CV ================= -->
 <section class="presentation-path py-5">
   <div class="container">
 
@@ -303,6 +303,184 @@ require_once(PATH_VIEWS . 'header.php');
     </div>
   </div>
 </section>
+
+<!-- ================= PRÉSENTATION / PARCOURS VERSION ENTREPRISE ================= -->
+<section class="presentation-path py-5">
+  <div class="container">
+
+    <div class="row align-items-stretch g-4">
+
+      <!-- ===== COL 1 : RÉALISATIONS & EXPÉRIENCE ===== -->
+      <div class="col-lg-4 d-flex">
+        <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
+
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h2 class="h4 mb-0">Réalisations & expérience</h2>
+            <span class="presentation-path__pill badge text-bg-dark">Projets</span>
+          </div>
+
+          <p class="text-muted mb-4">
+            Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.
+          </p>
+
+          <div class="presentation-path__timeline">
+
+            <div class="presentation-path__item d-flex gap-3">
+              <div class="presentation-path__dot bg-success flex-shrink-0"></div>
+              <div>
+                <div class="fw-semibold">Coordination BIM</div>
+                <div class="text-muted small">Pilotage de maquettes, coordination multi-lots, synthèse.</div>
+                <div class="text-muted small">2012 – Aujourd’hui</div>
+              </div>
+            </div>
+
+            <div class="presentation-path__item d-flex gap-3">
+              <div class="presentation-path__dot bg-success flex-shrink-0"></div>
+              <div>
+                <div class="fw-semibold">Ingénierie structure</div>
+                <div class="text-muted small">Études techniques, notes de calcul, optimisation structure.</div>
+                <div class="text-muted small">2010 – 2012</div>
+              </div>
+            </div>
+
+            <div class="presentation-path__item d-flex gap-3">
+              <div class="presentation-path__dot bg-success flex-shrink-0"></div>
+              <div>
+                <div class="fw-semibold">Modélisation & plans</div>
+                <div class="text-muted small">Modélisation 3D, plans d’exécution, quantitatifs.</div>
+                <div class="text-muted small">2008 – 2010</div>
+              </div>
+            </div>
+
+            <div class="presentation-path__item d-flex gap-3">
+              <div class="presentation-path__dot bg-success flex-shrink-0"></div>
+              <div>
+                <div class="fw-semibold">Bureau d’études</div>
+                <div class="text-muted small">Méthodes, relevés, dossiers techniques.</div>
+                <div class="text-muted small">2007</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== COL 2 : ÉQUIPE / APPROCHE (CENTRAL) ===== -->
+      <div class="col-lg-4 d-flex">
+        <div class="presentation-path__profile h-100 p-4 rounded-4 border bg-white d-flex flex-column text-center">
+
+          <!-- Haut : visuel entreprise -->
+          <div class="mb-3">
+            <div class="presentation-path__avatar-wrap mx-auto">
+              <img
+                class="presentation-path__avatar"
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80"
+                alt="Équipe et environnement de travail"
+                loading="lazy"
+              >
+            </div>
+          </div>
+
+          <!-- Centre : texte entreprise -->
+          <div class="flex-grow-1 d-flex flex-column justify-content-center">
+            <h3 class="h5 mb-2">Une expertise réunie au sein du bureau</h3>
+
+            <p class="text-muted mb-0">
+              OFLABIM mobilise des compétences en <strong>BIM</strong> et <strong>ingénierie structure</strong>
+              pour accompagner vos projets de la conception à l’exécution :
+              coordination, qualité des livrables, et communication fluide avec l’ensemble des intervenants.
+            </p>
+          </div>
+
+          <!-- Bas : tags compétences -->
+          <div class="mt-3">
+            <div class="presentation-path__profile-tags d-flex flex-wrap justify-content-center gap-2">
+              <span class="badge rounded-pill text-bg-light border">Coordination BIM</span>
+              <span class="badge rounded-pill text-bg-light border">Structures béton</span>
+              <span class="badge rounded-pill text-bg-light border">Structures métal</span>
+              <span class="badge rounded-pill text-bg-light border">Ossature bois</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== COL 3 : COMPÉTENCES & FORMATIONS ===== -->
+      <div class="col-lg-4 d-flex">
+        <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
+
+          <div class="d-flex align-items-center justify-content-between mb-3">
+            <h2 class="h4 mb-0">Compétences & formations</h2>
+            <span class="presentation-path__pill badge text-bg-dark">Méthode</span>
+          </div>
+
+          <p class="text-muted mb-4">
+            Des compétences internes solides, renforcées par une spécialisation BIM et structure.
+          </p>
+
+          <div class="presentation-path__edu">
+
+            <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
+              <div class="d-flex align-items-start gap-3">
+                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
+                  <i class="bi bi-mortarboard"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">BIM — Coordination & méthodes</div>
+                  <div class="text-muted small">Process, BEP, standards, structuration des maquettes.</div>
+                  <div class="text-muted small">Niveau : avancé</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
+              <div class="d-flex align-items-start gap-3">
+                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
+                  <i class="bi bi-journal-check"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Génie civil — Structures</div>
+                  <div class="text-muted small">Dimensionnement, notes de calcul, optimisation.</div>
+                  <div class="text-muted small">Niveau : confirmé</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
+              <div class="d-flex align-items-start gap-3">
+                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
+                  <i class="bi bi-award"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Structure métal & bois</div>
+                  <div class="text-muted small">Conception, détails, plans d’exécution.</div>
+                  <div class="text-muted small">Niveau : confirmé</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="presentation-path__edu-card p-3 rounded-3 bg-white border">
+              <div class="d-flex align-items-start gap-3">
+                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
+                  <i class="bi bi-book"></i>
+                </div>
+                <div>
+                  <div class="fw-semibold">Qualité & livrables</div>
+                  <div class="text-muted small">Nommage, versions, livrables exploitables.</div>
+                  <div class="text-muted small">Niveau : structuré</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
 
