@@ -225,7 +225,6 @@
 }
 
 
-
 /* ================= PAGE CONTACT ================= */
 /* ================= PAGE CONTACT / HEADER ================= */
 
@@ -276,6 +275,105 @@
     min-height: 260px;
   }
 }
+
+/* ============================ PAGE PRESENTATION ========================== */
+/* ================= PRÉSENTATION / HEADER ================= */
+.header-presentation {
+  position: relative;
+  height: 450px;
+  min-height: 300px;
+}
+
+/* ================= PRÉSENTATION / À PROPOS ================= */
+.presentation-about__media{
+  height: 100%;
+}
+
+.presentation-about__img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.presentation-about__domain{
+  padding: .4rem .75rem;
+  font-size: .9rem;
+  border-radius: 999px;
+  background: #e7f1ff; /* bleu clair */
+  border: 1px solid rgba(13,110,253,.15); /* bleu Bootstrap */
+  color: #0d3b66;
+  white-space: nowrap;
+}
+
+/* ================= PRÉSENTATION / PARCOURS ================= */
+
+.presentation-path__panel {
+  position: relative;
+}
+
+.presentation-path__pill {
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Timeline */
+.presentation-path__timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.presentation-path__item {
+  padding: .75rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.presentation-path__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: .35rem;
+  box-shadow: 0 0 0 4px rgba(25,135,84,.12); /* success ring */
+}
+
+/* Profil */
+.presentation-path__profile {
+  position: relative;
+  overflow: hidden;
+}
+
+.presentation-path__avatar-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 6px solid rgba(25,135,84,.18);
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+}
+
+.presentation-path__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Formation */
+.presentation-path__edu-icon {
+  width: 44px;
+  height: 44px;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .presentation-path__avatar-wrap {
+    width: 130px;
+    height: 130px;
+  }
+}
+
 
 
 
