@@ -27,10 +27,6 @@ switch ($page) {
     case 'confidentialite':
         require_once(PATH_VIEWS . 'confidentialite.php');
         break;
-    
-    case 'references':
-        require_once(PATH_VIEWS . 'references.php');
-        break;
 
     default:
         require_once(PATH_VIEWS . '404.php');

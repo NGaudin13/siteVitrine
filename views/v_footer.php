@@ -27,15 +27,6 @@
                 </p>
 
                 <div class="d-flex pt-2">
-                    <a class="btn btn-square btn-outline-body me-1" href="#" target="_blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="btn btn-square btn-outline-body me-1" href="#" target="_blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="btn btn-square btn-outline-body me-1" href="#" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
                     <a class="btn btn-square btn-outline-body me-0" href="#" target="_blank">
                         <i class="fab fa-linkedin-in"></i>
                     </a>

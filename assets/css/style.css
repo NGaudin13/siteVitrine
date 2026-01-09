@@ -1,6 +1,15 @@
 /* =============================================================== */
 /* ========== HEADER : aération + bouton CTA plus petit ========== */
 
+.navbar-logo {
+  height: 80px;
+  width: auto;
+  max-width: 220px;
+  padding: 4px;         /* espace entre logo et bordure */
+  background: #fff;     /* si le logo est clair */
+}
+
+
 /* Top bar un peu plus haute */
 .topbar,
 .container-fluid.bg-dark {
@@ -17,6 +26,7 @@
 .navbar {
     padding-top: 10px;
     padding-bottom: 10px;
+     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Liens du menu : hauteur de ligne + espacement */
