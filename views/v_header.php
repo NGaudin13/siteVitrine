@@ -55,6 +55,11 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
 
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Custom service swip -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
 </head>
 
 <body>
