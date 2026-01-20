@@ -59,7 +59,7 @@ require_once(PATH_VIEWS . 'header.php');
                   durables et maîtrisés.
                 </p>
 
-                <a href="index.php?page=contact"
+                <a href="index.php?page=contact#contact-content"
                    class="btn btn-primary btn-lg">
                    Contact
                 </a>
@@ -219,7 +219,7 @@ require_once(PATH_VIEWS . 'header.php');
         <div class="home-services-value__image-wrap mx-auto">
           <img
             class="img-fluid rounded-4 home-services-value__image"
-            src="https://images.unsplash.com/photo-1521540216272-a50305cd4421?auto=format&fit=crop&w=900&q=70"
+            src="assets/images/accueil_homeServiceValue.jpg"
             alt="Maquette BIM et ingénierie"
             loading="lazy"
           >
@@ -432,9 +432,10 @@ require_once(PATH_VIEWS . 'header.php');
             </div>
           </div>
 
-          <a href="index.php?page=service" class="btn btn-outline-dark px-4">
-              Voir nos services
-            </a>
+          <a href="index.php?page=service"
+            class="btn btn-outline-dark px-4 mt-4">
+            Voir nos services
+          </a>
         </div>
       </div>
 
@@ -626,10 +627,12 @@ require_once(PATH_VIEWS . 'header.php');
 
     <!-- CTA -->
     <div class="text-center mt-4">
-      <a href="index.php?page=contact" class="btn btn-primary px-4 py-3">
+      <a href="index.php?page=contact#contact-content"
+        class="btn btn-primary btn-lg">
         Contact
       </a>
     </div>
+
 
   </div>
 </section>

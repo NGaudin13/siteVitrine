@@ -65,7 +65,7 @@ require_once(PATH_VIEWS . 'header.php');
 </section>
 
 <!-- ================= CONTACT CONTENT ================= -->
-<section class="contact-content py-3">
+<section id=contact-content class="contact-content py-3">
   <div class="container">
 
     <div class="text-center mx-auto mb-3" style="max-width: 700px;">

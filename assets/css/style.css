@@ -213,6 +213,11 @@
   object-fit: cover;
 }
 
+.home-about__text {
+  text-align: justify;
+}
+
+
 /* Responsive: sur mobile, l'image descend naturellement */
 @media (max-width: 991.98px){
   .home-services-value__image{

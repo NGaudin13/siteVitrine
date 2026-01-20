@@ -37,11 +37,10 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-light mb-4">Services</h3>
 
-                <a class="btn btn-link" href="index.php?page=expertise">Ingénierie BIM</a>
-                <a class="btn btn-link" href="index.php?page=expertise">Modélisation 3D</a>
-                <a class="btn btn-link" href="index.php?page=expertise">Études techniques</a>
-                <a class="btn btn-link" href="index.php?page=expertise">Coordination de projet</a>
-                <a class="btn btn-link" href="index.php?page=expertise">Assistance MOE</a>
+                <a class="btn btn-link" href="index.php?page=service#bim">Ingénierie BIM</a>
+                <a class="btn btn-link" href="index.php?page=service#beton">Structures béton</a>
+                <a class="btn btn-link" href="index.php?page=service#metal">Structures métalliques</a>
+                <a class="btn btn-link" href="index.php?page=service#bois">Ossature bois</a>
             </div>
 
             <!-- Liens utiles -->
@@ -50,7 +49,7 @@
 
                 <a class="btn btn-link" href="index.php?page=presentation">À propos</a>
                 <a class="btn btn-link" href="index.php?page=contact">Contact</a>
-                <a class="btn btn-link" href="index.php?page=expertise">Nos services</a>
+                <a class="btn btn-link" href="index.php?page=service">Nos services</a>
                 <a class="btn btn-link" href="index.php?page=conditions">Conditions générales</a>
                 <a class="btn btn-link" href="index.php?page=confidentialite">Confidentialité</a>
             </div>
@@ -60,16 +59,16 @@
                 <h3 class="text-light mb-4">Contactez-nous</h3>
 
                 <p class="mb-3">
-                    Vous pouvez nous contacter directement via WhatsApp.
+                    Vous pouvez nous contacter directement par téléphone.
                 </p>
 
                 <a
-                    href="https://wa.me/33766801668"
-                     class="btn btn-success py-2 px-4"
-                    target="_blank"
+                    href="tel:+33766801668"
+                    class="btn btn-success py-2 px-4"
+                    aria-label="Appeler OFLABIM"
                 >
-                    <i class="fab fa-whatsapp me-2"></i>
-                    Nous-Joindre
+                    <i class="fa fa-phone-alt me-2"></i>
+                    Nous joindre
                 </a>
             </div>
 

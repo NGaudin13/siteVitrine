@@ -120,13 +120,12 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
     <!-- Mobile: WhatsApp icon + burger (comme le site modèle) -->
     <div class="d-flex align-items-center ms-auto d-lg-none">
         <a
-            href="https://wa.me/33766801668"
+            href="tel:+33766801668"
             class="me-3"
-            target="_blank"
-            aria-label="WhatsApp"
-            title="WhatsApp"
-        >
-            <i class="fab fa-whatsapp fa-2x text-success"></i>
+            aria-label="Appeler"
+            title="Appeler"
+            >
+            <i class="fa fa-phone-alt fa-2x text-success"></i>
         </a>
 
         <button
@@ -163,19 +162,26 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
                 </a>
 
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="index.php?page=service" class="dropdown-item">
-                        Ingénierie BIM
-                    </a>
-                    <a href="index.php?page=service" class="dropdown-item">
-                        Structures béton
-                    </a>
-                    <a href="index.php?page=service" class="dropdown-item">
-                        Structures métalliques
-                    </a>
-                    <a href="index.php?page=service" class="dropdown-item">
-                        Ossature bois
-                    </a>
-                </div>
+                <a href="index.php?page=service" class="dropdown-item fw-semibold">
+                    Tous nos services
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a href="index.php?page=service#bim" class="dropdown-item">
+                    Ingénierie BIM
+                </a>
+                <a href="index.php?page=service#beton" class="dropdown-item">
+                    Structures béton
+                </a>
+                <a href="index.php?page=service#metal" class="dropdown-item">
+                    Structures métalliques
+                </a>
+                <a href="index.php?page=service#bois" class="dropdown-item">
+                    Ossature bois
+                </a>
+            </div>
+
             </div>
 
             <a href="index.php?page=contact" class="nav-item nav-link">
@@ -185,14 +191,12 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
         </div>
 
         <!-- Desktop CTA -->
-         <a
-            href="https://wa.me/33766801668"
+        <a
+            href="tel:+33766801668"
             class="btn btn-success btn-sm px-4 py-2 d-none d-lg-inline-flex align-items-center"
-            target="_blank"
-            rel="noopener"
-        >
-            <i class="fab fa-whatsapp me-2"></i>
-            Nous-Joindre
+            >
+            <i class="fa fa-phone-alt me-2"></i>
+            Nous joindre
         </a>
 
     </div>
