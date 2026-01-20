@@ -1,8 +1,8 @@
 <?php
-// Variables globales simples (tu pourras les centraliser plus tard)
-$pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
-$metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
+    // Variables globales simples (tu pourras les centraliser plus tard)
+    $pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
+    $metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
+    $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
 ?>
 
 <!doctype html>
@@ -58,7 +58,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
 
     <!-- Custom service swip -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
 
 </head>
 
@@ -124,7 +123,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
             class="me-3"
             aria-label="Appeler"
             title="Appeler"
-            >
+        >
             <i class="fa fa-phone-alt fa-2x text-success"></i>
         </a>
 
@@ -162,25 +161,25 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
                 </a>
 
                 <div class="dropdown-menu fade-up m-0">
-                <a href="index.php?page=service" class="dropdown-item fw-semibold">
-                    Tous nos services
-                </a>
+                    <a href="index.php?page=service" class="dropdown-item fw-semibold">
+                        Tous nos services
+                    </a>
 
-                <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
 
-                <a href="index.php?page=service#bim" class="dropdown-item">
-                    Ingénierie BIM
-                </a>
-                <a href="index.php?page=service#beton" class="dropdown-item">
-                    Structures béton
-                </a>
-                <a href="index.php?page=service#metal" class="dropdown-item">
-                    Structures métalliques
-                </a>
-                <a href="index.php?page=service#bois" class="dropdown-item">
-                    Ossature bois
-                </a>
-            </div>
+                    <a href="index.php?page=service#bim" class="dropdown-item">
+                        Ingénierie BIM
+                    </a>
+                    <a href="index.php?page=service#beton" class="dropdown-item">
+                        Structures béton
+                    </a>
+                    <a href="index.php?page=service#metal" class="dropdown-item">
+                        Structures métalliques
+                    </a>
+                    <a href="index.php?page=service#bois" class="dropdown-item">
+                        Ossature bois
+                    </a>
+                </div>
 
             </div>
 
@@ -194,7 +193,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
         <a
             href="tel:+33766801668"
             class="btn btn-success btn-sm px-4 py-2 d-none d-lg-inline-flex align-items-center"
-            >
+        >
             <i class="fa fa-phone-alt me-2"></i>
             Nous joindre
         </a>
