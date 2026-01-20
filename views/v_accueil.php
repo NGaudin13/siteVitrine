@@ -154,6 +154,10 @@
                         Cette approche collaborative permet de mieux anticiper les contraintes,
                         d’aligner les décisions techniques et de fiabiliser les échanges
                         tout au long du projet, de la conception au chantier.
+                        La maquette BIM ne se limite pas à un modèle 3D : elle intègre l’ensemble
+                        des données techniques du bâtiment (matériaux, quantités, performances,
+                        coûts, planning), faisant de l’ingénieur BIM le garant de la cohérence,
+                        de la qualité et de la gestion des informations du projet.
                     </p>
 
                 </div>
@@ -163,7 +167,7 @@
             <div class="col-lg-6 d-flex">
                 <div class="home-bim__image">
                     <img
-                        src="assets/images/accueil_homeBim.jpg"
+                        src="assets/images/accueil_homeBim2.jpg"
                         alt="Coordination BIM et travail collaboratif autour d’une maquette numérique"
                         loading="lazy"
                     >
@@ -263,7 +267,7 @@
                 <div class="home-services-value__image-wrap mx-auto">
                     <img
                         class="img-fluid rounded-4 home-services-value__image"
-                        src="assets/images/accueil_homeServiceValue2.jpg"
+                        src="assets/images/accueil_homeServiceValue1.jpg"
                         alt="Maquette BIM et ingénierie"
                         loading="lazy"
                     >
