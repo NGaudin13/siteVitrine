@@ -11,7 +11,7 @@
 
 <!-- ================= SERVICE / HERO ================= -->
 <section
-    class="header-service mt-4 py-4 mb-0"
+    class="header-service page-hero mt-4 py-4 mb-0"
     style="
         background-image: url('/siteVitrine/assets/images/service_header.jpg');
         background-size: cover;
@@ -20,7 +20,7 @@
     "
 >
     <div class="container py-4">
-        <h1 class="display-5 text-white mb-2">Services</h1>
+        <h1 class="display-4 text-white mb-2">Nos services</h1>
         <p class="lead text-white-50 mb-0" style="max-width: 760px;">
             Bureau d’Études & Ingénierie BIM — coordination, modélisation et accompagnement technique de vos projets.
         </p>
@@ -31,8 +31,8 @@
 <section class="services-swiper-section py-5">
     <div class="container">
 
-        <header class="text-center mx-auto mb-4" style="max-width:760px;">
-            <h1 class="h2 mb-2">Nos services</h1>
+        <header class="text-center mx-auto mb-3" style="max-width:760px;">
+            <h2 class="display-6 fw-bold mb-2">Nos services</h2>
             <p class="text-muted mb-0">
                 BIM, structure et coordination : une méthode claire, des livrables propres.
             </p>
@@ -46,7 +46,7 @@
                     <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ingenierieBIM.jpg');">
                         <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
                         <div class="services-swiper__content">
-                            <h2 class="services-swiper__title">Ingénierie BIM</h2>
+                            <h3 class="services-swiper__title">Ingénierie BIM</h3>
                             <p class="services-swiper__text">Coordination, maquette, synthèse multi-lots et échanges.</p>
                             <a class="btn btn-primary btn-sm" href="index.php?page=service#bim">En savoir plus</a>
                         </div>
@@ -58,7 +58,7 @@
                     <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80');">
                         <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
                         <div class="services-swiper__content">
-                            <h2 class="services-swiper__title">Structures béton</h2>
+                            <h3 class="services-swiper__title">Structures béton</h3>
                             <p class="services-swiper__text">Dimensionnement, notes de calcul et plans d’exécution rigoureux.</p>
                             <a class="btn btn-primary btn-sm" href="index.php?page=service#beton">En savoir plus</a>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=70');">
                         <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
                         <div class="services-swiper__content">
-                            <h2 class="services-swiper__title">Structures métal</h2>
+                            <h3 class="services-swiper__title">Structures métal</h3>
                             <p class="services-swiper__text">Conception, assemblages, détails techniques et plans.</p>
                             <a class="btn btn-primary btn-sm" href="index.php?page=service#metal">En savoir plus</a>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ossatureBois.jpg');">
                         <div class="services-swiper__icon"><i class="bi bi-tree"></i></div>
                         <div class="services-swiper__content">
-                            <h2 class="services-swiper__title">Ossature bois</h2>
+                            <h3 class="services-swiper__title">Ossature bois</h3>
                             <p class="services-swiper__text">Études, optimisation, détails et livrables exploitables.</p>
                             <a class="btn btn-primary btn-sm" href="index.php?page=service#bois">En savoir plus</a>
                         </div>
@@ -103,11 +103,11 @@
 </section>
 
 <!-- ================= SERVICES / DETAILS ================= -->
-<section class="services-details py-5">
+<section class="services-details pt-3 pb-5">
     <div class="container">
 
         <header class="text-center mx-auto mb-5" style="max-width: 860px;">
-            <h2 class="h3 mb-2">Détails de nos prestations</h2>
+            <h2 class="display-6 fw-bold mb-2">Détails de nos prestations</h2>
             <p class="text-muted mb-0">
                 Une vision claire de ce que nous faisons, comment nous le faisons, et le type de résultats attendus.
             </p>
@@ -140,8 +140,7 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Demander un devis</a>
-                            <a class="btn btn-outline-dark btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
                         </div>
                     </div>
                 </div>
@@ -223,8 +222,7 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Demander un devis</a>
-                            <a class="btn btn-outline-dark btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
                         </div>
                     </div>
                 </div>
@@ -303,8 +301,7 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Demander un devis</a>
-                            <a class="btn btn-outline-dark btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
                         </div>
                     </div>
                 </div>
@@ -383,8 +380,7 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Demander un devis</a>
-                            <a class="btn btn-outline-dark btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
 
 <!-- ================= PAGE CONTACT / HEADER ================= -->
 <section
-    class="header-contact page-header-contact mt-4 py-5 mb-5"
+    class="header-contact page-hero page-header-contact mt-4 py-5 mb-5"
     style="
         background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
         background-size: cover;
@@ -21,7 +21,7 @@
 >
     <div class="container py-5">
 
-        <h1 class="display-5 text-white mb-3">
+        <h1 class="display-4 text-white mb-3">
             Contact
         </h1>
 
@@ -65,11 +65,12 @@
 </section>
 
 <!-- ================= CONTACT CONTENT ================= -->
-<section id=contact-content class="contact-content py-3">
+<section id="contact-content" class="contact-content pt-2 pb-3">
+
     <div class="container">
 
         <div class="text-center mx-auto mb-3" style="max-width: 700px;">
-            <h2 class="h4 mb-2">Nous contacter</h2>
+            <h2 class="display-6 fw-bold mb-2">Nous contacter</h2>
             <p class="text-muted mb-0">
                 Vous avez une question ou souhaitez un devis ? Remplissez le formulaire, nous vous répondrons rapidement.
             </p>
@@ -224,7 +225,7 @@
     <div class="container">
 
         <div class="contact-location__head text-center mx-auto mb-4" style="max-width: 720px;">
-            <h2 class="h4 mb-2">Nous localiser</h2>
+            <h2 class="display-6 fw-bold mb-2">Nous localiser</h2>
             <p class="text-muted mb-0">
                 Retrouvez-nous sur la carte. Interventions en France, et à distance selon les projets.
             </p>

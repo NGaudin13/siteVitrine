@@ -326,6 +326,20 @@
   min-height: 300px;
 }
 
+/* Assombrissement léger de l’image */
+.header-presentation::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45); /* ajuste si besoin */
+}
+
+/* Contenu au-dessus */
+.header-presentation .container{
+    position: relative;
+    z-index: 1;
+}
+
 /* ================= PRÉSENTATION / À PROPOS ================= */
 .presentation-about__media{
   height: 100%;
@@ -347,6 +361,13 @@
   color: #0d3b66;
   white-space: nowrap;
 }
+
+.presentation-about__text{
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.6;
+}
+
 
 /* ================= PRÉSENTATION / PARCOURS ================= */
 
@@ -416,8 +437,6 @@
   }
 }
 
-
-
 /* ============================ PAGE SERVICES ========================== */
 /* ================= PRÉSENTATION / HEADER ================= */
 .header-service {
@@ -425,6 +444,21 @@
   height: 450px;
   min-height: 300px;
 }
+
+/* Assombrissement léger de l’image */
+.header-service::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45); /* ajuste entre .4 et .6 si besoin */
+}
+
+/* Contenu au-dessus */
+.header-service .container{
+    position: relative;
+    z-index: 1;
+}
+
 
 /* ================= SERVICES / SWIPER ================= */
 
@@ -770,4 +804,39 @@
   margin-top: 2px;
 }
 
+/* =============================================================== */
+/* ========== Toute les pages ========== */
 
+/* ================= HERO : typo + contraste (simple) ================= */
+.page-hero h1,
+.page-hero h2{
+    color: #fff !important;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-shadow: 0 10px 28px rgba(0,0,0,.35);
+}
+
+.page-hero p{
+    color: rgba(255,255,255,.88) !important;
+    font-weight: 500;
+}
+
+/* si tu veux garder les <p> en lead mais + lisible */
+.page-hero .lead{
+    color: rgba(255,255,255,.88) !important;
+}
+
+
+/* ================= TITRES DE SECTIONS (GLOBAL) ================= */
+
+main h2 {
+    letter-spacing: -0.015em !important;
+    color: #0d3b66 !important;
+}
+
+/* Paragraphe d’intro juste après un h2 */
+main h2 + p {
+    margin-top: .4rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.65 !important;
+}

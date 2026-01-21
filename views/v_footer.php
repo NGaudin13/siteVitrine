@@ -2,6 +2,7 @@
     // Footer
 ?>
 
+</main>
 <!-- ================= FOOTER ================= -->
 <div class="container-fluid bg-dark text-body footer mt-5 pt-3 px-0">
     <div class="container py-5">

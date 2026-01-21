@@ -10,7 +10,7 @@
 <?php require_once(PATH_VIEWS . 'alert.php'); ?>
 
 <!-- ================= ACCUEIL / HEADER CAROUSEL ================= -->
-<section class="home-hero">
+<section class="home-hero page-hero">
 
     <div id="homeHeroCarousel"
          class="carousel slide carousel-fade"
@@ -188,7 +188,7 @@
             <div class="col-lg-4">
                 <div class="home-services-value__block">
 
-                    <h2 class="home-services-value__title h3 mb-3">
+                    <h2 class="home-services-value__title display-6 fw-bold mb-3">
                         Services
                     </h2>
 
@@ -278,7 +278,7 @@
             <div class="col-lg-4">
                 <div class="home-services-value__block">
 
-                    <h2 class="home-services-value__title h3 mb-3">
+                    <h2 class="home-services-value__title display-6 fw-bold mb-3">
                         Gages de qualité
                     </h2>
 
@@ -405,7 +405,7 @@
     <div class="container">
 
         <div class="text-center mx-auto mb-4" style="max-width: 760px;">
-            <h2 class="h3 mb-2">Ce que vous recevez</h2>
+            <h2 class="display-6 fw-bold mb-2">Ce que vous recevez</h2>
             <p class="text-muted mb-0">
                 Des livrables clairs, exploitables sur chantier et en maîtrise d’œuvre, avec une méthode BIM structurée.
             </p>
@@ -563,7 +563,7 @@
 </section>
 
 <!-- ================= ACCUEIL / TEMOIGNAGES ================= -->
-<section class="home-testimonials py-5">
+<section class="home-testimonials pt-3 pb-5">
     <div class="container">
 
         <!-- Title -->
@@ -572,7 +572,7 @@
                 Témoignages
             </span>
 
-            <h2 class="home-testimonials__title h2 mt-3 mb-2">
+            <h2 class="home-testimonials__title display-6 fw-bold mt-3 mb-2">
                 Depuis qu’ils ont testé, ils nous recommandent.
             </h2>
 

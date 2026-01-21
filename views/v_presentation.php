@@ -11,7 +11,7 @@
 
 <!-- ================= PRÉSENTATION / HERO ================= -->
 <section
-    class="header-presentation mt-4 py-5 mb-5"
+    class="header-presentation page-hero mt-4 py-5 mb-5"
     style="
         background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');
         background-size: cover;
@@ -20,7 +20,7 @@
     "
 >
     <div class="container py-4">
-        <h1 class="display-5 text-white mb-2">Présentation</h1>
+        <h1 class="display-4 text-white mb-2">Présentation</h1>
         <p class="lead text-white-50 mb-0" style="max-width: 760px;">
             Bureau d’Études & Ingénierie BIM — coordination, modélisation et accompagnement technique de vos projets.
         </p>
@@ -52,7 +52,7 @@
                     À propos
                 </p>
 
-                <h2 class="presentation-about__title mb-3">
+                <h2 class="presentation-about__title display-6 fw-bold mb-3">
                     Bureau d’Études & Ingénierie BIM
                 </h2>
 
@@ -137,7 +137,7 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h4 mb-0">Réalisations & expérience</h2>
+                        <h2 class="h2 fw-bold mb-0">Réalisations & expérience</h2>
                         <span class="presentation-path__pill badge text-bg-dark">Projets</span>
                     </div>
 
@@ -229,7 +229,7 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h4 mb-0">Compétences & formations</h2>
+                        <h2 class="h2 fw-bold mb-0">Compétences & formations</h2>
                         <span class="presentation-path__pill badge text-bg-dark">Méthode</span>
                     </div>
 
@@ -311,7 +311,7 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h4 mb-0">Expérience professionnelle</h2>
+                        <h2 class="h2 fw-bold mb-0">Expérience professionnelle</h2>
                         <span class="presentation-path__pill badge text-bg-dark">Parcours</span>
                     </div>
 
@@ -403,7 +403,7 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h4 mb-0">Parcours universitaire</h2>
+                        <h2 class="h2 fw-bold mb-0">Parcours universitaire</h2>
                         <span class="presentation-path__pill badge text-bg-dark">Formation</span>
                     </div>
 
