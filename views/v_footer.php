@@ -12,9 +12,9 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-light mb-4">Adresse</h3>
 
-                <p class="mb-2">
+                <p class="mb-2 d-flex justify-content-lg-end">
                     <i class="fa fa-map-marker-alt text-primary me-3"></i>
-                    110 cours tolstoi 69100 Villeurbanne , FR
+                    110 cours Tolstoï, 69100 Villeurbanne, FR
                 </p>
 
                 <p class="mb-2">

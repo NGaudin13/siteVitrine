@@ -307,6 +307,155 @@
   }
 }
 
+/* ================= CONTACT / COLOR SYSTEM ================= */
+:root{
+  --brand: #0d3b66;          /* bleu OFLABIM */
+  --brand-2: #1d4ed8;        /* bleu accent (plus vif) */
+  --accent: #16a34a;         /* vert (CTA) */
+  --bg-soft: rgba(13, 59, 102, .06);
+  --bg-soft-2: rgba(29, 78, 216, .06);
+  --border: rgba(13, 59, 102, .14);
+  --shadow: 0 14px 40px rgba(13, 59, 102, .10);
+}
+
+/* Section : fond léger + “halo” moderne */
+.contact-content{
+  position: relative;
+  background:
+    radial-gradient(900px 300px at 10% 0%, rgba(29,78,216,.10), transparent 60%),
+    radial-gradient(900px 300px at 90% 20%, rgba(22,163,74,.08), transparent 60%),
+    linear-gradient(180deg, rgba(13,59,102,.03), transparent 55%);
+}
+
+/* Titre + trait stylé */
+.contact-content h2{
+  color: var(--brand);
+  letter-spacing: -0.02em;
+}
+.contact-content h2::after{
+  content:"";
+  display:block;
+  width:84px;
+  height:5px;
+  border-radius:999px;
+  margin: .65rem auto 0;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2), rgba(22,163,74,.65));
+  opacity: .9;
+}
+
+/* ================= LEFT / COORDONNÉES ================= */
+
+/* tes blocs bg-light => cards colorées subtiles */
+.contact-content .col-lg-6 .bg-light{
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,1)) !important;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* petit liseré de couleur sur le côté */
+.contact-content .col-lg-6 .bg-light::before{
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:6px;
+  background: linear-gradient(180deg, var(--brand-2), rgba(22,163,74,.75));
+  opacity: .85;
+}
+
+.contact-content .col-lg-6 .bg-light:hover{
+  transform: translateY(-2px);
+  border-color: rgba(29, 78, 216, .35);
+  box-shadow: 0 18px 55px rgba(13, 59, 102, .14);
+}
+
+/* pastille icône (au lieu du carré noir) */
+.contact-content .col-lg-6 .bg-dark{
+  background: linear-gradient(180deg, rgba(29,78,216,.14), rgba(13,59,102,.10)) !important;
+  border: 1px solid rgba(29,78,216,.22);
+  border-radius: 16px !important;
+}
+.contact-content .col-lg-6 .bg-dark i{
+  color: var(--brand) !important;
+}
+
+/* liens tel/mail */
+.contact-content a.fw-semibold{
+  color: var(--brand);
+}
+.contact-content a.fw-semibold:hover{
+  color: var(--brand-2);
+  text-decoration: underline;
+}
+
+/* ================= RIGHT / FORM ================= */
+.contact-content .col-lg-6:last-child{
+  background:
+    radial-gradient(800px 260px at 15% 0%, rgba(29,78,216,.10), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,1));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 26px;
+}
+
+/* inputs premium + couleur au focus */
+.contact-content .form-control,
+.contact-content .form-select{
+  border-radius: 14px;
+  border: 1px solid rgba(13,59,102,.18);
+  padding: .9rem 1rem;
+  background: rgba(13,59,102,.03);
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.contact-content .form-control:focus,
+.contact-content .form-select:focus{
+  border-color: rgba(29,78,216,.55);
+  background: #fff;
+  box-shadow: 0 0 0 .25rem rgba(29, 78, 216, .14);
+}
+
+/* labels */
+.contact-content .form-label{
+  font-weight: 700;
+  color: rgba(13,59,102,.92);
+  margin-bottom: .35rem;
+}
+
+/* checkbox accent */
+.contact-content .form-check-input{
+  border-color: rgba(13,59,102,.25);
+}
+.contact-content .form-check-input:checked{
+  background-color: var(--brand-2);
+  border-color: var(--brand-2);
+}
+
+/* bouton principal : gradient stylé */
+.contact-content .btn-primary{
+  border: 0;
+  border-radius: 14px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  box-shadow: 0 14px 30px rgba(29, 78, 216, .22);
+}
+
+.contact-content .btn-primary:hover{
+  filter: brightness(1.03);
+}
+
+
+/* mobile */
+@media (max-width: 991.98px){
+  .contact-content .col-lg-6:last-child{ padding: 18px; }
+}
+
+
 /* ================= CONTACT / LOCALISATION ================= */
 .contact-location__map {
   min-height: 320px; /* évite une carte trop petite */
@@ -380,6 +529,34 @@
   text-transform: uppercase;
   font-weight: 600;
 }
+
+.presentation-about__text,
+.presentation-strategy__text {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+/* La row doit étirer ses colonnes */
+.presentation-strategy .row {
+    align-items: stretch;
+}
+
+/* Conteneur vidéo en flex */
+.presentation-strategy__video {
+    display: flex;
+    flex: 1;
+    min-height: 320px; /* sécurité mobile */
+}
+
+/* L’iframe prend TOUT */
+.presentation-strategy__video iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 
 /* Timeline */
 .presentation-path__timeline {

@@ -58,7 +58,7 @@
 
                 <p class="presentation-about__text text-muted mb-4">
                     La construction évolue : le <strong>BIM</strong> place la maquette numérique 3D au cœur du projet,
-                    de la conception à l’exécution. Chez <strong>Bim Building</strong>, nous accompagnons cette transition
+                    de la conception à l’exécution. Chez <strong>OFLABIM</strong>, nous accompagnons cette transition
                     avec une approche orientée qualité, coordination et performance. Notre rôle : structurer l’information,
                     fluidifier la collaboration et sécuriser les décisions techniques.
                 </p>
@@ -67,6 +67,15 @@
                     Spécialisés en <strong>génie civil</strong> et en <strong>coordination BIM</strong>, nous intervenons sur
                     des projets <strong>béton armé</strong>, <strong>métalliques</strong> et <strong>ossature bois</strong>,
                     en lien étroit avec architectes, bureaux d’études, installateurs techniques et maîtres d’ouvrage.
+                </p>
+
+                <p class="presentation-about__text text-muted mb-4">
+                    Si votre projet implique plusieurs intervenants, des contraintes techniques fortes
+                    ou des enjeux de coordination, <strong>OFLABIM</strong> vous apporte un cadre clair.
+                    Nous structurons les échanges, fiabilisons les données et traduisons la maquette BIM
+                    en informations compréhensibles et exploitables pour tous.
+                    L’objectif est simple : <strong>moins d’ambiguïtés, moins de pertes de temps,
+                    et des décisions techniques plus sûres</strong> à chaque étape du projet.
                 </p>
 
                 <!-- ===== 3 CARDS / POINTS CLÉS ===== -->
@@ -125,6 +134,62 @@
 
     </div>
 </section>
+
+<!-- ================= PRÉSENTATION / STRATÉGIE BIM ================= -->
+<section class="presentation-strategy py-5">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <!-- ===== LEFT: TEXTE ===== -->
+            <div class="col-lg-6">
+
+                <p class="presentation-strategy__kicker text-uppercase text-muted mb-2">
+                    Notre approche
+                </p>
+
+                <h2 class="presentation-strategy__title display-6 fw-bold mb-3">
+                    Une stratégie BIM orientée projet
+                </h2>
+
+                <p class="presentation-strategy__text text-muted mb-4">
+                    Le BIM n’est pas un simple outil de modélisation.
+                    C’est une <strong>méthode de travail</strong> qui permet de structurer les informations,
+                    d’anticiper les problèmes et de coordonner efficacement l’ensemble des acteurs du projet.
+                </p>
+
+                <p class="presentation-strategy__text text-muted mb-4">
+                    Chez <strong>OFLABIM</strong>, nous utilisons la maquette BIM comme un
+                    <strong>support de décision</strong> : chaque donnée a un rôle précis,
+                    chaque échange est cadré, et chaque livrable est pensé pour être
+                    compris et exploité sur le terrain.
+                </p>
+
+                <p class="presentation-strategy__text text-muted mb-0">
+                    Cette approche permet d’apporter de la clarté dans des projets complexes,
+                    de limiter les reprises tardives et de sécuriser les choix techniques
+                    dès les phases amont, jusqu’à l’exécution.
+                </p>
+
+            </div>
+
+            <div class="col-lg-6 d-flex">
+                <div class="presentation-strategy__video d-flex w-100 rounded-3 overflow-hidden shadow-sm">
+                    <iframe
+                        src="https://www.youtube.com/embed/rf2yyRjGLFU"
+                        title="Stratégie BIM et coordination de projet"
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 
 <!-- ================= PRÉSENTATION / PARCOURS VERSION ENTREPRISE ================= -->
 <section class="presentation-path py-5">
