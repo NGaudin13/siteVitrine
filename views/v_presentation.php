@@ -45,12 +45,12 @@
                 </div>
             </div>
 
-            <!-- ===== RIGHT: TEXTE ===== -->
+            <!-- ===== RIGHT: TEXTE ===== --> 
             <div class="col-lg-6">
 
-                <p class="presentation-about__kicker text-uppercase text-muted mb-2">
-                    À propos
-                </p>
+                <span class="presentation-about__kicker badge text-bg-light text-uppercase h2 px-3 py-2">
+                    A propose de nous
+                </span>
 
                 <h2 class="presentation-about__title display-6 fw-bold mb-3">
                     Bureau d’Études & Ingénierie BIM
@@ -144,9 +144,10 @@
             <!-- ===== LEFT: TEXTE ===== -->
             <div class="col-lg-6">
 
-                <p class="presentation-strategy__kicker text-uppercase text-muted mb-2">
+                <span class="section-kicker badge text-bg-light text-uppercase h2 px-3 py-2">
                     Notre approche
-                </p>
+                </span>
+
 
                 <h2 class="presentation-strategy__title display-6 fw-bold mb-3">
                     Une stratégie BIM orientée projet
@@ -166,9 +167,12 @@
                 </p>
 
                 <p class="presentation-strategy__text text-muted mb-0">
-                    Cette approche permet d’apporter de la clarté dans des projets complexes,
-                    de limiter les reprises tardives et de sécuriser les choix techniques
-                    dès les phases amont, jusqu’à l’exécution.
+                    Sans démarche BIM claire, les projets subissent souvent
+                    des plans incohérents, des incompréhensions entre intervenants
+                    et des corrections tardives.
+                    <strong>Notre rôle</strong> est d’apporter une méthode claire dès le départ,
+                    pour que chacun travaille sur les mêmes informations,
+                    au bon moment et avec le bon niveau de détail.
                 </p>
 
             </div>
@@ -364,6 +368,115 @@
         </div>
     </div>
 </section>
+
+<!-- ================= PRÉSENTATION / EXEMPLES DE MAQUETTES ================= -->
+<section class="presentation-models pt-2 pb-5">
+    <div class="container">
+
+        <div class="text-center mx-auto mb-4" style="max-width: 860px;">
+
+            <h2 class="display-6 fw-bold mt-3 mb-2">
+                Exemples de maquettes que nous vous fournissons
+            </h2>
+
+            <p class="text-muted mb-0">
+                Selon le type de projet, nous livrons des maquettes BIM adaptées à vos besoins :
+                coordination multi-lots, structure, exécution et DOE.
+                L’objectif est d’avoir une maquette lisible, fiable et exploitable
+                par l’ensemble des intervenants (MOE, entreprises, BET).
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="presentation-models__card h-100">
+                    <div class="presentation-models__thumb">
+                        <img
+                            src="assets/images/presentation_modelCoordination.jpg"
+                            alt="Maquette BIM - Coordination"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="presentation-models__title text-center">
+                        Maquette de coordination
+                    </h3>
+                    <p class="presentation-models__desc text-muted mb-0">
+                        Une maquette commune pour coordonner tous les lots,
+                        détecter les conflits et sécuriser les échanges entre intervenants.
+                    </p>
+                </article>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="presentation-models__card h-100">
+                    <div class="presentation-models__thumb">
+                        <img
+                            src="assets/images/presentation_modelStructure.jpg"
+                            alt="Maquette BIM - Structure"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="presentation-models__title text-center">
+                        Maquette structure
+                    </h3>
+                    <p class="presentation-models__desc text-muted mb-0">
+                        Une maquette dédiée aux éléments porteurs,
+                        utilisée pour le dimensionnement, les études
+                        et la compréhension globale de la structure.
+                    </p>
+                </article>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="presentation-models__card h-100">
+                    <div class="presentation-models__thumb">
+                        <img
+                            src="assets/images/presentation_modelExcecution.jpg"
+                            alt="Maquette BIM - Exécution"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="presentation-models__title text-center">
+                        Maquette d’exécution
+                    </h3>
+                    <p class="presentation-models__desc text-muted mb-0">
+                        Une maquette précise destinée aux entreprises,
+                        intégrant les détails nécessaires à la réalisation
+                        et au suivi de chantier.
+                    </p>
+                </article>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <article class="presentation-models__card h-100">
+                    <div class="presentation-models__thumb">
+                        <img
+                            src="assets/images/presentation_modelDOE.webp"
+                            alt="Maquette BIM DOE et carnet de santé du bâtiment"
+                            loading="lazy"
+                        >
+                    </div>
+                    <h3 class="presentation-models__title text-center">
+                        Maquette BIM DOE
+                    </h3>
+                    <p class="presentation-models__desc text-muted mb-0">
+                        Une maquette finale conforme à l’ouvrage réalisé,
+                        utilisée pour l’exploitation, la maintenance
+                        et le suivi du bâtiment dans le temps.
+                    </p>
+                </article>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 
 <!-- ================= PRÉSENTATION / PARCOURS VERSION CV ================= -->
 <section class="presentation-path py-5">
