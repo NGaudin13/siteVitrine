@@ -142,7 +142,7 @@
             </div>
 
             <!-- ===== RIGHT: FORMULAIRE ===== -->
-            <div class="col-lg-6">
+            <div class="col-lg-6" id="contact-form">
                 <p class="mb-4 text-muted">
                     Décrivez votre besoin (BIM, structure, étude…). Nous revenons vers vous sous 24–48h ouvrées.
                 </p>
@@ -158,7 +158,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form method="post" action="index.php?page=contact">
+                <form method="post" action="index.php?page=contact#contact-form">
                     <div class="row g-3">
 
                         <div class="col-md-6">
