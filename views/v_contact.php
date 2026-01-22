@@ -146,6 +146,17 @@
                 <p class="mb-4 text-muted">
                     Décrivez votre besoin (BIM, structure, étude…). Nous revenons vers vous sous 24–48h ouvrées.
                 </p>
+                
+                <?php if (!empty($flashSuccess)): ?>
+                    <div class="alert alert-success mb-4">
+                        <?= htmlspecialchars($flashSuccess) ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($errors['global'])): ?>
+                    <div class="alert alert-danger mb-4">
+                        <?= htmlspecialchars($errors['global']) ?>
+                    </div>
+                <?php endif; ?>
 
                 <form method="post" action="index.php?page=contact">
                     <div class="row g-3">

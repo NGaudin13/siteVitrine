@@ -17,7 +17,7 @@ switch ($page) {
         break;
 
     case 'contact':
-        require_once(PATH_VIEWS . 'contact.php');
+        require_once(PATH_CONTROLLERS . 'contactController.php');
         break;
 
     case 'conditions':
