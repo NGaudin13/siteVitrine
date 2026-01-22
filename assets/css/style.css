@@ -1062,3 +1062,24 @@ main h2 + p {
     font-size: 1.05rem !important;
     line-height: 1.65 !important;
 }
+
+/* ===============================
+   ADMIN – GLOBAL
+   =============================== */
+
+
+/* Fond blanc header admin */
+.admin-header {
+    background-color: #ffffff;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Fond blanc pour la barre d’onglets */
+.admin-shell .nav-pills {
+    background-color: #ffffff;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}

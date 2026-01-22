@@ -10,7 +10,7 @@ require_once(PATH_VIEWS . 'header.php');
 <section class="admin-shell py-4">
     <div class="container">
 
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <div class="admin-header d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
             <div>
                 <h1 class="h3 mb-1">Administration</h1>
                 <p class="text-muted mb-0">Gérez les contenus du site (version simple).</p>
@@ -65,68 +65,89 @@ require_once(PATH_VIEWS . 'header.php');
                 </div>
             <?php endif; ?>
 
-<form method="post" action="index.php?page=admin_dashboard" class="row g-3">
+            <form method="post" action="index.php?page=admin_dashboard" class="row g-3">
 
-    <!-- Nom entreprise -->
-    <div class="col-md-6">
-        <label class="form-label">Nom de l’entreprise</label>
-        <input
-            type="text"
-            name="company_name"
-            class="form-control"
-            required
-            value="<?= htmlspecialchars($admin->getCompanyName() ?? '') ?>"
-        >
-    </div>
+                <!-- Nom entreprise -->
+                <div class="col-md-6">
+                    <label class="form-label">Nom de l’entreprise</label>
+                    <input
+                        type="text"
+                        name="company_name"
+                        class="form-control"
+                        required
+                        value="<?= htmlspecialchars($admin->getCompanyName() ?? '') ?>"
+                    >
+                </div>
 
-    <!-- Email -->
-    <div class="col-md-6">
-        <label class="form-label">Email de contact</label>
-        <input
-            type="email"
-            name="email"
-            class="form-control"
-            required
-            value="<?= htmlspecialchars($admin->getEmail() ?? '') ?>"
-        >
-    </div>
+                <!-- Email -->
+                <div class="col-md-6">
+                    <label class="form-label">Email de contact</label>
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        required
+                        value="<?= htmlspecialchars($admin->getEmail() ?? '') ?>"
+                    >
+                </div>
 
-    <!-- Téléphone -->
-    <div class="col-md-6">
-        <label class="form-label">Téléphone</label>
-        <input
-            type="text"
-            name="phone"
-            class="form-control"
-            required
-            value="<?= htmlspecialchars($admin->getPhone() ?? '') ?>"
-        >
-    </div>
+                <!-- Téléphone -->
+                <div class="col-md-6">
+                    <label class="form-label">Téléphone</label>
+                    <input
+                        type="text"
+                        name="phone"
+                        class="form-control"
+                        required
+                        value="<?= htmlspecialchars($admin->getPhone() ?? '') ?>"
+                    >
+                </div>
 
-    <!-- Adresse -->
-    <div class="col-12">
-        <label class="form-label">Adresse</label>
-        <textarea
-            name="address"
-            required
-            class="form-control"
-            rows="2"
-        ><?= htmlspecialchars($admin->getAddress() ?? '') ?></textarea>
-    </div>
+                <!-- Adresse -->
+                <div class="col-12">
+                    <label class="form-label">Adresse</label>
+                    <textarea
+                        name="address"
+                        required
+                        class="form-control"
+                        rows="2"
+                    ><?= htmlspecialchars($admin->getAddress() ?? '') ?></textarea>
+                </div>
+                
+                <!-- Horraire -->
+                <div class="col-md-6">
+                    <label class="form-label">Horaires d’ouverture</label>
+                    <input
+                        type="text"
+                        name="opening_hours"
+                        class="form-control"
+                        required
+                        value="<?= htmlspecialchars($admin->getOpeningHours() ?? '') ?>"
+                    >
+                </div>
 
-    <!-- Submit -->
-    <div class="col-12 pt-2">
-        <button class="btn btn-primary">
-            Enregistrer les modifications
-        </button>
-    </div>
+                <!-- Delais de reponses -->
+                <div class="col-md-6">
+                    <label class="form-label">Délai de réponse</label>
+                    <input
+                        type="text"
+                        name="response_delay"
+                        class="form-control"
+                        required
+                        value="<?= htmlspecialchars($admin->getResponseDelay() ?? '') ?>"
+                    >
+                </div>
 
-</form>
+                <!-- Submit -->
+                <div class="col-12 pt-2">
+                    <button class="btn btn-primary">
+                        Enregistrer les modifications
+                    </button>
+                </div>
 
+            </form>
 
         </div>
-
-
     </div>
 </section>
 

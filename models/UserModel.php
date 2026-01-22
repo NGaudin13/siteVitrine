@@ -32,17 +32,27 @@ class UserModel
                 email = :email,
                 phone = :phone,
                 address = :address,
+                opening_hours = :opening_hours,
+                response_delay = :response_delay,
                 updated_at = NOW()
             WHERE id = :id
         ";
 
         $stmt = $this->pdo->prepare($sql);
+        error_log('POST opening_hours=' . ($_POST['opening_hours'] ?? 'MISSING'));
+error_log('POST response_delay=' . ($_POST['response_delay'] ?? 'MISSING'));
+
+error_log('OBJ opening_hours=' . var_export($user->getOpeningHours(), true));
+error_log('OBJ response_delay=' . var_export($user->getResponseDelay(), true));
+
         $stmt->execute([
             'username' => $user->getUsername(),
             'company_name'  => $user->getCompanyName(),
             'email'    => $user->getEmail(),
             'phone'    => $user->getPhone(),
             'address'  => $user->getAddress(),
+            'opening_hours'   => $user->getOpeningHours(),
+            'response_delay'  => $user->getResponseDelay(),
             'id'       => $user->getId(),
         ]);
     }

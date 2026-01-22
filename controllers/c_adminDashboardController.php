@@ -42,10 +42,11 @@ class AdminDashboardController
 
             // Hydratation via setters (Symfony-like)
             $admin
-                ->setUsername(trim($_POST['company_name'] ?? ''))
                 ->setCompanyName($_POST['company_name'] ?? '')
                 ->setEmail(trim($_POST['email'] ?? ''))
                 ->setPhone(trim($_POST['phone'] ?? null))
+                ->setOpeningHours(trim($_POST['opening_hours'] ?? ''))
+                ->setResponseDelay(trim($_POST['response_delay'] ?? ''))
                 ->setAddress(trim($_POST['address'] ?? null));
 
             // =========================

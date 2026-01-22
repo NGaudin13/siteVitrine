@@ -10,6 +10,8 @@ class User
     private ?string $address;
     private bool $isActive;
     private string $company_name;
+    private ?string $opening_hours;
+    private ?string $response_delay;
     private ?string $createdAt;
     private ?string $updatedAt;
 
@@ -55,6 +57,16 @@ class User
         return $this->company_name;
     }
 
+    public function getOpeningHours(): ?string
+    {
+        return $this->opening_hours;
+    }
+
+    public function getResponseDelay(): ?string
+    {
+        return $this->response_delay;
+    }
+
 
     /* ================== SETTERS ================== */
 
@@ -85,6 +97,18 @@ class User
     public function setCompanyName(string $companyName): self
     {
         $this->company_name = strtoupper($companyName);
+        return $this;
+    }
+
+    public function setOpeningHours(?string $openingHours): self
+    {
+        $this->opening_hours = $openingHours;
+        return $this;
+    }
+
+    public function setResponseDelay(?string $responseDelay): self
+    {
+        $this->response_delay = $responseDelay;
         return $this;
     }
     
