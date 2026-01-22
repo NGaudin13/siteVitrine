@@ -1,0 +1,123 @@
+PROMPT – CONTEXTE GLOBAL DU PROJET (PASSAGE AU BACK-OFFICE)
+
+Je suis développeur web et je réalise un site vitrine professionnel sur mesure pour un client (bureau d’études / ingénierie BIM).
+
+État actuel du projet
+
+La partie front publique est terminée et stable :
+
+pages : Accueil, Présentation, Services, Contact
+
+design moderne, sobre, crédible (BIM / ingénierie / BTP)
+
+100 % responsive, mobile-first
+
+Bootstrap 5 pour la structure
+
+CSS personnalisé propre et maintenable
+
+👉 Le HTML/CSS public n’est plus à remettre en cause.
+
+Stack technique
+
+PHP MVC maison (sans framework)
+
+index.php comme front controller
+
+Séparation claire :
+
+front public
+
+back-office admin
+
+Dossiers :
+
+controllers/
+
+views/ (vues publiques)
+
+views_admin/ (vues admin)
+
+models/
+
+entities/
+
+Phase actuelle : BACK-OFFICE
+
+Nous entrons maintenant dans la conception et le développement du back-office.
+
+Le back-office est pensé comme un mini CMS, avec une logique simple et évolutive :
+
+le client ne touche jamais au code
+
+il modifie uniquement du contenu existant
+
+pas d’usine à gaz
+
+pas de framework imposé
+
+Stratégie back-office (claire et volontairement progressive)
+1. Le back-office est organisé par pages publiques
+
+Sections – Accueil
+
+Sections – Présentation
+
+Sections – Services
+
+Sections – Contact
+
+Chaque page admin permet de gérer les sections de la page correspondante.
+
+2. Modèle de contenu (mini CMS)
+
+Le contenu est structuré sur 3 niveaux :
+
+Page
+
+SEO (title, meta, canonical)
+
+Section
+
+correspond à une <section> HTML existante
+
+ordre, activation, template
+
+Bloc de contenu
+
+titre, texte, image, lien, bouton, etc.
+
+modifiable individuellement
+
+3. Philosophie de développement
+
+On travaille étape par étape
+
+On ne casse jamais l’existant
+
+On ne sur-anticipe pas les besoins
+
+On construit un socle solide, puis on affine
+
+Le back-office doit rester :
+
+compréhensible pour un client non technique
+
+cohérent avec l’architecture MVC existante
+
+maintenable dans le temps
+
+Attente vis-à-vis de toi
+
+M’aider comme un lead dev / architecte pragmatique
+
+Proposer des solutions simples et professionnelles
+
+Être franc : si une idée est mauvaise ou inutile, le dire
+
+Toujours respecter l’état actuel du projet
+
+Objectif final
+
+Disposer d’un back-office propre, clair et évolutif, parfaitement aligné avec un site vitrine professionnel,
+prêt à évoluer plus tard vers un CMS plus complet sans refonte.

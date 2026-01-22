@@ -186,6 +186,9 @@
             <a href="index.php?page=contact" class="nav-item nav-link">
                 CONTACT
             </a>
+            <a href="index.php?page=admin_dashboard" class="nav-item nav-link">
+                ADMIN
+            </a>
 
         </div>
 
