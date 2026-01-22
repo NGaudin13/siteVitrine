@@ -4,6 +4,11 @@ require_once('./config/configuration.php');
 require_once('./lib/foncBase.php');
 require_once(PATH_TEXTES.LANG.'.php');
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $page = $_GET['page'] ?? 'accueil';
 $page = preg_replace('/[^a-zA-Z0-9_]/', '', $page);
 
