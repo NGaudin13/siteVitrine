@@ -20,12 +20,12 @@ const AUTEUR = 'GAUDIN';
 /* ============================================================
    CHEMINS DU PROJET
    ============================================================ */
-define('PATH_CONTROLLERS', './controllers/c_');
+define('PATH_CONTROLLERS', './controllers/');
 define('PATH_ENTITY',      './entities/');
 define('PATH_ASSETS',      './assets/');
 define('PATH_LIB',         './lib/');
 define('PATH_MODELS',      './models/');
-define('PATH_VIEWS',       './views/v_');
+define('PATH_VIEWS',       './views/');
 define('PATH_TEXTES',      './languages/');
 
 /* Sous-dossiers assets */

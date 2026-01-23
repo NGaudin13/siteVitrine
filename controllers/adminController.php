@@ -6,6 +6,7 @@ $page = preg_replace('/[^a-zA-Z0-9_]/', '', $page);
 
 $view      = 'adminDashboard.php';
 $activeTab = 'dashboard';
+$alert     = null;
 
 switch ($page) {
 
@@ -23,7 +24,6 @@ switch ($page) {
         break;
 
     case 'adminDashboard':
-    default:
         require_once PATH_CONTROLLERS . 'AdminDashboardController.php';
         $controller = new AdminDashboardController($pdo);
 
@@ -40,6 +40,16 @@ switch ($page) {
 
         $view      = 'adminDashboard.php';
         $activeTab = 'dashboard';
+        break;
+
+    default:
+        // ✅ Admin : page inconnue => 404
+        http_response_code(404);
+        $alert = choixAlert('url_non_valide');
+
+        // Vue 404 admin dédiée
+        $view      = 'admin404.php';
+        $activeTab = ''; // aucune tab active
         break;
 }
 

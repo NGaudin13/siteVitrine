@@ -53,7 +53,8 @@ if ($pageEntity) {
    2) CHOIX DE LA VUE (PAS D'AFFICHAGE ICI)
    ====================================================== */
 
-$view = '404.php';
+$view  = '404.php';
+$alert = null;
 
 switch ($page) {
     case 'accueil':
@@ -82,7 +83,9 @@ switch ($page) {
     break;
 
     default:
-        $view = '404.php';
+        http_response_code(404);
+        $alert = choixAlert('url_non_valide');
+        $view  = '404.php';
         break;
 
 }
