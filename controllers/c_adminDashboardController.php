@@ -1,7 +1,8 @@
 <?php
+// ===================== CONTROLEUR : controllers/AdminDashboardController.php =====================
 
-require_once PATH_ENTITY . 'User.php';
-require_once PATH_MODELS   . 'UserModel.php';
+require_once PATH_ENTITY  . 'User.php';
+require_once PATH_MODELS  . 'UserModel.php';
 
 class AdminDashboardController
 {
@@ -14,49 +15,48 @@ class AdminDashboardController
 
     /**
      * Dashboard admin – paramètres généraux du site
+     * Prépare les données et les RETOURNE (aucun affichage ici)
      */
-    public function index(): void
+    public function index(): array
     {
         // ⚠️ MVP : admin hardcodé
         // plus tard => $_SESSION['user_id']
         $adminId = 1;
 
-        $errors = [];
+        $errors       = [];
         $flashSuccess = null;
 
         // =========================
-        // 1. Charger l'admin
+        // 1) Charger l'admin
         // =========================
         $admin = $this->userModel->find($adminId);
 
         if (!$admin) {
             http_response_code(404);
             echo 'Utilisateur admin introuvable';
-            return;
+            return [];
         }
 
         // =========================
-        // 2. Traitement POST
+        // 2) Traitement POST
         // =========================
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            // Hydratation via setters (Symfony-like)
+            // Hydratation via setters
             $admin
-                ->setCompanyName($_POST['company_name'] ?? '')
+                ->setCompanyName(trim($_POST['company_name'] ?? ''))
                 ->setEmail(trim($_POST['email'] ?? ''))
-                ->setPhone(trim($_POST['phone'] ?? null))
+                ->setPhone(trim($_POST['phone'] ?? ''))
                 ->setOpeningHours(trim($_POST['opening_hours'] ?? ''))
                 ->setResponseDelay(trim($_POST['response_delay'] ?? ''))
-                ->setAddress(trim($_POST['address'] ?? null));
+                ->setAddress(trim($_POST['address'] ?? ''));
 
             // =========================
-            // 3. Validation minimale
+            // 3) Validation minimale
             // =========================
             if ($admin->getCompanyName() === '') {
                 $errors['company_name'] = "Le nom de l’entreprise est obligatoire.";
-            }
-
-            if (mb_strlen($admin->getCompanyName()) > 150) {
+            } elseif (mb_strlen($admin->getCompanyName()) > 150) {
                 $errors['company_name'] = "Nom trop long (150 caractères max).";
             }
 
@@ -64,21 +64,25 @@ class AdminDashboardController
                 $admin->getEmail() === '' ||
                 !filter_var($admin->getEmail(), FILTER_VALIDATE_EMAIL)
             ) {
-                $errors['email'] = 'Adresse email invalide.';
+                $errors['email'] = "Adresse email invalide.";
             }
 
             // =========================
-            // 4. Sauvegarde
+            // 4) Sauvegarde
             // =========================
             if (empty($errors)) {
                 $this->userModel->save($admin);
-                $flashSuccess = 'Modifications enregistrées avec succès.';
+                $flashSuccess = "Modifications enregistrées avec succès.";
             }
         }
 
         // =========================
-        // 5. Render vue
+        // 5) Données envoyées à la vue
         // =========================
-        require PATH_VIEWS_ADMIN . 'adminDashboard.php';
+        return [
+            'admin'        => $admin,
+            'errors'       => $errors,
+            'flashSuccess' => $flashSuccess,
+        ];
     }
 }

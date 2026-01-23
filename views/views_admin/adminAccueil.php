@@ -5,12 +5,6 @@
 $pageTitle = $pageTitle ?? "Admin Accueil | OFLABIM";
 $metaDesc  = $metaDesc  ?? "Administration de la page Accueil";
 $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAccueil";
-
-// Onglet actif
-$activeTab = 'accueil';
-
-require_once(PATH_VIEWS . 'header.php');
-require_once(PATH_VIEWS_ADMIN . 'adminTabs.php');
 ?>
 
 <div class="border rounded-3 p-4 bg-white">
@@ -221,4 +215,3 @@ require_once(PATH_VIEWS_ADMIN . 'adminTabs.php');
 
 </section>
 
-<?php require_once(PATH_VIEWS . 'footer.php'); ?>

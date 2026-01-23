@@ -1,6 +1,8 @@
 <?php
 // ===================== CONTROLEUR : controllers/AdminAccueilController.php =====================
 
+// ⚠️ Idéalement: session_start() UNE seule fois dans index.php (ou bootstrap).
+// Mais si tu le laisses ici, ça peut marcher tant que rien n'a déjà envoyé du HTML.
 session_start();
 
 require_once PATH_MODELS . 'PageModel.php';
@@ -23,7 +25,8 @@ class AdminAccueilController
         $this->contentBlockModel = new ContentBlockModel($pdo);
     }
 
-    public function index(): void
+    // ✅ IMPORTANT : on retourne un tableau de données au lieu d'afficher la vue ici
+    public function index(): array
     {
         // ===================== FLASH =====================
         $flashSuccess = $_SESSION['flashSuccess'] ?? null;
@@ -36,7 +39,7 @@ class AdminAccueilController
         if (!$page) {
             http_response_code(404);
             echo "Page 'accueil' introuvable";
-            return;
+            return [];
         }
 
         // ===================== 2) SECTIONS DE L'ACCUEIL =====================
@@ -45,7 +48,7 @@ class AdminAccueilController
         if (empty($sections)) {
             http_response_code(404);
             echo "Aucune section trouvée pour la page 'accueil'";
-            return;
+            return [];
         }
 
         // ===================== 3) SECTION SÉLECTIONNÉE =====================
@@ -147,7 +150,6 @@ class AdminAccueilController
                 }
 
                 // Dossier cible (assets/images)
-                // ⚠️ Si ton controller est dans /controllers, alors ../assets/images est OK
                 $uploadDir = __DIR__ . '/../assets/images/';
 
                 if (!is_dir($uploadDir)) {
@@ -202,7 +204,16 @@ class AdminAccueilController
         $blockP2    = $blocks['text_2'] ?? null;
         $blockImg   = $blocks['image']  ?? null;
 
-        // ===================== 6) RENDER =====================
-        require PATH_VIEWS_ADMIN . 'adminAccueil.php';
+        // ===================== 6) RENDER (on retourne les variables) =====================
+        return [
+            'flashSuccess' => $flashSuccess,
+            'flashError'   => $flashError,
+            'sections'     => $sections,
+            'selectedSlug' => $selectedSlug,
+            'blockTitle'   => $blockTitle,
+            'blockP1'      => $blockP1,
+            'blockP2'      => $blockP2,
+            'blockImg'     => $blockImg,
+        ];
     }
 }

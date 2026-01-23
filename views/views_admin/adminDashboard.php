@@ -4,12 +4,6 @@ $pageTitle = $pageTitle ?? "Admin | OFLABIM";
 $metaDesc  = $metaDesc  ?? "Espace d'administration OFLABIM";
 $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminDashboard";
 
-// Onglet actif pour les tabs admin
-$activeTab = 'dashboard';
-
-require_once(PATH_VIEWS . 'header.php');
-require_once(PATH_VIEWS_ADMIN . 'adminTabs.php');
-
 ?>
 
 <div class="border rounded-3 p-4 bg-white">
@@ -113,4 +107,4 @@ require_once(PATH_VIEWS_ADMIN . 'adminTabs.php');
 
 </section>
 
-<?php require_once(PATH_VIEWS . 'footer.php'); ?>
+

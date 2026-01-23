@@ -110,5 +110,3 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
 error_log("[$reqId] CONTACT: rendering view. flash=" . (!empty($flashSuccess) ? 'YES' : 'NO') . " errors_count=" . count($errors));
 
-// Affichage de la vue
-require_once(PATH_VIEWS . 'contact.php');

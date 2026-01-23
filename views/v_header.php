@@ -68,12 +68,16 @@
     <div class="row gx-0 d-none d-lg-flex">
 
         <div class="col-lg-7 px-5 text-start">
-            <div class="h-100 d-inline-flex align-items-center me-4">
-                <i class="fa fa-phone-alt me-2"></i>
-                <a class="text-light" href="tel:+33766801668">
-                    +33 7 66 80 16 68
-                </a>
-            </div>
+           
+            <?php if (!empty($siteUser?->getPhone())): ?>
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <i class="fa fa-phone-alt me-2"></i>
+                    <a class="text-light" href="tel:<?= htmlspecialchars($siteUser->getPhone()) ?>">
+                        <?= htmlspecialchars($siteUser->getPhone()) ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+
 
             <div class="h-100 d-inline-flex align-items-center">
                 <i class="fa fa-envelope me-2"></i>

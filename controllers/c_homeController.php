@@ -77,8 +77,14 @@ switch ($page) {
         break;
 
     case 'contact':
+        require PATH_CONTROLLERS . 'contactController.php';
         $view = 'contact.php';
+    break;
+
+    default:
+        $view = '404.php';
         break;
+
 }
 
 /* ======================================================
