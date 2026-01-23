@@ -14,18 +14,28 @@
 
                 <p class="mb-2 d-flex justify-content-lg-end">
                     <i class="fa fa-map-marker-alt text-primary me-3"></i>
-                    110 cours Tolstoï, 69100 Villeurbanne, FR
+                    <?= nl2br(htmlspecialchars($siteUser->getAddress() ?? '')) ?>
                 </p>
 
-                <p class="mb-2">
-                    <i class="fa fa-phone-alt text-primary me-3"></i>
-                    +33 7 66 80 16 68
-                </p>
+                <?php if (!empty($siteUser?->getPhone())): ?>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt text-primary me-3"></i>
+                        <a class="text-reset"
+                        href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>">
+                            <?= htmlspecialchars($siteUser->getPhone()) ?>
+                        </a>
+                    </p>
+                <?php endif; ?>
 
-                <p class="mb-2">
-                    <i class="fa fa-envelope text-primary me-3"></i>
-                    contact@oflabim.fr
-                </p>
+                <?php if (!empty($siteUser?->getEmail())): ?>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope text-primary me-3"></i>
+                        <a class="text-reset"
+                        href="mailto:<?= htmlspecialchars($siteUser->getEmail()) ?>">
+                            <?= htmlspecialchars($siteUser->getEmail()) ?>
+                        </a>
+                    </p>
+                <?php endif; ?>
 
                 <div class="d-flex pt-2">
                     <a class="btn btn-square btn-outline-body me-0" href="#" target="_blank">
@@ -63,14 +73,17 @@
                     Vous pouvez nous contacter directement par téléphone.
                 </p>
 
-                <a
-                    href="tel:+33766801668"
-                    class="btn btn-success py-2 px-4"
-                    aria-label="Appeler OFLABIM"
-                >
-                    <i class="fa fa-phone-alt me-2"></i>
-                    Nous joindre
-                </a>
+                <?php if (!empty($siteUser?->getPhone())): ?>
+                    <a
+                        href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
+                        class="btn btn-success py-2 px-4"
+                        aria-label="Appeler <?= htmlspecialchars($siteUser->getCompanyName() ?? 'nous joindre') ?>"
+                    >
+                        <i class="fa fa-phone-alt me-2"></i>
+                        Nous joindre
+                    </a>
+                <?php endif; ?>
+
             </div>
 
         </div>

@@ -72,7 +72,7 @@
             <?php if (!empty($siteUser?->getPhone())): ?>
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <i class="fa fa-phone-alt me-2"></i>
-                    <a class="text-light" href="tel:<?= htmlspecialchars($siteUser->getPhone()) ?>">
+                    <a class="text-light" href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>">
                         <?= htmlspecialchars($siteUser->getPhone()) ?>
                     </a>
                 </div>
@@ -80,11 +80,15 @@
 
 
             <div class="h-100 d-inline-flex align-items-center">
-                <i class="fa fa-envelope me-2"></i>
-                <a class="text-light" href="mailto:contact@oflabim.fr">
-                    contact@oflabim.fr
-                </a>
-            </div>
+            <i class="fa fa-envelope me-2"></i>
+            <a
+                class="text-light"
+                href="mailto:<?= htmlspecialchars($siteUser->getEmail() ?? '') ?>"
+            >
+                <?= htmlspecialchars($siteUser->getEmail() ?? '') ?>
+            </a>
+        </div>
+
         </div>
 
         <div class="col-lg-5 px-5 text-end">
@@ -122,14 +126,16 @@
 
     <!-- Mobile: WhatsApp icon + burger (comme le site modèle) -->
     <div class="d-flex align-items-center ms-auto d-lg-none">
-        <a
-            href="tel:+33766801668"
-            class="me-3"
-            aria-label="Appeler"
-            title="Appeler"
-        >
-            <i class="fa fa-phone-alt fa-2x text-success"></i>
-        </a>
+        <?php if (!empty($siteUser?->getPhone())): ?>
+            <a
+                href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
+                class="me-3"
+                aria-label="Appeler"
+                title="Appeler"
+            >
+                <i class="fa fa-phone-alt fa-2x text-success"></i>
+            </a>
+        <?php endif; ?>
 
         <button
             type="button"
@@ -197,13 +203,16 @@
         </div>
 
         <!-- Desktop CTA -->
-        <a
-            href="tel:+33766801668"
-            class="btn btn-success btn-sm px-4 py-2 d-none d-lg-inline-flex align-items-center"
-        >
-            <i class="fa fa-phone-alt me-2"></i>
-            Nous joindre
-        </a>
+        <?php if (!empty($siteUser?->getPhone())): ?>
+            <a
+                href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
+                class="btn btn-success btn-sm px-4 py-2 d-none d-lg-inline-flex align-items-center"
+                aria-label="Appeler <?= htmlspecialchars($siteUser->getCompanyName() ?? 'nous joindre') ?>"
+            >
+                <i class="fa fa-phone-alt me-2"></i>
+                Nous joindre
+            </a>
+        <?php endif; ?>
 
     </div>
 </nav>
