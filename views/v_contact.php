@@ -3,8 +3,6 @@
     $pageTitle = $pageTitle ?? "Contact | OFLABIM";
     $metaDesc  = $metaDesc  ?? "Contactez OFLABIM : bureau d’études & ingénierie (BIM, structures). Demande de devis, questions, prise de rendez-vous.";
     $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=contact";
-
-    require_once(PATH_VIEWS . 'header.php');
 ?>
 
 <?php require_once(PATH_VIEWS . 'alert.php'); ?>
@@ -317,5 +315,3 @@
         </div>
     </div>
 </section>
-
-<?php require_once(PATH_VIEWS . 'footer.php'); ?>

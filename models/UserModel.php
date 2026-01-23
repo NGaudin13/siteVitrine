@@ -1,5 +1,7 @@
 <?php
 
+require_once PATH_ENTITY . 'User.php';
+
 class UserModel
 {
     private PDO $pdo;
