@@ -79,6 +79,6 @@ class AdminDashboardController
         // =========================
         // 5. Render vue
         // =========================
-        require PATH_VIEWS_ADMIN . 'dashboard.php';
+        require PATH_VIEWS_ADMIN . 'adminDashboard.php';
     }
 }

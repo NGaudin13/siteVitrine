@@ -30,11 +30,15 @@ $publicPages = [
  * Pages admin
  */
 $adminPages = [
-    'admin',
-    'admin_login',
-    'admin_dashboard',
-    'admin_edit'
+  'admin',
+  'adminDashboard',
+  'adminAccueil',
+  'adminPresentation',
+  'adminServices',
+  'adminContact',
+  'adminEdit'
 ];
+
 
 /**
  * Choix du contrôleur

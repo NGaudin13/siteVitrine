@@ -2,7 +2,7 @@
 // SEO admin (optionnel)
 $pageTitle = $pageTitle ?? "Admin | OFLABIM";
 $metaDesc  = $metaDesc  ?? "Espace d'administration OFLABIM";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=admin_dashboard";
+$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminDashboard";
 
 require_once(PATH_VIEWS . 'header.php');
 ?>
@@ -24,27 +24,27 @@ require_once(PATH_VIEWS . 'header.php');
         <!-- Onglets admin -->
         <ul class="nav nav-pills gap-2" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" href="index.php?page=admin_dashboard">
+                <a class="nav-link active" href="index.php?page=adminDashboard">
                     Admin général
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="index.php?page=admin_accueil">
+                <a class="nav-link" href="index.php?page=adminAccueil">
                     Admin accueil
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="index.php?page=admin_presentation">
+                <a class="nav-link" href="index.php?page=adminPresentation">
                     Admin presentation
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="index.php?page=admin_services">
+                <a class="nav-link" href="index.php?page=adminServices">
                     Admin services
                 </a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" href="index.php?page=admin_contact">
+                <a class="nav-link" href="index.php?page=adminContact">
                     Admin contact
                 </a>
             </li>
@@ -65,7 +65,7 @@ require_once(PATH_VIEWS . 'header.php');
                 </div>
             <?php endif; ?>
 
-            <form method="post" action="index.php?page=admin_dashboard" class="row g-3">
+            <form method="post" action="index.php?page=adminDashboard" class="row g-3">
 
                 <!-- Nom entreprise -->
                 <div class="col-md-6">

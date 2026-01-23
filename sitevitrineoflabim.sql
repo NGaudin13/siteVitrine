@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 22 jan. 2026 à 16:11
+-- Généré le : jeu. 22 jan. 2026 à 18:09
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -160,15 +160,17 @@ CREATE TABLE `user` (
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `last_login_at` datetime DEFAULT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `opening_hours` varchar(120) DEFAULT NULL,
+  `response_delay` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `email`, `phone`, `address`, `username`, `company_name`, `password_hash`, `is_active`, `last_login_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin@oflabim.fr', '+33 7 66 80 16 68', '111 cours Tolstoï, 69100 Villeurbanne, FR', 'OFLABIM', 'OFLABIM', '$2y$10$REPLACE_ME_WITH_A_REAL_BCRYPT_HASH..............................', 1, NULL, '2026-01-21 18:29:34', '2026-01-22 14:54:50');
+INSERT INTO `user` (`id`, `role_id`, `email`, `phone`, `address`, `username`, `company_name`, `password_hash`, `is_active`, `last_login_at`, `created_at`, `updated_at`, `opening_hours`, `response_delay`) VALUES
+(1, 1, 'admin@oflabim.fr', '+33 7 66 80 16 68', '111 cours Tolstoï, 69100 Villeurbanne, FR', 'OFLABIM', 'OFLABIM', '$2y$10$REPLACE_ME_WITH_A_REAL_BCRYPT_HASH..............................', 1, NULL, '2026-01-21 18:29:34', '2026-01-22 17:56:39', 'Lun – Ven : 9h00 – 18h00', 'Réponse sous 24–48h ouvrées');
 
 --
 -- Index pour les tables déchargées
