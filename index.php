@@ -23,19 +23,16 @@ $publicPages = [
     'service',
     'references',
     'contact',
-    'appelWhatzapp',
     'conditions',
     'confidentialite'
 ];
 
 $adminPages = [
-    'admin',
     'adminDashboard',
     'adminAccueil',
     'adminPresentation',
     'adminServices',
     'adminContact',
-    'adminEdit'
 ];
 
 /* ============================================================

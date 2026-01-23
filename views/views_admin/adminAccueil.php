@@ -1,7 +1,6 @@
 <?php
-// ===================== VUE : views/views_admin/adminAccueil.php =====================
+// ===================== VUE : views_admin/adminAccueil.php =====================
 
-// SEO admin (optionnel)
 $pageTitle = $pageTitle ?? "Admin Accueil | OFLABIM";
 $metaDesc  = $metaDesc  ?? "Administration de la page Accueil";
 $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAccueil";
@@ -9,15 +8,13 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
 
 <div class="border rounded-3 p-4 bg-white">
 
-    <?php
-    // ===== Bloc flash simple =====
-    if (!empty($flashSuccess)) {
-        echo '<div class="alert alert-success">' . htmlspecialchars($flashSuccess) . '</div>';
-    }
-    if (!empty($flashError)) {
-        echo '<div class="alert alert-danger">' . htmlspecialchars($flashError) . '</div>';
-    }
-    ?>
+    <?php if (!empty($flashSuccess)): ?>
+        <div class="alert alert-success"><?= htmlspecialchars($flashSuccess) ?></div>
+    <?php endif; ?>
+
+    <?php if (!empty($flashError)): ?>
+        <div class="alert alert-danger"><?= htmlspecialchars($flashError) ?></div>
+    <?php endif; ?>
 
     <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
         <div>
@@ -35,8 +32,12 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
 
             <select
                 class="form-select"
-                onchange="window.location.href='index.php?page=adminAccueil&section=' + encodeURIComponent(this.value)"
+                onchange="if (this.value) window.location.href='index.php?page=adminAccueil&section=' + encodeURIComponent(this.value); else window.location.href='index.php?page=adminAccueil';"
             >
+                <option value="" <?= empty($selectedSlug) ? 'selected' : '' ?>>
+                    — Choisir une section —
+                </option>
+
                 <?php foreach ($sections as $s): ?>
                     <option
                         value="<?= htmlspecialchars($s->getSlug()) ?>"
@@ -48,7 +49,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
             </select>
 
             <div class="form-text">
-                Pour l’instant, seul <code>Accueil - Le BIM</code> est éditable.
+                Une section est éditable seulement si elle a au moins un <code>content_block</code> associé.
             </div>
         </div>
 
@@ -63,10 +64,24 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
 
     <hr class="my-4">
 
-    <?php if (($selectedSlug ?? '') === 'home-bim'): ?>
+    <?php if (empty($selectedSlug)): ?>
+
+        <div class="alert alert-info mb-0">
+            Choisis une section dans la liste pour commencer.
+        </div>
+
+    <?php elseif (!$isEditable): ?>
+
+        <div class="alert alert-info mb-0">
+            Cette section n’est pas encore éditable (aucun contenu associé).
+        </div>
+
+    <?php else: ?>
 
         <div class="mb-3">
-            <h3 class="h6 mb-1">Section “Le BIM”</h3>
+            <h3 class="h6 mb-1">
+                Section “<?= htmlspecialchars($selectedSection?->getAdminTitle() ?? '') ?>”
+            </h3>
             <p class="text-muted mb-0">
                 Aperçu du contenu actuel, puis édition juste en dessous.
             </p>
@@ -114,7 +129,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
 
             <input type="hidden" name="section_slug" value="<?= htmlspecialchars($selectedSlug) ?>">
 
-            <!-- TITRE -->
             <div class="col-12">
                 <label class="form-label">Titre (H2)</label>
                 <input
@@ -126,23 +140,19 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
                 >
             </div>
 
-            <!-- P1 -->
             <div class="col-12">
                 <label class="form-label">Paragraphe 1</label>
                 <textarea class="form-control" name="text_1" rows="4" required><?= htmlspecialchars($blockP1?->getText() ?? '') ?></textarea>
             </div>
 
-            <!-- P2 -->
             <div class="col-12">
                 <label class="form-label">Paragraphe 2</label>
                 <textarea class="form-control" name="text_2" rows="6" required><?= htmlspecialchars($blockP2?->getText() ?? '') ?></textarea>
             </div>
 
-            <!-- IMAGE SRC (lecture seule) -->
             <div class="col-md-7">
                 <label class="form-label">Image (src)</label>
 
-                <!-- affichage bloqué -->
                 <input
                     type="text"
                     class="form-control"
@@ -150,7 +160,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
                     readonly
                 >
 
-                <!-- valeur réellement envoyée au controller -->
                 <input
                     type="hidden"
                     name="image_src"
@@ -162,7 +171,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
                 </div>
             </div>
 
-            <!-- ALT -->
             <div class="col-md-5">
                 <label class="form-label">Texte alternatif (alt)</label>
                 <input
@@ -174,7 +182,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
                 >
             </div>
 
-            <!-- UPLOAD -->
             <div class="col-12">
                 <label class="form-label">Ou charger une image (remplace le src)</label>
                 <input
@@ -188,13 +195,12 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
                 </div>
             </div>
 
-            <!-- SUBMIT -->
             <div class="col-12 pt-2">
                 <button class="btn btn-primary">
-                    Enregistrer la section BIM
+                    Enregistrer
                 </button>
 
-                <a href="index.php?page=accueil#homeBin"
+                <a href="index.php?page=accueil"
                    class="btn btn-outline-dark ms-2"
                    target="_blank">
                     Voir côté site
@@ -203,15 +209,6 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAcc
 
         </form>
 
-    <?php else: ?>
-
-        <div class="alert alert-info mb-0">
-            Cette section n’est pas encore éditable.
-        </div>
-
     <?php endif; ?>
 
 </div>
-
-</section>
-

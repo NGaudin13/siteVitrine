@@ -1,8 +1,6 @@
 <?php
 // ===================== CONTROLEUR : controllers/AdminAccueilController.php =====================
 
-// ⚠️ Idéalement: session_start() UNE seule fois dans index.php (ou bootstrap).
-// Mais si tu le laisses ici, ça peut marcher tant que rien n'a déjà envoyé du HTML.
 session_start();
 
 require_once PATH_MODELS . 'PageModel.php';
@@ -15,9 +13,6 @@ class AdminAccueilController
     private SectionModel $sectionModel;
     private ContentBlockModel $contentBlockModel;
 
-    // Section par défaut au début
-    private string $defaultSectionSlug = 'home-bim';
-
     public function __construct(PDO $pdo)
     {
         $this->pageModel         = new PageModel($pdo);
@@ -25,7 +20,6 @@ class AdminAccueilController
         $this->contentBlockModel = new ContentBlockModel($pdo);
     }
 
-    // ✅ IMPORTANT : on retourne un tableau de données au lieu d'afficher la vue ici
     public function index(): array
     {
         // ===================== FLASH =====================
@@ -35,69 +29,94 @@ class AdminAccueilController
 
         // ===================== 1) PAGE ACCUEIL =====================
         $page = $this->pageModel->findBySlug('accueil');
-
         if (!$page) {
             http_response_code(404);
-            echo "Page 'accueil' introuvable";
-            return [];
+            return [
+                'flashError' => "Page 'accueil' introuvable.",
+                'sections'   => [],
+            ];
         }
 
-        // ===================== 2) SECTIONS DE L'ACCUEIL =====================
+        // ===================== 2) SECTIONS =====================
         $sections = $this->sectionModel->findByPageId((int) $page->getId(), true);
-
         if (empty($sections)) {
             http_response_code(404);
-            echo "Aucune section trouvée pour la page 'accueil'";
-            return [];
+            return [
+                'flashError' => "Aucune section trouvée pour la page 'accueil'.",
+                'sections'   => [],
+            ];
         }
 
-        // ===================== 3) SECTION SÉLECTIONNÉE =====================
-        $selectedSlug = trim((string) ($_GET['section'] ?? $this->defaultSectionSlug));
-        if ($selectedSlug === '') {
-            $selectedSlug = $this->defaultSectionSlug;
-        }
-
+        // ===================== 3) SECTION SÉLECTIONNÉE (SANS DÉFAUT) =====================
+        $selectedSlug = trim((string)($_GET['section'] ?? ''));
         $selectedSection = null;
-        foreach ($sections as $s) {
-            if ($s->getSlug() === $selectedSlug) {
-                $selectedSection = $s;
-                break;
+
+        if ($selectedSlug !== '') {
+            foreach ($sections as $s) {
+                if ($s->getSlug() === $selectedSlug) {
+                    $selectedSection = $s;
+                    break;
+                }
+            }
+            // slug invalide => on remet à vide (l’utilisateur re-choisit)
+            if (!$selectedSection) {
+                $selectedSlug = '';
             }
         }
 
-        // fallback: si slug invalide => première section
-        if (!$selectedSection) {
-            $selectedSection = $sections[0];
-            $selectedSlug = $selectedSection->getSlug();
+        $sectionId = $selectedSection ? (int) $selectedSection->getId() : 0;
+
+        // ===================== 4) BLOCKS (si section choisie) =====================
+        $blocks = [];
+        if ($sectionId > 0) {
+            $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
         }
 
-        $sectionId = (int) $selectedSection->getId();
+        // ✅ Ta règle simple : éditable si on trouve AU MOINS 1 content_block
+        $isEditable = ($sectionId > 0 && !empty($blocks));
 
-        // ===================== 4) POST: SAUVEGARDE =====================
+        $blockTitle = $blocks['title']  ?? null;
+        $blockP1    = $blocks['text_1'] ?? null;
+        $blockP2    = $blocks['text_2'] ?? null;
+        $blockImg   = $blocks['image']  ?? null;
+
+        // ===================== 5) POST: SAUVEGARDE (seulement si éditable) =====================
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            // Petite sécurité : on force la section via champ hidden
             $postedSectionSlug = trim((string)($_POST['section_slug'] ?? ''));
-            if ($postedSectionSlug !== '' && $postedSectionSlug !== $selectedSlug) {
+            if ($postedSectionSlug === '') {
+                $_SESSION['flashError'] = "Section invalide.";
+                header('Location: index.php?page=adminAccueil');
+                exit;
+            }
 
-                $selectedSlug = $postedSectionSlug;
-
-                $tmp = null;
-                foreach ($sections as $s) {
-                    if ($s->getSlug() === $selectedSlug) {
-                        $tmp = $s;
-                        break;
-                    }
+            // re-check slug => section
+            $postedSection = null;
+            foreach ($sections as $s) {
+                if ($s->getSlug() === $postedSectionSlug) {
+                    $postedSection = $s;
+                    break;
                 }
+            }
 
-                if ($tmp) {
-                    $selectedSection = $tmp;
-                    $sectionId = (int) $selectedSection->getId();
-                } else {
-                    $_SESSION['flashError'] = "Section invalide.";
-                    header('Location: index.php?page=adminAccueil');
-                    exit;
-                }
+            if (!$postedSection) {
+                $_SESSION['flashError'] = "Section invalide.";
+                header('Location: index.php?page=adminAccueil');
+                exit;
+            }
+
+            $selectedSection = $postedSection;
+            $selectedSlug    = $selectedSection->getSlug();
+            $sectionId       = (int)$selectedSection->getId();
+
+            // reload blocks => ta règle
+            $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
+            $isEditable = !empty($blocks);
+
+            if (!$isEditable) {
+                $_SESSION['flashError'] = "Cette section n’est pas encore éditable (aucun content_block associé).";
+                header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                exit;
             }
 
             // Champs
@@ -107,7 +126,6 @@ class AdminAccueilController
             $src   = trim((string)($_POST['image_src'] ?? ''));
             $alt   = trim((string)($_POST['image_alt'] ?? ''));
 
-            // Validations simples
             if ($title === '' || $text1 === '' || $text2 === '') {
                 $_SESSION['flashError'] = "Titre et paragraphes obligatoires.";
                 header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
@@ -120,8 +138,7 @@ class AdminAccueilController
                 exit;
             }
 
-            // ================= IMAGE UPLOAD (dans assets/images) =================
-            // Si un fichier est envoyé => on remplace le src automatiquement
+            // UPLOAD (inchangé, juste nom de fichier plus logique)
             if (!empty($_FILES['image_file']['name'])) {
 
                 if ($_FILES['image_file']['error'] !== UPLOAD_ERR_OK) {
@@ -130,7 +147,6 @@ class AdminAccueilController
                     exit;
                 }
 
-                // Sécurité: formats autorisés
                 $allowedMime = ['image/jpeg', 'image/png', 'image/webp'];
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 $mime  = finfo_file($finfo, $_FILES['image_file']['tmp_name']);
@@ -142,21 +158,17 @@ class AdminAccueilController
                     exit;
                 }
 
-                // Taille max (5 Mo)
                 if ($_FILES['image_file']['size'] > 5 * 1024 * 1024) {
                     $_SESSION['flashError'] = "Image trop lourde (max 5 Mo).";
                     header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
                     exit;
                 }
 
-                // Dossier cible (assets/images)
                 $uploadDir = __DIR__ . '/../assets/images/';
-
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0755, true);
                 }
 
-                // Extension propre
                 $ext = match ($mime) {
                     'image/jpeg' => 'jpg',
                     'image/png'  => 'png',
@@ -164,8 +176,7 @@ class AdminAccueilController
                     default      => 'jpg'
                 };
 
-                // Nom unique
-                $filename   = 'accueil_homeBim_' . date('Ymd_His') . '.' . $ext;
+                $filename   = 'accueil_' . $selectedSlug . '_' . date('Ymd_His') . '.' . $ext;
                 $targetPath = $uploadDir . $filename;
 
                 if (!move_uploaded_file($_FILES['image_file']['tmp_name'], $targetPath)) {
@@ -174,18 +185,16 @@ class AdminAccueilController
                     exit;
                 }
 
-                // ✅ On remplace le src automatiquement (chemin public)
                 $src = 'assets/images/' . $filename;
             }
 
-            // Si pas d'upload, on exige un src non vide
             if ($src === '') {
                 $_SESSION['flashError'] = "Le src de l’image est obligatoire (ou upload une image).";
                 header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
                 exit;
             }
 
-            // ===================== UPDATE BDD (slots home-bim) =====================
+            // UPDATE (inchangé)
             $this->contentBlockModel->updateBySectionSlot($sectionId, 'title',  ['text' => $title]);
             $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_1', ['text' => $text1]);
             $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_2', ['text' => $text2]);
@@ -196,24 +205,17 @@ class AdminAccueilController
             exit;
         }
 
-        // ===================== 5) GET: BLOCKS SECTION SÉLECTIONNÉE =====================
-        $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
-
-        $blockTitle = $blocks['title']  ?? null;
-        $blockP1    = $blocks['text_1'] ?? null;
-        $blockP2    = $blocks['text_2'] ?? null;
-        $blockImg   = $blocks['image']  ?? null;
-
-        // ===================== 6) RENDER (on retourne les variables) =====================
         return [
-            'flashSuccess' => $flashSuccess,
-            'flashError'   => $flashError,
-            'sections'     => $sections,
-            'selectedSlug' => $selectedSlug,
-            'blockTitle'   => $blockTitle,
-            'blockP1'      => $blockP1,
-            'blockP2'      => $blockP2,
-            'blockImg'     => $blockImg,
+            'flashSuccess'   => $flashSuccess,
+            'flashError'     => $flashError,
+            'sections'       => $sections,
+            'selectedSlug'   => $selectedSlug,
+            'selectedSection'=> $selectedSection,
+            'isEditable'     => $isEditable,
+            'blockTitle'     => $blockTitle,
+            'blockP1'        => $blockP1,
+            'blockP2'        => $blockP2,
+            'blockImg'       => $blockImg,
         ];
     }
 }
