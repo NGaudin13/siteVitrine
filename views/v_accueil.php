@@ -131,7 +131,7 @@
 </section>
 
 <!-- ================= ACCUEIL / LE BIM ================= -->
-<section class="home-bim py-5">
+<section id= homeBin class="home-bim py-5">
     <div class="container">
 
         <div class="row g-5 align-items-stretch">
