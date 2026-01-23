@@ -216,6 +216,7 @@ class AdminAccueilController
             'blockP1'        => $blockP1,
             'blockP2'        => $blockP2,
             'blockImg'       => $blockImg,
+            'blocks'          => $blocks,
         ];
     }
 }
