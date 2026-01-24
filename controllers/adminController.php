@@ -42,6 +42,19 @@ switch ($page) {
         $activeTab = 'dashboard';
         break;
 
+    case 'adminPresentation':
+        require_once PATH_CONTROLLERS . 'AdminPresentationController.php';
+        $controller = new AdminPresentationController($pdo);
+
+        $data = $controller->index();
+        if (is_array($data)) {
+            extract($data, EXTR_SKIP);
+        }
+
+        $view      = 'adminPresentation.php';
+        $activeTab = 'presentation';
+        break;
+
     default:
         // ✅ Admin : page inconnue => 404
         http_response_code(404);

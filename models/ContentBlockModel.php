@@ -151,4 +151,140 @@ class ContentBlockModel
 
         return $block;
     }
+
+        /**
+     * Désactive tous les blocs d'une section dont le slot commence par un préfixe
+     * ex: "timeline_" ou "edu_"
+     */
+    public function deactivateBySlotPrefix(int $sectionId, string $prefix): void
+    {
+        $sql = "UPDATE content_block
+                SET is_active = 0, updated_at = NOW()
+                WHERE section_id = :sid
+                AND slot LIKE :pref";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'sid'  => $sectionId,
+            'pref' => $prefix . '%',
+        ]);
+    }
+
+    /**
+     * Upsert texte: update si existe, sinon insert
+     * (utile quand l'admin ajoute une ligne via +)
+     */
+    public function upsertTextBlock(int $sectionId, string $type, string $slot, string $text, int $orderIndex, bool $isActive = true): void
+    {
+        // 1) update
+        $sqlUpdate = "UPDATE content_block
+                    SET type = :type,
+                        text = :text,
+                        order_index = :order_index,
+                        is_active = :is_active,
+                        updated_at = NOW()
+                    WHERE section_id = :sid AND slot = :slot
+                    LIMIT 1";
+        $stmt = $this->pdo->prepare($sqlUpdate);
+        $stmt->execute([
+            'type'        => $type,
+            'text'        => $text,
+            'order_index' => $orderIndex,
+            'is_active'   => $isActive ? 1 : 0,
+            'sid'         => $sectionId,
+            'slot'        => $slot,
+        ]);
+
+        if ($stmt->rowCount() > 0) {
+            return;
+        }
+
+        // 2) insert
+        $sqlInsert = "INSERT INTO content_block
+            (section_id, type, slot, text, src, alt, href, order_index, is_active, created_at, updated_at)
+            VALUES
+            (:sid, :type, :slot, :text, NULL, NULL, NULL, :order_index, :is_active, NOW(), NOW())";
+        $stmt2 = $this->pdo->prepare($sqlInsert);
+        $stmt2->execute([
+            'sid'         => $sectionId,
+            'type'        => $type,
+            'slot'        => $slot,
+            'text'        => $text,
+            'order_index' => $orderIndex,
+            'is_active'   => $isActive ? 1 : 0,
+        ]);
+    }
+
+    public function disableBySectionSlotPrefix(int $sectionId, string $prefix): void
+    {
+        $sql = "UPDATE content_block
+                SET is_active = 0, updated_at = NOW()
+                WHERE section_id = :sid AND slot LIKE :pfx";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'sid' => $sectionId,
+            'pfx' => $prefix . '%'
+        ]);
+    }
+
+    public function upsertBySectionSlot(int $sectionId, string $slot, array $fields): void
+    {
+        // Si existe -> update, sinon -> insert
+        $stmt = $this->pdo->prepare("SELECT id FROM content_block WHERE section_id = :sid AND slot = :slot LIMIT 1");
+        $stmt->execute(['sid' => $sectionId, 'slot' => $slot]);
+        $id = $stmt->fetchColumn();
+
+        $defaults = [
+            'type' => 'p',
+            'text' => null,
+            'src' => null,
+            'alt' => null,
+            'href' => null,
+            'order_index' => 0,
+            'is_active' => 1
+        ];
+        $data = array_merge($defaults, $fields);
+
+        if ($id) {
+            // update
+            $sql = "UPDATE content_block SET
+                        type = :type,
+                        text = :text,
+                        src = :src,
+                        alt = :alt,
+                        href = :href,
+                        order_index = :order_index,
+                        is_active = :is_active,
+                        updated_at = NOW()
+                    WHERE id = :id";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                'type' => $data['type'],
+                'text' => $data['text'],
+                'src'  => $data['src'],
+                'alt'  => $data['alt'],
+                'href' => $data['href'],
+                'order_index' => (int)$data['order_index'],
+                'is_active'   => (int)$data['is_active'],
+                'id' => (int)$id
+            ]);
+            return;
+        }
+
+        // insert
+        $sql = "INSERT INTO content_block (section_id, type, slot, text, src, alt, href, order_index, is_active, created_at, updated_at)
+                VALUES (:sid, :type, :slot, :text, :src, :alt, :href, :order_index, :is_active, NOW(), NOW())";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            'sid' => $sectionId,
+            'type' => $data['type'],
+            'slot' => $slot,
+            'text' => $data['text'],
+            'src'  => $data['src'],
+            'alt'  => $data['alt'],
+            'href' => $data['href'],
+            'order_index' => (int)$data['order_index'],
+            'is_active'   => (int)$data['is_active'],
+        ]);
+    }
+
 }
