@@ -1063,12 +1063,15 @@ main h2 + p {
     line-height: 1.65 !important;
 }
 
-/* ===============================
+/* =========================================================
    ADMIN – GLOBAL
-   =============================== */
+   ========================================================= */
 
+.admin-shell {
+    background-color: #f8fafc;
+}
 
-/* Fond blanc header admin */
+/* Header admin */
 .admin-header {
     background-color: #ffffff;
     padding: 1rem 1.25rem;
@@ -1076,10 +1079,179 @@ main h2 + p {
     border: 1px solid #e5e7eb;
 }
 
-/* Fond blanc pour la barre d’onglets */
+/* Barre d’onglets */
 .admin-shell .nav-pills {
     background-color: #ffffff;
     padding: 0.75rem;
     border-radius: 8px;
     border: 1px solid #e5e7eb;
+}
+
+/* =========================================================
+   ADMIN – FORM BLOCKS (SECTIONS)
+   ========================================================= */
+
+.admin-form-block {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-form-block__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.admin-form-block__title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+.admin-form-block__subtitle {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.admin-form-block__actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* =========================================================
+   ADMIN – EDITABLE ROWS (EXPERIENCE / COMPETENCE)
+   ========================================================= */
+
+.admin-row {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.6rem 0;
+}
+
+.admin-row + .admin-row {
+    border-top: 1px dashed #e5e7eb;
+}
+
+.admin-row input,
+.admin-row textarea {
+    font-size: 0.9rem;
+}
+
+.admin-row input::placeholder,
+.admin-row textarea::placeholder {
+    color: #9ca3af;
+}
+
+/* =========================================================
+   ADMIN – BUTTONS
+   ========================================================= */
+
+.admin-btn-add {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.admin-btn-add:hover {
+    background-color: #1d4ed8;
+}
+
+.admin-btn-remove {
+    background-color: transparent;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 0.3rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.admin-btn-remove:hover {
+    background-color: #fee2e2;
+}
+
+/* Bouton principal */
+.admin-btn-primary {
+    background-color: #111827;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.admin-btn-primary:hover {
+    background-color: #000000;
+}
+
+/* =========================================================
+   ADMIN – FORM ELEMENTS
+   ========================================================= */
+
+.admin-form-block label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.admin-form-block .form-text {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* =========================================================
+   ADMIN – ALERTS
+   ========================================================= */
+
+.admin-alert {
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+}
+
+.admin-alert-info {
+    background-color: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.admin-alert-success {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.admin-alert-error {
+    background-color: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* =========================================================
+   ADMIN – RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+    .admin-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .admin-form-block__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
 }

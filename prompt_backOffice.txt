@@ -1,123 +1,215 @@
-PROMPT – CONTEXTE GLOBAL DU PROJET (PASSAGE AU BACK-OFFICE)
+PROMPT DE CONTEXTE – ÉTAT DU PROJET SITE VITRINE OFLABIM
+🎯 Objectif global
 
-Je suis développeur web et je réalise un site vitrine professionnel sur mesure pour un client (bureau d’études / ingénierie BIM).
+Réaliser un site vitrine professionnel pour un bureau d’études BIM / structure, facturé 700 €, avec :
 
-État actuel du projet
+un front propre, crédible et cohérent
 
-La partie front publique est terminée et stable :
+un back-office simple, ciblé sur les contenus réellement utiles au client
 
-pages : Accueil, Présentation, Services, Contact
+sans framework, en PHP avec architecture MVC maison
 
-design moderne, sobre, crédible (BIM / ingénierie / BTP)
+🧱 Architecture mise en place
+Technique
 
-100 % responsive, mobile-first
+PHP sans framework
 
-Bootstrap 5 pour la structure
+MVC maison
 
-CSS personnalisé propre et maintenable
-
-👉 Le HTML/CSS public n’est plus à remettre en cause.
-
-Stack technique
-
-PHP MVC maison (sans framework)
-
-index.php comme front controller
+Routing simple via index.php?page=
 
 Séparation claire :
 
-front public
-
-back-office admin
-
-Dossiers :
-
 controllers/
 
-views/ (vues publiques)
+models/ + entities/
 
-views_admin/ (vues admin)
+views/ (front)
 
-models/
+views_admin/ (back-office)
 
-entities/
+assets/ (CSS / JS / images)
 
-Phase actuelle : BACK-OFFICE
+Base de données
 
-Nous entrons maintenant dans la conception et le développement du back-office.
+Table page
 
-Le back-office est pensé comme un mini CMS, avec une logique simple et évolutive :
+Table section
 
-le client ne touche jamais au code
+Table content_block
 
-il modifie uniquement du contenu existant
+Principe clé validé et fonctionnel :
 
-pas d’usine à gaz
+👉 Une section est éditable uniquement si elle possède des content_block associés
+(pas de flag, pas de logique artificielle)
 
-pas de framework imposé
+✅ Back-office réellement implémenté (et volontairement limité)
+Le client peut modifier :
 
-Stratégie back-office (claire et volontairement progressive)
-1. Le back-office est organisé par pages publiques
+Informations générales
 
-Sections – Accueil
+email
 
-Sections – Présentation
+téléphone
 
-Sections – Services
+adresse
 
-Sections – Contact
+Page Accueil
 
-Chaque page admin permet de gérer les sections de la page correspondante.
+section “Le BIM”
 
-2. Modèle de contenu (mini CMS)
+section “À propos”
 
-Le contenu est structuré sur 3 niveaux :
+Page Présentation
 
-Page
+Réalisations & expériences
 
-SEO (title, meta, canonical)
+ajout
 
-Section
+modification
 
-correspond à une <section> HTML existante
+suppression
 
-ordre, activation, template
+Compétences & formations
 
-Bloc de contenu
+ajout
 
-titre, texte, image, lien, bouton, etc.
+modification
 
-modifiable individuellement
+suppression
 
-3. Philosophie de développement
+👉 Gestion via content_block, avec des slots structurés
+👉 Pas de lignes fantômes, pas de désordre après suppression
+👉 Logique stabilisée
 
-On travaille étape par étape
+Ce qui a été volontairement exclu
 
-On ne casse jamais l’existant
+CMS complet
 
-On ne sur-anticipe pas les besoins
+gestion dynamique de toutes les pages
 
-On construit un socle solide, puis on affine
+édition complexe des services
 
-Le back-office doit rester :
+drag & drop / ordonnancement avancé
 
-compréhensible pour un client non technique
+👉 Choix assumé pour rester cohérent avec :
 
-cohérent avec l’architecture MVC existante
+le budget
 
-maintenable dans le temps
+le temps
 
-Attente vis-à-vis de toi
+la valeur réelle pour le client
 
-M’aider comme un lead dev / architecte pragmatique
+🧩 Problématique identifiée : les SERVICES
+Situation actuelle
 
-Proposer des solutions simples et professionnelles
+Les 4 services (BIM, Béton, Métal, Bois) apparaissent :
 
-Être franc : si une idée est mauvaise ou inutile, le dire
+dans l’Accueil
 
-Toujours respecter l’état actuel du projet
+dans la navbar
 
-Objectif final
+dans la page Services (cards + détails)
 
-Disposer d’un back-office propre, clair et évolutif, parfaitement aligné avec un site vitrine professionnel,
-prêt à évoluer plus tard vers un CMS plus complet sans refonte.
+➡️ Même contenu dupliqué à plusieurs endroits
+
+Risque identifié
+
+incohérences si modification
+
+maintenance lourde
+
+explosion de complexité si on veut tout rendre éditable
+
+💡 Idées proposées (mais non implémentées pour l’instant)
+Option 1 – Solution retenue pour la V1
+
+Services en dur
+
+Nombre figé : 4
+
+Liens par ancres (#bim, #beton, etc.)
+
+Aucun back-office pour les services
+
+✔️ Simple
+✔️ Stable
+✔️ Suffisant pour un site vitrine
+✔️ Client d’accord
+
+Option 2 – Centralisation sans back-office (réflexion future)
+
+Créer un fichier unique config/services.php
+
+Toutes les infos services dedans (titre, icône, description courte, texte long)
+
+Utilisé par :
+
+la navbar
+
+l’accueil
+
+la page services
+
+✔️ Pas de duplication
+✔️ Facile à maintenir
+❌ Toujours pas éditable par le client
+
+Option 3 – Back-office services (non retenue pour ce projet)
+
+Table service
+
+Table service_block
+
+Gestion des redirections
+
+Gestion des ancres
+
+Impact sur :
+
+accueil
+
+navbar
+
+page services
+
+SEO
+
+❌ Trop complexe
+❌ Trop risqué pour le budget
+❌ Pas demandé par le client
+
+🧠 Décision finale (bonne décision)
+
+👉 Les services restent en dur
+👉 Le back-office s’arrête volontairement à :
+
+infos générales
+
+accueil
+
+présentation (expériences + compétences)
+
+➡️ Le site reste :
+
+clair
+
+professionnel
+
+maintenable
+
+cohérent avec le devis
+
+✅ État actuel
+
+Le back-office fonctionne
+
+La structure est saine
+
+Le client peut modifier ce qui a vraiment du sens
+
+Les services sont figés mais propres
+
+Le projet est terminable sans dette technique
+
+Si tu veux, au prochain message, je peux :
