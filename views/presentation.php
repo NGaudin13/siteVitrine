@@ -228,7 +228,7 @@
                     <div class="presentation-path__timeline">
                         <?php
                         $hasTimeline = false;
-                        for ($i = 1; $i <= 20; $i++) {
+                        for ($i = 1; $i <= 1000; $i++) {
                             $t  = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_title"] ?? ''));
                             $d  = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_desc"]  ?? ''));
                             $dt = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_date"]  ?? ''));
@@ -329,7 +329,7 @@
                     <div class="presentation-path__edu">
                         <?php
                         $hasEdu = false;
-                        for ($i = 1; $i <= 20; $i++) {
+                        for ($i = 1; $i <= 1000; $i++) {
                             $t   = trim((string)($sectionsContent['presentation-path']["edu_{$i}_title"] ?? ''));
                             $d   = trim((string)($sectionsContent['presentation-path']["edu_{$i}_desc"]  ?? ''));
                             $lvl = trim((string)($sectionsContent['presentation-path']["edu_{$i}_level"] ?? ''));

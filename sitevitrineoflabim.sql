@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 24 jan. 2026 à 01:46
+-- Généré le : sam. 24 jan. 2026 à 03:41
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -47,42 +47,45 @@ CREATE TABLE `content_block` (
 --
 
 INSERT INTO `content_block` (`id`, `section_id`, `type`, `slot`, `text`, `src`, `alt`, `href`, `order_index`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 2, 'h2', 'title', 'Le BIM, au cœur de la coordination de vos projets', NULL, NULL, NULL, 10, 1, '2026-01-21 20:22:18', '2026-01-24 01:11:48'),
-(2, 2, 'p', 'text_1', 'Le BIM (Building Information Modeling) repose sur une maquette numérique 3D qui centralise l’ensemble des données techniques du projet. Elle devient une base commune de travail pour tous les intervenants.', NULL, NULL, NULL, 20, 1, '2026-01-21 20:22:18', '2026-01-24 01:11:48'),
-(3, 2, 'p', 'text_2', 'Cette approche collaborative permet de mieux anticiper les contraintes, d’aligner les décisions techniques et de fiabiliser les échanges tout au long du projet, de la conception au chantier. La maquette BIM ne se limite pas à un modèle 3D : elle intègre l’ensemble des données techniques du bâtiment (matériaux, quantités, performances, coûts, planning), faisant de l’ingénieur BIM le garant de la cohérence, de la qualité et de la gestion des informations du projet.', NULL, NULL, NULL, 30, 1, '2026-01-21 20:22:18', '2026-01-24 01:11:48'),
-(4, 2, 'img', 'image', NULL, 'assets/images/accueil_homeBim2.jpg', 'Coordination BIM et travail collaboratif autour d’une maquette numérique', NULL, 40, 1, '2026-01-21 20:22:18', '2026-01-24 01:11:48'),
-(15, 4, 'h2', 'title', 'À propos de nous', NULL, NULL, NULL, 10, 1, '2026-01-24 00:15:43', '2026-01-24 01:12:18'),
-(16, 4, 'p', 'text_1', 'OFLABIM accompagne vos projets de construction avec une approche claire et rigoureuse : modélisation BIM, coordination, études techniques et optimisation des solutions.', NULL, NULL, NULL, 20, 1, '2026-01-24 00:15:43', '2026-01-24 01:12:18'),
-(17, 4, 'p', 'text_2', 'Notre objectif : sécuriser les décisions, réduire les risques et livrer un résultat exploitable par tous les acteurs du projet.', NULL, NULL, NULL, 30, 1, '2026-01-24 00:15:43', '2026-01-24 01:12:18'),
-(18, 4, 'img', 'image', NULL, 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=70', 'Bureau d’études et ingénierie BIM', NULL, 40, 1, '2026-01-24 00:15:43', '2026-01-24 01:12:18'),
-(161, 18, 'h2', 'col1_title', 'Réalisations & expérience', NULL, NULL, NULL, 10, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(162, 18, 'p', 'col1_intro', 'Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.', NULL, NULL, NULL, 20, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(163, 18, 'span', 'timeline_1_title', 'Coordination BIM', NULL, NULL, NULL, 110, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(164, 18, 'p', 'timeline_1_desc', 'Pilotage de maquettes, coordination multi-lots, synthèse.', NULL, NULL, NULL, 111, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(165, 18, 'span', 'timeline_1_date', '2012 – Aujourd’hui', NULL, NULL, NULL, 112, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(166, 18, 'span', 'timeline_2_title', 'Ingénierie structure', NULL, NULL, NULL, 120, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(167, 18, 'p', 'timeline_2_desc', 'Études techniques, notes de calcul, optimisation structure.', NULL, NULL, NULL, 121, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(168, 18, 'span', 'timeline_2_date', '2010 – 2012', NULL, NULL, NULL, 122, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(169, 18, 'span', 'timeline_3_title', 'Modélisation & plans', NULL, NULL, NULL, 130, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(170, 18, 'p', 'timeline_3_desc', 'Modélisation 3D, plans d’exécution, quantitatifs.', NULL, NULL, NULL, 131, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(171, 18, 'span', 'timeline_3_date', '2008 – 2010', NULL, NULL, NULL, 132, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(172, 18, 'span', 'timeline_4_title', 'Bureau d’études', NULL, NULL, NULL, 140, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(173, 18, 'p', 'timeline_4_desc', 'Méthodes, relevés, dossiers techniques.', NULL, NULL, NULL, 141, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(174, 18, 'span', 'timeline_4_date', '2007', NULL, NULL, NULL, 142, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(175, 18, 'h2', 'col3_title', 'Compétences & formations', NULL, NULL, NULL, 310, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(176, 18, 'p', 'col3_intro', 'Des compétences internes solides, renforcées par une spécialisation BIM et structure.', NULL, NULL, NULL, 320, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(177, 18, 'span', 'edu_1_title', 'BIM — Coordination & méthodes', NULL, NULL, NULL, 510, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(178, 18, 'p', 'edu_1_desc', 'Process, BEP, standards, structuration des maquettes.', NULL, NULL, NULL, 511, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(179, 18, 'span', 'edu_1_level', 'Niveau : avancé', NULL, NULL, NULL, 512, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(180, 18, 'span', 'edu_2_title', 'Génie civil — Structures', NULL, NULL, NULL, 520, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(181, 18, 'p', 'edu_2_desc', 'Dimensionnement, notes de calcul, optimisation.', NULL, NULL, NULL, 521, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(182, 18, 'span', 'edu_2_level', 'Niveau : confirmé', NULL, NULL, NULL, 522, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(183, 18, 'span', 'edu_3_title', 'Structure métal & bois', NULL, NULL, NULL, 530, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(184, 18, 'p', 'edu_3_desc', 'Conception, détails, plans d’exécution.', NULL, NULL, NULL, 531, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(185, 18, 'span', 'edu_3_level', 'Niveau : confirmé', NULL, NULL, NULL, 532, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(186, 18, 'span', 'edu_4_title', 'Qualité & livrables', NULL, NULL, NULL, 540, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(187, 18, 'p', 'edu_4_desc', 'Nommage, versions, livrables exploitables.', NULL, NULL, NULL, 541, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54'),
-(188, 18, 'span', 'edu_4_level', 'Niveau : structuré', NULL, NULL, NULL, 542, 1, '2026-01-24 01:42:54', '2026-01-24 01:42:54');
+(1, 2, 'h2', 'title', 'Le BIM, au cœur de la coordination de vos projets', NULL, NULL, NULL, 10, 1, '2026-01-21 20:22:18', '2026-01-24 03:08:28'),
+(2, 2, 'p', 'text_1', 'Le BIM (Building Information Modeling) repose sur une maquette numérique 3D qui centralise l’ensemble des données techniques du projet. Elle devient une base commune de travail pour tous les intervenants.', NULL, NULL, NULL, 20, 1, '2026-01-21 20:22:18', '2026-01-24 03:08:28'),
+(3, 2, 'p', 'text_2', 'Cette approche collaborative permet de mieux anticiper les contraintes, d’aligner les décisions techniques et de fiabiliser les échanges tout au long du projet, de la conception au chantier. La maquette BIM ne se limite pas à un modèle 3D : elle intègre l’ensemble des données techniques du bâtiment (matériaux, quantités, performances, coûts, planning), faisant de l’ingénieur BIM le garant de la cohérence, de la qualité et de la gestion des informations du projet.', NULL, NULL, NULL, 30, 1, '2026-01-21 20:22:18', '2026-01-24 03:08:28'),
+(4, 2, 'img', 'image', NULL, 'assets/images/accueil_homeBim2.jpg', 'Coordination BIM et travail collaboratif autour d’une maquette numérique', NULL, 40, 1, '2026-01-21 20:22:18', '2026-01-24 03:08:28'),
+(161, 18, 'h2', 'col1_title', 'Réalisations & expérience', NULL, NULL, NULL, 10, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(162, 18, 'p', 'col1_intro', 'Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.', NULL, NULL, NULL, 20, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(163, 18, 'span', 'timeline_1_title', 'Coordination BIM', NULL, NULL, NULL, 110, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(164, 18, 'p', 'timeline_1_desc', 'Pilotage de maquettes, coordination multi-lots, synthèse.', NULL, NULL, NULL, 111, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(165, 18, 'span', 'timeline_1_date', '2012 – Aujourd’hui', NULL, NULL, NULL, 112, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(166, 18, 'span', 'timeline_2_title', 'Ingénierie structure', NULL, NULL, NULL, 120, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(167, 18, 'p', 'timeline_2_desc', 'Études techniques, notes de calcul, optimisation structure.', NULL, NULL, NULL, 121, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(168, 18, 'span', 'timeline_2_date', '2010 – 2012', NULL, NULL, NULL, 122, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(169, 18, 'span', 'timeline_3_title', 'Modélisation & plans', NULL, NULL, NULL, 130, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(170, 18, 'p', 'timeline_3_desc', 'Modélisation 3D, plans d’exécution, quantitatifs.', NULL, NULL, NULL, 131, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(171, 18, 'span', 'timeline_3_date', '2008 – 2010', NULL, NULL, NULL, 132, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(172, 18, 'span', 'timeline_4_title', 'Bureau d’études', NULL, NULL, NULL, 140, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(173, 18, 'p', 'timeline_4_desc', 'Méthodes, relevés, dossiers techniques.', NULL, NULL, NULL, 141, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(174, 18, 'span', 'timeline_4_date', '2007', NULL, NULL, NULL, 142, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(175, 18, 'h2', 'col3_title', 'Compétences & formations', NULL, NULL, NULL, 310, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(176, 18, 'p', 'col3_intro', 'Des compétences internes solides, renforcées par une spécialisation BIM et structure.', NULL, NULL, NULL, 320, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(177, 18, 'span', 'edu_1_title', 'BIM — Coordination & méthodes', NULL, NULL, NULL, 510, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(178, 18, 'p', 'edu_1_desc', 'Process, BEP, standards, structuration des maquettes.', NULL, NULL, NULL, 511, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(179, 18, 'span', 'edu_1_level', 'Niveau : avancé', NULL, NULL, NULL, 512, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(180, 18, 'span', 'edu_2_title', 'Génie civil — Structures', NULL, NULL, NULL, 520, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(181, 18, 'p', 'edu_2_desc', 'Dimensionnement, notes de calcul, optimisation.', NULL, NULL, NULL, 521, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(182, 18, 'span', 'edu_2_level', 'Niveau : confirmé', NULL, NULL, NULL, 522, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(183, 18, 'span', 'edu_3_title', 'Structure métal & bois', NULL, NULL, NULL, 530, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(184, 18, 'p', 'edu_3_desc', 'Conception, détails, plans d’exécution.', NULL, NULL, NULL, 531, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(185, 18, 'span', 'edu_3_level', 'Niveau : confirmé', NULL, NULL, NULL, 532, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(186, 18, 'span', 'edu_4_title', 'Qualité & livrables', NULL, NULL, NULL, 540, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(187, 18, 'p', 'edu_4_desc', 'Nommage, versions, livrables exploitables.', NULL, NULL, NULL, 541, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(188, 18, 'span', 'edu_4_level', 'Niveau : structuré', NULL, NULL, NULL, 542, 1, '2026-01-24 01:42:54', '2026-01-24 03:39:24'),
+(189, 4, 'h2', 'title', 'À propos de nous', NULL, NULL, NULL, 10, 1, '2026-01-24 02:48:32', '2026-01-24 03:09:36'),
+(190, 4, 'p', 'text_1', 'OFLABIM accompagne vos projets de construction avec une approche claire et rigoureuse : modélisation BIM, coordination, études techniques et optimisation des solutions. Notre objectif : sécuriser les décisions, réduire les risques et livrer un résultat exploitable par tous les acteurs du projet.', NULL, NULL, NULL, 20, 1, '2026-01-24 02:48:32', '2026-01-24 03:09:36'),
+(191, 4, 'span', 'stat_1_value', '50+', NULL, NULL, NULL, 30, 1, '2026-01-24 02:48:32', '2026-01-24 03:09:36'),
+(192, 4, 'span', 'stat_1_label', 'Projets terminés', NULL, NULL, NULL, 31, 1, '2026-01-24 02:48:32', '2026-01-24 02:48:32'),
+(193, 4, 'span', 'stat_2_value', '100%', NULL, NULL, NULL, 40, 1, '2026-01-24 02:48:32', '2026-01-24 03:09:36'),
+(194, 4, 'span', 'stat_2_label', 'Clients satisfaits', NULL, NULL, NULL, 41, 1, '2026-01-24 02:48:32', '2026-01-24 02:48:32'),
+(195, 4, 'img', 'image', NULL, 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=70', 'Bureau d’études et ingénierie BIM', NULL, 50, 1, '2026-01-24 02:48:32', '2026-01-24 03:09:36');
 
 -- --------------------------------------------------------
 
@@ -241,7 +244,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `content_block`
 --
 ALTER TABLE `content_block`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
 
 --
 -- AUTO_INCREMENT pour la table `page`
