@@ -7,6 +7,14 @@ $title = $b['title']  ?? null;
 $text1 = $b['text_1'] ?? null;
 $text2 = $b['text_2'] ?? null;
 $image = $b['image']  ?? null;
+
+// Stats (valeurs uniquement)
+$stat1Value = $b['stat_1_value'] ?? null; // ex: "45+"
+$stat2Value = $b['stat_2_value'] ?? null; // ex: "100%"
+
+// Labels non modifiables (en dur)
+$stat1Label = "Projets terminés";
+$stat2Label = "Clients satisfaits";
 ?>
 
 <!-- ================= APERÇU ================= -->
@@ -21,9 +29,35 @@ $image = $b['image']  ?? null;
                 <?= nl2br(htmlspecialchars($text1?->getText() ?? '')) ?>
             </p>
 
-            <p class="text-muted mb-0">
+            <p class="text-muted mb-3">
                 <?= nl2br(htmlspecialchars($text2?->getText() ?? '')) ?>
             </p>
+
+            <!-- STATS PREVIEW -->
+            <div class="row g-3">
+                <div class="col-6">
+                    <div class="p-3 bg-white border rounded-3 h-100">
+                        <div class="display-6 fw-bold mb-1">
+                            <?= htmlspecialchars($stat1Value?->getText() ?? '') ?>
+                        </div>
+                        <div class="fw-semibold text-muted">
+                            <?= htmlspecialchars($stat1Label) ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="p-3 bg-white border rounded-3 h-100">
+                        <div class="display-6 fw-bold mb-1">
+                            <?= htmlspecialchars($stat2Value?->getText() ?? '') ?>
+                        </div>
+                        <div class="fw-semibold text-muted">
+                            <?= htmlspecialchars($stat2Label) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="col-md-5">
@@ -67,9 +101,35 @@ $image = $b['image']  ?? null;
         <textarea class="form-control" name="text_1" rows="4" required><?= htmlspecialchars($text1?->getText() ?? '') ?></textarea>
     </div>
 
-    <div class="col-12">
-        <label class="form-label">Paragraphe 2</label>
-        <textarea class="form-control" name="text_2" rows="6" required><?= htmlspecialchars($text2?->getText() ?? '') ?></textarea>
+    <!-- STATS (valeurs uniquement) -->
+    <div class="col-md-6">
+        <label class="form-label">Nombre de projets terminés</label>
+        <input
+            type="text"
+            class="form-control"
+            name="stat_1_value"
+            value="<?= htmlspecialchars($stat1Value?->getText() ?? '') ?>"
+            placeholder="Ex: 45+"
+            required
+        >
+        <div class="form-text">
+            Libellé fixe : <strong><?= htmlspecialchars($stat1Label) ?></strong>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Pourcentage de clients satisfait</label>
+        <input
+            type="text"
+            class="form-control"
+            name="stat_2_value"
+            value="<?= htmlspecialchars($stat2Value?->getText() ?? '') ?>"
+            placeholder="Ex: 100%"
+            required
+        >
+        <div class="form-text">
+            Libellé fixe : <strong><?= htmlspecialchars($stat2Label) ?></strong>
+        </div>
     </div>
 
     <div class="col-md-7">

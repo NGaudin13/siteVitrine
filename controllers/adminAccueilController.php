@@ -58,7 +58,6 @@ class AdminAccueilController
                     break;
                 }
             }
-            // slug invalide => on remet à vide (l’utilisateur re-choisit)
             if (!$selectedSection) {
                 $selectedSlug = '';
             }
@@ -72,7 +71,6 @@ class AdminAccueilController
             $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
         }
 
-        // ✅ Ta règle simple : éditable si on trouve AU MOINS 1 content_block
         $isEditable = ($sectionId > 0 && !empty($blocks));
 
         $blockTitle = $blocks['title']  ?? null;
@@ -80,7 +78,7 @@ class AdminAccueilController
         $blockP2    = $blocks['text_2'] ?? null;
         $blockImg   = $blocks['image']  ?? null;
 
-        // ===================== 5) POST: SAUVEGARDE (seulement si éditable) =====================
+        // ===================== 5) POST: SAUVEGARDE =====================
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $postedSectionSlug = trim((string)($_POST['section_slug'] ?? ''));
@@ -90,7 +88,6 @@ class AdminAccueilController
                 exit;
             }
 
-            // re-check slug => section
             $postedSection = null;
             foreach ($sections as $s) {
                 if ($s->getSlug() === $postedSectionSlug) {
@@ -109,7 +106,6 @@ class AdminAccueilController
             $selectedSlug    = $selectedSection->getSlug();
             $sectionId       = (int)$selectedSection->getId();
 
-            // reload blocks => ta règle
             $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
             $isEditable = !empty($blocks);
 
@@ -119,18 +115,11 @@ class AdminAccueilController
                 exit;
             }
 
-            // Champs
-            $title = trim((string)($_POST['title'] ?? ''));
-            $text1 = trim((string)($_POST['text_1'] ?? ''));
-            $text2 = trim((string)($_POST['text_2'] ?? ''));
-            $src   = trim((string)($_POST['image_src'] ?? ''));
-            $alt   = trim((string)($_POST['image_alt'] ?? ''));
-
-            if ($title === '' || $text1 === '' || $text2 === '') {
-                $_SESSION['flashError'] = "Titre et paragraphes obligatoires.";
-                header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
-                exit;
-            }
+            // ------------------------------------------------------------------
+            // UPLOAD IMAGE (commun)
+            // ------------------------------------------------------------------
+            $src = trim((string)($_POST['image_src'] ?? ''));
+            $alt = trim((string)($_POST['image_alt'] ?? ''));
 
             if ($alt === '') {
                 $_SESSION['flashError'] = "Le texte alternatif (alt) est obligatoire.";
@@ -138,7 +127,6 @@ class AdminAccueilController
                 exit;
             }
 
-            // UPLOAD (inchangé, juste nom de fichier plus logique)
             if (!empty($_FILES['image_file']['name'])) {
 
                 if ($_FILES['image_file']['error'] !== UPLOAD_ERR_OK) {
@@ -194,11 +182,63 @@ class AdminAccueilController
                 exit;
             }
 
-            // UPDATE (inchangé)
-            $this->contentBlockModel->updateBySectionSlot($sectionId, 'title',  ['text' => $title]);
-            $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_1', ['text' => $text1]);
-            $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_2', ['text' => $text2]);
-            $this->contentBlockModel->updateBySectionSlot($sectionId, 'image',  ['src' => $src, 'alt' => $alt]);
+            // ------------------------------------------------------------------
+            // ROUTING PAR SECTION (IMPORTANT)
+            // ------------------------------------------------------------------
+
+            // ===== HOME-BIM : title + text_1 + text_2 + image
+            if ($selectedSlug === 'home-bim') {
+
+                $title = trim((string)($_POST['title'] ?? ''));
+                $text1 = trim((string)($_POST['text_1'] ?? ''));
+                $text2 = trim((string)($_POST['text_2'] ?? ''));
+
+                if ($title === '' || $text1 === '' || $text2 === '') {
+                    $_SESSION['flashError'] = "Titre + paragraphe 1 + paragraphe 2 obligatoires.";
+                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                    exit;
+                }
+
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'title',  ['text' => $title]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_1', ['text' => $text1]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_2', ['text' => $text2]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'image',  ['src' => $src, 'alt' => $alt]);
+            }
+
+            // ===== HOME-ABOUT : title + text_1 + stats + image (PAS de text_2)
+            elseif ($selectedSlug === 'home-about') {
+
+                $title = trim((string)($_POST['title'] ?? ''));
+                $text1 = trim((string)($_POST['text_1'] ?? ''));
+
+                $stat1 = trim((string)($_POST['stat_1_value'] ?? ''));
+                $stat2 = trim((string)($_POST['stat_2_value'] ?? ''));
+
+                if ($title === '' || $text1 === '') {
+                    $_SESSION['flashError'] = "Titre + paragraphe obligatoires.";
+                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                    exit;
+                }
+
+                if ($stat1 === '' || $stat2 === '') {
+                    $_SESSION['flashError'] = "Les 2 statistiques sont obligatoires (ex: 45+ et 100%).";
+                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                    exit;
+                }
+
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'title',        ['text' => $title]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_1',       ['text' => $text1]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'stat_1_value', ['text' => $stat1]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'stat_2_value', ['text' => $stat2]);
+                $this->contentBlockModel->updateBySectionSlot($sectionId, 'image',        ['src' => $src, 'alt' => $alt]);
+            }
+
+            // ===== AUTRES : tu peux gérer plus tard, mais on évite de casser
+            else {
+                $_SESSION['flashError'] = "Section non gérée côté sauvegarde : " . $selectedSlug;
+                header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                exit;
+            }
 
             $_SESSION['flashSuccess'] = "Section mise à jour : " . $selectedSection->getAdminTitle();
             header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
@@ -206,16 +246,20 @@ class AdminAccueilController
         }
 
         return [
-            'flashSuccess'   => $flashSuccess,
-            'flashError'     => $flashError,
-            'sections'       => $sections,
-            'selectedSlug'   => $selectedSlug,
-            'selectedSection'=> $selectedSection,
-            'isEditable'     => $isEditable,
-            'blockTitle'     => $blockTitle,
-            'blockP1'        => $blockP1,
-            'blockP2'        => $blockP2,
-            'blockImg'       => $blockImg,
+            'flashSuccess'    => $flashSuccess,
+            'flashError'      => $flashError,
+            'sections'        => $sections,
+            'selectedSlug'    => $selectedSlug,
+            'selectedSection' => $selectedSection,
+            'isEditable'      => $isEditable,
+
+            // Compat (si certaines vues les utilisent)
+            'blockTitle'      => $blockTitle,
+            'blockP1'         => $blockP1,
+            'blockP2'         => $blockP2,
+            'blockImg'        => $blockImg,
+
+            // Le mieux : les vues utilisent $blocks[]
             'blocks'          => $blocks,
         ];
     }

@@ -1,7 +1,7 @@
 <?php
 
-// Email de réception (client)
-$to = 'nicolasgaudin13@gmail.com';
+// Email de réception (client) => dynamique
+$to = $siteUser?->getEmail() ?: 'contact@oflabim.fr';
 
 // Variables pour la vue
 $errors = [];

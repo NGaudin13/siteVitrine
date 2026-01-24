@@ -192,8 +192,7 @@
     </div>
 </section>
 
-
-<!-- ================= PRÉSENTATION / PARCOURS VERSION ENTREPRISE ================= -->
+<!-- ================= PRÉSENTATION / PARCOURS VERSION ENTREPRISE (DYNAMIQUE) ================= -->
 <section class="presentation-path py-5">
     <div class="container">
 
@@ -204,57 +203,66 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h2 fw-bold mb-0">Réalisations & expérience</h2>
-                        <span class="presentation-path__pill badge text-bg-dark">Projets</span>
+                        <h2 class="h2 fw-bold mb-0">
+                            <?= htmlspecialchars(
+                                $sectionsContent['presentation-path']['col1_title']
+                                ?? 'Réalisations & expérience'
+                            ) ?>
+                        </h2>
+
+                        <span class="presentation-path__pill badge text-bg-dark">
+                            <?= htmlspecialchars(
+                                $sectionsContent['presentation-path']['col1_pill']
+                                ?? 'Projets'
+                            ) ?>
+                        </span>
                     </div>
 
                     <p class="text-muted mb-4">
-                        Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.
+                        <?= nl2br(htmlspecialchars(
+                            $sectionsContent['presentation-path']['col1_intro']
+                            ?? 'Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.'
+                        )) ?>
                     </p>
 
                     <div class="presentation-path__timeline">
+                        <?php
+                        $hasTimeline = false;
+                        for ($i = 1; $i <= 20; $i++) {
+                            $t  = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_title"] ?? ''));
+                            $d  = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_desc"]  ?? ''));
+                            $dt = trim((string)($sectionsContent['presentation-path']["timeline_{$i}_date"]  ?? ''));
+                            if ($t === '' && $d === '' && $dt === '') continue;
 
-                        <div class="presentation-path__item d-flex gap-3">
-                            <div class="presentation-path__dot bg-success flex-shrink-0"></div>
-                            <div>
-                                <div class="fw-semibold">Coordination BIM</div>
-                                <div class="text-muted small">Pilotage de maquettes, coordination multi-lots, synthèse.</div>
-                                <div class="text-muted small">2012 – Aujourd’hui</div>
+                            $hasTimeline = true;
+                            ?>
+                            <div class="presentation-path__item d-flex gap-3">
+                                <div class="presentation-path__dot bg-success flex-shrink-0"></div>
+                                <div>
+                                    <?php if ($t !== ''): ?>
+                                        <div class="fw-semibold"><?= htmlspecialchars($t) ?></div>
+                                    <?php endif; ?>
+
+                                    <?php if ($d !== ''): ?>
+                                        <div class="text-muted small"><?= htmlspecialchars($d) ?></div>
+                                    <?php endif; ?>
+
+                                    <?php if ($dt !== ''): ?>
+                                        <div class="text-muted small"><?= htmlspecialchars($dt) ?></div>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
-                        <div class="presentation-path__item d-flex gap-3">
-                            <div class="presentation-path__dot bg-success flex-shrink-0"></div>
-                            <div>
-                                <div class="fw-semibold">Ingénierie structure</div>
-                                <div class="text-muted small">Études techniques, notes de calcul, optimisation structure.</div>
-                                <div class="text-muted small">2010 – 2012</div>
-                            </div>
-                        </div>
-
-                        <div class="presentation-path__item d-flex gap-3">
-                            <div class="presentation-path__dot bg-success flex-shrink-0"></div>
-                            <div>
-                                <div class="fw-semibold">Modélisation & plans</div>
-                                <div class="text-muted small">Modélisation 3D, plans d’exécution, quantitatifs.</div>
-                                <div class="text-muted small">2008 – 2010</div>
-                            </div>
-                        </div>
-
-                        <div class="presentation-path__item d-flex gap-3">
-                            <div class="presentation-path__dot bg-success flex-shrink-0"></div>
-                            <div>
-                                <div class="fw-semibold">Bureau d’études</div>
-                                <div class="text-muted small">Méthodes, relevés, dossiers techniques.</div>
-                                <div class="text-muted small">2007</div>
-                            </div>
-                        </div>
-
+                        <?php if (!$hasTimeline): ?>
+                            <div class="text-muted small">Aucune expérience renseignée.</div>
+                        <?php endif; ?>
                     </div>
+
                 </div>
             </div>
 
-            <!-- ===== COL 2 : ÉQUIPE / APPROCHE (CENTRAL) ===== -->
+             <!-- ===== COL 2 : ÉQUIPE / APPROCHE (EN DUR) ===== -->
             <div class="col-lg-4 d-flex">
                 <div class="presentation-path__profile h-100 p-4 rounded-4 border bg-white d-flex flex-column text-center">
 
@@ -296,68 +304,64 @@
                 <div class="presentation-path__panel h-100 p-4 rounded-4 bg-light">
 
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h2 class="h2 fw-bold mb-0">Compétences & formations</h2>
-                        <span class="presentation-path__pill badge text-bg-dark">Méthode</span>
+                        <h2 class="h2 fw-bold mb-0">
+                            <?= htmlspecialchars(
+                                $sectionsContent['presentation-path']['col3_title']
+                                ?? 'Compétences & formations'
+                            ) ?>
+                        </h2>
+
+                        <span class="presentation-path__pill badge text-bg-dark">
+                            <?= htmlspecialchars(
+                                $sectionsContent['presentation-path']['col3_pill']
+                                ?? 'Méthode'
+                            ) ?>
+                        </span>
                     </div>
 
                     <p class="text-muted mb-4">
-                        Des compétences internes solides, renforcées par une spécialisation BIM et structure.
+                        <?= nl2br(htmlspecialchars(
+                            $sectionsContent['presentation-path']['col3_intro']
+                            ?? 'Des compétences internes solides, renforcées par une spécialisation BIM et structure.'
+                        )) ?>
                     </p>
 
                     <div class="presentation-path__edu">
+                        <?php
+                        $hasEdu = false;
+                        for ($i = 1; $i <= 20; $i++) {
+                            $t   = trim((string)($sectionsContent['presentation-path']["edu_{$i}_title"] ?? ''));
+                            $d   = trim((string)($sectionsContent['presentation-path']["edu_{$i}_desc"]  ?? ''));
+                            $lvl = trim((string)($sectionsContent['presentation-path']["edu_{$i}_level"] ?? ''));
+                            if ($t === '' && $d === '' && $lvl === '') continue;
 
-                        <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
-                                    <i class="bi bi-mortarboard"></i>
-                                </div>
-                                <div>
-                                    <div class="fw-semibold">BIM — Coordination & méthodes</div>
-                                    <div class="text-muted small">Process, BEP, standards, structuration des maquettes.</div>
-                                    <div class="text-muted small">Niveau : avancé</div>
+                            $hasEdu = true;
+                            ?>
+                            <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
+                                        <i class="bi bi-mortarboard"></i>
+                                    </div>
+                                    <div>
+                                        <?php if ($t !== ''): ?>
+                                            <div class="fw-semibold"><?= htmlspecialchars($t) ?></div>
+                                        <?php endif; ?>
+
+                                        <?php if ($d !== ''): ?>
+                                            <div class="text-muted small"><?= htmlspecialchars($d) ?></div>
+                                        <?php endif; ?>
+
+                                        <?php if ($lvl !== ''): ?>
+                                            <div class="text-muted small"><?= htmlspecialchars($lvl) ?></div>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
 
-                        <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
-                                    <i class="bi bi-journal-check"></i>
-                                </div>
-                                <div>
-                                    <div class="fw-semibold">Génie civil — Structures</div>
-                                    <div class="text-muted small">Dimensionnement, notes de calcul, optimisation.</div>
-                                    <div class="text-muted small">Niveau : confirmé</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="presentation-path__edu-card p-3 rounded-3 bg-white border mb-3">
-                            <div class="d-flex align-items-start gap-3">
-                                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
-                                    <i class="bi bi-award"></i>
-                                </div>
-                                <div>
-                                    <div class="fw-semibold">Structure métal & bois</div>
-                                    <div class="text-muted small">Conception, détails, plans d’exécution.</div>
-                                    <div class="text-muted small">Niveau : confirmé</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="presentation-path__edu-card p-3 rounded-3 bg-white border">
-                            <div class="d-flex align-items-start gap-3">
-                                <div class="presentation-path__edu-icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
-                                    <i class="bi bi-book"></i>
-                                </div>
-                                <div>
-                                    <div class="fw-semibold">Qualité & livrables</div>
-                                    <div class="text-muted small">Nommage, versions, livrables exploitables.</div>
-                                    <div class="text-muted small">Niveau : structuré</div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php if (!$hasEdu): ?>
+                            <div class="text-muted small">Aucune compétence / formation renseignée.</div>
+                        <?php endif; ?>
                     </div>
 
                 </div>
@@ -366,6 +370,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- ================= PRÉSENTATION / EXEMPLES DE MAQUETTES ================= -->
 <section class="presentation-models pt-2 pb-5">

@@ -129,7 +129,7 @@
 </section>
 
 <!-- ================= ACCUEIL / LE BIM ================= -->
-<section id= "homeBin" class="home-bim py-5">
+<section id="homeBim" class="home-bim py-5">
     <div class="container">
 
         <div class="row g-5 align-items-stretch">
@@ -139,23 +139,24 @@
                 <div class="home-bim__content">
 
                     <h2 class="display-6 fw-bold mb-4">
-                        Le BIM, au cœur de la coordination de vos projets
+                        <?= htmlspecialchars(
+                            $sectionsContent['home-bim']['title']
+                            ?? 'Le BIM, au cœur de la coordination de vos projets'
+                        ) ?>
                     </h2>
 
                     <p class="text-muted mb-3">
-                        Le BIM (Building Information Modeling) repose sur une maquette numérique 3D
-                        qui centralise l’ensemble des données techniques du projet.
-                        Elle devient une base commune de travail pour tous les intervenants.
+                        <?= nl2br(htmlspecialchars(
+                            $sectionsContent['home-bim']['text_1']
+                            ?? 'Texte BIM principal'
+                        )) ?>
                     </p>
 
                     <p class="text-muted mb-0">
-                        Cette approche collaborative permet de mieux anticiper les contraintes,
-                        d’aligner les décisions techniques et de fiabiliser les échanges
-                        tout au long du projet, de la conception au chantier.
-                        La maquette BIM ne se limite pas à un modèle 3D : elle intègre l’ensemble
-                        des données techniques du bâtiment (matériaux, quantités, performances,
-                        coûts, planning), faisant de l’ingénieur BIM le garant de la cohérence,
-                        de la qualité et de la gestion des informations du projet.
+                        <?= nl2br(htmlspecialchars(
+                            $sectionsContent['home-bim']['text_2']
+                            ?? 'Texte BIM secondaire'
+                        )) ?>
                     </p>
 
                 </div>
@@ -165,8 +166,14 @@
             <div class="col-lg-6 d-flex">
                 <div class="home-bim__image">
                     <img
-                        src="assets/images/accueil_homeBim2.jpg"
-                        alt="Coordination BIM et travail collaboratif autour d’une maquette numérique"
+                        src="<?= htmlspecialchars(
+                            $sectionsContent['home-bim']['image']['src']
+                            ?? 'assets/images/accueil_homeBim2.jpg'
+                        ) ?>"
+                        alt="<?= htmlspecialchars(
+                            $sectionsContent['home-bim']['image']['alt']
+                            ?? 'Coordination BIM et travail collaboratif autour d’une maquette numérique'
+                        ) ?>"
                         loading="lazy"
                     >
                 </div>
@@ -175,6 +182,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- ================= HOME / SERVICES + VALUE (3 colonnes) ================= -->
 <section class="home-services-value py-5">
@@ -344,30 +352,49 @@
                 <div class="home-about__content">
 
                     <h2 class="home-about__title display-6 fw-bold mb-3">
-                        À propos de nous
+                        <?= htmlspecialchars(
+                            $sectionsContent['home-about']['title']
+                            ?? 'À propos de nous'
+                        ) ?>
                     </h2>
 
                     <p class="home-about__text text-muted mb-4">
-                        OFLABIM accompagne vos projets de construction avec une approche claire et rigoureuse :
-                        modélisation BIM, coordination, études techniques et optimisation des solutions.
-                        Notre objectif : sécuriser les décisions, réduire les risques et livrer un résultat exploitable
-                        par tous les acteurs du projet.
+                        <?= nl2br(htmlspecialchars(
+                            $sectionsContent['home-about']['text_1']
+                            ?? 'Présentation de l’entreprise'
+                        )) ?>
                     </p>
 
                     <div class="home-about__stats row g-4">
+
                         <div class="col-6">
                             <div class="home-about__stat">
-                                <div class="home-about__number display-5 fw-bold text-primary mb-1">45+</div>
-                                <div class="home-about__label fw-semibold">Projets terminés</div>
+                                <div class="home-about__number display-5 fw-bold text-primary mb-1">
+                                    <?= htmlspecialchars(
+                                        $sectionsContent['home-about']['stat_1_value']
+                                        ?? '45+'
+                                    ) ?>
+                                </div>
+                                <div class="home-about__label fw-semibold">
+                                    Projets terminés
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-6">
                             <div class="home-about__stat">
-                                <div class="home-about__number display-5 fw-bold text-primary mb-1">100%</div>
-                                <div class="home-about__label fw-semibold">Clients satisfaits</div>
+                                <div class="home-about__number display-5 fw-bold text-primary mb-1">
+                                    <?= htmlspecialchars(
+                                        $sectionsContent['home-about']['stat_2_value']
+                                        ?? '100%'
+                                    ) ?>
+                                </div>
+                                <div class="home-about__label fw-semibold">
+                                    Clients satisfaits
+                                </div>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="home-about__actions mt-4 d-flex gap-2 flex-wrap">
@@ -387,8 +414,14 @@
                 <div class="home-about__media position-relative">
                     <img
                         class="home-about__img img-fluid rounded-3 shadow-sm w-100"
-                        src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=70"
-                        alt="Bureau d’études et ingénierie BIM"
+                        src="<?= htmlspecialchars(
+                            $sectionsContent['home-about']['image']['src']
+                            ?? 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=70'
+                        ) ?>"
+                        alt="<?= htmlspecialchars(
+                            $sectionsContent['home-about']['image']['alt']
+                            ?? 'Bureau d’études et ingénierie BIM'
+                        ) ?>"
                         loading="lazy"
                     >
                 </div>
@@ -397,6 +430,7 @@
         </div>
     </div>
 </section>
+
 
 <!-- ================= ACCUEIL / LIVRABLES ================= -->
 <section class="home-deliverables py-5">
