@@ -652,7 +652,7 @@
 
 /* Sous-texte des cartes maquettes */
 .presentation-models__desc {
-    text-align: justify;
+    text-align: center;
     text-justify: inter-word;
     line-height: 1.55;
 }

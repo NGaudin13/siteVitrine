@@ -203,19 +203,69 @@ if (!empty($siteUser?->getAddress())) {
 
                         <div class="col-md-6">
                             <label class="form-label" for="phone">Téléphone (optionnel)</label>
-                            <input class="form-control" id="phone" name="phone" type="tel" placeholder="+33…">
+                            <input
+                                class="form-control"
+                                id="phone"
+                                name="phone"
+                                type="tel"
+                                placeholder="+33…"
+                                pattern="^\+?[0-9\s\-]{6,20}$"
+                            >
                         </div>
 
                         <div class="col-md-6">
-                            <label class="form-label" for="subject">Sujet</label>
+                        <label class="form-label" for="subject">Type de demande</label>
+
                             <select class="form-select" id="subject" name="subject" required>
-                                <option value="" selected disabled>Choisir…</option>
-                                <option value="devis">Demande de devis</option>
-                                <option value="rdv">Prise de rendez-vous</option>
-                                <option value="bim">Ingénierie BIM</option>
-                                <option value="autre">Autre</option>
+                                <option value="" disabled <?= empty($old['subject'] ?? '') ? 'selected' : '' ?>>
+                                    Choisir…
+                                </option>
+
+                                <?php
+                                // On récupère la section contact (slug côté BDD)
+                                $contactSlug = 'contact-nature-demande';
+
+                                // On filtre uniquement les slots "subject_*"
+                                $raw = $sectionsContent[$contactSlug] ?? [];
+                                $items = [];
+
+                                foreach ($raw as $slot => $val) {
+                                    if (strpos($slot, 'subject_') !== 0) {
+                                        continue;
+                                    }
+
+                                    // value technique = ce qu'il y a après "subject_"
+                                    $value = substr($slot, 8);
+
+                                    // label = texte du content_block
+                                    // (selon comment tu construis $sectionsContent, ça peut être string ou array)
+                                    $label = is_array($val) ? (string)($val['text'] ?? '') : (string)$val;
+
+                                    // ordre si dispo
+                                    $order = is_array($val) ? (int)($val['order_index'] ?? 0) : 0;
+
+                                    if ($label === '') {
+                                        continue;
+                                    }
+
+                                    $items[] = ['value' => $value, 'label' => $label, 'order' => $order];
+                                }
+
+                                // tri par order_index si présent
+                                usort($items, fn($a, $b) => ($a['order'] <=> $b['order']) ?: strcmp($a['label'], $b['label']));
+                                ?>
+
+                                <?php foreach ($items as $it): ?>
+                                    <option
+                                        value="<?= htmlspecialchars($it['value']) ?>"
+                                        <?= (!empty($old['subject']) && $old['subject'] === $it['value']) ? 'selected' : '' ?>
+                                    >
+                                        <?= htmlspecialchars($it['label']) ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
+
 
                         <div class="col-12">
                             <label class="form-label" for="message">Message</label>

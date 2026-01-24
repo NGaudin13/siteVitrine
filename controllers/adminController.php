@@ -55,6 +55,19 @@ switch ($page) {
         $activeTab = 'presentation';
         break;
 
+     case 'adminContact':
+        require_once PATH_CONTROLLERS . 'AdminContactController.php';
+        $controller = new AdminContactController($pdo);
+
+        $data = $controller->index();
+        if (is_array($data)) {
+            extract($data, EXTR_SKIP);
+        }
+
+        $view      = 'adminContact.php';
+        $activeTab = 'contact';
+        break;
+
     default:
         // ✅ Admin : page inconnue => 404
         http_response_code(404);
