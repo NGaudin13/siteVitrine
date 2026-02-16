@@ -177,17 +177,20 @@
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="index.php?page=service#bim" class="dropdown-item">
-                        Ingénierie BIM
+                    <a href="index.php?page=service#modelisation_bim" class="dropdown-item">
+                        Modélisation BIM
                     </a>
-                    <a href="index.php?page=service#beton" class="dropdown-item">
-                        Structures béton
+
+                    <a href="index.php?page=service#plan_technique" class="dropdown-item">
+                        Plans techniques
                     </a>
-                    <a href="index.php?page=service#metal" class="dropdown-item">
-                        Structures métalliques
+
+                    <a href="index.php?page=service#processus_bim" class="dropdown-item">
+                        Processus BIM collaboratifs
                     </a>
-                    <a href="index.php?page=service#bois" class="dropdown-item">
-                        Ossature bois
+
+                    <a href="index.php?page=service#optimisation_bim" class="dropdown-item">
+                        Optimisation & DOE BIM
                     </a>
                 </div>
 

@@ -48,11 +48,23 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-light mb-4">Services</h3>
 
-                <a class="btn btn-link" href="index.php?page=service#bim">Ingénierie BIM</a>
-                <a class="btn btn-link" href="index.php?page=service#beton">Structures béton</a>
-                <a class="btn btn-link" href="index.php?page=service#metal">Structures métalliques</a>
-                <a class="btn btn-link" href="index.php?page=service#bois">Ossature bois</a>
+                <a class="btn btn-link" href="index.php?page=service#modelisation_bim">
+                    Modélisation BIM
+                </a>
+
+                <a class="btn btn-link" href="index.php?page=service#plan_technique">
+                    Plans techniques
+                </a>
+
+                <a class="btn btn-link" href="index.php?page=service#processus_bim">
+                    Processus BIM collaboratifs
+                </a>
+
+                <a class="btn btn-link" href="index.php?page=service#optimisation_bim">
+                    Optimisation & DOE BIM
+                </a>
             </div>
+
 
             <!-- Liens utiles -->
             <div class="col-lg-3 col-md-6">

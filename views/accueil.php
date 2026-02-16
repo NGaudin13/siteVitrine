@@ -188,7 +188,7 @@
 <section class="home-services-value py-5">
     <div class="container">
 
-        <div class="row g-4 align-items-center">
+        <div class="row g-4 align-items-stretch">
 
             <!-- ===== COL 1 : PRESTATIONS ===== -->
             <div class="col-lg-4">
@@ -206,13 +206,13 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#bim">
+                           href="index.php?page=service#modelisation_bim">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-boxes"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Ingénierie BIM</div>
-                                <div class="text-muted small">Coordination, maquette, échanges et synthèse.</div>
+                                <div class="fw-semibold text-dark">Modélisation BIM de l’existant</div>
+                                <div class="text-muted small">Maquettes fiables à partir des données techniques et du terrain</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
                                 <i class="bi bi-chevron-right"></i>
@@ -221,13 +221,13 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#beton">
+                           href="index.php?page=service#plan_technique">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-building"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Structures béton</div>
-                                <div class="text-muted small">Dimensionnement, plans, notes de calcul.</div>
+                                <div class="fw-semibold text-dark">Plans techniques d’exécution</div>
+                                <div class="text-muted small">Documents clairs et exploitables issus des maquettes BIM</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
                                 <i class="bi bi-chevron-right"></i>
@@ -236,13 +236,13 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#metal">
+                           href="index.php?page=service#processus_bim">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-wrench-adjustable"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Structures métalliques</div>
-                                <div class="text-muted small">Conception, assemblages, plans d’exécution.</div>
+                                <div class="fw-semibold text-dark">Processus BIM collaboratifs</div>
+                                <div class="text-muted small">Structuration des maquettes et organisation des workflows sur ACC</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
                                 <i class="bi bi-chevron-right"></i>
@@ -251,13 +251,13 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3"
-                           href="index.php?page=service#bois">
+                           href="index.php?page=service#optimisation_bim">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-tree"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Ossature bois</div>
-                                <div class="text-muted small">Études, optimisation, détails techniques.</div>
+                                <div class="fw-semibold text-dark">Optimisation BIM & DOE numériques</div>
+                                <div class="text-muted small">Automatisation, fiabilisation des données et production d’IFC conformes</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
                                 <i class="bi bi-chevron-right"></i>
@@ -269,8 +269,8 @@
             </div>
 
             <!-- ===== COL 2 : IMAGE ===== -->
-            <div class="col-lg-4 text-center">
-                <div class="home-services-value__image-wrap mx-auto">
+            <div class="col-lg-4 d-flex">
+                <div class="home-services-value__image-wrap mx-auto w-100 h-100">
                     <img
                         class="img-fluid rounded-4 home-services-value__image"
                         src="assets/images/accueil_homeServiceValue1.jpg"
@@ -332,6 +332,18 @@
                                 <div class="fw-semibold">Confidentialité</div>
                                 <div class="text-muted small">Respect des données projet et de vos contraintes.</div>
                             </div>
+                        </div><br>
+
+                        <div class="d-flex align-items-start p-3 rounded-3 bg-light">
+                            <div class="home-services-value__badge text-success flex-shrink-0">
+                                <i class="bi bi-check-circle-fill"></i>
+                            </div>
+                            <div class="ms-3">
+                                <div class="fw-semibold">Rigueur technique</div>
+                                <div class="text-muted small">
+                                    Respect des normes et cohérence des données.
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -345,7 +357,7 @@
 <!-- ================= ACCUEIL / À PROPOS ================= -->
 <section class="home-about py-5">
     <div class="container">
-        <div class="row align-items-center g-5">
+        <div class="row align-items-stretch g-5">
 
             <!-- Col gauche : texte + stats -->
             <div class="col-lg-6">
@@ -540,13 +552,12 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                       <div class="col-md-6">
                             <div class="bg-light rounded-3 p-3 h-100">
-                                <div class="fw-semibold mb-1">Coordination</div>
+                                <div class="fw-semibold mb-1">Structuration BIM</div>
                                 <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge text-bg-dark">BCF</span>
-                                    <span class="badge text-bg-dark">Clash</span>
-                                    <span class="badge text-bg-dark">Synthèse</span>
+                                    <span class="badge text-bg-dark">Standards</span>
+                                    <span class="badge text-bg-dark">Workflows</span>
                                 </div>
                             </div>
                         </div>
@@ -593,6 +604,7 @@
 
     </div>
 </section>
+
 
 <!-- ================= ACCUEIL / TEMOIGNAGES ================= -->
 <section class="home-testimonials pt-3 pb-5">

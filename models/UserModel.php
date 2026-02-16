@@ -42,10 +42,10 @@ class UserModel
 
         $stmt = $this->pdo->prepare($sql);
         error_log('POST opening_hours=' . ($_POST['opening_hours'] ?? 'MISSING'));
-error_log('POST response_delay=' . ($_POST['response_delay'] ?? 'MISSING'));
+        error_log('POST response_delay=' . ($_POST['response_delay'] ?? 'MISSING'));
 
-error_log('OBJ opening_hours=' . var_export($user->getOpeningHours(), true));
-error_log('OBJ response_delay=' . var_export($user->getResponseDelay(), true));
+        error_log('OBJ opening_hours=' . var_export($user->getOpeningHours(), true));
+        error_log('OBJ response_delay=' . var_export($user->getResponseDelay(), true));
 
         $stmt->execute([
             'username' => $user->getUsername(),

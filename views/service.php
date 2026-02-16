@@ -37,57 +37,75 @@
         </header>
 
         <div class="services-swiper swiper">
-            <div class="services-swiper__wrapper swiper-wrapper">
+                <div class="services-swiper__wrapper swiper-wrapper">
 
-                <!-- Slide 1 -->
-                <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ingenierieBIM.jpg');">
-                        <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
-                        <div class="services-swiper__content">
-                            <h3 class="services-swiper__title">Ingénierie BIM</h3>
-                            <p class="services-swiper__text">Coordination, maquette, synthèse multi-lots et échanges.</p>
-                            <a class="btn btn-primary btn-sm" href="index.php?page=service#bim">En savoir plus</a>
+                    <!-- Slide 1 -->
+                    <article class="services-swiper__slide swiper-slide">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ingenierieBIM.jpg');">
+                            <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
+                            <div class="services-swiper__content">
+                                <h3 class="services-swiper__title">Modélisation BIM</h3>
+                                <p class="services-swiper__text">
+                                    Maquettes fiables issues des données techniques et de l’existant.
+                                </p>
+                                <a class="btn btn-primary btn-sm" href="index.php?page=service#modelisation_bim">
+                                    En savoir plus
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Slide 2 -->
-                <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80');">
-                        <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
-                        <div class="services-swiper__content">
-                            <h3 class="services-swiper__title">Structures béton</h3>
-                            <p class="services-swiper__text">Dimensionnement, notes de calcul et plans d’exécution rigoureux.</p>
-                            <a class="btn btn-primary btn-sm" href="index.php?page=service#beton">En savoir plus</a>
+                    <!-- Slide 2 -->
+                    <article class="services-swiper__slide swiper-slide">
+                        <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80');">
+                            <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
+                            <div class="services-swiper__content">
+                                <h3 class="services-swiper__title">Plans techniques</h3>
+                                <p class="services-swiper__text">
+                                    Documents clairs et exploitables pour les phases PRO et EXE.
+                                </p>
+                                <a class="btn btn-primary btn-sm" href="index.php?page=service#plan_technique">
+                                    En savoir plus
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Slide 3 -->
-                <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=70');">
-                        <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
-                        <div class="services-swiper__content">
-                            <h3 class="services-swiper__title">Structures métal</h3>
-                            <p class="services-swiper__text">Conception, assemblages, détails techniques et plans.</p>
-                            <a class="btn btn-primary btn-sm" href="index.php?page=service#metal">En savoir plus</a>
+                    <!-- Slide 3 -->
+                    <article class="services-swiper__slide swiper-slide">
+                        <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=70');">
+                            <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
+                            <div class="services-swiper__content">
+                                <h3 class="services-swiper__title">Processus BIM collaboratifs</h3>
+                                <p class="services-swiper__text">
+                                    Structuration des maquettes et organisation des workflows.
+                                </p>
+                                <a class="btn btn-primary btn-sm" href="index.php?page=service#processus_bim">
+                                    En savoir plus
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <!-- Slide 4 -->
-                <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ossatureBois.jpg');">
-                        <div class="services-swiper__icon"><i class="bi bi-tree"></i></div>
-                        <div class="services-swiper__content">
-                            <h3 class="services-swiper__title">Ossature bois</h3>
-                            <p class="services-swiper__text">Études, optimisation, détails et livrables exploitables.</p>
-                            <a class="btn btn-primary btn-sm" href="index.php?page=service#bois">En savoir plus</a>
+                    <!-- Slide 4 -->
+                    <article class="services-swiper__slide swiper-slide">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ossatureBois.jpg');">
+                            <div class="services-swiper__icon"><i class="bi bi-gear"></i></div>
+                            <div class="services-swiper__content">
+                                <h3 class="services-swiper__title">Optimisation & DOE BIM</h3>
+                                <p class="services-swiper__text">
+                                    Automatisation, fiabilisation des données et IFC conformes.
+                                </p>
+                                <a class="btn btn-primary btn-sm" href="index.php?page=service#optimisation_bim">
+                                    En savoir plus
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
+                </div>
             </div>
+
 
             <!-- Pagination -->
             <div class="services-swiper__pagination swiper-pagination"></div>
@@ -111,30 +129,40 @@
             </p>
         </header>
 
-        <!-- ===== 1) BIM ===== -->
-        <article id="bim" class="services-details__item">
+        <!-- ===== 1) MODELISATION BIM ===== -->
+        <article id="modelisation_bim" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
                 <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Ingénierie BIM</h3>
+                        <h3 class="services-details__title">Modélisation BIM fiable</h3>
                         <p class="services-details__subtitle">
-                            Coordination, structuration et qualité des maquettes pour une collaboration fluide.
+                            Maquettes fiables à partir de l’existant et des données techniques.
                         </p>
 
                         <p class="services-details__text">
-                            Nous mettons en place une méthode BIM simple et robuste : maquette structurée,
-                            règles de nommage, échanges clairs et livrables exploitables. L’objectif est de réduire les
-                            erreurs, limiter les reprises et sécuriser les décisions.
+                            Nous réalisons des maquettes numériques BIM sous Revit à partir de documents techniques existants :
+                            dossiers d’études, PID, schémas de principe, notes de calcul, plans d’exécution et documents fournisseurs.
+                        </p>
+
+                        <p class="services-details__text">
+                            Nous modélisons également l’existant à partir de nuages de points afin de restituer fidèlement les installations
+                            en place et de sécuriser les projets de réhabilitation ou d’extension.
+                        </p>
+
+                        <p class="services-details__text">
+                            Les maquettes sont développées avec un niveau de détail adapté aux phases AVP, PRO et EXE,
+                            en cohérence avec le cycle de vie du projet, pour les secteurs de l’eau, de l’air, des déchets,
+                            du CVC, de l’industrie et du pharmaceutique.
                         </p>
 
                         <ul class="services-details__list">
-                            <li>Structuration IFC/RVT + règles de nommage</li>
-                            <li>Clash detection & suivi (BCF / rapports)</li>
-                            <li>Synthèse multi-lots + coordination</li>
-                            <li>DOE / livrables propres et organisés</li>
+                            <li>Revit : modélisation à partir des données techniques</li>
+                            <li>Nuage de points : restitution de l’existant</li>
+                            <li>Niveau de détail adapté (AVP / PRO / EXE)</li>
+                            <li>Secteurs techniques : eau, air, déchets, CVC, industrie…</li>
                         </ul>
 
                         <div class="services-details__actions">
@@ -148,7 +176,7 @@
                     <div class="services-details__media">
                         <img
                             src="/siteVitrine/assets/images/service_ingenierieBIM.jpg"
-                            alt="Coordination BIM"
+                            alt="Modélisation BIM à partir de l’existant"
                             loading="lazy"
                         >
                     </div>
@@ -158,35 +186,42 @@
                 <div class="col-lg-4">
                     <aside class="services-details__project">
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Projet réalisé</span>
-                            <h4 class="services-details__project-title">Immeuble tertiaire – coordination multi-lots</h4>
+                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
+                            <h4 class="services-details__project-title">Site industriel – modélisation de l’existant</h4>
+
                             <p class="services-details__project-text">
-                                Mise en place d’un flux BIM, synthèse et coordination entre structure, CVC, plomberie et électricité.
+                                Reconstitution d’installations techniques à partir de documents d’études et d’un nuage de points,
+                                afin de disposer d’une base fiable pour une réhabilitation.
+                            </p>
+
+                            <p class="services-details__project-text">
+                                La maquette est structurée pour être exploitable en phase études comme en phase exécution, avec un niveau
+                                de détail ajusté (AVP / PRO / EXE) et des vues adaptées aux besoins du projet.
                             </p>
                         </div>
 
                         <div class="services-details__project-grid">
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Rapports clash + BCF</div>
+                                <div class="services-details__stat-value">Maquette Revit</div>
                             </div>
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Format</div>
-                                <div class="services-details__stat-value">IFC / RVT / PDF</div>
+                                <div class="services-details__stat-label">Données</div>
+                                <div class="services-details__stat-value">Plans + nuage de points</div>
                             </div>
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Objectif</div>
-                                <div class="services-details__stat-value">Réduire les reprises</div>
+                                <div class="services-details__stat-label">Phases</div>
+                                <div class="services-details__stat-value">AVP / PRO / EXE</div>
                             </div>
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Coordination fiable</div>
+                                <div class="services-details__stat-value">Existant fiabilisé</div>
                             </div>
                         </div>
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Un process clair = moins d’aller-retours et une maquette exploitable par tous.</span>
+                            <span>Une base “existant” fiable sécurise les décisions et limite les surprises en phase travaux.</span>
                         </div>
                     </aside>
                 </div>
@@ -194,29 +229,36 @@
             </div>
         </article>
 
-        <!-- ===== 2) BETON ===== -->
-        <article id="beton" class="services-details__item">
+        <!-- ===== 2) PLANS TECHNIQUES ===== -->
+        <article id="plan_technique" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
+                <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Structures béton</h3>
+                        <h3 class="services-details__title">Plans techniques clairs et exploitables</h3>
                         <p class="services-details__subtitle">
-                            Dimensionnement, optimisation et plans d’exécution pour béton armé.
+                            Pièces graphiques adaptées aux phases PRO et EXE.
                         </p>
 
                         <p class="services-details__text">
-                            Nous réalisons des études structures orientées chantier : dimensionnement, notes de calcul,
-                            plans et détails. L’approche vise la fiabilité et la lisibilité, pour que les équipes exécutent
-                            sans ambiguïté.
+                            À partir des maquettes numériques, nous produisons des pièces graphiques adaptées aux besoins du projet :
+                            plans guides équipements et génie civil, plans d’implantation, plans de manutention,
+                            schémas fonctionnels et documents dédiés à la consultation.
+                        </p>
+
+                        <p class="services-details__text">
+                            Ces livrables sont principalement destinés aux phases PRO et EXE,
+                            avec une attention particulière portée à la lisibilité, à la cohérence technique
+                            et à leur utilisation sur le terrain.
                         </p>
 
                         <ul class="services-details__list">
-                            <li>Pré-dimensionnement & optimisation</li>
-                            <li>Notes de calcul structurées</li>
-                            <li>Plans / coupes / détails BA</li>
-                            <li>Assistance technique MOE/EXE</li>
+                            <li>Plans guides équipements / génie civil</li>
+                            <li>Plans d’implantation et de manutention</li>
+                            <li>Schémas fonctionnels</li>
+                            <li>Documents de consultation</li>
                         </ul>
 
                         <div class="services-details__actions">
@@ -225,48 +267,57 @@
                     </div>
                 </div>
 
+                <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
                             src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80"
-                            alt="Études structures béton"
+                            alt="Plans techniques"
                             loading="lazy"
                         >
                     </div>
                 </div>
 
+                <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Projet réalisé</span>
-                            <h4 class="services-details__project-title">Bâtiment logements – dalles & voiles</h4>
+                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
+                            <h4 class="services-details__project-title">Local technique – plans PRO / EXE</h4>
+
                             <p class="services-details__project-text">
-                                Étude béton armé, optimisation des sections et production de plans d’exécution.
+                                Production de plans d’implantation, schémas et documents de consultation à partir d’une maquette BIM.
+                                Les plans sont préparés pour une lecture rapide et une utilisation directe en phase travaux.
+                            </p>
+
+                            <p class="services-details__project-text">
+                                L’objectif est de limiter les ambiguïtés sur chantier : repérages cohérents, informations utiles au bon endroit,
+                                et documents structurés pour faciliter validations et exécution.
                             </p>
                         </div>
 
                         <div class="services-details__project-grid">
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Notes + plans BA</div>
+                                <div class="services-details__stat-value">Plans + schémas</div>
+                            </div>
+                            <div class="services-details__stat">
+                                <div class="services-details__stat-label">Phases</div>
+                                <div class="services-details__stat-value">PRO / EXE</div>
                             </div>
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Focus</div>
-                                <div class="services-details__stat-value">Lisibilité chantier</div>
-                            </div>
-                            <div class="services-details__stat">
-                                <div class="services-details__stat-label">Risque</div>
-                                <div class="services-details__stat-value">Erreurs évitées</div>
+                                <div class="services-details__stat-value">Lisibilité terrain</div>
                             </div>
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">EXE maîtrisée</div>
+                                <div class="services-details__stat-value">Exécution fluide</div>
                             </div>
                         </div>
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Des plans clairs = moins de questions en phase travaux.</span>
+                            <span>Des plans clairs = moins d’allers-retours et une exécution plus sereine.</span>
                         </div>
                     </aside>
                 </div>
@@ -274,28 +325,35 @@
             </div>
         </article>
 
-        <!-- ===== 3) METAL ===== -->
-        <article id="metal" class="services-details__item">
+        <!-- ===== 3) PROCESSUS BIM ===== -->
+        <article id="processus_bim" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
+                <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Structures métalliques</h3>
+                        <h3 class="services-details__title">Processus BIM collaboratifs</h3>
                         <p class="services-details__subtitle">
-                            Conception, assemblages, détails et plans pour fabrication / montage.
+                            Structuration des maquettes et organisation des workflows sur ACC.
                         </p>
 
                         <p class="services-details__text">
-                            Nous intervenons sur la conception et la mise au point technique : assemblages, détails,
-                            plans et pièces de fabrication. Objectif : un dossier cohérent pour fabriquer et monter sans friction.
+                            Nous accompagnons la mise en place et l’organisation des processus BIM sur des plateformes collaboratives
+                            telles qu’Autodesk Construction Cloud (ACC).
+                        </p>
+
+                        <p class="services-details__text">
+                            Cette prestation inclut la structuration des maquettes Revit, la gestion du CDE, l’organisation des données
+                            et la mise en place de workflows adaptés, afin de garantir une continuité numérique fiable sur l’ensemble
+                            du cycle de vie du projet.
                         </p>
 
                         <ul class="services-details__list">
-                            <li>Conception structure & stabilité</li>
-                            <li>Détails d’assemblage</li>
-                            <li>Plans d’exécution / fabrication</li>
-                            <li>Coordination avec l’enveloppe & lots techniques</li>
+                            <li>Structuration des maquettes Revit</li>
+                            <li>Gestion du CDE (dossiers, versions, diffusion)</li>
+                            <li>Organisation des données projet</li>
+                            <li>Workflows : validations et suivi</li>
                         </ul>
 
                         <div class="services-details__actions">
@@ -304,48 +362,57 @@
                     </div>
                 </div>
 
+                <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
                             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
-                            alt="Structures métalliques"
+                            alt="Processus BIM collaboratifs"
                             loading="lazy"
                         >
                     </div>
                 </div>
 
+                <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Projet réalisé</span>
-                            <h4 class="services-details__project-title">Extension – charpente métallique</h4>
+                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
+                            <h4 class="services-details__project-title">Projet multi-intervenants – organisation ACC</h4>
+
                             <p class="services-details__project-text">
-                                Dossier EXE avec détails d’assemblage et plans pour fabrication / montage.
+                                Mise en place d’un environnement collaboratif ACC : structure du CDE, règles de dépôt, conventions de nommage
+                                et circuits de validation simples pour fiabiliser les échanges.
+                            </p>
+
+                            <p class="services-details__project-text">
+                                L’objectif est d’assurer une continuité numérique : données accessibles, versions maîtrisées,
+                                et workflows cohérents tout au long du projet.
                             </p>
                         </div>
 
                         <div class="services-details__project-grid">
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Plans EXE métal</div>
+                                <div class="services-details__stat-label">Plateforme</div>
+                                <div class="services-details__stat-value">Autodesk ACC</div>
                             </div>
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Focus</div>
-                                <div class="services-details__stat-value">Assemblages</div>
+                                <div class="services-details__stat-label">CDE</div>
+                                <div class="services-details__stat-value">Dossiers + versions</div>
                             </div>
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Format</div>
-                                <div class="services-details__stat-value">DWG / PDF</div>
+                                <div class="services-details__stat-label">Workflows</div>
+                                <div class="services-details__stat-value">Validation simple</div>
                             </div>
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Montage fluide</div>
+                                <div class="services-details__stat-value">Continuité fiable</div>
                             </div>
                         </div>
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Un bon détail d’assemblage évite 80% des problèmes en atelier.</span>
+                            <span>Un CDE clair = des fichiers maîtrisés, des validations rapides, et moins d’erreurs.</span>
                         </div>
                     </aside>
                 </div>
@@ -353,28 +420,36 @@
             </div>
         </article>
 
-        <!-- ===== 4) BOIS ===== -->
-        <article id="bois" class="services-details__item">
+        <!-- ===== 4) OPTIMISATION / DOE ===== -->
+        <article id="optimisation_bim" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
+                <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Ossature bois</h3>
+                        <h3 class="services-details__title">Optimisation BIM & préparation DOE numérique</h3>
                         <p class="services-details__subtitle">
-                            Études et détails techniques orientés préfabrication et chantier.
+                            Automatisation, fiabilisation des données et IFC conformes.
                         </p>
 
                         <p class="services-details__text">
-                            Nous produisons des dossiers bois clairs : principe structurel, détails, plans et livrables
-                            adaptés aux contraintes de fabrication et de montage. L’objectif est un dossier simple à exécuter.
+                            Nous développons des familles paramétriques Revit adaptées aux installations techniques,
+                            optimisons les gabarits de travail et mettons en place des scripts Dynamo pour automatiser les tâches répétitives,
+                            fiabiliser les données et améliorer la productivité des équipes BIM.
+                        </p>
+
+                        <p class="services-details__text">
+                            En phase DOE, nous réalisons l’allègement, le nettoyage et la structuration des maquettes numériques afin de maîtriser
+                            le poids des fichiers et de produire des IFC conformes aux exigences contractuelles, garantissant leur exploitabilité
+                            et la traçabilité des données pour l’exploitation et la maintenance.
                         </p>
 
                         <ul class="services-details__list">
-                            <li>Principes porteurs & optimisation</li>
-                            <li>Détails (liaisons, appuis, reprises)</li>
-                            <li>Plans d’exécution</li>
-                            <li>Coordination avec lots techniques</li>
+                            <li>Familles paramétriques Revit</li>
+                            <li>Optimisation des gabarits</li>
+                            <li>Scripts Dynamo (automatisation)</li>
+                            <li>Nettoyage / allègement / IFC DOE</li>
                         </ul>
 
                         <div class="services-details__actions">
@@ -383,48 +458,57 @@
                     </div>
                 </div>
 
+                <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
                             src="/siteVitrine/assets/images/service_ossatureBois.jpg"
-                            alt="Ossature bois"
+                            alt="Optimisation BIM et DOE numériques"
                             loading="lazy"
                         >
                     </div>
                 </div>
 
+                <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Projet réalisé</span>
-                            <h4 class="services-details__project-title">Maison individuelle – structure bois</h4>
+                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
+                            <h4 class="services-details__project-title">DOE numérique – maquette structurée et IFC</h4>
+
                             <p class="services-details__project-text">
-                                Études et détails techniques, plans d’exécution et coordination avec les lots techniques.
+                                Optimisation d’une maquette : nettoyage des données, allègement des fichiers et préparation d’un export IFC
+                                conforme aux exigences contractuelles.
+                            </p>
+
+                            <p class="services-details__project-text">
+                                Mise en place d’automatisations Dynamo pour fiabiliser les informations, limiter les actions manuelles,
+                                et garantir une maquette exploitable pour l’exploitation et la maintenance.
                             </p>
                         </div>
 
                         <div class="services-details__project-grid">
                             <div class="services-details__stat">
+                                <div class="services-details__stat-label">Automatisation</div>
+                                <div class="services-details__stat-value">Dynamo</div>
+                            </div>
+                            <div class="services-details__stat">
                                 <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Plans + détails</div>
+                                <div class="services-details__stat-value">IFC DOE</div>
                             </div>
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Focus</div>
-                                <div class="services-details__stat-value">Préfabrication</div>
-                            </div>
-                            <div class="services-details__stat">
-                                <div class="services-details__stat-label">Format</div>
-                                <div class="services-details__stat-value">PDF / DWG</div>
+                                <div class="services-details__stat-label">Objectif</div>
+                                <div class="services-details__stat-value">Poids maîtrisé</div>
                             </div>
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Montage rapide</div>
+                                <div class="services-details__stat-value">Exploitable</div>
                             </div>
                         </div>
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Un dossier bois précis facilite la préfabrication et réduit les ajustements sur site.</span>
+                            <span>Un DOE bien préparé facilite la reprise et la traçabilité des données dans le temps.</span>
                         </div>
                     </aside>
                 </div>
