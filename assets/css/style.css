@@ -686,6 +686,13 @@
 }
 
 
+/* ================= PRÉSENTATION / PARCOURS VERSION CV =============== */
+
+/* Masquer la section "Parcours" */
+.presentation-path-cv{
+  display: none !important;
+}
+
 
 /* ============================ PAGE SERVICES ========================== */
 /* ================= PRÉSENTATION / HEADER ================= */
@@ -993,7 +1000,7 @@
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(255,255,255,.10);
-  margin-bottom: 12px;
+  margin-bottom: 40px;
 }
 
 .services-details__project-title {

@@ -56,24 +56,23 @@
 
                 <p class="presentation-about__text text-muted mb-4">
                     La construction évolue : le <strong>BIM</strong> place la maquette numérique 3D au cœur du projet,
-                    de la conception à l’exécution. Chez <strong>OFLABIM</strong>, nous accompagnons cette transition
-                    avec une approche orientée qualité, coordination et performance. Notre rôle : structurer l’information,
-                    fluidifier la collaboration et sécuriser les décisions techniques.
+                    de la conception à l’exécution. Chez <strong>OFLABIM</strong>, nous intervenons avec une approche orientée
+                    <strong>qualité des données</strong> et <strong>livrables exploitables</strong>. Notre rôle : produire une maquette fiable,
+                    en extraire des plans clairs, et structurer l’information pour sécuriser les décisions techniques.
                 </p>
 
                 <p class="presentation-about__text text-muted mb-4">
-                    Spécialisés en <strong>génie civil</strong> et en <strong>coordination BIM</strong>, nous intervenons sur
-                    des projets <strong>béton armé</strong>, <strong>métalliques</strong> et <strong>ossature bois</strong>,
-                    en lien étroit avec architectes, bureaux d’études, installateurs techniques et maîtres d’ouvrage.
+                    Nous réalisons des <strong>maquettes Revit</strong> à partir de documents techniques (dossiers d’études, PID,
+                    schémas de principe, notes de calcul, plans d’exécution, documents fournisseurs) et pouvons modéliser
+                    l’<strong>existant</strong> à partir de <strong>nuages de points</strong>. Le niveau de détail est adapté aux phases
+                    <strong>AVP</strong>, <strong>PRO</strong> et <strong>EXE</strong>, selon les besoins du projet.
                 </p>
-
+                
                 <p class="presentation-about__text text-muted mb-4">
-                    Si votre projet implique plusieurs intervenants, des contraintes techniques fortes
-                    ou des enjeux de coordination, <strong>OFLABIM</strong> vous apporte un cadre clair.
-                    Nous structurons les échanges, fiabilisons les données et traduisons la maquette BIM
-                    en informations compréhensibles et exploitables pour tous.
-                    L’objectif est simple : <strong>moins d’ambiguïtés, moins de pertes de temps,
-                    et des décisions techniques plus sûres</strong> à chaque étape du projet.
+                    Nous accompagnons également la mise en place de <strong>processus BIM collaboratifs</strong> (CDE / ACC),
+                    et l’<strong>optimisation</strong> des maquettes : familles paramétriques, gabarits, automatisations Dynamo,
+                    puis <strong>préparation des DOE numériques</strong> (nettoyage, allègement, IFC conformes).
+                    L’objectif est simple : <strong>des données fiables, des documents lisibles, et des livrables prêts à être utilisés</strong>.
                 </p>
 
                 <!-- ===== 3 CARDS / POINTS CLÉS ===== -->
@@ -119,13 +118,14 @@
 
                 <!-- ===== DOMAINES ===== -->
                 <ul class="presentation-about__domains list-unstyled d-flex flex-wrap gap-2 mt-4 mb-0">
-                    <li class="presentation-about__domain">Construction</li>
-                    <li class="presentation-about__domain">Architecture</li>
-                    <li class="presentation-about__domain">Structure</li>
-                    <li class="presentation-about__domain">HVAC / Plomberie / Électricité</li>
-                    <li class="presentation-about__domain">Coordination</li>
-                    <li class="presentation-about__domain">Facility Management</li>
+                    <li class="presentation-about__domain">Modélisation BIM</li>
+                    <li class="presentation-about__domain">Revit</li>
+                    <li class="presentation-about__domain">Nuage de points</li>
+                    <li class="presentation-about__domain">Plans PRO / EXE</li>
+                    <li class="presentation-about__domain">Processus BIM / ACC</li>
+                    <li class="presentation-about__domain">DOE numériques / IFC</li>
                 </ul>
+
 
             </div>
         </div>
@@ -153,24 +153,23 @@
 
                 <p class="presentation-strategy__text text-muted mb-4">
                     Le BIM n’est pas un simple outil de modélisation.
-                    C’est une <strong>méthode de travail</strong> qui permet de structurer les informations,
-                    d’anticiper les problèmes et de coordonner efficacement l’ensemble des acteurs du projet.
+                    C’est une <strong>méthode de structuration des données</strong> qui permet de produire
+                    des maquettes fiables, adaptées aux phases AVP, PRO et EXE,
+                    et directement exploitables pour le projet.
                 </p>
 
                 <p class="presentation-strategy__text text-muted mb-4">
                     Chez <strong>OFLABIM</strong>, nous utilisons la maquette BIM comme un
-                    <strong>support de décision</strong> : chaque donnée a un rôle précis,
-                    chaque échange est cadré, et chaque livrable est pensé pour être
-                    compris et exploité sur le terrain.
+                    <strong>support technique</strong> : modélisation à partir des documents existants,
+                    production de plans clairs, structuration des processus sur ACC,
+                    et préparation de livrables conformes aux exigences contractuelles.
                 </p>
 
                 <p class="presentation-strategy__text text-muted mb-0">
-                    Sans démarche BIM claire, les projets subissent souvent
-                    des plans incohérents, des incompréhensions entre intervenants
-                    et des corrections tardives.
-                    <strong>Notre rôle</strong> est d’apporter une méthode claire dès le départ,
-                    pour que chacun travaille sur les mêmes informations,
-                    au bon moment et avec le bon niveau de détail.
+                    Notre approche vise à fiabiliser l’information dès le départ :
+                    maquettes structurées, données cohérentes, DOE numériques optimisés et IFC maîtrisés.
+                    L’objectif est simple : <strong>des documents lisibles, des données fiables
+                    et des livrables prêts à être utilisés</strong>.
                 </p>
 
             </div>
@@ -383,10 +382,10 @@
             </h2>
 
             <p class="text-muted mb-0">
-                Selon le type de projet, nous livrons des maquettes BIM adaptées à vos besoins :
-                coordination multi-lots, structure, exécution et DOE.
-                L’objectif est d’avoir une maquette lisible, fiable et exploitable
-                par l’ensemble des intervenants (MOE, entreprises, BET).
+                Selon le type de projet, nous livrons des maquettes BIM adaptées aux phases
+                AVP, PRO et EXE, à partir de données techniques existantes ou de relevés terrain.
+                Chaque maquette est structurée, fiable et pensée pour être exploitée
+                en production de plans, en processus collaboratif ou en DOE numérique.
             </p>
         </div>
 
@@ -398,16 +397,17 @@
                     <div class="presentation-models__thumb">
                         <img
                             src="assets/images/presentation_modelCoordination.jpg"
-                            alt="Maquette BIM - Coordination"
+                            alt="Maquette BIM issue de l’existant"
                             loading="lazy"
                         >
                     </div>
                     <h3 class="presentation-models__title text-center">
-                        Maquette de coordination
+                        Maquette issue de l’existant
                     </h3>
                     <p class="presentation-models__desc text-muted mb-0">
-                        Une maquette commune pour coordonner tous les lots,
-                        détecter les conflits et sécuriser les échanges entre intervenants.
+                        Modélisation réalisée sous Revit à partir de dossiers techniques,
+                        schémas, notes de calcul ou nuages de points,
+                        pour fiabiliser les installations existantes et préparer les phases AVP / PRO / EXE.
                     </p>
                 </article>
             </div>
@@ -418,7 +418,7 @@
                     <div class="presentation-models__thumb">
                         <img
                             src="assets/images/presentation_modelStructure.jpg"
-                            alt="Maquette BIM - Structure"
+                            alt="Maquette BIM structure"
                             loading="lazy"
                         >
                     </div>
@@ -426,9 +426,9 @@
                         Maquette structure
                     </h3>
                     <p class="presentation-models__desc text-muted mb-0">
-                        Une maquette dédiée aux éléments porteurs,
-                        utilisée pour le dimensionnement, les études
-                        et la compréhension globale de la structure.
+                        Maquette dédiée aux éléments porteurs,
+                        utilisée pour les études techniques et
+                        comme base à la production de plans clairs et exploitables en phase PRO / EXE.
                     </p>
                 </article>
             </div>
@@ -439,7 +439,7 @@
                     <div class="presentation-models__thumb">
                         <img
                             src="assets/images/presentation_modelExcecution.jpg"
-                            alt="Maquette BIM - Exécution"
+                            alt="Maquette BIM d’exécution"
                             loading="lazy"
                         >
                     </div>
@@ -447,9 +447,9 @@
                         Maquette d’exécution
                     </h3>
                     <p class="presentation-models__desc text-muted mb-0">
-                        Une maquette précise destinée aux entreprises,
-                        intégrant les détails nécessaires à la réalisation
-                        et au suivi de chantier.
+                        Maquette détaillée servant de support
+                        à la production de plans guides, plans d’implantation,
+                        schémas fonctionnels et documents destinés au chantier.
                     </p>
                 </article>
             </div>
@@ -460,7 +460,7 @@
                     <div class="presentation-models__thumb">
                         <img
                             src="assets/images/presentation_modelDOE.webp"
-                            alt="Maquette BIM DOE et carnet de santé du bâtiment"
+                            alt="Maquette BIM DOE et exploitation"
                             loading="lazy"
                         >
                     </div>
@@ -468,9 +468,9 @@
                         Maquette BIM DOE
                     </h3>
                     <p class="presentation-models__desc text-muted mb-0">
-                        Une maquette finale conforme à l’ouvrage réalisé,
-                        utilisée pour l’exploitation, la maintenance
-                        et le suivi du bâtiment dans le temps.
+                        Maquette allégée, nettoyée et structurée,
+                        avec export IFC conforme aux exigences contractuelles,
+                        destinée à l’exploitation, à la maintenance et à la traçabilité des données.
                     </p>
                 </article>
             </div>
@@ -480,9 +480,8 @@
 </section>
 
 
-
 <!-- ================= PRÉSENTATION / PARCOURS VERSION CV ================= -->
-<section class="presentation-path py-5">
+<section class="presentation-path-cv py-5">
     <div class="container">
 
         <div class="row align-items-stretch g-4">
