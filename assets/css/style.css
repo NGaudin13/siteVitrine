@@ -155,6 +155,11 @@
   object-fit: cover;
 }
 
+.home-hero__title{
+  white-space: nowrap;
+}
+
+
 /* Overlay sombre + centrage */
 .home-hero__overlay{
   position: absolute;

@@ -178,11 +178,11 @@
                     <div class="dropdown-divider"></div>
 
                     <a href="index.php?page=service#modelisation_bim" class="dropdown-item">
-                        Modélisation BIM
+                        Modélisation de maquette numérique
                     </a>
 
                     <a href="index.php?page=service#plan_technique" class="dropdown-item">
-                        Plans techniques
+                        Production de piéces graphiques
                     </a>
 
                     <a href="index.php?page=service#processus_bim" class="dropdown-item">

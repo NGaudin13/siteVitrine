@@ -85,7 +85,7 @@
                             <div class="col-12 col-lg-8">
 
                                 <h2 class="display-4 text-white mb-3 home-hero__title">
-                                    Structures béton, métal & bois
+                                    De la donnée à la décision
                                 </h2>
 
                                 <p class="fs-5 text-white-50 mb-4 home-hero__text">
@@ -211,7 +211,7 @@
                                 <i class="bi bi-boxes"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Modélisation BIM de l’existant</div>
+                                <div class="fw-semibold text-dark">Modélisation de maquette numérique</div>
                                 <div class="text-muted small">Maquettes fiables à partir des données techniques et du terrain</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
@@ -226,7 +226,7 @@
                                 <i class="bi bi-building"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Plans techniques d’exécution</div>
+                                <div class="fw-semibold text-dark">Production de piéces graphiques</div>
                                 <div class="text-muted small">Documents clairs et exploitables issus des maquettes BIM</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
@@ -241,7 +241,7 @@
                                 <i class="bi bi-wrench-adjustable"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Processus BIM collaboratifs</div>
+                                <div class="fw-semibold text-dark">Processus BIM collaboratif</div>
                                 <div class="text-muted small">Structuration des maquettes et organisation des workflows sur ACC</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">
@@ -256,7 +256,7 @@
                                 <i class="bi bi-tree"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Optimisation BIM & DOE numériques</div>
+                                <div class="fw-semibold text-dark">Optimisation BIM & DOE numérique</div>
                                 <div class="text-muted small">Automatisation, fiabilisation des données et production d’IFC conformes</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">

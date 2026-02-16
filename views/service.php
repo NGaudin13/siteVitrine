@@ -18,12 +18,23 @@
     "
 >
     <div class="container py-4">
-        <h1 class="display-4 text-white mb-2">Nos services</h1>
+
+        <h1 class="display-4 text-white mb-2">
+            Nos services
+        </h1>
+
+        <h2 class="h3 text-white mb-3">
+            De la donnée à la décision
+        </h2>
+
         <p class="lead text-white-50 mb-0" style="max-width: 760px;">
-            Bureau d’Études & Ingénierie BIM — coordination, modélisation et accompagnement technique de vos projets.
+            Modélisation BIM, production de plans techniques, structuration des processus collaboratifs
+            et préparation de DOE numériques pour des projets fiables et maîtrisés.
         </p>
+
     </div>
 </section>
+
 
 <!-- ================= SERVICES / SWIPER ================= -->
 <section class="services-swiper-section py-5">
@@ -44,7 +55,7 @@
                         <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ingenierieBIM.jpg');">
                             <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
                             <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Modélisation BIM</h3>
+                                <h3 class="services-swiper__title">Modélisation de maquette numérique</h3>
                                 <p class="services-swiper__text">
                                     Maquettes fiables issues des données techniques et de l’existant.
                                 </p>
@@ -60,7 +71,7 @@
                         <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80');">
                             <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
                             <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Plans techniques</h3>
+                                <h3 class="services-swiper__title">Production de piéces graphiques</h3>
                                 <p class="services-swiper__text">
                                     Documents clairs et exploitables pour les phases PRO et EXE.
                                 </p>
@@ -137,7 +148,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Modélisation BIM fiable</h3>
+                        <h3 class="services-details__title">Modélisation de maquette numérique</h3>
                         <p class="services-details__subtitle">
                             Maquettes fiables à partir de l’existant et des données techniques.
                         </p>
@@ -237,7 +248,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__panel">
                         <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Plans techniques clairs et exploitables</h3>
+                        <h3 class="services-details__title">Production de piéces graphiques</h3>
                         <p class="services-details__subtitle">
                             Pièces graphiques adaptées aux phases PRO et EXE.
                         </p>

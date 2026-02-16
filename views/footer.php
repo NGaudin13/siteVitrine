@@ -49,11 +49,11 @@
                 <h3 class="text-light mb-4">Services</h3>
 
                 <a class="btn btn-link" href="index.php?page=service#modelisation_bim">
-                    Modélisation BIM
+                    Modélisation de maquette numérique
                 </a>
 
                 <a class="btn btn-link" href="index.php?page=service#plan_technique">
-                    Plans techniques
+                    Production de piéces graphiques
                 </a>
 
                 <a class="btn btn-link" href="index.php?page=service#processus_bim">

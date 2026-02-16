@@ -18,10 +18,20 @@
     "
 >
     <div class="container py-4">
-        <h1 class="display-4 text-white mb-2">Présentation</h1>
+
+        <h1 class="display-4 text-white mb-2">
+            Présentation de l’entreprise
+        </h1>
+
+        <h2 class="h3 text-white mb-3">
+            De la donnée à la décision
+        </h2>
+
         <p class="lead text-white-50 mb-0" style="max-width: 760px;">
-            Bureau d’Études & Ingénierie BIM — coordination, modélisation et accompagnement technique de vos projets.
+            Bureau d’Études & Ingénierie BIM — modélisation, structuration des données
+            et accompagnement technique pour des projets fiables et maîtrisés.
         </p>
+
     </div>
 </section>
 
