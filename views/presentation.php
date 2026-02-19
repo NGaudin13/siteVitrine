@@ -298,10 +298,10 @@
 
                     <div class="mt-3">
                         <div class="presentation-path__profile-tags d-flex flex-wrap justify-content-center gap-2">
-                            <span class="badge rounded-pill text-bg-light border">Coordination BIM</span>
-                            <span class="badge rounded-pill text-bg-light border">Structures béton</span>
-                            <span class="badge rounded-pill text-bg-light border">Structures métal</span>
-                            <span class="badge rounded-pill text-bg-light border">Ossature bois</span>
+                            <span class="badge rounded-pill text-bg-light border">Modélisation BIM</span>
+                            <span class="badge rounded-pill text-bg-light border">Processus BIM/ACCn</span>
+                            <span class="badge rounded-pill text-bg-light border">DOE numériques/IFC</span>
+                            <span class="badge rounded-pill text-bg-light border">Plans PRO/EXE</span>
                         </div>
                     </div>
 

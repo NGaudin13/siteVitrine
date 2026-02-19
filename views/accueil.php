@@ -457,77 +457,136 @@
 
         <div class="row g-4 align-items-stretch">
 
-            <!-- LEFT: Livrables -->
+           <!-- LEFT: Livrables -->
             <div class="col-lg-6">
                 <div class="p-4 border rounded-3 h-100">
-                    <h3 class="h5 mb-3">Livrables</h3>
+                    <h3 class="h5 mb-4 fw-bold text-dark">Livrables</h3>
 
                     <div class="row g-3">
+
+                        <!-- Maquettes BIM -->
                         <div class="col-md-6">
                             <div class="bg-light rounded-3 p-3 h-100">
                                 <div class="d-flex gap-3">
                                     <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
-                                         style="width:46px;height:46px;">
+                                        style="width:46px;height:46px;">
                                         <i class="fa fa-cube text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-semibold">Maquette BIM</div>
-                                        <div class="text-muted small">Structurée, propre, prête à coordonner.</div>
+                                        <div class="fw-bold text-dark">Maquettes BIM</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>Hydraulique, CVC, lots techniques (Revit)</li>
+                                            <li>Disciplinaires & coordination</li>
+                                            <li>À partir de plans 2D ou nuages de points</li>
+                                            <li>Conformes LOD / LOI</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Familles paramétriques -->
                         <div class="col-md-6">
                             <div class="bg-light rounded-3 p-3 h-100">
                                 <div class="d-flex gap-3">
                                     <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
-                                         style="width:46px;height:46px;">
+                                        style="width:46px;height:46px;">
+                                        <i class="fa fa-tools text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Familles paramétriques</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>Création sur mesure</li>
+                                            <li>Optimisation performance & données</li>
+                                            <li>Adaptées chantier & DOE</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gabarits & standards -->
+                        <div class="col-md-6">
+                            <div class="bg-light rounded-3 p-3 h-100">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                                        style="width:46px;height:46px;">
                                         <i class="fa fa-layer-group text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-semibold">Plans & coupes</div>
-                                        <div class="text-muted small">PDF/DWG avec une mise en page pro.</div>
+                                        <div class="fw-bold text-dark">Gabarits & standards</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>Gabarits Revit structurés</li>
+                                            <li>Standards graphiques & techniques</li>
+                                            <li>Workflows BIM fiables</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Coordination BIM -->
                         <div class="col-md-6">
                             <div class="bg-light rounded-3 p-3 h-100">
                                 <div class="d-flex gap-3">
                                     <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
-                                         style="width:46px;height:46px;">
-                                        <i class="fa fa-check-double text-white"></i>
+                                        style="width:46px;height:46px;">
+                                        <i class="fa fa-project-diagram text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-semibold">Coordination / clash</div>
-                                        <div class="text-muted small">Détection + rapport clair des conflits.</div>
+                                        <div class="fw-bold text-dark">Coordination BIM</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>Détection d’interférences</li>
+                                            <li>Préparation coordination multi-métiers</li>
+                                            <li>Support & bonnes pratiques</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- DOE numériques -->
                         <div class="col-md-6">
                             <div class="bg-light rounded-3 p-3 h-100">
                                 <div class="d-flex gap-3">
                                     <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
-                                         style="width:46px;height:46px;">
-                                        <i class="fa fa-file-invoice text-white"></i>
+                                        style="width:46px;height:46px;">
+                                        <i class="fa fa-folder-open text-white"></i>
                                     </div>
                                     <div>
-                                        <div class="fw-semibold">Quantités</div>
-                                        <div class="text-muted small">Tableaux de quantités pour chiffrage.</div>
+                                        <div class="fw-bold text-dark">DOE numériques</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>DOE BIM exploitables</li>
+                                            <li>Données structurées</li>
+                                            <li>Prêtes exploitation & maintenance</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Documentation BIM -->
+                        <div class="col-md-6">
+                            <div class="bg-light rounded-3 p-3 h-100">
+                                <div class="d-flex gap-3">
+                                    <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-dark rounded"
+                                        style="width:46px;height:46px;">
+                                        <i class="fa fa-book text-white"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold text-dark">Documentation BIM</div>
+                                        <ul class="small text-muted mb-0 mt-2 ps-3">
+                                            <li>Guides & bonnes pratiques</li>
+                                            <li>Check-lists qualité</li>
+                                            <li>Manuels gabarits & familles</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <a href="index.php?page=service"
-                       class="btn btn-outline-dark px-4 mt-4">
-                        Voir nos services
-                    </a>
                 </div>
             </div>
 
@@ -596,6 +655,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="mt-3 p-3 rounded-3 bg-light">
+                        <div class="d-flex gap-3 align-items-start">
+                            <i class="fa fa-sync-alt mt-1"></i>
+                            <div>
+                                <div class="fw-semibold">Interopérabilité maîtrisée</div>
+                                <div class="text-muted small">
+                                    Des formats ouverts, des échanges fluides et des workflows compatibles avec vos outils et vos équipes.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a href="index.php?page=service"
+                    class="btn btn-outline-dark px-4 mt-4">
+                        Voir nos services
+                    </a>
 
                 </div>
             </div>
