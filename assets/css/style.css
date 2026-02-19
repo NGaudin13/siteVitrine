@@ -299,6 +299,49 @@
   object-fit: cover;
 }
 
+/* ================= ACCUEIL / DOMAINE INTERVENTION ================= */
+
+.domain-card {
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.domain-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
+}
+
+.domain-card__img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.domain-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.15));
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+}
+
+.domain-card__overlay h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.domain-card__body {
+    padding: 18px;
+    font-size: .9rem;
+    color: rgba(0,0,0,.70);
+}
+
 
 /* ================= PAGE CONTACT ================= */
 /* ================= PAGE CONTACT / HEADER ================= */
@@ -315,7 +358,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.35);
 }
 
 /* Contenu au-dessus de l’overlay */

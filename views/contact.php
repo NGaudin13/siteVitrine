@@ -17,7 +17,7 @@ if (!empty($siteUser?->getAddress())) {
 <section
     class="header-contact page-hero page-header-contact mt-4 py-5 mb-5"
     style="
-        background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');
+        background-image: url('/siteVitrine/assets/images/contactezNous3.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

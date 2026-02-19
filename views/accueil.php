@@ -73,7 +73,7 @@
             <div class="carousel-item home-hero__slide">
 
                 <img
-                    src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1920&q=80"
+                    src="/siteVitrine/assets/images/hopitalCVC2.jpg"
                     class="d-block w-100 home-hero__img"
                     alt="Études structures et accompagnement technique"
                     loading="lazy"
@@ -444,6 +444,121 @@
 </section>
 
 
+<!-- ================= DOMAINES D’INTERVENTION ================= -->
+<section class="home-domains py-5">
+    <div class="container">
+
+        <div class="text-center mx-auto mb-5" style="max-width: 820px;">
+            <h2 class="display-6 fw-bold mb-2">Domaines d’intervention</h2>
+            <p class="text-muted mb-0">
+                OFLABIM accompagne des projets techniques et industriels complexes,
+                nécessitant une forte maîtrise des méthodes BIM et de la coordination.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                    style="background-image:url('/siteVitrine/assets/images/traitements-pour-rendre-l-eau-potable.jpg');">
+                        <div class="domain-card__overlay">
+                            <h3>Traitement de l’eau potable</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Projets intégrant réseaux, équipements et ouvrages techniques,
+                        avec une approche BIM orientée coordination et exploitation.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                        style="background-image:url('/siteVitrine/assets/images/stationEpuration.jpg');">
+                        <div class="domain-card__overlay">
+                            <h3>Stations d’épuration</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Environnements multi-lots à forte contrainte technique,
+                        nécessitant une structuration BIM rigoureuse.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                        style="background-image:url('/siteVitrine/assets/images/posteRelevage.png');">
+                        <div class="domain-card__overlay">
+                            <h3>Postes de relevage</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Modélisation des ouvrages hydrauliques,
+                        coordination des réseaux et préparation des données techniques.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                        style="background-image:url('/siteVitrine/assets/images/uniteMethanisation.jpg');">
+                        <div class="domain-card__overlay">
+                            <h3>Unités de méthanisation</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Projets industriels intégrant process, structures et réseaux,
+                        avec une attention portée à la cohérence des maquettes.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                        style="background-image:url('/siteVitrine/assets/images/hopitalCVC2.jpg');">
+                        <div class="domain-card__overlay">
+                            <h3>Bâtiments hospitaliers – CVC</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Modélisation et coordination des systèmes CVC
+                        dans des environnements sensibles.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="domain-card h-100">
+                    <div class="domain-card__img"
+                        style="background-image:url('/siteVitrine/assets/images/HP_IMG-Entreprise.png');">
+                        <div class="domain-card__overlay">
+                            <h3>Bâtiments industriels & techniques</h3>
+                        </div>
+                    </div>
+                    <div class="domain-card__body">
+                        Projets industriels intégrant process, structures et réseaux,
+                        avec une approche BIM orientée coordination et fiabilité des données.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 <!-- ================= ACCUEIL / LIVRABLES ================= -->
 <section class="home-deliverables py-5">
     <div class="container">
@@ -681,7 +796,6 @@
 
     </div>
 </section>
-
 
 <!-- ================= ACCUEIL / TEMOIGNAGES ================= -->
 <section class="home-testimonials pt-3 pb-5">

@@ -11,7 +11,7 @@
 <section
     class="header-service page-hero mt-4 py-4 mb-0"
     style="
-        background-image: url('/siteVitrine/assets/images/service_header.jpg');
+        background-image: url('/siteVitrine/assets/images/stationEpuration.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

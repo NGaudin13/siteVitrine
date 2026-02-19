@@ -11,7 +11,7 @@
 <section
     class="header-presentation page-hero mt-4 py-5 mb-5"
     style="
-        background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');
+    background-image: url('/siteVitrine/assets/images/presentation2.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
