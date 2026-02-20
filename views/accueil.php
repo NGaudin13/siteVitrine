@@ -443,117 +443,94 @@
     </div>
 </section>
 
-
 <!-- ================= DOMAINES D’INTERVENTION ================= -->
 <section class="home-domains py-5">
     <div class="container">
 
         <div class="text-center mx-auto mb-5" style="max-width: 820px;">
-            <h2 class="display-6 fw-bold mb-2">Domaines d’intervention</h2>
+            <h2 class="display-6 fw-bold mb-2">
+                <?= htmlspecialchars(
+                    $sectionsContent['home-domains']['title']
+                    ?? 'Domaines d’intervention'
+                ) ?>
+            </h2>
+
             <p class="text-muted mb-0">
-                OFLABIM accompagne des projets techniques et industriels complexes,
-                nécessitant une forte maîtrise des méthodes BIM et de la coordination.
+                <?= nl2br(htmlspecialchars(
+                    $sectionsContent['home-domains']['intro']
+                    ?? "OFLABIM accompagne des projets techniques et industriels complexes,\nnécessitant une forte maîtrise des méthodes BIM et de la coordination."
+                )) ?>
             </p>
         </div>
 
         <div class="row g-4">
+            <?php
+            $sd = $sectionsContent['home-domains'] ?? [];
 
-            <!-- 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                    style="background-image:url('/siteVitrine/assets/images/traitements-pour-rendre-l-eau-potable.jpg');">
-                        <div class="domain-card__overlay">
-                            <h3>Traitement de l’eau potable</h3>
+            // 1) Si tu as déjà un tableau "domains"
+            $domains = $sd['domains'] ?? null;
+
+            // 2) Sinon, on reconstruit depuis domain_1_..., domain_2_..., etc (max 9)
+            if (!is_array($domains)) {
+                $domains = [];
+                for ($i = 1; $i <= 9; $i++) {
+                    $t = $sd["domain_{$i}_title"] ?? '';
+                    $d = $sd["domain_{$i}_desc"] ?? '';
+
+                    $img = $sd["domain_{$i}_img"] ?? [];
+                    $src = is_array($img) ? ($img['src'] ?? '') : '';
+                    $alt = is_array($img) ? ($img['alt'] ?? '') : '';
+
+                    if (trim($t) === '' || trim($d) === '' || trim($src) === '') {
+                        continue;
+                    }
+
+                    if (trim($alt) === '') {
+                        $alt = $t; // fallback propre
+                    }
+
+                    $domains[] = [
+                        'title' => $t,
+                        'desc'  => $d,
+                        'img'   => ['src' => $src, 'alt' => $alt],
+                    ];
+                }
+            }
+
+            // Affichage
+            foreach ($domains as $dom):
+                $title = (string)($dom['title'] ?? '');
+                $desc  = (string)($dom['desc'] ?? '');
+
+                $img   = $dom['img'] ?? [];
+                $src   = is_array($img) ? (string)($img['src'] ?? '') : '';
+                $alt   = is_array($img) ? (string)($img['alt'] ?? '') : '';
+
+                if (trim($title) === '' || trim($desc) === '' || trim($src) === '') continue;
+                if (trim($alt) === '') $alt = $title;
+            ?>
+                <div class="col-md-6 col-lg-4">
+                    <div class="domain-card h-100">
+                        <div class="domain-card__img position-relative">
+
+                            <img
+                                src="<?= htmlspecialchars($src) ?>"
+                                alt="<?= htmlspecialchars($alt) ?>"
+                                class="img-fluid w-100 h-100 object-fit-cover"
+                                loading="lazy"
+                            >
+
+                            <div class="domain-card__overlay">
+                                <h3><?= htmlspecialchars($title) ?></h3>
+                            </div>
+                        </div>
+
+                        <div class="domain-card__body">
+                            <?= nl2br(htmlspecialchars($desc)) ?>
                         </div>
                     </div>
-                    <div class="domain-card__body">
-                        Projets intégrant réseaux, équipements et ouvrages techniques,
-                        avec une approche BIM orientée coordination et exploitation.
-                    </div>
                 </div>
-            </div>
-
-            <!-- 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                        style="background-image:url('/siteVitrine/assets/images/stationEpuration.jpg');">
-                        <div class="domain-card__overlay">
-                            <h3>Stations d’épuration</h3>
-                        </div>
-                    </div>
-                    <div class="domain-card__body">
-                        Environnements multi-lots à forte contrainte technique,
-                        nécessitant une structuration BIM rigoureuse.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                        style="background-image:url('/siteVitrine/assets/images/posteRelevage.png');">
-                        <div class="domain-card__overlay">
-                            <h3>Postes de relevage</h3>
-                        </div>
-                    </div>
-                    <div class="domain-card__body">
-                        Modélisation des ouvrages hydrauliques,
-                        coordination des réseaux et préparation des données techniques.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                        style="background-image:url('/siteVitrine/assets/images/uniteMethanisation.jpg');">
-                        <div class="domain-card__overlay">
-                            <h3>Unités de méthanisation</h3>
-                        </div>
-                    </div>
-                    <div class="domain-card__body">
-                        Projets industriels intégrant process, structures et réseaux,
-                        avec une attention portée à la cohérence des maquettes.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                        style="background-image:url('/siteVitrine/assets/images/hopitalCVC2.jpg');">
-                        <div class="domain-card__overlay">
-                            <h3>Bâtiments hospitaliers – CVC</h3>
-                        </div>
-                    </div>
-                    <div class="domain-card__body">
-                        Modélisation et coordination des systèmes CVC
-                        dans des environnements sensibles.
-                    </div>
-                </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="domain-card h-100">
-                    <div class="domain-card__img"
-                        style="background-image:url('/siteVitrine/assets/images/HP_IMG-Entreprise.png');">
-                        <div class="domain-card__overlay">
-                            <h3>Bâtiments industriels & techniques</h3>
-                        </div>
-                    </div>
-                    <div class="domain-card__body">
-                        Projets industriels intégrant process, structures et réseaux,
-                        avec une approche BIM orientée coordination et fiabilité des données.
-                    </div>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
         </div>
 
     </div>

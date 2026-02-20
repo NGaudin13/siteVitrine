@@ -279,12 +279,15 @@
   display: block;
 }
 
+/* ================= ACCUEIL / Livrable ================= */
 
-/* ================= ACCUEIL / TEMOIGNAGES / Masqué temporairement ================= */
-.home-testimonials {
-    display: none;
+/* FIX overflow texte dans tes cards "Livrables" (flex) */
+.home-deliverables .d-flex > div:last-child{
+  min-width: 0;              /* le plus important */
+  overflow-wrap: anywhere;   /* casse les mots trop longs si besoin */
 }
 
+/* ================= ACCUEIL / TEMOIGNAGES / Masqué temporairement ================= */
 
 .home-testimonials__card{
   transition: transform .15s ease, box-shadow .15s ease;
@@ -315,9 +318,15 @@
 
 .domain-card__img {
     height: 200px;
-    background-size: cover;
-    background-position: center;
     position: relative;
+    overflow: hidden;
+}
+
+.domain-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .domain-card__overlay {
@@ -736,12 +745,6 @@
 
 /* ================= PRÉSENTATION / PARCOURS VERSION CV =============== */
 
-/* Masquer la section "Parcours" */
-.presentation-path-cv{
-  display: none !important;
-}
-
-
 /* ============================ PAGE SERVICES ========================== */
 /* ================= PRÉSENTATION / HEADER ================= */
 .header-service {
@@ -916,6 +919,12 @@
 }
 
 /* ================= SERVICES / DETAILS ================= */
+
+/* Justification du texte dans la section services */
+.services-details p {
+  text-align: justify;
+}
+
 
 .services-details__item {
   padding: 34px 0;
@@ -1337,4 +1346,22 @@ main h2 + p {
         align-items: flex-start;
         gap: 0.5rem;
     }
+}
+
+
+/* =========================================================
+   BLOC MASQUEE - A VOIR POUR D'AUTRE SITE
+   ========================================================= */
+
+/* Masquer la section "Parcours" */
+.presentation-path-cv{
+  display: none !important;
+}
+
+.home-testimonials {
+    display: none;
+}
+
+.home-about__stats {
+    display: none !important;
 }

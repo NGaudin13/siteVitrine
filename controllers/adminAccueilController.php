@@ -116,70 +116,76 @@ class AdminAccueilController
             }
 
             // ------------------------------------------------------------------
-            // UPLOAD IMAGE (commun)
+            // UPLOAD IMAGE (commun) -> uniquement sections avec image unique
             // ------------------------------------------------------------------
-            $src = trim((string)($_POST['image_src'] ?? ''));
-            $alt = trim((string)($_POST['image_alt'] ?? ''));
+            $src = '';
+            $alt = '';
 
-            if ($alt === '') {
-                $_SESSION['flashError'] = "Le texte alternatif (alt) est obligatoire.";
-                header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
-                exit;
-            }
+            if (in_array($selectedSlug, ['home-bim', 'home-about'], true)) {
 
-            if (!empty($_FILES['image_file']['name'])) {
+                $src = trim((string)($_POST['image_src'] ?? ''));
+                $alt = trim((string)($_POST['image_alt'] ?? ''));
 
-                if ($_FILES['image_file']['error'] !== UPLOAD_ERR_OK) {
-                    $_SESSION['flashError'] = "Erreur lors de l’upload de l’image.";
+                if ($alt === '') {
+                    $_SESSION['flashError'] = "Le texte alternatif (alt) est obligatoire.";
                     header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
                     exit;
                 }
 
-                $allowedMime = ['image/jpeg', 'image/png', 'image/webp'];
-                $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                $mime  = finfo_file($finfo, $_FILES['image_file']['tmp_name']);
-                finfo_close($finfo);
+                if (!empty($_FILES['image_file']['name'])) {
 
-                if (!in_array($mime, $allowedMime, true)) {
-                    $_SESSION['flashError'] = "Format non autorisé (JPG/PNG/WEBP uniquement).";
+                    if ($_FILES['image_file']['error'] !== UPLOAD_ERR_OK) {
+                        $_SESSION['flashError'] = "Erreur lors de l’upload de l’image.";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    $allowedMime = ['image/jpeg', 'image/png', 'image/webp'];
+                    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                    $mime  = finfo_file($finfo, $_FILES['image_file']['tmp_name']);
+                    finfo_close($finfo);
+
+                    if (!in_array($mime, $allowedMime, true)) {
+                        $_SESSION['flashError'] = "Format non autorisé (JPG/PNG/WEBP uniquement).";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    if ($_FILES['image_file']['size'] > 5 * 1024 * 1024) {
+                        $_SESSION['flashError'] = "Image trop lourde (max 5 Mo).";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    $uploadDir = __DIR__ . '/../assets/images/';
+                    if (!is_dir($uploadDir)) {
+                        mkdir($uploadDir, 0755, true);
+                    }
+
+                    $ext = match ($mime) {
+                        'image/jpeg' => 'jpg',
+                        'image/png'  => 'png',
+                        'image/webp' => 'webp',
+                        default      => 'jpg'
+                    };
+
+                    $filename   = 'accueil_' . $selectedSlug . '_' . date('Ymd_His') . '.' . $ext;
+                    $targetPath = $uploadDir . $filename;
+
+                    if (!move_uploaded_file($_FILES['image_file']['tmp_name'], $targetPath)) {
+                        $_SESSION['flashError'] = "Impossible d’enregistrer l’image sur le serveur.";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    $src = 'assets/images/' . $filename;
+                }
+
+                if ($src === '') {
+                    $_SESSION['flashError'] = "Le src de l’image est obligatoire (ou upload une image).";
                     header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
                     exit;
                 }
-
-                if ($_FILES['image_file']['size'] > 5 * 1024 * 1024) {
-                    $_SESSION['flashError'] = "Image trop lourde (max 5 Mo).";
-                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                $uploadDir = __DIR__ . '/../assets/images/';
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0755, true);
-                }
-
-                $ext = match ($mime) {
-                    'image/jpeg' => 'jpg',
-                    'image/png'  => 'png',
-                    'image/webp' => 'webp',
-                    default      => 'jpg'
-                };
-
-                $filename   = 'accueil_' . $selectedSlug . '_' . date('Ymd_His') . '.' . $ext;
-                $targetPath = $uploadDir . $filename;
-
-                if (!move_uploaded_file($_FILES['image_file']['tmp_name'], $targetPath)) {
-                    $_SESSION['flashError'] = "Impossible d’enregistrer l’image sur le serveur.";
-                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                $src = 'assets/images/' . $filename;
-            }
-
-            if ($src === '') {
-                $_SESSION['flashError'] = "Le src de l’image est obligatoire (ou upload une image).";
-                header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
-                exit;
             }
 
             // ------------------------------------------------------------------
@@ -233,6 +239,175 @@ class AdminAccueilController
                 $this->contentBlockModel->updateBySectionSlot($sectionId, 'image',        ['src' => $src, 'alt' => $alt]);
             }
 
+           elseif ($selectedSlug === 'home-domains') {
+
+                // -------------------------------
+                // 1) Titre + intro
+                // -------------------------------
+                $title = trim((string)($_POST['title'] ?? ''));
+                $intro = trim((string)($_POST['intro'] ?? ''));
+
+                if ($title === '' || $intro === '') {
+                    $_SESSION['flashError'] = "Titre + intro obligatoires.";
+                    header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                    exit;
+                }
+
+                // Ici tu peux rester en update (car ces slots existent déjà)
+                // MAIS si tu veux béton, mets aussi en upsert (ci-dessous je fais upsert)
+                $this->contentBlockModel->upsertBySectionSlot($sectionId, 'title', [
+                    'type' => 'h2',
+                    'text' => $title,
+                    'order_index' => 10,
+                    'is_active' => 1,
+                ]);
+
+                $this->contentBlockModel->upsertBySectionSlot($sectionId, 'intro', [
+                    'type' => 'p',
+                    'text' => $intro,
+                    'order_index' => 20,
+                    'is_active' => 1,
+                ]);
+
+                // -------------------------------
+                // 2) Domaines : data
+                // -------------------------------
+                $MAX = 9;
+
+                $domains = $_POST['domains'] ?? [];
+                if (!is_array($domains)) $domains = [];
+
+                // -------------------------------
+                // 3) Upload config
+                // -------------------------------
+                $allowedMime = ['image/jpeg', 'image/png', 'image/webp'];
+                $uploadDir = __DIR__ . '/../assets/images/';
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+
+                // -------------------------------
+                // 4) IMPORTANT : suppression réelle
+                //    -> On désactive tout ce qui commence par domain_
+                //    -> puis on réactive uniquement ce qui est posté
+                // -------------------------------
+                $this->contentBlockModel->disableBySectionSlotPrefix($sectionId, 'domain_');
+
+                // -------------------------------
+                // 5) Sauvegarde domaines (ordre affiché)
+                // -------------------------------
+                $pos = 0;
+
+                foreach ($domains as $i => $row) {
+
+                    $i = (int)$i;
+                    if ($i < 1 || $i > $MAX) continue;
+
+                    $t   = trim((string)($row['title'] ?? ''));
+                    $d   = trim((string)($row['desc'] ?? ''));
+                    $alt = trim((string)($row['alt'] ?? ''));
+                    $src = trim((string)($row['image_src'] ?? ''));
+
+                    // Validation minimale
+                    if ($t === '' || $d === '' || $alt === '') {
+                        $_SESSION['flashError'] = "Titre + description + alt obligatoires (domaine #{$i}).";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    // -------------------------------
+                    // Upload image par domaine
+                    // name="domains[i][image_file]"
+                    // -------------------------------
+                    $hasUpload = !empty($_FILES['domains']['name'][$i]['image_file'] ?? '');
+                    if ($hasUpload) {
+
+                        $err = $_FILES['domains']['error'][$i]['image_file'] ?? UPLOAD_ERR_NO_FILE;
+                        if ($err !== UPLOAD_ERR_OK) {
+                            $_SESSION['flashError'] = "Erreur lors de l’upload de l’image (domaine #{$i}).";
+                            header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                            exit;
+                        }
+
+                        $tmpName = $_FILES['domains']['tmp_name'][$i]['image_file'];
+                        $size    = (int)($_FILES['domains']['size'][$i]['image_file'] ?? 0);
+
+                        // mime check
+                        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                        $mime  = finfo_file($finfo, $tmpName);
+                        finfo_close($finfo);
+
+                        if (!in_array($mime, $allowedMime, true)) {
+                            $_SESSION['flashError'] = "Format image non autorisé (JPG/PNG/WEBP) (domaine #{$i}).";
+                            header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                            exit;
+                        }
+
+                        if ($size > 5 * 1024 * 1024) {
+                            $_SESSION['flashError'] = "Image trop lourde (max 5 Mo) (domaine #{$i}).";
+                            header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                            exit;
+                        }
+
+                        $ext = match ($mime) {
+                            'image/jpeg' => 'jpg',
+                            'image/png'  => 'png',
+                            'image/webp' => 'webp',
+                            default      => 'jpg'
+                        };
+
+                        $filename   = 'accueil_home-domains_' . $i . '_' . date('Ymd_His') . '.' . $ext;
+                        $targetPath = $uploadDir . $filename;
+
+                        if (!move_uploaded_file($tmpName, $targetPath)) {
+                            $_SESSION['flashError'] = "Impossible d’enregistrer l’image (domaine #{$i}).";
+                            header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                            exit;
+                        }
+
+                        $src = 'assets/images/' . $filename;
+                    }
+
+                    // Si pas d’upload, il faut avoir un src existant (sinon carte inutilisable)
+                    if ($src === '') {
+                        $_SESSION['flashError'] = "Le src est obligatoire (ou upload) (domaine #{$i}).";
+                        header('Location: index.php?page=adminAccueil&section=' . urlencode($selectedSlug));
+                        exit;
+                    }
+
+                    // Ordre : basé sur l’ordre d’arrivée dans $_POST['domains']
+                    $pos++;
+                    $baseOrder = 100 + ($pos * 10); // 110, 120, 130...
+
+                    // -------------------------------
+                    // UPSERT : crée si absent, update sinon
+                    // + is_active=1 => réactive ceux qui existent
+                    // -------------------------------
+                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "domain_{$i}_title", [
+                        'type' => 'h3',
+                        'text' => $t,
+                        'order_index' => $baseOrder,
+                        'is_active' => 1,
+                    ]);
+
+                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "domain_{$i}_desc", [
+                        'type' => 'p',
+                        'text' => $d,
+                        'order_index' => $baseOrder + 1,
+                        'is_active' => 1,
+                    ]);
+
+                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "domain_{$i}_img", [
+                        'type' => 'img',
+                        'src'  => $src,
+                        'alt'  => $alt,
+                        'order_index' => $baseOrder + 2,
+                        'is_active' => 1,
+                    ]);
+                }
+
+            }
+            
             // ===== AUTRES : tu peux gérer plus tard, mais on évite de casser
             else {
                 $_SESSION['flashError'] = "Section non gérée côté sauvegarde : " . $selectedSlug;
