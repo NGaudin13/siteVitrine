@@ -1,6 +1,20 @@
 <?php
 // controllers/adminController.php
 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+// 🔒 Protection: si pas connecté -> redirection login
+if (empty($_SESSION['user_id'])) {
+    header('Location: index.php?page=login');
+    exit;
+}
+
+// (optionnel mais conseillé) éviter le cache après logout
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+
 $page = $_GET['page'] ?? 'adminDashboard';
 $page = preg_replace('/[^a-zA-Z0-9_]/', '', $page);
 

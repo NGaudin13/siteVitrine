@@ -8,6 +8,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 /* ============================================================
    1) PAGE (sanitization)
    ============================================================ */
@@ -24,7 +26,8 @@ $publicPages = [
     'references',
     'contact',
     'conditions',
-    'confidentialite'
+    'confidentialite',
+    'login' 
 ];
 
 $adminPages = [
@@ -52,13 +55,24 @@ $siteUser = $userModel->find(1);
 /* ============================================================
    4) CHOIX DU CONTRÔLEUR
    ============================================================ */
-if (in_array($page, $publicPages, true)) {
-    $controllerFile = PATH_CONTROLLERS . 'homeController.php';
-} elseif (in_array($page, $adminPages, true)) {
-    $controllerFile = PATH_CONTROLLERS . 'adminController.php';
-} elseif ($page === 'login' || $page === 'logout') {
+/* ============================================================
+   4) CHOIX DU CONTRÔLEUR
+   ============================================================ */
+
+if ($page === 'login' || $page === 'logout') {
+
     $controllerFile = PATH_CONTROLLERS . 'authController.php';
+
+} elseif (in_array($page, $adminPages, true)) {
+
+    $controllerFile = PATH_CONTROLLERS . 'adminController.php';
+
+} elseif (in_array($page, $publicPages, true)) {
+
+    $controllerFile = PATH_CONTROLLERS . 'homeController.php';
+
 } else {
+
     $controllerFile = PATH_CONTROLLERS . '404.php';
 }
 

@@ -12,6 +12,7 @@ class User
     private string $company_name;
     private ?string $opening_hours;
     private ?string $response_delay;
+    private ?string $password_hash = null; // AJOUTE ÇA
     private ?string $createdAt;
     private ?string $updatedAt;
 
@@ -65,6 +66,11 @@ class User
     public function getResponseDelay(): ?string
     {
         return $this->response_delay;
+    }
+
+    public function getPasswordHash(): ?string
+    {
+        return $this->password_hash ?? null;
     }
 
 

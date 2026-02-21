@@ -76,4 +76,25 @@ class UserModel
 
         return $user;
     }
+
+    public function findByEmail(string $email): ?User
+    {
+        $stmt = $this->pdo->prepare("
+            SELECT * FROM user 
+            WHERE email = :email 
+            AND is_active = 1
+            LIMIT 1
+        ");
+
+        $stmt->execute(['email' => $email]);
+
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$data) {
+            return null;
+        }
+
+        return $this->hydrate($data);
+    }
+    
 }

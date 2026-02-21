@@ -199,9 +199,18 @@
             <a href="index.php?page=contact" class="nav-item nav-link">
                 CONTACT
             </a>
-            <a href="index.php?page=adminDashboard" class="nav-item nav-link">
-                ADMIN
-            </a>
+
+            <?php if (!empty($_SESSION['user_id'])): ?>
+
+                <a href="index.php?page=adminDashboard" class="nav-item nav-link text-primary fw-semibold">
+                    ADMIN
+                </a>
+
+                <a href="index.php?page=logout" class="nav-item nav-link text-danger">
+                    LOGOUT
+                </a>
+
+            <?php endif; ?>
 
         </div>
 
