@@ -699,7 +699,7 @@
   }
 }
 
-/* ================= PRESENTATION / MODELS ================= */
+
 /* ================= PRESENTATION / MODELS ================= */
 
 .presentation-models-timeline{
@@ -708,7 +708,7 @@
 
 /* petit espace entre le texte du haut et la 1ère card */
 .pmtl-item:first-child{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .pmtl{
@@ -1623,3 +1623,4 @@ main h2 + p {
 .home-about__stats {
     display: none !important;
 }
+
