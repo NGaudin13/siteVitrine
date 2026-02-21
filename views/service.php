@@ -84,7 +84,7 @@
 
                     <!-- Slide 3 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.png');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.jpg');">
                             <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Processus BIM collaboratifs</h3>
@@ -100,7 +100,7 @@
 
                     <!-- Slide 4 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.webp');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.jpg');">
                             <div class="services-swiper__icon"><i class="bi bi-gear"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Optimisation & DOE BIM</h3>
@@ -377,7 +377,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service3.png"
+                            src="/siteVitrine/assets/images/service3.jpg"
                             alt="Processus BIM collaboratifs"
                             loading="lazy"
                         >
@@ -473,7 +473,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service4.webp"
+                            src="/siteVitrine/assets/images/service4.jpg"
                             alt="Optimisation BIM et DOE numériques"
                             loading="lazy"
                         >
