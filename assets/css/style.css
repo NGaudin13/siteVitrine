@@ -855,10 +855,8 @@
   font-size: .92rem;
   line-height: 1.42;
 
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: block;     /* plus de box clamp */
+  overflow: visible;  /* rien n'est coupé */
 }
 
 .pmtl-points{
