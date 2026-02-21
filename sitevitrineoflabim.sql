@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 21 fév. 2026 à 14:36
+-- Généré le : sam. 21 fév. 2026 à 20:50
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -93,26 +93,26 @@ INSERT INTO `content_block` (`id`, `section_id`, `type`, `slot`, `text`, `src`, 
 (227, 18, 'span', 'edu_5_title', 'testtest', NULL, NULL, NULL, 550, 0, '2026-02-16 22:17:42', '2026-02-20 16:08:54'),
 (228, 18, 'p', 'edu_5_desc', 'test', NULL, NULL, NULL, 551, 0, '2026-02-16 22:17:42', '2026-02-20 16:08:54'),
 (229, 18, 'span', 'edu_5_level', '', NULL, NULL, NULL, 552, 0, '2026-02-16 22:17:42', '2026-02-20 16:08:54'),
-(250, 21, 'h2', 'title', 'Domaines d’intervention', NULL, NULL, NULL, 10, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(251, 21, 'p', 'intro', 'OFLABIM accompagne des projets techniques et industriels complexes, nécessitant une forte maîtrise des méthodes BIM et de la coordination.', NULL, NULL, NULL, 20, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(252, 21, 'h3', 'domain_1_title', 'Traitement de l’eau potable', NULL, NULL, NULL, 110, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(253, 21, 'p', 'domain_1_desc', 'Projets intégrant réseaux, équipements et ouvrages techniques, avec une approche BIM orientée coordination et exploitation.', NULL, NULL, NULL, 111, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(254, 21, 'img', 'domain_1_img', NULL, 'assets/images/traitements-pour-rendre-l-eau-potable.jpg', 'Installation de traitement de l’eau potable', NULL, 112, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(255, 21, 'h3', 'domain_2_title', 'Stations d’épuration', NULL, NULL, NULL, 120, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(256, 21, 'p', 'domain_2_desc', 'Environnements multi-lots à forte contrainte technique, nécessitant une structuration BIM rigoureuse.', NULL, NULL, NULL, 121, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(257, 21, 'img', 'domain_2_img', NULL, 'assets/images/stationEpuration.jpg', 'Station d’épuration industrielle', NULL, 122, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(258, 21, 'h3', 'domain_3_title', 'Postes de relevage', NULL, NULL, NULL, 130, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(259, 21, 'p', 'domain_3_desc', 'Modélisation des ouvrages hydrauliques, coordination des réseaux et préparation des données techniques.', NULL, NULL, NULL, 131, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(260, 21, 'img', 'domain_3_img', NULL, 'assets/images/posteRelevage.png', 'Poste de relevage hydraulique', NULL, 132, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(261, 21, 'h3', 'domain_4_title', 'Unités de méthanisation', NULL, NULL, NULL, 140, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(262, 21, 'p', 'domain_4_desc', 'Projets industriels intégrant process, structures et réseaux, avec une attention portée à la cohérence des maquettes.', NULL, NULL, NULL, 141, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(263, 21, 'img', 'domain_4_img', NULL, 'assets/images/uniteMethanisation.jpg', 'Unité industrielle de méthanisation', NULL, 142, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(264, 21, 'h3', 'domain_5_title', 'Bâtiments hospitaliers – CVC', NULL, NULL, NULL, 150, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(265, 21, 'p', 'domain_5_desc', 'Modélisation et coordination des systèmes CVC dans des environnements sensibles.', NULL, NULL, NULL, 151, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(266, 21, 'img', 'domain_5_img', NULL, 'assets/images/hopitalCVC2.jpg', 'Systèmes CVC en bâtiment hospitalier', NULL, 152, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(267, 21, 'h3', 'domain_6_title', 'Bâtiments industriels & techniques', NULL, NULL, NULL, 160, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(268, 21, 'p', 'domain_6_desc', 'Projets industriels intégrant process, structures et réseaux, avec une approche BIM orientée coordination et fiabilité des données.', NULL, NULL, NULL, 161, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05'),
-(269, 21, 'img', 'domain_6_img', NULL, 'assets/images/HP_IMG-Entreprise.png', 'Bâtiment industriel technique', NULL, 162, 1, '2026-02-20 22:44:55', '2026-02-20 23:39:05');
+(250, 21, 'h2', 'title', 'Domaines d’intervention', NULL, NULL, NULL, 10, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(251, 21, 'p', 'intro', 'OFLABIM accompagne des projets techniques et industriels complexes, nécessitant une forte maîtrise des méthodes BIM et de la coordination.', NULL, NULL, NULL, 20, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(252, 21, 'h3', 'domain_1_title', 'Traitement de l’eau potable', NULL, NULL, NULL, 110, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(253, 21, 'p', 'domain_1_desc', 'Projets intégrant réseaux, équipements et ouvrages techniques, avec une approche BIM orientée coordination et exploitation.', NULL, NULL, NULL, 111, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(254, 21, 'img', 'domain_1_img', NULL, 'assets/images/traitements-pour-rendre-l-eau-potable.jpg', 'Installation de traitement de l’eau potable', NULL, 112, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(255, 21, 'h3', 'domain_2_title', 'Stations d’épuration', NULL, NULL, NULL, 120, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(256, 21, 'p', 'domain_2_desc', 'Environnements multi-lots à forte contrainte technique, nécessitant une structuration BIM rigoureuse.', NULL, NULL, NULL, 121, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(257, 21, 'img', 'domain_2_img', NULL, 'assets/images/stationEpuration.jpg', 'Station d’épuration industrielle', NULL, 122, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:56'),
+(258, 21, 'h3', 'domain_3_title', 'Postes de relevage', NULL, NULL, NULL, 130, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(259, 21, 'p', 'domain_3_desc', 'Modélisation des ouvrages hydrauliques, coordination des réseaux et préparation des données techniques.', NULL, NULL, NULL, 131, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(260, 21, 'img', 'domain_3_img', NULL, 'assets/images/accueil_home-domains_3_20260221_183956.jpg', 'Poste de relevage hydraulique', NULL, 132, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(261, 21, 'h3', 'domain_4_title', 'Unités de méthanisation', NULL, NULL, NULL, 140, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(262, 21, 'p', 'domain_4_desc', 'Projets industriels intégrant process, structures et réseaux, avec une attention portée à la cohérence des maquettes.', NULL, NULL, NULL, 141, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(263, 21, 'img', 'domain_4_img', NULL, 'assets/images/uniteMethanisation.jpg', 'Unité industrielle de méthanisation', NULL, 142, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(264, 21, 'h3', 'domain_5_title', 'Bâtiments hospitaliers – CVC', NULL, NULL, NULL, 150, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(265, 21, 'p', 'domain_5_desc', 'Modélisation et coordination des systèmes CVC dans des environnements sensibles.', NULL, NULL, NULL, 151, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(266, 21, 'img', 'domain_5_img', NULL, 'assets/images/hopitalCVC2.jpg', 'Systèmes CVC en bâtiment hospitalier', NULL, 152, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(267, 21, 'h3', 'domain_6_title', 'Bâtiments industriels & techniques', NULL, NULL, NULL, 160, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(268, 21, 'p', 'domain_6_desc', 'Projets industriels intégrant process, structures et réseaux, avec une approche BIM orientée coordination et fiabilité des données.', NULL, NULL, NULL, 161, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57'),
+(269, 21, 'img', 'domain_6_img', NULL, 'assets/images/HP_IMG-Entreprise.png', 'Bâtiment industriel technique', NULL, 162, 1, '2026-02-20 22:44:55', '2026-02-21 18:39:57');
 
 -- --------------------------------------------------------
 
@@ -220,7 +220,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `role_id`, `email`, `phone`, `address`, `username`, `company_name`, `password_hash`, `is_active`, `last_login_at`, `created_at`, `updated_at`, `opening_hours`, `response_delay`) VALUES
-(1, 1, 'contact@oflabim.fr', '+33 7 66 80 16 68', '110 cours Tolstoï, 69100 Villeurbanne, FR', 'OFLABIM', 'OFLABIM', '$2y$10$REPLACE_ME_WITH_A_REAL_BCRYPT_HASH..............................', 1, NULL, '2026-01-21 18:29:34', '2026-02-20 23:39:51', 'Lun – Ven : 9h00 – 19h00', 'Réponse sous 24–48h ouvrées');
+(1, 1, 'contact@oflabim.fr', '+33 7 66 80 16 68', '110 cours Tolstoï, 69100 Villeurbanne, FR', 'OFLABIM', 'OFLABIM', '$2y$10$REPLACE_ME_WITH_A_REAL_BCRYPT_HASH..............................', 1, NULL, '2026-01-21 18:29:34', '2026-02-21 18:25:43', 'Lun – Ven : 9h00 – 19h00', 'Réponse sous 24–48h ouvrées');
 
 --
 -- Index pour les tables déchargées
