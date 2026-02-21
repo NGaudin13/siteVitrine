@@ -700,50 +700,310 @@
 }
 
 /* ================= PRESENTATION / MODELS ================= */
-.presentation-models__card{
-    background: #fff;
-    border: 1px solid rgba(13, 59, 102, 0.12);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+/* ================= PRESENTATION / MODELS ================= */
+
+.presentation-models-timeline{
+  position: relative;
 }
 
-.presentation-models__card:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.10);
-    border-color: rgba(13, 59, 102, 0.22);
+/* petit espace entre le texte du haut et la 1ère card */
+.pmtl-item:first-child{
+  margin-top: 20px;
 }
 
-.presentation-models__thumb{
+.pmtl{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pmtl::before{
+  content:"";
+  position:absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: rgba(13,59,102,.14);
+}
+
+/* ITEM */
+.pmtl-item{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 46px 1fr;
+  align-items: start;
+  margin: -50px 0; /* compact desktop */
+}
+
+/* Position cards gauche/droite */
+.pmtl-item--left .pmtl-card{ grid-column: 1; }
+.pmtl-item--right .pmtl-card{ grid-column: 3; }
+
+/* DOT */
+.pmtl-dot{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(29,78,216,.95);
+  box-shadow: 0 0 0 8px rgba(29,78,216,.12);
+  z-index: 6;
+}
+
+/* CARD (desktop) */
+.pmtl-card{
+  --pmtl-card-h: 320px;
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  height: var(--pmtl-card-h);
+  background: #0b0f16;
+  box-shadow: 0 22px 70px rgba(0,0,0,.14);
+  transform: translateY(0);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pmtl-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 34px 100px rgba(0,0,0,.18);
+}
+
+.pmtl-img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  transition: transform .5s ease;
+  display:block;
+}
+
+.pmtl-card:hover .pmtl-img{
+  transform: scale(1.08);
+}
+
+.pmtl-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.03), rgba(0,0,0,.18) 55%, rgba(0,0,0,.70));
+}
+
+/* Badges */
+.pmtl-badges{
+  position:absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display:flex;
+  gap: 10px;
+  z-index: 7;
+}
+
+.pmtl-badge{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 900;
+  color: #0b2440;
+  background: rgba(191,219,254,.95);
+  border: 1px solid rgba(29,78,216,.18);
+  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  white-space: nowrap;
+}
+
+.pmtl-badge--soft{
+  background: rgba(219,234,254,.92);
+  font-weight: 800;
+}
+
+/* Bande texte (desktop overlay) */
+.pmtl-content{
+  position:absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 7;
+  padding: 12px 12px 10px;
+  border-radius: 16px;
+  background: rgba(10, 14, 20, .42);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(6px);
+  max-width: 640px;
+}
+
+.pmtl-title{
+  margin: 0 0 6px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.10rem;
+  text-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+.pmtl-text{
+  margin: 0 0 8px;
+  color: rgba(255,255,255,.90);
+  font-size: .92rem;
+  line-height: 1.42;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pmtl-points{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pmtl-points li{
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: .80rem;
+  color: rgba(255,255,255,.88);
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.14);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet + mobile : stop superposition */
+@media (max-width: 991.98px){
+  .pmtl::before{
+    left: 14px;
+    transform: none;
+  }
+
+  .pmtl-item{
+    grid-template-columns: 30px 1fr;
+    column-gap: 12px;
+    margin: 18px 0;
+  }
+
+  .pmtl-item:first-child{
+    margin-top: 24px;
+  }
+
+  .pmtl-item--left .pmtl-card,
+  .pmtl-item--right .pmtl-card{
+    grid-column: 2;
+  }
+
+  .pmtl-dot{
+    left: 14px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ✅ MOBILE PRO : image en haut + texte en dessous (texte complet visible) */
+@media (max-width: 575.98px){
+
+  /* la card devient un "bloc" auto-height */
+  .pmtl-card{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #0b0f16;
+  }
+
+  /* l'image n'est plus absolute : elle prend une vraie hauteur */
+  .pmtl-img{
     position: relative;
-    aspect-ratio: 4 / 3; /* comme tu voulais */
-    background: #f3f6fb;
-}
-
-.presentation-models__thumb img{
+    inset: auto;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 170px;            /* ajuste 150-200 */
+    transform: none;
+  }
+
+  .pmtl-card:hover .pmtl-img{
+    transform: none;
+  }
+
+  /* l'overlay n'est plus nécessaire */
+  .pmtl-overlay{
+    display: none;
+  }
+
+  /* badges restent sur l'image */
+  .pmtl-badges{
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pmtl-badge{
+    font-size: .68rem;
+    padding: 5px 9px;
+  }
+
+  /* le contenu repasse en normal (plus en absolute) */
+  .pmtl-content{
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    max-width: none;
+
+    margin: 10px;
+    padding: 10px 10px 8px;
+    border-radius: 14px;
+
+    background: rgba(10, 14, 20, .65);
+    backdrop-filter: blur(6px);
+  }
+
+  /* TEXTE COMPLET : on enlève le clamp */
+  .pmtl-title{
+    font-size: 1.02rem;
+    margin: 0 0 6px;
+  }
+
+  .pmtl-text{
+    font-size: .86rem;
+    line-height: 1.35;
+    margin: 0 0 10px;
+
     display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+
+  /* chips plus petites, toujours visibles */
+  .pmtl-points{
+    gap: 6px;
+  }
+
+  .pmtl-points li{
+    font-size: .72rem;
+    padding: 4px 8px;
+  }
 }
 
-.presentation-models__title{
-    margin: 0;
-    padding: 14px 14px 16px;
-    font-size: 1rem;
-    font-weight: 800;
-    letter-spacing: -0.01em;
+/* Très petit écran : un peu plus compact */
+@media (max-width: 380px){
+  .pmtl-img{ height: 150px; }
+  .pmtl-title{ font-size: .98rem; }
+  .pmtl-text{ font-size: .84rem; }
 }
-
-/* Sous-texte des cartes maquettes */
-.presentation-models__desc {
-    text-align: center;
-    text-justify: inter-word;
-    line-height: 1.55;
-}
-
-
-/* ================= PRÉSENTATION / PARCOURS VERSION CV =============== */
 
 /* ============================ PAGE SERVICES ========================== */
 /* ================= PRÉSENTATION / HEADER ================= */

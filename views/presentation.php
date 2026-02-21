@@ -380,113 +380,160 @@
     </div>
 </section>
 
+<!-- ================= PRÉSENTATION / EXEMPLES DE MAQUETTES (TIMELINE) ================= -->
+<section class="presentation-models-timeline py-5">
+  <div class="container">
 
-<!-- ================= PRÉSENTATION / EXEMPLES DE MAQUETTES ================= -->
-<section class="presentation-models pt-2 pb-5">
-    <div class="container">
-
-        <div class="text-center mx-auto mb-4" style="max-width: 860px;">
-
-            <h2 class="display-6 fw-bold mt-3 mb-2">
-                Exemples de maquettes que nous vous fournissons
-            </h2>
-
-            <p class="text-muted mb-0">
-                Selon le type de projet, nous livrons des maquettes BIM adaptées aux phases
-                AVP, PRO et EXE, à partir de données techniques existantes ou de relevés terrain.
-                Chaque maquette est structurée, fiable et pensée pour être exploitée
-                en production de plans, en processus collaboratif ou en DOE numérique.
-            </p>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- 1 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <article class="presentation-models__card h-100">
-                    <div class="presentation-models__thumb">
-                        <img
-                            src="assets/images/presentation_modelCoordination.jpg"
-                            alt="Maquette BIM issue de l’existant"
-                            loading="lazy"
-                        >
-                    </div>
-                    <h3 class="presentation-models__title text-center">
-                        Maquette issue de l’existant
-                    </h3>
-                    <p class="presentation-models__desc text-muted mb-0">
-                        Modélisation réalisée sous Revit à partir de dossiers techniques,
-                        schémas, notes de calcul ou nuages de points,
-                        pour fiabiliser les installations existantes et préparer les phases AVP / PRO / EXE.
-                    </p>
-                </article>
-            </div>
-
-            <!-- 2 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <article class="presentation-models__card h-100">
-                    <div class="presentation-models__thumb">
-                        <img
-                            src="assets/images/presentation_modelStructure.jpg"
-                            alt="Maquette BIM structure"
-                            loading="lazy"
-                        >
-                    </div>
-                    <h3 class="presentation-models__title text-center">
-                        Maquette structure
-                    </h3>
-                    <p class="presentation-models__desc text-muted mb-0">
-                        Maquette dédiée aux éléments porteurs,
-                        utilisée pour les études techniques et
-                        comme base à la production de plans clairs et exploitables en phase PRO / EXE.
-                    </p>
-                </article>
-            </div>
-
-            <!-- 3 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <article class="presentation-models__card h-100">
-                    <div class="presentation-models__thumb">
-                        <img
-                            src="assets/images/presentation_modelExcecution.jpg"
-                            alt="Maquette BIM d’exécution"
-                            loading="lazy"
-                        >
-                    </div>
-                    <h3 class="presentation-models__title text-center">
-                        Maquette d’exécution
-                    </h3>
-                    <p class="presentation-models__desc text-muted mb-0">
-                        Maquette détaillée servant de support
-                        à la production de plans guides, plans d’implantation,
-                        schémas fonctionnels et documents destinés au chantier.
-                    </p>
-                </article>
-            </div>
-
-            <!-- 4 -->
-            <div class="col-12 col-sm-6 col-lg-3">
-                <article class="presentation-models__card h-100">
-                    <div class="presentation-models__thumb">
-                        <img
-                            src="assets/images/presentation_modelDOE.webp"
-                            alt="Maquette BIM DOE et exploitation"
-                            loading="lazy"
-                        >
-                    </div>
-                    <h3 class="presentation-models__title text-center">
-                        Maquette BIM DOE
-                    </h3>
-                    <p class="presentation-models__desc text-muted mb-0">
-                        Maquette allégée, nettoyée et structurée,
-                        avec export IFC conforme aux exigences contractuelles,
-                        destinée à l’exploitation, à la maintenance et à la traçabilité des données.
-                    </p>
-                </article>
-            </div>
-
-        </div>
+    <div class="text-center mx-auto mb-5" style="max-width: 860px;">
+      <h2 class="display-6 fw-bold mt-2 mb-2">Exemples de maquettes que nous vous fournissons</h2>
+      <p class="text-muted mb-0">
+        Selon le type de projet, nous livrons des maquettes BIM adaptées aux phases AVP, PRO et EXE,
+        à partir de données techniques existantes ou de relevés terrain.
+        Chaque maquette est structurée, fiable et pensée pour être exploitée en production de plans,
+        en processus collaboratif ou en DOE numérique.
+      </p>
     </div>
+
+    <div class="pmtl">
+
+      <!-- 1 -->
+      <article class="pmtl-item pmtl-item--left">
+        <div class="pmtl-card">
+          <img
+            src="/siteVitrine/assets/images/presentation_modelCoordination.jpg"
+            alt="Maquette BIM issue de l’existant"
+            class="pmtl-img"
+            loading="lazy"
+          >
+          <div class="pmtl-overlay"></div>
+
+          <div class="pmtl-badges">
+            <span class="pmtl-badge">AVP • PRO • EXE</span>
+            <span class="pmtl-badge pmtl-badge--soft">Existant</span>
+          </div>
+
+          <div class="pmtl-content">
+            <h3 class="pmtl-title">Maquette issue de l’existant</h3>
+            <p class="pmtl-text">
+              Modélisation réalisée sous Revit à partir de dossiers techniques, schémas,
+              notes de calcul ou nuages de points, pour fiabiliser l’existant et préparer les phases AVP / PRO / EXE.
+            </p>
+
+            <ul class="pmtl-points">
+              <li>Reprise de données & fiabilisation</li>
+              <li>Structuration BIM</li>
+              <li>Préparation PRO / EXE</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmtl-dot" aria-hidden="true"></div>
+      </article>
+
+      <!-- 2 -->
+      <article class="pmtl-item pmtl-item--right">
+        <div class="pmtl-card">
+          <img
+            src="/siteVitrine/assets/images/presentation_modelStructure.jpg"
+            alt="Maquette BIM structure"
+            class="pmtl-img"
+            loading="lazy"
+          >
+          <div class="pmtl-overlay"></div>
+
+          <div class="pmtl-badges">
+            <span class="pmtl-badge">PRO • EXE</span>
+            <span class="pmtl-badge pmtl-badge--soft">Structure</span>
+          </div>
+
+          <div class="pmtl-content">
+            <h3 class="pmtl-title">Maquette structure</h3>
+            <p class="pmtl-text">
+              Maquette dédiée aux éléments porteurs, utilisée pour les études techniques et comme base
+              à la production de plans clairs et exploitables en phase PRO / EXE.
+            </p>
+
+            <ul class="pmtl-points">
+              <li>Base solide pour plans</li>
+              <li>Études & production</li>
+              <li>Cohérence des données</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmtl-dot" aria-hidden="true"></div>
+      </article>
+
+      <!-- 3 -->
+      <article class="pmtl-item pmtl-item--left">
+        <div class="pmtl-card">
+          <img
+            src="/siteVitrine/assets/images/presentation_modelExcecution.jpg"
+            alt="Maquette BIM d’exécution"
+            class="pmtl-img"
+            loading="lazy"
+          >
+          <div class="pmtl-overlay"></div>
+
+          <div class="pmtl-badges">
+            <span class="pmtl-badge">EXE</span>
+            <span class="pmtl-badge pmtl-badge--soft">Chantier</span>
+          </div>
+
+          <div class="pmtl-content">
+            <h3 class="pmtl-title">Maquette d’exécution</h3>
+            <p class="pmtl-text">
+              Maquette détaillée servant de support à la production de plans guides, plans d’implantation,
+              schémas fonctionnels et documents destinés au chantier.
+            </p>
+
+            <ul class="pmtl-points">
+              <li>Plans guides & implantation</li>
+              <li>Schémas fonctionnels</li>
+              <li>Coordination chantier</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmtl-dot" aria-hidden="true"></div>
+      </article>
+
+      <!-- 4 -->
+      <article class="pmtl-item pmtl-item--right">
+        <div class="pmtl-card">
+          <img
+            src="/siteVitrine/assets/images/presentation_modelDOE.webp"
+            alt="Maquette BIM DOE et exploitation"
+            class="pmtl-img"
+            loading="lazy"
+          >
+          <div class="pmtl-overlay"></div>
+
+          <div class="pmtl-badges">
+            <span class="pmtl-badge">DOE</span>
+            <span class="pmtl-badge pmtl-badge--soft">Exploitation</span>
+          </div>
+
+          <div class="pmtl-content">
+            <h3 class="pmtl-title">Maquette BIM DOE</h3>
+            <p class="pmtl-text">
+              Maquette allégée, nettoyée et structurée, avec export IFC conforme aux exigences contractuelles,
+              destinée à l’exploitation, à la maintenance et à la traçabilité des données.
+            </p>
+
+            <ul class="pmtl-points">
+              <li>IFC conforme</li>
+              <li>Nettoyage & structuration</li>
+              <li>Maintenance & traçabilité</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pmtl-dot" aria-hidden="true"></div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
 
