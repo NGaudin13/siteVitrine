@@ -52,7 +52,7 @@
 
                     <!-- Slide 1 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ingenierieBIM.jpg');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service1.jpg');">
                             <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Modélisation de maquette numérique</h3>
@@ -68,7 +68,7 @@
 
                     <!-- Slide 2 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service2.jpg');">
                             <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Production de piéces graphiques</h3>
@@ -84,7 +84,7 @@
 
                     <!-- Slide 3 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=70');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.png');">
                             <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Processus BIM collaboratifs</h3>
@@ -100,7 +100,7 @@
 
                     <!-- Slide 4 -->
                     <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service_ossatureBois.jpg');">
+                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.webp');">
                             <div class="services-swiper__icon"><i class="bi bi-gear"></i></div>
                             <div class="services-swiper__content">
                                 <h3 class="services-swiper__title">Optimisation & DOE BIM</h3>
@@ -186,7 +186,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service_ingenierieBIM.jpg"
+                            src="/siteVitrine/assets/images/service1.jpg"
                             alt="Modélisation BIM à partir de l’existant"
                             loading="lazy"
                         >
@@ -282,7 +282,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80"
+                            src="/siteVitrine/assets/images/service2.jpg"
                             alt="Plans techniques"
                             loading="lazy"
                         >
@@ -377,7 +377,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+                            src="/siteVitrine/assets/images/service3.png"
                             alt="Processus BIM collaboratifs"
                             loading="lazy"
                         >
@@ -473,7 +473,7 @@
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service_ossatureBois.jpg"
+                            src="/siteVitrine/assets/images/service4.webp"
                             alt="Optimisation BIM et DOE numériques"
                             loading="lazy"
                         >
