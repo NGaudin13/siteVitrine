@@ -415,14 +415,15 @@
           <div class="pmtl-content">
             <h3 class="pmtl-title">Maquette issue de l’existant</h3>
             <p class="pmtl-text">
-              Modélisation réalisée sous Revit à partir de dossiers techniques, schémas,
-              notes de calcul ou nuages de points, pour fiabiliser l’existant et préparer les phases AVP / PRO / EXE.
+              Modélisation sous Revit à partir de dossiers techniques, schémas, 
+              notes de calcul et nuages de points, afin de fiabiliser l’existant et préparer les phases AVP / PRO / EXE.
             </p>
 
             <ul class="pmtl-points">
               <li>Reprise de données & fiabilisation</li>
               <li>Structuration BIM</li>
-              <li>Préparation PRO / EXE</li>
+              <li>Publication et organisation sur ACC</li>
+              <li>Base fiable pour études futures</li>
             </ul>
           </div>
         </div>
@@ -449,14 +450,15 @@
           <div class="pmtl-content">
             <h3 class="pmtl-title">Maquette structure</h3>
             <p class="pmtl-text">
-              Maquette dédiée aux éléments porteurs, utilisée pour les études techniques et comme base
-              à la production de plans clairs et exploitables en phase PRO / EXE.
+              Maquette dédiée aux éléments porteurs et à la coordination structure, 
+              servant de base aux études techniques et à la production de plans exploitables en phase PRO / EXE.
             </p>
 
             <ul class="pmtl-points">
-              <li>Base solide pour plans</li>
-              <li>Études & production</li>
-              <li>Cohérence des données</li>
+              <li>Coordination structure / lots techniques</li>
+              <li>Détection de conflits</li>
+              <li>Base solide pour plans PRO / EXEs</li>
+              <li>Cohérence technique des données</li>
             </ul>
           </div>
         </div>
