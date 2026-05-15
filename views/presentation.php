@@ -57,7 +57,7 @@
             <div class="col-lg-6">
 
                 <span class="presentation-about__kicker badge text-bg-light text-uppercase h2 px-3 py-2">
-                    A propose de nous
+                    A propos de nous
                 </span>
 
                 <h2 class="presentation-about__title display-6 fw-bold mb-3">
