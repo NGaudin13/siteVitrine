@@ -48,107 +48,171 @@
         </header>
 
         <div class="services-swiper swiper">
-                <div class="services-swiper__wrapper swiper-wrapper">
+            <div class="services-swiper__wrapper swiper-wrapper">
 
-                    <!-- Slide 1 -->
-                    <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service1.jpg');">
-                            <div class="services-swiper__icon"><i class="bi bi-boxes"></i></div>
-                            <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Modélisation de maquette numérique</h3>
-                                <p class="services-swiper__text">
-                                    Maquettes fiables issues des données techniques et de l’existant.
-                                </p>
-                                <a class="btn btn-primary btn-sm" href="index.php?page=service#modelisation_bim">
-                                    En savoir plus
-                                </a>
-                            </div>
+                <!-- Slide 1 -->
+                <article class="services-swiper__slide swiper-slide">
+                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service1.jpg');">
+                        <div class="services-swiper__icon">
+                            <i class="bi bi-boxes"></i>
                         </div>
-                    </article>
 
-                    <!-- Slide 2 -->
-                    <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service2.jpg');">
-                            <div class="services-swiper__icon"><i class="bi bi-building"></i></div>
-                            <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Production de piéces graphiques</h3>
-                                <p class="services-swiper__text">
-                                    Documents clairs et exploitables pour les phases PRO et EXE.
-                                </p>
-                                <a class="btn btn-primary btn-sm" href="index.php?page=service#plan_technique">
-                                    En savoir plus
-                                </a>
-                            </div>
+                        <div class="services-swiper__content">
+                            <h3 class="services-swiper__title">
+                                Modélisation de maquette numérique
+                            </h3>
+
+                            <p class="services-swiper__text">
+                                Maquettes fiables issues des données techniques et de l’existant.
+                            </p>
+
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=service#service_1"
+                            >
+                                En savoir plus
+                            </a>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <!-- Slide 3 -->
-                    <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.jpg');">
-                            <div class="services-swiper__icon"><i class="bi bi-wrench-adjustable"></i></div>
-                            <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Processus BIM collaboratifs</h3>
-                                <p class="services-swiper__text">
-                                    Structuration des maquettes et organisation des workflows.
-                                </p>
-                                <a class="btn btn-primary btn-sm" href="index.php?page=service#processus_bim">
-                                    En savoir plus
-                                </a>
-                            </div>
+
+                <!-- Slide 2 -->
+                <article class="services-swiper__slide swiper-slide">
+                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service2.jpg');">
+                        <div class="services-swiper__icon">
+                            <i class="bi bi-building"></i>
                         </div>
-                    </article>
 
-                    <!-- Slide 4 -->
-                    <article class="services-swiper__slide swiper-slide">
-                        <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.jpg');">
-                            <div class="services-swiper__icon"><i class="bi bi-gear"></i></div>
-                            <div class="services-swiper__content">
-                                <h3 class="services-swiper__title">Optimisation & DOE BIM</h3>
-                                <p class="services-swiper__text">
-                                    Automatisation, fiabilisation des données et IFC conformes.
-                                </p>
-                                <a class="btn btn-primary btn-sm" href="index.php?page=service#optimisation_bim">
-                                    En savoir plus
-                                </a>
-                            </div>
+                        <div class="services-swiper__content">
+                            <h3 class="services-swiper__title">
+                                Production de piéces graphiques
+                            </h3>
+
+                            <p class="services-swiper__text">
+                                Documents clairs et exploitables pour les phases PRO et EXE.
+                            </p>
+
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=service#service_2"
+                            >
+                                En savoir plus
+                            </a>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                </div>
+
+                <!-- Slide 3 -->
+                <article class="services-swiper__slide swiper-slide">
+                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.jpg');">
+                        <div class="services-swiper__icon">
+                            <i class="bi bi-wrench-adjustable"></i>
+                        </div>
+
+                        <div class="services-swiper__content">
+                            <h3 class="services-swiper__title">
+                                Processus BIM collaboratifs
+                            </h3>
+
+                            <p class="services-swiper__text">
+                                Structuration des maquettes et organisation des workflows.
+                            </p>
+
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=service#service_3"
+                            >
+                                En savoir plus
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- Slide 4 -->
+                <article class="services-swiper__slide swiper-slide">
+                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.jpg');">
+                        <div class="services-swiper__icon">
+                            <i class="bi bi-gear"></i>
+                        </div>
+
+                        <div class="services-swiper__content">
+                            <h3 class="services-swiper__title">
+                                Optimisation & DOE BIM
+                            </h3>
+
+                            <p class="services-swiper__text">
+                                Automatisation, fiabilisation des données et IFC conformes.
+                            </p>
+
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=service#service_4"
+                            >
+                                En savoir plus
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
             </div>
-
-
-            <!-- Pagination -->
-            <div class="services-swiper__pagination swiper-pagination"></div>
-
-            <!-- Navigation -->
-            <div class="services-swiper__btn services-swiper__btn--prev swiper-button-prev" aria-label="Précédent"></div>
-            <div class="services-swiper__btn services-swiper__btn--next swiper-button-next" aria-label="Suivant"></div>
         </div>
+
+
+        <!-- Pagination -->
+        <div class="services-swiper__pagination swiper-pagination"></div>
+
+        <!-- Navigation -->
+        <div
+            class="services-swiper__btn services-swiper__btn--prev swiper-button-prev"
+            aria-label="Précédent"
+        ></div>
+
+        <div
+            class="services-swiper__btn services-swiper__btn--next swiper-button-next"
+            aria-label="Suivant"
+        ></div>
 
     </div>
 </section>
+
 
 <!-- ================= SERVICES / DETAILS ================= -->
 <section class="services-details pt-3 pb-5">
     <div class="container">
 
         <header class="text-center mx-auto mb-5" style="max-width: 860px;">
-            <h2 class="display-6 fw-bold mb-2">Détails de nos prestations</h2>
+            <h2 class="display-6 fw-bold mb-2">
+                Détails de nos prestations
+            </h2>
+
             <p class="text-muted mb-0">
-                Une vision claire de ce que nous faisons, comment nous le faisons, et le type de résultats attendus.
+                Une vision claire de ce que nous faisons, comment nous le faisons,
+                et le type de résultats attendus.
             </p>
         </header>
 
-        <!-- ===== 1) MODELISATION BIM ===== -->
-        <article id="modelisation_bim" class="services-details__item">
+
+        <!-- =========================================================
+             SERVICE 1
+        ========================================================== -->
+        <article id="service_1" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
                 <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
-                        <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Modélisation de maquette numérique</h3>
+
+                        <p class="services-details__kicker">
+                            Service
+                        </p>
+
+                        <h3 class="services-details__title">
+                            Modélisation de maquette numérique
+                        </h3>
+
                         <p class="services-details__subtitle">
                             Maquettes fiables à partir de l’existant et des données techniques.
                         </p>
@@ -177,10 +241,17 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=contact"
+                            >
+                                Poser une question
+                            </a>
                         </div>
+
                     </div>
                 </div>
+
 
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
@@ -193,12 +264,21 @@
                     </div>
                 </div>
 
+
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
+
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
-                            <h4 class="services-details__project-title">Site industriel – modélisation de l’existant</h4>
+
+                            <span class="services-details__badge">
+                                <i class="bi bi-check2-circle"></i>
+                                Exemple de projet
+                            </span>
+
+                            <h4 class="services-details__project-title">
+                                Site industriel – modélisation de l’existant
+                            </h4>
 
                             <p class="services-details__project-text">
                                 Reconstitution d’installations techniques à partir de documents d’études et d’un nuage de points,
@@ -209,46 +289,92 @@
                                 La maquette est structurée pour être exploitable en phase études comme en phase exécution, avec un niveau
                                 de détail ajusté (AVP / PRO / EXE) et des vues adaptées aux besoins du projet.
                             </p>
+
                         </div>
 
+
                         <div class="services-details__project-grid">
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Maquette Revit</div>
+                                <div class="services-details__stat-label">
+                                    Livrables
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Maquette Revit
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Données</div>
-                                <div class="services-details__stat-value">Plans + nuage de points</div>
+                                <div class="services-details__stat-label">
+                                    Données
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Plans + nuage de points
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Phases</div>
-                                <div class="services-details__stat-value">AVP / PRO / EXE</div>
+                                <div class="services-details__stat-label">
+                                    Phases
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    AVP / PRO / EXE
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Existant fiabilisé</div>
+                                <div class="services-details__stat-label">
+                                    Résultat
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Existant fiabilisé
+                                </div>
                             </div>
+
                         </div>
+
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Une base “existant” fiable sécurise les décisions et limite les surprises en phase travaux.</span>
+
+                            <span>
+                                Une base “existant” fiable sécurise les décisions
+                                et limite les surprises en phase travaux.
+                            </span>
                         </div>
+
                     </aside>
                 </div>
 
             </div>
         </article>
 
-        <!-- ===== 2) PLANS TECHNIQUES ===== -->
-        <article id="plan_technique" class="services-details__item">
+
+        <!-- =========================================================
+             SERVICE 2
+        ========================================================== -->
+        <article id="service_2" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
                 <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
-                        <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Production de piéces graphiques</h3>
+
+                        <p class="services-details__kicker">
+                            Service
+                        </p>
+
+                        <h3 class="services-details__title">
+                            Production de piéces graphiques
+                        </h3>
+
                         <p class="services-details__subtitle">
                             Pièces graphiques adaptées aux phases PRO et EXE.
                         </p>
@@ -273,10 +399,17 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=contact"
+                            >
+                                Poser une question
+                            </a>
                         </div>
+
                     </div>
                 </div>
+
 
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
@@ -289,12 +422,21 @@
                     </div>
                 </div>
 
+
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
+
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
-                            <h4 class="services-details__project-title">Local technique – plans PRO / EXE</h4>
+
+                            <span class="services-details__badge">
+                                <i class="bi bi-check2-circle"></i>
+                                Exemple de projet
+                            </span>
+
+                            <h4 class="services-details__project-title">
+                                Local technique – plans PRO / EXE
+                            </h4>
 
                             <p class="services-details__project-text">
                                 Production de plans d’implantation, schémas et documents de consultation à partir d’une maquette BIM.
@@ -302,61 +444,110 @@
                             </p>
 
                             <p class="services-details__project-text">
-                                L’objectif est de limiter les ambiguïtés sur chantier : repérages cohérents, informations utiles au bon endroit,
+                                L’objectif est de limiter les ambiguïtés sur chantier :
+                                repérages cohérents, informations utiles au bon endroit,
                                 et documents structurés pour faciliter validations et exécution.
                             </p>
+
                         </div>
 
+
                         <div class="services-details__project-grid">
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">Plans + schémas</div>
+                                <div class="services-details__stat-label">
+                                    Livrables
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Plans + schémas
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Phases</div>
-                                <div class="services-details__stat-value">PRO / EXE</div>
+                                <div class="services-details__stat-label">
+                                    Phases
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    PRO / EXE
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Focus</div>
-                                <div class="services-details__stat-value">Lisibilité terrain</div>
+                                <div class="services-details__stat-label">
+                                    Focus
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Lisibilité terrain
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Exécution fluide</div>
+                                <div class="services-details__stat-label">
+                                    Résultat
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Exécution fluide
+                                </div>
                             </div>
+
                         </div>
+
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Des plans clairs = moins d’allers-retours et une exécution plus sereine.</span>
+
+                            <span>
+                                Des plans clairs = moins d’allers-retours
+                                et une exécution plus sereine.
+                            </span>
                         </div>
+
                     </aside>
                 </div>
 
             </div>
         </article>
 
-        <!-- ===== 3) PROCESSUS BIM ===== -->
-        <article id="processus_bim" class="services-details__item">
+
+        <!-- =========================================================
+             SERVICE 3
+        ========================================================== -->
+        <article id="service_3" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
                 <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
-                        <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Processus BIM collaboratifs</h3>
+
+                        <p class="services-details__kicker">
+                            Service
+                        </p>
+
+                        <h3 class="services-details__title">
+                            Processus BIM collaboratifs
+                        </h3>
+
                         <p class="services-details__subtitle">
                             Structuration des maquettes et organisation des workflows sur ACC.
                         </p>
 
                         <p class="services-details__text">
-                            Nous accompagnons la mise en place et l’organisation des processus BIM sur des plateformes collaboratives
-                            telles qu’Autodesk Construction Cloud (ACC).
+                            Nous accompagnons la mise en place et l’organisation des processus BIM
+                            sur des plateformes collaboratives telles qu’Autodesk Construction Cloud (ACC).
                         </p>
 
                         <p class="services-details__text">
-                            Cette prestation inclut la structuration des maquettes Revit, la gestion du CDE, l’organisation des données
-                            et la mise en place de workflows adaptés, afin de garantir une continuité numérique fiable sur l’ensemble
+                            Cette prestation inclut la structuration des maquettes Revit,
+                            la gestion du CDE, l’organisation des données
+                            et la mise en place de workflows adaptés,
+                            afin de garantir une continuité numérique fiable sur l’ensemble
                             du cycle de vie du projet.
                         </p>
 
@@ -368,10 +559,17 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=contact"
+                            >
+                                Poser une question
+                            </a>
                         </div>
+
                     </div>
                 </div>
+
 
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
@@ -384,76 +582,137 @@
                     </div>
                 </div>
 
+
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
+
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
-                            <h4 class="services-details__project-title">Projet multi-intervenants – organisation ACC</h4>
+
+                            <span class="services-details__badge">
+                                <i class="bi bi-check2-circle"></i>
+                                Exemple de projet
+                            </span>
+
+                            <h4 class="services-details__project-title">
+                                Projet multi-intervenants – organisation ACC
+                            </h4>
 
                             <p class="services-details__project-text">
-                                Mise en place d’un environnement collaboratif ACC : structure du CDE, règles de dépôt, conventions de nommage
+                                Mise en place d’un environnement collaboratif ACC :
+                                structure du CDE, règles de dépôt, conventions de nommage
                                 et circuits de validation simples pour fiabiliser les échanges.
                             </p>
 
                             <p class="services-details__project-text">
-                                L’objectif est d’assurer une continuité numérique : données accessibles, versions maîtrisées,
+                                L’objectif est d’assurer une continuité numérique :
+                                données accessibles, versions maîtrisées,
                                 et workflows cohérents tout au long du projet.
                             </p>
+
                         </div>
 
+
                         <div class="services-details__project-grid">
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Plateforme</div>
-                                <div class="services-details__stat-value">Autodesk ACC</div>
+                                <div class="services-details__stat-label">
+                                    Plateforme
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Autodesk ACC
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">CDE</div>
-                                <div class="services-details__stat-value">Dossiers + versions</div>
+                                <div class="services-details__stat-label">
+                                    CDE
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Dossiers + versions
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Workflows</div>
-                                <div class="services-details__stat-value">Validation simple</div>
+                                <div class="services-details__stat-label">
+                                    Workflows
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Validation simple
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Continuité fiable</div>
+                                <div class="services-details__stat-label">
+                                    Résultat
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Continuité fiable
+                                </div>
                             </div>
+
                         </div>
+
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Un CDE clair = des fichiers maîtrisés, des validations rapides, et moins d’erreurs.</span>
+
+                            <span>
+                                Un CDE clair = des fichiers maîtrisés,
+                                des validations rapides, et moins d’erreurs.
+                            </span>
                         </div>
+
                     </aside>
                 </div>
 
             </div>
         </article>
 
-        <!-- ===== 4) OPTIMISATION / DOE ===== -->
-        <article id="optimisation_bim" class="services-details__item">
+
+        <!-- =========================================================
+             SERVICE 4
+        ========================================================== -->
+        <article id="service_4" class="services-details__item">
             <div class="row g-4 g-lg-5 align-items-stretch">
 
                 <!-- LEFT -->
                 <div class="col-lg-4">
                     <div class="services-details__panel">
-                        <p class="services-details__kicker">Service</p>
-                        <h3 class="services-details__title">Optimisation BIM & préparation DOE numérique</h3>
+
+                        <p class="services-details__kicker">
+                            Service
+                        </p>
+
+                        <h3 class="services-details__title">
+                            Optimisation BIM & préparation DOE numérique
+                        </h3>
+
                         <p class="services-details__subtitle">
                             Automatisation, fiabilisation des données et IFC conformes.
                         </p>
 
                         <p class="services-details__text">
                             Nous développons des familles paramétriques Revit adaptées aux installations techniques,
-                            optimisons les gabarits de travail et mettons en place des scripts Dynamo pour automatiser les tâches répétitives,
+                            optimisons les gabarits de travail et mettons en place des scripts Dynamo
+                            pour automatiser les tâches répétitives,
                             fiabiliser les données et améliorer la productivité des équipes BIM.
                         </p>
 
                         <p class="services-details__text">
-                            En phase DOE, nous réalisons l’allègement, le nettoyage et la structuration des maquettes numériques afin de maîtriser
-                            le poids des fichiers et de produire des IFC conformes aux exigences contractuelles, garantissant leur exploitabilité
-                            et la traçabilité des données pour l’exploitation et la maintenance.
+                            En phase DOE, nous réalisons l’allègement,
+                            le nettoyage et la structuration des maquettes numériques
+                            afin de maîtriser le poids des fichiers et de produire
+                            des IFC conformes aux exigences contractuelles,
+                            garantissant leur exploitabilité et la traçabilité
+                            des données pour l’exploitation et la maintenance.
                         </p>
 
                         <ul class="services-details__list">
@@ -464,10 +723,17 @@
                         </ul>
 
                         <div class="services-details__actions">
-                            <a class="btn btn-primary btn-sm" href="index.php?page=contact">Poser une question</a>
+                            <a
+                                class="btn btn-primary btn-sm"
+                                href="index.php?page=contact"
+                            >
+                                Poser une question
+                            </a>
                         </div>
+
                     </div>
                 </div>
+
 
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
@@ -480,47 +746,97 @@
                     </div>
                 </div>
 
+
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
                     <aside class="services-details__project">
+
                         <div class="services-details__project-head">
-                            <span class="services-details__badge"><i class="bi bi-check2-circle"></i> Exemple de projet</span>
-                            <h4 class="services-details__project-title">DOE numérique – maquette structurée et IFC</h4>
+
+                            <span class="services-details__badge">
+                                <i class="bi bi-check2-circle"></i>
+                                Exemple de projet
+                            </span>
+
+                            <h4 class="services-details__project-title">
+                                DOE numérique – maquette structurée et IFC
+                            </h4>
 
                             <p class="services-details__project-text">
-                                Optimisation d’une maquette : nettoyage des données, allègement des fichiers et préparation d’un export IFC
-                                conforme aux exigences contractuelles.
+                                Optimisation d’une maquette :
+                                nettoyage des données, allègement des fichiers
+                                et préparation d’un export IFC conforme
+                                aux exigences contractuelles.
                             </p>
 
                             <p class="services-details__project-text">
-                                Mise en place d’automatisations Dynamo pour fiabiliser les informations, limiter les actions manuelles,
-                                et garantir une maquette exploitable pour l’exploitation et la maintenance.
+                                Mise en place d’automatisations Dynamo
+                                pour fiabiliser les informations,
+                                limiter les actions manuelles,
+                                et garantir une maquette exploitable
+                                pour l’exploitation et la maintenance.
                             </p>
+
                         </div>
+
 
                         <div class="services-details__project-grid">
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Automatisation</div>
-                                <div class="services-details__stat-value">Dynamo</div>
+                                <div class="services-details__stat-label">
+                                    Automatisation
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Dynamo
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Livrables</div>
-                                <div class="services-details__stat-value">IFC DOE</div>
+                                <div class="services-details__stat-label">
+                                    Livrables
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    IFC DOE
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Objectif</div>
-                                <div class="services-details__stat-value">Poids maîtrisé</div>
+                                <div class="services-details__stat-label">
+                                    Objectif
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Poids maîtrisé
+                                </div>
                             </div>
+
+
                             <div class="services-details__stat">
-                                <div class="services-details__stat-label">Résultat</div>
-                                <div class="services-details__stat-value">Exploitable</div>
+                                <div class="services-details__stat-label">
+                                    Résultat
+                                </div>
+
+                                <div class="services-details__stat-value">
+                                    Exploitable
+                                </div>
                             </div>
+
                         </div>
+
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
-                            <span>Un DOE bien préparé facilite la reprise et la traçabilité des données dans le temps.</span>
+
+                            <span>
+                                Un DOE bien préparé facilite la reprise
+                                et la traçabilité des données dans le temps.
+                            </span>
                         </div>
+
                     </aside>
                 </div>
 

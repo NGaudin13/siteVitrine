@@ -1,5 +1,5 @@
 <?php
-// views_admin/sections/home-bim.php
+// views_admin/sections/home-intro.php
 
 // Récup blocs par slot
 $b = $blocks ?? [];

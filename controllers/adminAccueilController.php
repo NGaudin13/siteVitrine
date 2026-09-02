@@ -121,7 +121,7 @@ class AdminAccueilController
             $src = '';
             $alt = '';
 
-            if (in_array($selectedSlug, ['home-bim', 'home-about'], true)) {
+            if (in_array($selectedSlug, ['home-intro', 'home-about'], true)) {
 
                 $src = trim((string)($_POST['image_src'] ?? ''));
                 $alt = trim((string)($_POST['image_alt'] ?? ''));
@@ -192,8 +192,8 @@ class AdminAccueilController
             // ROUTING PAR SECTION (IMPORTANT)
             // ------------------------------------------------------------------
 
-            // ===== HOME-BIM : title + text_1 + text_2 + image
-            if ($selectedSlug === 'home-bim') {
+            // ===== home-intro : title + text_1 + text_2 + image
+            if ($selectedSlug === 'home-intro') {
 
                 $title = trim((string)($_POST['title'] ?? ''));
                 $text1 = trim((string)($_POST['text_1'] ?? ''));

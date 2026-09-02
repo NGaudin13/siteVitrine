@@ -50,7 +50,7 @@ INSERT INTO `content_block` (`id`, `section_id`, `type`, `slot`, `text`, `src`, 
 (1, 2, 'h2', 'title', 'Le BIM, au cœur de la coordination de vos projets', NULL, NULL, NULL, 10, 1, '2026-01-21 20:22:18', '2026-02-20 23:50:46'),
 (2, 2, 'p', 'text_1', 'Le BIM (Building Information Modeling) repose sur une maquette numérique 3D qui centralise l’ensemble des données techniques du projet. Elle devient une base commune de travail pour tous les intervenants.', NULL, NULL, NULL, 20, 1, '2026-01-21 20:22:18', '2026-02-20 23:50:46'),
 (3, 2, 'p', 'text_2', 'Cette approche collaborative permet de mieux anticiper les contraintes, d’aligner les décisions techniques et de fiabiliser les échanges tout au long du projet, de la conception au chantier. La maquette BIM ne se limite pas à un modèle 3D : elle intègre l’ensemble des données techniques du bâtiment (matériaux, quantités, performances, coûts, planning), faisant de l’ingénieur BIM le garant de la cohérence, de la qualité et de la gestion des informations du projet.', NULL, NULL, NULL, 30, 1, '2026-01-21 20:22:18', '2026-02-20 23:50:46'),
-(4, 2, 'img', 'image', NULL, 'assets/images/accueil_home-bim_20260220_235046.jpg', 'Coordination BIM et travail collaboratif autour d’une maquette numérique', NULL, 40, 1, '2026-01-21 20:22:18', '2026-02-20 23:50:46'),
+(4, 2, 'img', 'image', NULL, 'assets/images/accueil_home-intro_20260220_235046.jpg', 'Coordination BIM et travail collaboratif autour d’une maquette numérique', NULL, 40, 1, '2026-01-21 20:22:18', '2026-02-20 23:50:46'),
 (161, 18, 'h2', 'col1_title', 'Réalisations & expérience', NULL, NULL, NULL, 10, 1, '2026-01-24 01:42:54', '2026-02-20 16:08:54'),
 (162, 18, 'p', 'col1_intro', 'Des missions menées sur le terrain, avec une approche orientée coordination, méthode et livrables fiables.', NULL, NULL, NULL, 20, 1, '2026-01-24 01:42:54', '2026-02-20 16:08:54'),
 (163, 18, 'span', 'timeline_1_title', 'Installations de traitement d’eau & STEP', NULL, NULL, NULL, 110, 1, '2026-01-24 01:42:54', '2026-02-20 16:08:54'),
@@ -186,7 +186,7 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`id`, `page_id`, `slug`, `admin_title`, `template`, `order_index`, `is_active`, `created_at`, `updated_at`) VALUES
-(2, 1, 'home-bim', 'Accueil - Le BIM', 'home-bim', 20, 1, '2026-01-21 18:29:34', '2026-01-21 18:29:34'),
+(2, 1, 'home-intro', 'Accueil - Le BIM', 'home-intro', 20, 1, '2026-01-21 18:29:34', '2026-01-21 18:29:34'),
 (4, 1, 'home-about', 'Accueil - À propos', 'home-about', 40, 1, '2026-01-21 18:29:34', '2026-01-21 18:29:34'),
 (18, 2, 'presentation-path', 'Présentation - Réalisations et compétences dans  l\'entreprise', 'presentation-path', 30, 1, '2026-01-24 01:02:54', '2026-01-24 04:01:51'),
 (19, 4, 'contact-nature-demande', 'Contact – Nature de la demande', 'contact-form', 10, 1, '2026-01-24 05:12:53', '2026-01-24 05:52:14'),

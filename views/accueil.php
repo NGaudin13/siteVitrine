@@ -129,32 +129,32 @@
 </section>
 
 <!-- ================= ACCUEIL / LE BIM ================= -->
-<section id="homeBim" class="home-bim py-5">
+<section id="homeBim" class="home-intro py-5">
     <div class="container">
 
         <div class="row g-5 align-items-stretch">
 
             <!-- TEXTE -->
             <div class="col-lg-6 d-flex">
-                <div class="home-bim__content">
+                <div class="home-intro__content">
 
                     <h2 class="display-6 fw-bold mb-4">
                         <?= htmlspecialchars(
-                            $sectionsContent['home-bim']['title']
+                            $sectionsContent['home-intro']['title']
                             ?? 'Le BIM, au cœur de la coordination de vos projets'
                         ) ?>
                     </h2>
 
                     <p class="text-muted mb-3">
                         <?= nl2br(htmlspecialchars(
-                            $sectionsContent['home-bim']['text_1']
+                            $sectionsContent['home-intro']['text_1']
                             ?? 'Texte BIM principal'
                         )) ?>
                     </p>
 
                     <p class="text-muted mb-0">
                         <?= nl2br(htmlspecialchars(
-                            $sectionsContent['home-bim']['text_2']
+                            $sectionsContent['home-intro']['text_2']
                             ?? 'Texte BIM secondaire'
                         )) ?>
                     </p>
@@ -164,14 +164,14 @@
 
             <!-- IMAGE -->
             <div class="col-lg-6 d-flex">
-                <div class="home-bim__image">
+                <div class="home-intro__image">
                     <img
                         src="<?= htmlspecialchars(
-                            $sectionsContent['home-bim']['image']['src']
+                            $sectionsContent['home-intro']['image']['src']
                             ?? 'assets/images/accueil_homeBim2.jpg'
                         ) ?>"
                         alt="<?= htmlspecialchars(
-                            $sectionsContent['home-bim']['image']['alt']
+                            $sectionsContent['home-intro']['image']['alt']
                             ?? 'Coordination BIM et travail collaboratif autour d’une maquette numérique'
                         ) ?>"
                         loading="lazy"

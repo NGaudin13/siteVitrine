@@ -413,7 +413,7 @@ if (!empty($siteUser?->getAddress())) {
                     <div class="contact-location__map-inner ratio ratio-16x9">
                         <?php if ($mapsQuery !== ''): ?>
                             <iframe
-                                title="Carte - <?= htmlspecialchars($siteUser->getCompanyName() ?? 'OFLABIM') ?>"
+                                title="Carte - <?= htmlspecialchars($siteUser->getCompanyName() ?? 'Entreprise') ?>"
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
                                 src="https://www.google.com/maps?q=<?= $mapsQuery ?>&output=embed"
