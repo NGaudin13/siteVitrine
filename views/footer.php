@@ -48,19 +48,19 @@
             <div class="col-lg-3 col-md-6">
                 <h3 class="text-light mb-4">Services</h3>
 
-                <a class="btn btn-link" href="index.php?page=service#modelisation_bim">
+                <a class="btn btn-link" href="index.php?page=service#service_1">
                     Modélisation de maquette numérique
                 </a>
 
-                <a class="btn btn-link" href="index.php?page=service#plan_technique">
+                <a class="btn btn-link" href="index.php?page=service#service_2">
                     Production de piéces graphiques
                 </a>
 
-                <a class="btn btn-link" href="index.php?page=service#processus_bim">
+                <a class="btn btn-link" href="index.php?page=service#service_3">
                     Processus BIM collaboratifs
                 </a>
 
-                <a class="btn btn-link" href="index.php?page=service#optimisation_bim">
+                <a class="btn btn-link" href="index.php?page=service#service_4">
                     Optimisation & DOE BIM
                 </a>
             </div>
