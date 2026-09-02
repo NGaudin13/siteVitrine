@@ -1,4 +1,6 @@
 <?php
+/** @var User|null $siteUser */
+
 // SEO (si ton controller ne les définit pas déjà)
 $pageTitle = $pageTitle ?? "Contact | OFLABIM";
 $metaDesc  = $metaDesc  ?? "Contactez OFLABIM : bureau d’études & ingénierie (BIM, structures). Demande de devis, questions, prise de rendez-vous.";

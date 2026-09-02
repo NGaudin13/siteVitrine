@@ -206,7 +206,7 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#modelisation_bim">
+                           href="index.php?page=service#service_1">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-boxes"></i>
                             </div>
@@ -221,7 +221,7 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#plan_technique">
+                           href="index.php?page=service#service_2">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-building"></i>
                             </div>
@@ -236,7 +236,7 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3 mb-3"
-                           href="index.php?page=service#processus_bim">
+                           href="index.php?page=service#service_3">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-wrench-adjustable"></i>
                             </div>
@@ -251,7 +251,7 @@
 
                         <!-- Item -->
                         <a class="home-services-value__item d-flex align-items-start text-decoration-none p-3 rounded-3"
-                           href="index.php?page=service#optimisation_bim">
+                           href="index.php?page=service#service_4">
                             <div class="home-services-value__icon bg-dark text-white rounded d-flex align-items-center justify-content-center flex-shrink-0">
                                 <i class="bi bi-tree"></i>
                             </div>
