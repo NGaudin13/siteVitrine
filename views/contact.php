@@ -1,10 +1,21 @@
 <?php
-/** @var User|null $siteUser */
+// =========================================================
+// FICHIER : siteVitrine/views/contact.php
+// Page Contact (données préparées par controllers/contactController.php)
+// =========================================================
 
-// SEO (si ton controller ne les définit pas déjà)
-$pageTitle = $pageTitle ?? "Contact | OFLABIM";
-$metaDesc  = $metaDesc  ?? "Contactez OFLABIM : bureau d’études & ingénierie (BIM, structures). Demande de devis, questions, prise de rendez-vous.";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=contact";
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array       $errors */
+/** @var string|null $flashSuccess */
+/** @var array       $old */
+/** @var array       $sectionsContent */
+/** @var User|null   $siteUser */
+
+// Petites aides d'affichage pour le formulaire
+$e   = fn($v): string => htmlspecialchars((string) $v, ENT_QUOTES, 'UTF-8');
+$cls = fn(string $champ, string $base = 'form-control'): string
+    => $base . (isset($errors[$champ]) ? ' is-invalid' : '');
 
 // Google Maps dynamique (depuis l'adresse admin)
 $mapsQuery = '';
@@ -190,96 +201,106 @@ if (!empty($siteUser?->getAddress())) {
                     </div>
                 <?php endif; ?>
 
-                <form method="post" action="index.php?page=contact#contact-form">
+                <form method="post" action="index.php?page=contact#contact-form" novalidate>
+                    <?= csrf_field() ?>
                     <div class="row g-3">
+
+                        <!-- Anti-spam : champ invisible pour les humains, rempli par les robots -->
+                        <div class="visually-hidden" aria-hidden="true">
+                            <label for="website">Ne pas remplir ce champ</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="name">Nom</label>
-                            <input class="form-control" id="name" name="name" type="text" required>
+                            <input class="<?= $cls('name') ?>" id="name" name="name" type="text"
+                                   maxlength="100" autocomplete="name" required
+                                   value="<?= $e($old['name'] ?? '') ?>">
+                            <?php if (isset($errors['name'])): ?>
+                                <div class="invalid-feedback"><?= $e($errors['name']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="email">Email</label>
-                            <input class="form-control" id="email" name="email" type="email" required>
+                            <input class="<?= $cls('email') ?>" id="email" name="email" type="email"
+                                   maxlength="190" autocomplete="email" required
+                                   value="<?= $e($old['email'] ?? '') ?>">
+                            <?php if (isset($errors['email'])): ?>
+                                <div class="invalid-feedback"><?= $e($errors['email']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="col-md-6">
                             <label class="form-label" for="phone">Téléphone (optionnel)</label>
-                            <input
-                                class="form-control"
-                                id="phone"
-                                name="phone"
-                                type="tel"
-                                placeholder="+33…"
-                                pattern="^\+?[0-9\s\-]{6,20}$"
-                            >
+                            <input class="<?= $cls('phone') ?>" id="phone" name="phone" type="tel"
+                                   maxlength="20" autocomplete="tel" placeholder="+33…"
+                                   pattern="^\+?[0-9\s\-\(\)\.]{6,20}$"
+                                   value="<?= $e($old['phone'] ?? '') ?>">
+                            <?php if (isset($errors['phone'])): ?>
+                                <div class="invalid-feedback"><?= $e($errors['phone']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="col-md-6">
-                        <label class="form-label" for="subject">Type de demande</label>
+                            <label class="form-label" for="subject">Type de demande</label>
 
-                            <select class="form-select" id="subject" name="subject" required>
-                                <option value="" disabled <?= empty($old['subject'] ?? '') ? 'selected' : '' ?>>
+                            <?php
+                            // Sujets gérés dans l'admin (slots "subject_*")
+                            $items = [];
+                            foreach (($sectionsContent['contact-nature-demande'] ?? []) as $slot => $val) {
+                                if (strpos($slot, 'subject_') !== 0) {
+                                    continue;
+                                }
+                                $label = is_array($val) ? (string) ($val['text'] ?? '') : (string) $val;
+                                if ($label === '') {
+                                    continue;
+                                }
+                                $items[] = [
+                                    'value' => substr($slot, 8),
+                                    'label' => $label,
+                                    'order' => is_array($val) ? (int) ($val['order_index'] ?? 0) : 0,
+                                ];
+                            }
+                            usort($items, fn($a, $b) => ($a['order'] <=> $b['order']) ?: strcmp($a['label'], $b['label']));
+                            ?>
+
+                            <select class="<?= $cls('subject', 'form-select') ?>" id="subject" name="subject" required>
+                                <option value="" disabled <?= ($old['subject'] ?? '') === '' ? 'selected' : '' ?>>
                                     Choisir…
                                 </option>
-
-                                <?php
-                                // On récupère la section contact (slug côté BDD)
-                                $contactSlug = 'contact-nature-demande';
-
-                                // On filtre uniquement les slots "subject_*"
-                                $raw = $sectionsContent[$contactSlug] ?? [];
-                                $items = [];
-
-                                foreach ($raw as $slot => $val) {
-                                    if (strpos($slot, 'subject_') !== 0) {
-                                        continue;
-                                    }
-
-                                    // value technique = ce qu'il y a après "subject_"
-                                    $value = substr($slot, 8);
-
-                                    // label = texte du content_block
-                                    // (selon comment tu construis $sectionsContent, ça peut être string ou array)
-                                    $label = is_array($val) ? (string)($val['text'] ?? '') : (string)$val;
-
-                                    // ordre si dispo
-                                    $order = is_array($val) ? (int)($val['order_index'] ?? 0) : 0;
-
-                                    if ($label === '') {
-                                        continue;
-                                    }
-
-                                    $items[] = ['value' => $value, 'label' => $label, 'order' => $order];
-                                }
-
-                                // tri par order_index si présent
-                                usort($items, fn($a, $b) => ($a['order'] <=> $b['order']) ?: strcmp($a['label'], $b['label']));
-                                ?>
-
                                 <?php foreach ($items as $it): ?>
-                                    <option
-                                        value="<?= htmlspecialchars($it['value']) ?>"
-                                        <?= (!empty($old['subject']) && $old['subject'] === $it['value']) ? 'selected' : '' ?>
-                                    >
-                                        <?= htmlspecialchars($it['label']) ?>
+                                    <option value="<?= $e($it['value']) ?>"
+                                        <?= ($old['subject'] ?? '') === $it['value'] ? 'selected' : '' ?>>
+                                        <?= $e($it['label']) ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
+                            <?php if (isset($errors['subject'])): ?>
+                                <div class="invalid-feedback"><?= $e($errors['subject']) ?></div>
+                            <?php endif; ?>
                         </div>
-
 
                         <div class="col-12">
                             <label class="form-label" for="message">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="6" required></textarea>
+                            <textarea class="<?= $cls('message') ?>" id="message" name="message"
+                                      rows="6" maxlength="5000" required><?= $e($old['message'] ?? '') ?></textarea>
+                            <?php if (isset($errors['message'])): ?>
+                                <div class="invalid-feedback"><?= $e($errors['message']) ?></div>
+                            <?php endif; ?>
                         </div>
 
                         <div class="col-12">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="rgpd" name="rgpd" required>
+                                <input class="<?= $cls('rgpd', 'form-check-input') ?>" type="checkbox"
+                                       id="rgpd" name="rgpd" required
+                                       <?= !empty($old['rgpd']) ? 'checked' : '' ?>>
                                 <label class="form-check-label" for="rgpd">
                                     J’accepte que mes informations soient utilisées pour être recontacté.
                                 </label>
+                                <?php if (isset($errors['rgpd'])): ?>
+                                    <div class="invalid-feedback"><?= $e($errors['rgpd']) ?></div>
+                                <?php endif; ?>
                             </div>
                         </div>
 
@@ -294,7 +315,7 @@ if (!empty($siteUser?->getAddress())) {
                                 <a
                                     class="btn btn-outline-success w-100 py-3 d-inline-flex align-items-center justify-content-center"
                                     href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
-                                    aria-label="Appeler <?= htmlspecialchars($siteUser->getCompanyName() ?? 'nous joindre') ?>"
+                                    aria-label="Appeler <?= $e($siteUser->getCompanyName() ?? 'nous joindre') ?>"
                                     title="Nous joindre par téléphone"
                                 >
                                     <i class="fa fa-phone-alt me-2"></i>

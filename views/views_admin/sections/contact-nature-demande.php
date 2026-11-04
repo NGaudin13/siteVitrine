@@ -1,5 +1,13 @@
 <?php
-// views_admin/sections/contact-form.php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/sections/contact-nature-demande.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array<string, ContentBlock> $blocks */
+/** @var string                      $selectedSlug */
+
 // Section slug attendu : contact-form
 // Requiert : $blocks (indexés par slot), $selectedSlug
 
@@ -34,6 +42,8 @@ usort($subjectItems, fn($a, $b) => $a['order'] <=> $b['order']);
       id="contactSubjectsForm">
 
     <input type="hidden" name="section_slug" value="<?= htmlspecialchars($selectedSlug) ?>">
+
+    <?= csrf_field() ?>
 
     <div class="col-12">
         <div class="p-3 border rounded-3 bg-white">

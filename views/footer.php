@@ -1,4 +1,12 @@
 <?php
+// =========================================================
+// FICHIER : siteVitrine/views/footer.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var User|null $siteUser */
+
     // Footer
 ?>
 
@@ -64,7 +72,6 @@
                     Optimisation & DOE BIM
                 </a>
             </div>
-
 
             <!-- Liens utiles -->
             <div class="col-lg-3 col-md-6">

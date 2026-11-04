@@ -1,11 +1,14 @@
 <?php
-    // SEO (optionnel)
-    $pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
-    $metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
-    $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=accueil";
-?>
+// =========================================================
+// FICHIER : siteVitrine/views/accueil.php
+// =========================================================
 
-<?php require_once(PATH_VIEWS . 'alert.php'); ?>
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array $sectionsContent */
+
+require_once PATH_VIEWS . 'alert.php';
+?>
 
 <!-- ================= ACCUEIL / HEADER CAROUSEL ================= -->
 <section class="home-hero page-hero">
@@ -182,7 +185,6 @@
         </div>
     </div>
 </section>
-
 
 <!-- ================= HOME / SERVICES + VALUE (3 colonnes) ================= -->
 <section class="home-services-value py-5">
@@ -760,7 +762,6 @@
                         </div>
                     </div>
 
-
                     <a href="index.php?page=service"
                     class="btn btn-outline-dark px-4 mt-4">
                         Voir nos services
@@ -895,4 +896,3 @@
 
     </div>
 </section>
-

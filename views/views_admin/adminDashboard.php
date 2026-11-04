@@ -1,8 +1,12 @@
 <?php
-// ================= SEO admin =================
-$pageTitle = $pageTitle ?? "Admin | OFLABIM";
-$metaDesc  = $metaDesc  ?? "Espace d'administration OFLABIM";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminDashboard";
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/adminDashboard.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var User        $admin */
+/** @var string|null $flashSuccess */
 
 ?>
 
@@ -22,6 +26,7 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminDas
     <?php endif; ?>
 
     <form method="post" action="index.php?page=adminDashboard" class="row g-3">
+        <?= csrf_field() ?>
 
         <!-- Nom entreprise -->
         <div class="col-md-6">
@@ -104,7 +109,3 @@ $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminDas
     </form>
 
 </div>
-
-</section>
-
-

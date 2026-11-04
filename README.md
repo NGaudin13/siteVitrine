@@ -308,12 +308,22 @@ http://localhost/siteVitrine/index.php?page=login
 ## Tests automatiques
 
 Les tests (dossier `tests/`) vérifient le site comme le ferait un
-navigateur : pages publiques, erreurs 404, protection et fonctionnement
-du back-office, sécurité de la connexion.
+navigateur : pages publiques, erreurs 404, back-office, formulaire de
+contact, protection CSRF, SEO et enregistrement réel des contenus.
 
-1.  Démarrer Apache et MySQL dans XAMPP.
+**Ils ne touchent jamais la vraie base.** À chaque lancement :
+
+1.  la base `sitevitrineoflabim_test` est recréée à partir de
+    `sitevitrineoflabim.sql` ;
+2.  un serveur PHP dédié démarre sur le port 8071 et utilise cette base
+    (variable d'environnement `SITE_DB_NAME`) ;
+3.  il est arrêté à la fin.
+
+Lancer les tests :
+
+1.  Démarrer **MySQL** dans XAMPP (Apache n'est pas nécessaire).
 2.  Copier `tests/.env.local.example` en `tests/.env.local` et y mettre
-    le mot de passe admin (ce fichier est ignoré par Git).
+    un mot de passe admin de test (fichier ignoré par Git).
 3.  Lancer :
 
 ``` powershell

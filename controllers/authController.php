@@ -14,8 +14,11 @@ require_once PATH_MODELS . 'UserModel.php';
 
 $userModel = new UserModel($pdo);
 
-$view  = 'login.php';
-$error = null;
+$view      = 'login.php';
+$error     = null;
+$pageTitle = 'Connexion | OFLABIM';
+$metaDesc  = 'Accès réservé à l’administration du site.';
+$canonical = url_page('login');
 
 /* ================= LOGIN ================= */
 
@@ -27,7 +30,13 @@ if ($page === 'login') {
         exit;
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && !csrf_verify()) {
+
+        // Jeton CSRF absent ou faux : on n'essaie même pas la connexion
+        http_response_code(403);
+        $error = "Formulaire expiré, merci de réessayer.";
+
+    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $email    = trim($_POST['email'] ?? '');
         $password = $_POST['password'] ?? '';

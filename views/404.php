@@ -2,6 +2,9 @@
 // =========================================================
 // FICHIER : siteVitrine/views/404.php
 // =========================================================
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array|null $alert */
 ?>
 <section class="container py-5">
     <div class="text-center mx-auto" style="max-width: 720px;">

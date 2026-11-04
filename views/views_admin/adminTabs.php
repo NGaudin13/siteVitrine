@@ -2,6 +2,9 @@
 // =========================================================
 // FICHIER : siteVitrine/views/views_admin/adminTabs.php
 // =========================================================
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var string $activeTab */
 ?>
 <section class="admin-shell py-4">
     <div class="container">

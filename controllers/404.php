@@ -5,8 +5,10 @@
 
 http_response_code(404);
 
-$alert = choixAlert('url_non_valide');
-$view  = '404.php';
+$alert     = choixAlert('url_non_valide');
+$view      = '404.php';
+$pageTitle = 'Page introuvable | OFLABIM';
+$metaDesc  = 'La page demandée n’existe pas ou a été déplacée.';
 
 // Layout identique aux autres pages
 require PATH_VIEWS . 'header.php';

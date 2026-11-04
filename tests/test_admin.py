@@ -1,12 +1,13 @@
 # =========================================================
 # FICHIER : siteVitrine/tests/test_admin.py
 # Back-office : protection, connexion, onglets, enregistrement.
+# (le jeton CSRF est lu dans le formulaire comme les autres champs)
 # =========================================================
 
 import pytest
 from bs4 import BeautifulSoup
 
-from conftest import assert_full_layout, assert_no_php_error, url
+from conftest import ADMIN_EMAIL, assert_full_layout, assert_no_php_error, tenter_connexion, url
 
 pytestmark = pytest.mark.admin
 
@@ -26,11 +27,7 @@ def test_admin_redirige_vers_login_si_non_connecte(client, page):
 
 
 def test_login_refuse_un_mauvais_mot_de_passe(client):
-    response = client.post(
-        url("login"),
-        data={"email": "contact@oflabim.fr", "password": "mauvais-mot-de-passe"},
-        timeout=10,
-    )
+    response = tenter_connexion(client, ADMIN_EMAIL, "mauvais-mot-de-passe")
 
     assert "Identifiants invalides" in response.text
     assert "page=adminDashboard" not in response.url

@@ -1,5 +1,8 @@
 <?php
-// views/conditions.php
+// =========================================================
+// FICHIER : siteVitrine/views/confidentialite.php
+// =========================================================
+
 ?>
 
 <section class="py-5">

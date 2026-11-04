@@ -12,7 +12,7 @@ from pathlib import Path
 
 import requests
 
-from conftest import ADMIN_EMAIL, MOT_DE_PASSE_PUBLIC, connecter, url
+from conftest import ADMIN_EMAIL, MOT_DE_PASSE_PUBLIC, connecter, tenter_connexion, url
 
 RACINE_PROJET = Path(__file__).resolve().parent.parent
 COOKIE_SESSION = "PHPSESSID"
@@ -22,12 +22,8 @@ COOKIE_SESSION = "PHPSESSID"
 # Mot de passe
 # ---------------------------------------------------------
 
-def test_ancien_mot_de_passe_public_est_refuse(client):
-    response = client.post(
-        url("login"),
-        data={"email": ADMIN_EMAIL, "password": MOT_DE_PASSE_PUBLIC},
-        timeout=10,
-    )
+def test_ancien_mot_de_passe_public_est_refuse(client, identifiants_admin):
+    response = tenter_connexion(client, ADMIN_EMAIL, MOT_DE_PASSE_PUBLIC)
 
     assert "Identifiants invalides" in response.text, (
         f"Le mot de passe '{MOT_DE_PASSE_PUBLIC}' fonctionne encore : lancez "

@@ -1,9 +1,16 @@
 <?php
-$pageTitle = $pageTitle ?? "Admin Accueil | OFLABIM";
-$metaDesc  = $metaDesc  ?? "Administration de la page Accueil";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminAccueil";
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/adminAccueil.php
+// =========================================================
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var string|null  $flashError */
+/** @var string|null  $flashSuccess */
+/** @var bool         $isEditable */
+/** @var Section[]    $sections */
+/** @var Section|null $selectedSection */
+/** @var string       $selectedSlug */
 ?>
-
 <div class="border rounded-3 p-4 bg-white">
 
     <?php if (!empty($flashSuccess)): ?>

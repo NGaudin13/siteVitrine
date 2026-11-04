@@ -1,11 +1,14 @@
 <?php
-    // SEO (si ton controller ne les définit pas déjà)
-    $pageTitle = $pageTitle ?? "Présentation | OFLABIM";
-    $metaDesc  = $metaDesc  ?? "Découvrez OFLABIM : bureau d’études & ingénierie BIM. Coordination, structures et accompagnement de projets.";
-    $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=presentation";
-?>
+// =========================================================
+// FICHIER : siteVitrine/views/presentation.php
+// =========================================================
 
-<?php require_once(PATH_VIEWS . 'alert.php'); ?>
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array $sectionsContent */
+
+require_once PATH_VIEWS . 'alert.php';
+?>
 
 <!-- ================= PRÉSENTATION / HERO ================= -->
 <section
@@ -136,7 +139,6 @@
                     <li class="presentation-about__domain">DOE numériques / IFC</li>
                 </ul>
 
-
             </div>
         </div>
 
@@ -155,7 +157,6 @@
                 <span class="section-kicker badge text-bg-light text-uppercase h2 px-3 py-2">
                     Notre approche
                 </span>
-
 
                 <h2 class="presentation-strategy__title display-6 fw-bold mb-3">
                     Une stratégie BIM orientée projet
@@ -538,7 +539,6 @@
   </div>
 </section>
 
-
 <!-- ================= PRÉSENTATION / PARCOURS VERSION CV ================= -->
 <section class="presentation-path-cv py-5">
     <div class="container">
@@ -712,4 +712,3 @@
         </div>
     </div>
 </section>
-

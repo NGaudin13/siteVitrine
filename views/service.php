@@ -1,11 +1,10 @@
 <?php
-    // SEO (si ton controller ne les définit pas déjà)
-    $pageTitle = $pageTitle ?? "Présentation | OFLABIM";
-    $metaDesc  = $metaDesc  ?? "Découvrez OFLABIM : bureau d’études & ingénierie BIM. Coordination, structures et accompagnement de projets.";
-    $canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=service";
-?>
+// =========================================================
+// FICHIER : siteVitrine/views/service.php
+// =========================================================
 
-<?php require_once(PATH_VIEWS . 'alert.php'); ?>
+require_once PATH_VIEWS . 'alert.php';
+?>
 
 <!-- ================= SERVICE / HERO ================= -->
 <section
@@ -34,7 +33,6 @@
 
     </div>
 </section>
-
 
 <!-- ================= SERVICES / SWIPER ================= -->
 <section class="services-swiper-section py-5">
@@ -76,7 +74,6 @@
                     </div>
                 </article>
 
-
                 <!-- Slide 2 -->
                 <article class="services-swiper__slide swiper-slide">
                     <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service2.jpg');">
@@ -103,7 +100,6 @@
                     </div>
                 </article>
 
-
                 <!-- Slide 3 -->
                 <article class="services-swiper__slide swiper-slide">
                     <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.jpg');">
@@ -129,7 +125,6 @@
                         </div>
                     </div>
                 </article>
-
 
                 <!-- Slide 4 -->
                 <article class="services-swiper__slide swiper-slide">
@@ -160,7 +155,6 @@
             </div>
         </div>
 
-
         <!-- Pagination -->
         <div class="services-swiper__pagination swiper-pagination"></div>
 
@@ -178,7 +172,6 @@
     </div>
 </section>
 
-
 <!-- ================= SERVICES / DETAILS ================= -->
 <section class="services-details pt-3 pb-5">
     <div class="container">
@@ -193,7 +186,6 @@
                 et le type de résultats attendus.
             </p>
         </header>
-
 
         <!-- =========================================================
              SERVICE 1
@@ -252,7 +244,6 @@
                     </div>
                 </div>
 
-
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
@@ -263,7 +254,6 @@
                         >
                     </div>
                 </div>
-
 
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
@@ -292,7 +282,6 @@
 
                         </div>
 
-
                         <div class="services-details__project-grid">
 
                             <div class="services-details__stat">
@@ -305,7 +294,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Données
@@ -316,7 +304,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Phases
@@ -326,7 +313,6 @@
                                     AVP / PRO / EXE
                                 </div>
                             </div>
-
 
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
@@ -339,7 +325,6 @@
                             </div>
 
                         </div>
-
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
@@ -355,7 +340,6 @@
 
             </div>
         </article>
-
 
         <!-- =========================================================
              SERVICE 2
@@ -410,7 +394,6 @@
                     </div>
                 </div>
 
-
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
@@ -421,7 +404,6 @@
                         >
                     </div>
                 </div>
-
 
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
@@ -451,7 +433,6 @@
 
                         </div>
 
-
                         <div class="services-details__project-grid">
 
                             <div class="services-details__stat">
@@ -464,7 +445,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Phases
@@ -475,7 +455,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Focus
@@ -485,7 +464,6 @@
                                     Lisibilité terrain
                                 </div>
                             </div>
-
 
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
@@ -498,7 +476,6 @@
                             </div>
 
                         </div>
-
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
@@ -514,7 +491,6 @@
 
             </div>
         </article>
-
 
         <!-- =========================================================
              SERVICE 3
@@ -570,7 +546,6 @@
                     </div>
                 </div>
 
-
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
@@ -581,7 +556,6 @@
                         >
                     </div>
                 </div>
-
 
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
@@ -612,7 +586,6 @@
 
                         </div>
 
-
                         <div class="services-details__project-grid">
 
                             <div class="services-details__stat">
@@ -625,7 +598,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     CDE
@@ -636,7 +608,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Workflows
@@ -646,7 +617,6 @@
                                     Validation simple
                                 </div>
                             </div>
-
 
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
@@ -659,7 +629,6 @@
                             </div>
 
                         </div>
-
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
@@ -675,7 +644,6 @@
 
             </div>
         </article>
-
 
         <!-- =========================================================
              SERVICE 4
@@ -734,7 +702,6 @@
                     </div>
                 </div>
 
-
                 <!-- CENTER IMAGE -->
                 <div class="col-lg-4">
                     <div class="services-details__media">
@@ -745,7 +712,6 @@
                         >
                     </div>
                 </div>
-
 
                 <!-- RIGHT PROJECT -->
                 <div class="col-lg-4">
@@ -779,7 +745,6 @@
 
                         </div>
 
-
                         <div class="services-details__project-grid">
 
                             <div class="services-details__stat">
@@ -792,7 +757,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Livrables
@@ -803,7 +767,6 @@
                                 </div>
                             </div>
 
-
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
                                     Objectif
@@ -813,7 +776,6 @@
                                     Poids maîtrisé
                                 </div>
                             </div>
-
 
                             <div class="services-details__stat">
                                 <div class="services-details__stat-label">
@@ -826,7 +788,6 @@
                             </div>
 
                         </div>
-
 
                         <div class="services-details__project-note">
                             <i class="bi bi-lightning-charge"></i>
