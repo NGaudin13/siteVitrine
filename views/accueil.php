@@ -228,7 +228,7 @@ require_once PATH_VIEWS . 'alert.php';
                                 <i class="bi bi-building"></i>
                             </div>
                             <div class="ms-3">
-                                <div class="fw-semibold text-dark">Production de piéces graphiques</div>
+                                <div class="fw-semibold text-dark">Production de pièces graphiques</div>
                                 <div class="text-muted small">Documents clairs et exploitables issus des maquettes BIM</div>
                             </div>
                             <div class="ms-auto home-services-value__pin flex-shrink-0">

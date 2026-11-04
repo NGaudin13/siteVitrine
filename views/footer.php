@@ -61,7 +61,7 @@
                 </a>
 
                 <a class="btn btn-link" href="index.php?page=service#service_2">
-                    Production de piéces graphiques
+                    Production de pièces graphiques
                 </a>
 
                 <a class="btn btn-link" href="index.php?page=service#service_3">
@@ -82,6 +82,7 @@
                 <a class="btn btn-link" href="index.php?page=service">Nos services</a>
                 <a class="btn btn-link" href="index.php?page=conditions">Conditions générales</a>
                 <a class="btn btn-link" href="index.php?page=confidentialite">Confidentialité</a>
+                <a class="btn btn-link" href="index.php?page=mentions">Mentions légales</a>
             </div>
 
             <!-- Call To Action -->
@@ -113,11 +114,9 @@
         <div class="container">
             <div class="row">
                 <div class="text-center text-md-center mb-3">
-                    © <?= date('Y') ?> NBsolutions —
-                    Réalisé par
-                    <a href="#" class="text-decoration-none text-light">
-                        NBsolutions - BERTRAND Baptiste -  GAUDIN Nicolas
-                    </a>
+                    © <?= date('Y') ?> <?= htmlspecialchars($siteUser?->getCompanyName() ?: 'OFLABIM', ENT_QUOTES, 'UTF-8') ?> —
+                    <a href="index.php?page=mentions" class="text-decoration-none text-light">Mentions légales</a>
+                    — Site réalisé par NBsolutions
                 </div>
             </div>
         </div>

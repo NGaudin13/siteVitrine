@@ -83,7 +83,7 @@ require_once PATH_VIEWS . 'alert.php';
 
                         <div class="services-swiper__content">
                             <h3 class="services-swiper__title">
-                                Production de piéces graphiques
+                                Production de pièces graphiques
                             </h3>
 
                             <p class="services-swiper__text">
@@ -356,7 +356,7 @@ require_once PATH_VIEWS . 'alert.php';
                         </p>
 
                         <h3 class="services-details__title">
-                            Production de piéces graphiques
+                            Production de pièces graphiques
                         </h3>
 
                         <p class="services-details__subtitle">

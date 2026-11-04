@@ -40,6 +40,7 @@ $publicPages = [
     'contact',
     'conditions',
     'confidentialite',
+    'mentions',
     'login',
 ];
 

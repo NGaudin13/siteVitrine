@@ -217,6 +217,32 @@ def tenter_connexion(session: requests.Session, email: str, mot_de_passe: str) -
     )
 
 
+def lire_formulaire(html: str) -> dict:
+    """Recupere tous les champs du formulaire POST de la page (jeton CSRF compris)."""
+    soup = BeautifulSoup(html, "html.parser")
+    jeton = soup.find("input", {"name": "csrf_token"})
+    assert jeton is not None, "Formulaire sans jeton CSRF"
+    form = jeton.find_parent("form")
+
+    data = {}
+    for champ in form.find_all(["input", "textarea"]):
+        nom = champ.get("name")
+        if not nom or champ.get("type") == "file":
+            continue
+        data[nom] = champ.text if champ.name == "textarea" else champ.get("value", "")
+    return data
+
+
+def envoyer_formulaire(session: requests.Session, page: str, data: dict,
+                       fichiers: dict | None = None, **params) -> requests.Response:
+    """Recharge le formulaire (jeton frais), puis envoie `data` comme un navigateur."""
+    adresse = url(page, **params)
+    jeton = lire_formulaire(session.get(adresse, timeout=10).text)["csrf_token"]
+    response = session.post(adresse, data={**data, "csrf_token": jeton}, files=fichiers, timeout=10)
+    assert_no_php_error(response)
+    return response
+
+
 def connecter(session: requests.Session) -> requests.Response:
     """Connecte la session au back-office et renvoie la reponse finale."""
     return tenter_connexion(session, ADMIN_EMAIL, ADMIN_PASSWORD)

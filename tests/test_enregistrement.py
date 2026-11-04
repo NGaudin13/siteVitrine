@@ -14,52 +14,26 @@ import uuid
 from contextlib import contextmanager
 
 import pytest
-from bs4 import BeautifulSoup
 
-from conftest import assert_no_php_error, url
+from conftest import envoyer_formulaire, lire_formulaire, url
 
 pytestmark = pytest.mark.admin
-
-
-def _lire_formulaire(html: str) -> dict:
-    """Recupere tous les champs du formulaire POST (jeton CSRF compris)."""
-    soup = BeautifulSoup(html, "html.parser")
-    jeton = soup.find("input", {"name": "csrf_token"})
-    assert jeton is not None, "Formulaire sans jeton CSRF"
-    form = jeton.find_parent("form")
-
-    data = {}
-    for champ in form.find_all(["input", "textarea"]):
-        nom = champ.get("name")
-        if not nom or champ.get("type") == "file":
-            continue
-        data[nom] = champ.text if champ.name == "textarea" else champ.get("value", "")
-    return data
-
-
-def _envoyer(admin, page, data, **params):
-    """Recharge le formulaire pour un jeton frais, puis envoie `data`."""
-    adresse = url(page, **params)
-    data = dict(data, csrf_token=_lire_formulaire(admin.get(adresse, timeout=10).text)["csrf_token"])
-    response = admin.post(adresse, data=data, timeout=10)
-    assert_no_php_error(response)
-    return response
 
 
 @contextmanager
 def _modification_temporaire(admin, page, champ, **params):
     """Modifie `champ` avec un marqueur unique, puis restaure l'original."""
-    origine = _lire_formulaire(admin.get(url(page, **params), timeout=10).text)
+    origine = lire_formulaire(admin.get(url(page, **params), timeout=10).text)
     marqueur = f"TEST-{uuid.uuid4().hex[:8]}"
 
     modifie = dict(origine)
     modifie[champ] = f"{origine[champ]} {marqueur}".strip()
 
     try:
-        _envoyer(admin, page, modifie, **params)
+        envoyer_formulaire(admin, page, modifie, **params)
         yield marqueur
     finally:
-        _envoyer(admin, page, origine, **params)
+        envoyer_formulaire(admin, page, origine, **params)
 
 
 # ---------------------------------------------------------
@@ -96,7 +70,7 @@ def test_horaires_enregistres_et_affiches_sur_contact(admin):
 
 def test_nouveau_sujet_de_contact_apparait_dans_la_liste(admin):
     params = {"section": "contact-nature-demande"}
-    origine = _lire_formulaire(admin.get(url("adminContact", **params), timeout=10).text)
+    origine = lire_formulaire(admin.get(url("adminContact", **params), timeout=10).text)
 
     # Ajoute une ligne "subjects[N]" apres les sujets existants
     numeros = [int(k.split("[")[1].split("]")[0]) for k in origine if k.startswith("subjects[")]
@@ -112,9 +86,9 @@ def test_nouveau_sujet_de_contact_apparait_dans_la_liste(admin):
     })
 
     try:
-        _envoyer(admin, "adminContact", modifie, **params)
+        envoyer_formulaire(admin, "adminContact", modifie, **params)
         assert libelle in admin.get(url("contact"), timeout=10).text
     finally:
-        _envoyer(admin, "adminContact", origine, **params)
+        envoyer_formulaire(admin, "adminContact", origine, **params)
 
     assert libelle not in admin.get(url("contact"), timeout=10).text

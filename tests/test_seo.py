@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 
 from conftest import url
 
-PAGES_PUBLIQUES = ["accueil", "presentation", "service", "contact", "conditions", "confidentialite"]
+PAGES_PUBLIQUES = ["accueil", "presentation", "service", "contact", "conditions", "confidentialite", "mentions"]
 
 
 def _soup(client, page):

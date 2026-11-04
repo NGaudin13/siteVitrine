@@ -65,6 +65,10 @@ $seoParDefaut = [
         'Politique de confidentialité | OFLABIM',
         'Comment OFLABIM collecte et protège vos données personnelles.',
     ],
+    'mentions' => [
+        'Mentions légales | OFLABIM',
+        'Mentions légales du site OFLABIM : éditeur, hébergeur, propriété intellectuelle.',
+    ],
 ];
 
 $pageTitle = "OFLABIM | Bureau d'Études & Ingénierie BIM";
@@ -106,6 +110,10 @@ switch ($page) {
 
     case 'confidentialite':
         $view = 'confidentialite.php';
+        break;
+
+    case 'mentions':
+        $view = 'mentions.php';
         break;
 
     case 'contact':

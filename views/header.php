@@ -22,7 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?></title>
+    <title><?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?></title>
     <meta name="description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
     <meta name="robots" content="index, follow">
     <meta name="language" content="fr">
@@ -31,13 +31,13 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?>">
     <meta property="og:description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
     <meta property="og:url" content="<?= htmlspecialchars($canonical ?? '') ?>">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
 
     <!-- Google Fonts -->
@@ -106,8 +106,11 @@
                 <a class="text-light me-3" href="index.php?page=conditions">
                     Conditions
                 </a>
-                <a class="text-light" href="index.php?page=confidentialite">
+                <a class="text-light me-3" href="index.php?page=confidentialite">
                     Confidentialité
+                </a>
+                <a class="text-light" href="index.php?page=mentions">
+                    Mentions légales
                 </a>
             </div>
 
@@ -192,7 +195,7 @@
                     </a>
 
                     <a href="index.php?page=service#service_2" class="dropdown-item">
-                        Production de piéces graphiques
+                        Production de pièces graphiques
                     </a>
 
                     <a href="index.php?page=service#service_3" class="dropdown-item">

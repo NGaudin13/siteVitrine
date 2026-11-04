@@ -1,10 +1,11 @@
 <?php
 // =========================================================
 // FICHIER : siteVitrine/controllers/AdminPresentationController.php
+// Back-office : édition des sections de la page Présentation.
+//
+// Même règle que l'accueil : on valide tout, puis on écrit
+// en base dans UNE transaction (tout ou rien).
 // =========================================================
-
-
-// session_start() retiré : la session est déjà démarrée dans index.php
 
 require_once PATH_MODELS . 'PageModel.php';
 require_once PATH_MODELS . 'SectionModel.php';
@@ -12,12 +13,14 @@ require_once PATH_MODELS . 'ContentBlockModel.php';
 
 class AdminPresentationController
 {
+    private PDO $pdo;
     private PageModel $pageModel;
     private SectionModel $sectionModel;
     private ContentBlockModel $contentBlockModel;
 
     public function __construct(PDO $pdo)
     {
+        $this->pdo               = $pdo;
         $this->pageModel         = new PageModel($pdo);
         $this->sectionModel      = new SectionModel($pdo);
         $this->contentBlockModel = new ContentBlockModel($pdo);
@@ -29,205 +32,34 @@ class AdminPresentationController
         $flashError   = $_SESSION['flashError'] ?? null;
         unset($_SESSION['flashSuccess'], $_SESSION['flashError']);
 
-        // 1) PAGE PRESENTATION
+        // 1) PAGE PRÉSENTATION
         $page = $this->pageModel->findBySlug('presentation');
         if (!$page) {
             http_response_code(404);
-            return [
-                'flashError' => "Page 'presentation' introuvable.",
-                'sections'   => [],
-            ];
+            return ['flashError' => "Page 'presentation' introuvable.", 'sections' => []];
         }
 
         // 2) SECTIONS
-        $sections = $this->sectionModel->findByPageId((int)$page->getId(), true);
+        $sections = $this->sectionModel->findByPageId((int) $page->getId(), true);
         if (empty($sections)) {
             http_response_code(404);
-            return [
-                'flashError' => "Aucune section trouvée pour la page 'presentation'.",
-                'sections'   => [],
-            ];
+            return ['flashError' => "Aucune section trouvée pour la page 'presentation'.", 'sections' => []];
         }
 
-        // 3) SECTION SELECTIONNEE
-        $selectedSlug    = trim((string)($_GET['section'] ?? ''));
-        $selectedSection = null;
-
-        if ($selectedSlug !== '') {
-            foreach ($sections as $s) {
-                if ($s->getSlug() === $selectedSlug) {
-                    $selectedSection = $s;
-                    break;
-                }
-            }
-            if (!$selectedSection) {
-                $selectedSlug = '';
-            }
+        // 3) POST : SAUVEGARDE
+        if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
+            $this->enregistrer($sections);   // redirige toujours
         }
 
-        $sectionId = $selectedSection ? (int)$selectedSection->getId() : 0;
+        // 4) SECTION SÉLECTIONNÉE
+        $selectedSection = $this->trouverSection($sections, (string) ($_GET['section'] ?? ''));
+        $selectedSlug    = $selectedSection ? $selectedSection->getSlug() : '';
+        $sectionId       = $selectedSection ? (int) $selectedSection->getId() : 0;
 
-        // 4) BLOCKS
-        $blocks = [];
-        if ($sectionId > 0) {
-            $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
-        }
+        $blocks     = $sectionId > 0
+            ? $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true)
+            : [];
         $isEditable = ($sectionId > 0 && !empty($blocks));
-
-        // 5) POST
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-            $postedSectionSlug = trim((string)($_POST['section_slug'] ?? ''));
-            if ($postedSectionSlug === '') {
-                $_SESSION['flashError'] = "Section invalide.";
-                header('Location: index.php?page=adminPresentation');
-                exit;
-            }
-
-            $postedSection = null;
-            foreach ($sections as $s) {
-                if ($s->getSlug() === $postedSectionSlug) {
-                    $postedSection = $s;
-                    break;
-                }
-            }
-
-            if (!$postedSection) {
-                $_SESSION['flashError'] = "Section invalide.";
-                header('Location: index.php?page=adminPresentation');
-                exit;
-            }
-
-            $selectedSection = $postedSection;
-            $selectedSlug    = $selectedSection->getSlug();
-            $sectionId       = (int)$selectedSection->getId();
-
-            // reload blocks + règle éditable
-            $blocks = $this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true);
-            $isEditable = !empty($blocks);
-
-            if (!$isEditable) {
-                $_SESSION['flashError'] = "Cette section n’est pas encore éditable (aucun content_block associé).";
-                header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-                exit;
-            }
-
-            // ===================== presentation-about =====================
-            if ($selectedSlug === 'presentation-about') {
-
-                $title = trim((string)($_POST['title'] ?? ''));
-                $text1 = trim((string)($_POST['text_1'] ?? ''));
-                $text2 = trim((string)($_POST['text_2'] ?? ''));
-                $src   = trim((string)($_POST['image_src'] ?? ''));
-                $alt   = trim((string)($_POST['image_alt'] ?? ''));
-
-                if ($title === '' || $text1 === '' || $text2 === '') {
-                    $_SESSION['flashError'] = "Titre et paragraphes obligatoires.";
-                    header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                if ($alt === '') {
-                    $_SESSION['flashError'] = "Le alt est obligatoire.";
-                    header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                // (upload optionnel si tu veux)
-
-                if ($src === '') {
-                    $_SESSION['flashError'] = "Le src de l’image est obligatoire (ou upload).";
-                    header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'title',  ['text' => $title]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_1', ['text' => $text1]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'text_2', ['text' => $text2]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'image',  ['src' => $src, 'alt' => $alt]);
-            }
-
-            // ===================== presentation-path =====================
-            if ($selectedSlug === 'presentation-path') {
-
-                $col1Title = trim((string)($_POST['col1_title'] ?? ''));
-                $col1Intro = trim((string)($_POST['col1_intro'] ?? ''));
-                $col3Title = trim((string)($_POST['col3_title'] ?? ''));
-                $col3Intro = trim((string)($_POST['col3_intro'] ?? ''));
-
-                if ($col1Title === '' || $col1Intro === '' || $col3Title === '' || $col3Intro === '') {
-                    $_SESSION['flashError'] = "Les titres + intros des 2 blocs sont obligatoires.";
-                    header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-                    exit;
-                }
-
-                // 1) update titres/intro
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'col1_title', ['text' => $col1Title]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'col1_intro', ['text' => $col1Intro]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'col3_title', ['text' => $col3Title]);
-                $this->contentBlockModel->updateBySectionSlot($sectionId, 'col3_intro', ['text' => $col3Intro]);
-
-                // 2) nettoyer (désactiver) les anciens items
-                // -> il faut que tu aies ajouté ces méthodes au model
-                $this->contentBlockModel->disableBySectionSlotPrefix($sectionId, 'timeline_');
-                $this->contentBlockModel->disableBySectionSlotPrefix($sectionId, 'edu_');
-
-                // 3) recréer à partir du POST (renuméroté proprement 1..N)
-                $timeline = $_POST['timeline'] ?? [];
-                $n = 0;
-                foreach ($timeline as $row) {
-                    $t  = trim((string)($row['title'] ?? ''));
-                    $d  = trim((string)($row['desc'] ?? ''));
-                    $dt = trim((string)($row['date'] ?? ''));
-
-                    if ($t === '' && $d === '' && $dt === '') {
-                        continue;
-                    }
-
-                    $n++;
-                    $baseOrder = 100 + ($n * 10);
-
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "timeline_{$n}_title", [
-                        'type' => 'span', 'text' => $t, 'order_index' => $baseOrder + 0, 'is_active' => 1
-                    ]);
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "timeline_{$n}_desc", [
-                        'type' => 'p', 'text' => $d, 'order_index' => $baseOrder + 1, 'is_active' => 1
-                    ]);
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "timeline_{$n}_date", [
-                        'type' => 'span', 'text' => $dt, 'order_index' => $baseOrder + 2, 'is_active' => 1
-                    ]);
-                }
-
-                $edu = $_POST['edu'] ?? [];
-                $m = 0;
-                foreach ($edu as $row) {
-                    $t   = trim((string)($row['title'] ?? ''));
-                    $d   = trim((string)($row['desc'] ?? ''));
-                    $lvl = trim((string)($row['level'] ?? ''));
-
-                    if ($t === '' && $d === '' && $lvl === '') {
-                        continue;
-                    }
-
-                    $m++;
-                    $baseOrder = 500 + ($m * 10);
-
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "edu_{$m}_title", [
-                        'type' => 'span', 'text' => $t, 'order_index' => $baseOrder + 0, 'is_active' => 1
-                    ]);
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "edu_{$m}_desc", [
-                        'type' => 'p', 'text' => $d, 'order_index' => $baseOrder + 1, 'is_active' => 1
-                    ]);
-                    $this->contentBlockModel->upsertBySectionSlot($sectionId, "edu_{$m}_level", [
-                        'type' => 'span', 'text' => $lvl, 'order_index' => $baseOrder + 2, 'is_active' => 1
-                    ]);
-                }
-            }
-
-            $_SESSION['flashSuccess'] = "Section mise à jour : " . $selectedSection->getAdminTitle();
-            header('Location: index.php?page=adminPresentation&section=' . urlencode($selectedSlug));
-            exit;
-        }
 
         return [
             'flashSuccess'    => $flashSuccess,
@@ -238,5 +70,172 @@ class AdminPresentationController
             'isEditable'      => $isEditable,
             'blocks'          => $blocks,
         ];
+    }
+
+    /* ============================================================
+       ENREGISTREMENT
+       ============================================================ */
+
+    private function enregistrer(array $sections): never
+    {
+        $section = $this->trouverSection($sections, (string) ($_POST['section_slug'] ?? ''));
+
+        if (!$section) {
+            $this->rediriger('', erreur: 'Section invalide.');
+        }
+
+        $slug      = $section->getSlug();
+        $sectionId = (int) $section->getId();
+
+        if (empty($this->contentBlockModel->findBySectionIdIndexedBySlot($sectionId, true))) {
+            $this->rediriger($slug, erreur: "Cette section n’est pas encore éditable (aucun contenu associé).");
+        }
+
+        try {
+            match ($slug) {
+                'presentation-path' => $this->enregistrerParcours($sectionId),
+                default             => throw new InvalidArgumentException("Section non gérée : {$slug}"),
+            };
+        } catch (InvalidArgumentException $e) {
+            $this->rediriger($slug, erreur: $e->getMessage());
+        } catch (Throwable $e) {
+            error_log('[adminPresentation] ' . $e->getMessage());
+            $this->rediriger($slug, erreur: "Erreur technique : aucune modification n’a été enregistrée.");
+        }
+
+        $this->rediriger($slug, succes: 'Section mise à jour : ' . $section->getAdminTitle());
+    }
+
+    /**
+     * Section "Réalisations & compétences" : 2 blocs (titre + intro),
+     * une liste d'expériences et une liste de compétences.
+     * Les lignes sont renumérotées 1..N dans l'ordre affiché.
+     */
+    private function enregistrerParcours(int $sectionId): void
+    {
+        $col1Title = $this->champ('col1_title');
+        $col1Intro = $this->champ('col1_intro');
+        $col3Title = $this->champ('col3_title');
+        $col3Intro = $this->champ('col3_intro');
+
+        if ($col1Title === '' || $col1Intro === '' || $col3Title === '' || $col3Intro === '') {
+            throw new InvalidArgumentException('Les titres + intros des 2 blocs sont obligatoires.');
+        }
+
+        // Lignes non vides uniquement, dans l'ordre reçu
+        $experiences = $this->lignes('timeline', ['title', 'desc', 'date']);
+        $competences = $this->lignes('edu', ['title', 'desc', 'level']);
+
+        $this->enTransaction(function () use ($sectionId, $col1Title, $col1Intro, $col3Title, $col3Intro, $experiences, $competences) {
+
+            $this->contentBlockModel->updateBySectionSlot($sectionId, 'col1_title', ['text' => $col1Title]);
+            $this->contentBlockModel->updateBySectionSlot($sectionId, 'col1_intro', ['text' => $col1Intro]);
+            $this->contentBlockModel->updateBySectionSlot($sectionId, 'col3_title', ['text' => $col3Title]);
+            $this->contentBlockModel->updateBySectionSlot($sectionId, 'col3_intro', ['text' => $col3Intro]);
+
+            // On désactive les anciennes lignes, puis on réactive celles envoyées
+            $this->contentBlockModel->disableBySectionSlotPrefix($sectionId, 'timeline_');
+            $this->contentBlockModel->disableBySectionSlotPrefix($sectionId, 'edu_');
+
+            foreach ($experiences as $n => $ligne) {
+                $ordre = 100 + ($n * 10);
+                $this->ecrireLigne($sectionId, "timeline_{$n}", $ordre, [
+                    'title' => ['span', $ligne['title']],
+                    'desc'  => ['p',    $ligne['desc']],
+                    'date'  => ['span', $ligne['date']],
+                ]);
+            }
+
+            foreach ($competences as $n => $ligne) {
+                $ordre = 500 + ($n * 10);
+                $this->ecrireLigne($sectionId, "edu_{$n}", $ordre, [
+                    'title' => ['span', $ligne['title']],
+                    'desc'  => ['p',    $ligne['desc']],
+                    'level' => ['span', $ligne['level']],
+                ]);
+            }
+        });
+    }
+
+    /* ============================================================
+       OUTILS
+       ============================================================ */
+
+    /** Lit $_POST[$nom][...][$champs], ignore les lignes vides, renumérote 1..N. */
+    private function lignes(string $nom, array $champs): array
+    {
+        $resultat = [];
+        $n = 0;
+
+        foreach ((array) ($_POST[$nom] ?? []) as $ligne) {
+            if (!is_array($ligne)) {
+                continue;
+            }
+
+            $valeurs = [];
+            foreach ($champs as $champ) {
+                $valeurs[$champ] = trim((string) ($ligne[$champ] ?? ''));
+            }
+
+            if (implode('', $valeurs) === '') {
+                continue;   // ligne entièrement vide : ignorée
+            }
+
+            $resultat[++$n] = $valeurs;
+        }
+
+        return $resultat;
+    }
+
+    /** Écrit les blocs d'une ligne : prefixe_title, prefixe_desc… */
+    private function ecrireLigne(int $sectionId, string $prefixe, int $ordre, array $blocs): void
+    {
+        $i = 0;
+        foreach ($blocs as $suffixe => [$type, $texte]) {
+            $this->contentBlockModel->upsertBySectionSlot($sectionId, "{$prefixe}_{$suffixe}", [
+                'type' => $type, 'text' => $texte, 'order_index' => $ordre + $i++, 'is_active' => 1,
+            ]);
+        }
+    }
+
+    private function enTransaction(callable $operations): void
+    {
+        $this->pdo->beginTransaction();
+        try {
+            $operations();
+            $this->pdo->commit();
+        } catch (Throwable $e) {
+            $this->pdo->rollBack();
+            throw $e;
+        }
+    }
+
+    private function champ(string $nom): string
+    {
+        return trim((string) ($_POST[$nom] ?? ''));
+    }
+
+    private function trouverSection(array $sections, string $slug): ?Section
+    {
+        foreach ($sections as $s) {
+            if ($s->getSlug() === trim($slug)) {
+                return $s;
+            }
+        }
+        return null;
+    }
+
+    private function rediriger(string $slug, ?string $erreur = null, ?string $succes = null): never
+    {
+        if ($erreur !== null) {
+            $_SESSION['flashError'] = $erreur;
+        }
+        if ($succes !== null) {
+            $_SESSION['flashSuccess'] = $succes;
+        }
+
+        $url = 'index.php?page=adminPresentation' . ($slug !== '' ? '&section=' . urlencode($slug) : '');
+        header('Location: ' . $url);
+        exit;
     }
 }

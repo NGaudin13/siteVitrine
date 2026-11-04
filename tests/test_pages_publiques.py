@@ -15,6 +15,7 @@ PAGES_PUBLIQUES = [
     "contact",
     "conditions",
     "confidentialite",
+    "mentions",
     "login",
 ]
 
