@@ -26,58 +26,49 @@ if (!empty($siteUser?->getAddress())) {
 
 <?php require_once(PATH_VIEWS . 'alert.php'); ?>
 
-<!-- ================= PAGE CONTACT / HEADER ================= -->
-<section
-    class="header-contact page-hero page-header-contact mt-4 py-5 mb-5"
-    style="
-        background-image: url('/siteVitrine/assets/images/contactezNous3.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    "
->
-    <div class="container py-5">
+<!-- ================= PAGE CONTACT / BANDEAU =================
+     Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Contact.
+     ========================================================== -->
+<?php
+$heroImage = '/siteVitrine/assets/images/contactezNous3.jpg';
+?>
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= $e($heroImage) ?>');">
+    <div class="container ofl-hero__inner">
+        <div class="ofl-hero__content">
 
-        <h1 class="display-4 text-white mb-3">
-            Contact
-        </h1>
+            <div class="ofl-eyebrow">Contact</div>
 
-        <p class="lead text-white-50 mb-4" style="max-width: 700px;">
-            Une question, un besoin BIM ou structure ?
-            Décrivez votre projet, on vous répond rapidement.
-        </p>
+            <h1 class="ofl-hero__title">
+                Une question, un besoin <em>BIM ou structure ?</em>
+            </h1>
 
-        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="ofl-hero__lead">
+                Décrivez votre projet, on vous répond rapidement.
+            </div>
 
-            <!-- Breadcrumb -->
+            <div class="ofl-actions">
+                <?php if (!empty($siteUser?->getPhone())): ?>
+                    <a class="ofl-btn ofl-btn--cta"
+                       href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
+                       aria-label="Appeler <?= $e($siteUser->getCompanyName() ?? 'nous joindre') ?>"
+                       title="Nous joindre par téléphone">
+                        <i class="fa fa-phone-alt" aria-hidden="true"></i>
+                        Nous joindre
+                    </a>
+                <?php endif; ?>
+                <a class="ofl-btn ofl-btn--ghost" href="#contact-form">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    Écrire un message
+                </a>
+            </div>
+
+            <!-- Fil d'Ariane -->
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb text-uppercase mb-0">
-                    <li class="breadcrumb-item">
-                        <a
-                            class="text-white-50 text-decoration-none"
-                            href="index.php?page=accueil"
-                        >
-                            Accueil
-                        </a>
-                    </li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">
-                        Contact
-                    </li>
+                <ol class="ofl-hero__sectors">
+                    <li><a href="index.php?page=accueil">Accueil</a></li>
+                    <li aria-current="page">Contact</li>
                 </ol>
             </nav>
-
-            <!-- CTA Téléphone -->
-            <?php if (!empty($siteUser?->getPhone())): ?>
-                <a
-                    href="tel:<?= preg_replace('/\s+/', '', $siteUser->getPhone()) ?>"
-                    class="btn btn-success btn-lg d-inline-flex align-items-center"
-                    aria-label="Appeler <?= htmlspecialchars($siteUser->getCompanyName() ?? 'nous joindre') ?>"
-                    title="Nous joindre par téléphone"
-                >
-                    <i class="fa fa-phone-alt me-2"></i>
-                    Nous joindre
-                </a>
-            <?php endif; ?>
 
         </div>
     </div>

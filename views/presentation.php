@@ -10,31 +10,46 @@
 require_once PATH_VIEWS . 'alert.php';
 ?>
 
-<!-- ================= PRÉSENTATION / HERO ================= -->
-<section
-    class="header-presentation page-hero mt-4 py-5 mb-5"
-    style="
-    background-image: url('/siteVitrine/assets/images/presentation2.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    "
->
-    <div class="container py-4">
+<!-- ================= PRÉSENTATION / BANDEAU =================
+     Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Présentation.
+     ========================================================== -->
+<?php
+$heroImage = '/siteVitrine/assets/images/presentation2.jpg';
+?>
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+    <div class="container ofl-hero__inner">
+        <div class="ofl-hero__content">
 
-        <h1 class="display-4 text-white mb-2">
-            Présentation de l’entreprise
-        </h1>
+            <div class="ofl-eyebrow">Présentation de l’entreprise</div>
 
-        <h2 class="h3 text-white mb-3">
-            De la donnée à la décision
-        </h2>
+            <h1 class="ofl-hero__title">
+                De la donnée <em>à la décision</em>
+            </h1>
 
-        <p class="lead text-white-50 mb-0" style="max-width: 760px;">
-            Bureau d’Études & Ingénierie BIM — modélisation, structuration des données
-            et accompagnement technique pour des projets fiables et maîtrisés.
-        </p>
+            <div class="ofl-hero__lead">
+                OFLABIM accompagne vos projets techniques et industriels grâce à la modélisation BIM,
+                à la structuration des données et à la production de livrables fiables,
+                de la conception à l’exploitation.
+            </div>
 
+            <div class="ofl-actions">
+                <a class="ofl-btn ofl-btn--cta" href="index.php?page=contact#contact-form">
+                    <i class="fa fa-phone-alt" aria-hidden="true"></i>
+                    Demander un devis
+                </a>
+                <a class="ofl-btn ofl-btn--ghost" href="index.php?page=service">
+                    <i class="bi bi-layers" aria-hidden="true"></i>
+                    Nos services
+                </a>
+            </div>
+
+            <ul class="ofl-hero__sectors" aria-label="Nos savoir-faire">
+                <li>Modélisation Revit</li>
+                <li>Nuages de points</li>
+                <li>DOE numériques &amp; IFC</li>
+            </ul>
+
+        </div>
     </div>
 </section>
 

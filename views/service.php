@@ -6,36 +6,51 @@
 require_once PATH_VIEWS . 'alert.php';
 ?>
 
-<!-- ================= SERVICE / HERO ================= -->
-<section
-    class="header-service page-hero mt-4 py-4 mb-0"
-    style="
-        background-image: url('/siteVitrine/assets/images/stationEpuration.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    "
->
-    <div class="container py-4">
+<!-- ================= SERVICES / BANDEAU =================
+     Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Services.
+     ====================================================== -->
+<?php
+$heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
+?>
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+    <div class="container ofl-hero__inner">
+        <div class="ofl-hero__content">
 
-        <h1 class="display-4 text-white mb-2">
-            Nos services
-        </h1>
+            <div class="ofl-eyebrow">Nos services</div>
 
-        <h2 class="h3 text-white mb-3">
-            De la donnée à la décision
-        </h2>
+            <h1 class="ofl-hero__title">
+                Une expertise BIM <em>à chaque étape de vos projets</em>
+            </h1>
 
-        <p class="lead text-white-50 mb-0" style="max-width: 760px;">
-            Modélisation BIM, production de plans techniques, structuration des processus collaboratifs
-            et préparation de DOE numériques pour des projets fiables et maîtrisés.
-        </p>
+            <div class="ofl-hero__lead">
+                De la modélisation 3D à la production de plans techniques, OFLABIM vous accompagne
+                dans la coordination BIM, la structuration des données et la préparation de DOE numériques.
+            </div>
 
+            <div class="ofl-actions">
+                <a class="ofl-btn ofl-btn--cta" href="index.php?page=contact#contact-form">
+                    <i class="fa fa-phone-alt" aria-hidden="true"></i>
+                    Demander un devis
+                </a>
+                <a class="ofl-btn ofl-btn--ghost" href="#nos-services">
+                    <i class="bi bi-layers" aria-hidden="true"></i>
+                    Voir les prestations
+                </a>
+            </div>
+
+            <ul class="ofl-hero__sectors" aria-label="Nos prestations">
+                <li>Modélisation 3D</li>
+                <li>Plans techniques</li>
+                <li>Coordination BIM</li>
+                <li>DOE numériques</li>
+            </ul>
+
+        </div>
     </div>
 </section>
 
 <!-- ================= SERVICES / SWIPER ================= -->
-<section class="services-swiper-section py-5">
+<section class="services-swiper-section py-5" id="nos-services">
     <div class="container">
 
         <header class="text-center mx-auto mb-3" style="max-width:760px;">

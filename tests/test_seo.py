@@ -85,3 +85,11 @@ def test_admin_interdit_aux_moteurs_de_recherche(admin):
     response = admin.get(url("adminDashboard"), timeout=10)
 
     assert "noindex" in response.headers.get("X-Robots-Tag", "")
+
+
+def test_accueil_a_un_seul_titre_principal(client):
+    """Le bandeau a un seul h1, qui dit ce que fait l'entreprise."""
+    h1 = _soup(client, "accueil").find_all("h1")
+
+    assert len(h1) == 1
+    assert "BIM" in h1[0].get_text()

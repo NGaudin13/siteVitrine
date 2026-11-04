@@ -36,4 +36,14 @@ def test_page_par_defaut_est_l_accueil(client):
     response = client.get(BASE_URL, timeout=10)
 
     assert response.status_code == 200
-    assert "homeHeroCarousel" in response.text
+    assert "ofl-hero" in response.text
+
+
+@pytest.mark.parametrize("page", [p for p in PAGES_PUBLIQUES if p != "login"])
+def test_page_publique_a_un_seul_h1(client, page):
+    """Un seul grand titre par page (bon pour Google et la lisibilité)."""
+    from bs4 import BeautifulSoup
+
+    soup = BeautifulSoup(client.get(url(page), timeout=10).text, "html.parser")
+
+    assert len(soup.find_all("h1")) == 1

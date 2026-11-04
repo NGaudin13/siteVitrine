@@ -10,125 +10,137 @@
 require_once PATH_VIEWS . 'alert.php';
 ?>
 
-<!-- ================= ACCUEIL / HEADER CAROUSEL ================= -->
-<section class="home-hero page-hero">
+<!-- ================= ACCUEIL / BANDEAU =================
+     Bandeau principal : ce que fait OFLABIM, en une phrase.
+     Photo : celle de l'ancien carousel (modifiable ci-dessous).
+     ======================================================= -->
+<?php
+$heroImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80';
+// Autre photo possible : 'assets/images/hopitalCVC2.jpg'
+?>
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+    <div class="container ofl-hero__inner">
+        <div class="ofl-hero__content">
 
-    <div id="homeHeroCarousel"
-         class="carousel slide carousel-fade"
-         data-bs-ride="carousel"
-         data-bs-interval="6000">
+            <div class="ofl-eyebrow">Bureau d’études BIM · Installations techniques</div>
 
-        <!-- Indicateurs -->
-        <div class="carousel-indicators">
-            <button type="button"
-                    data-bs-target="#homeHeroCarousel"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"></button>
+            <h1 class="ofl-hero__title">
+                Vos installations techniques, <em>maîtrisées en BIM</em>
+            </h1>
 
-            <button type="button"
-                    data-bs-target="#homeHeroCarousel"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-        </div>
-
-        <!-- Slides -->
-        <div class="carousel-inner mt-4 ">
-
-            <!-- ===== SLIDE 1 ===== -->
-            <div class="carousel-item active home-hero__slide">
-
-                <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80"
-                    class="d-block w-100 home-hero__img"
-                    alt="Ingénierie BIM et coordination de projets"
-                    loading="lazy"
-                >
-
-                <div class="carousel-caption home-hero__overlay">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-12 col-lg-8">
-
-                                <h1 class="display-4 text-white mb-3 home-hero__title">
-                                    Bureau d’études & ingénierie BIM
-                                </h1>
-
-                                <p class="fs-5 text-white-50 mb-4 home-hero__text">
-                                    Des solutions techniques fiables pour des projets structurés,
-                                    durables et maîtrisés.
-                                </p>
-
-                                <a href="index.php?page=contact#contact-content"
-                                   class="btn btn-primary btn-lg">
-                                    Contact
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="ofl-hero__lead">
+                Modélisation Revit, plans d’exécution, coordination et DOE numériques,
+                en projet neuf comme en réhabilitation.
             </div>
 
-            <!-- ===== SLIDE 2 ===== -->
-            <div class="carousel-item home-hero__slide">
-
-                <img
-                    src="/siteVitrine/assets/images/hopitalCVC2.jpg"
-                    class="d-block w-100 home-hero__img"
-                    alt="Études structures et accompagnement technique"
-                    loading="lazy"
-                >
-
-                <div class="carousel-caption home-hero__overlay">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-12 col-lg-8">
-
-                                <h2 class="display-4 text-white mb-3 home-hero__title">
-                                    De la donnée à la décision
-                                </h2>
-
-                                <p class="fs-5 text-white-50 mb-4 home-hero__text">
-                                    Un accompagnement technique rigoureux,
-                                    de la conception au chantier.
-                                </p>
-
-                                <a href="index.php?page=service"
-                                   class="btn btn-primary btn-lg">
-                                    Nos services
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="ofl-actions">
+                <a class="ofl-btn ofl-btn--cta" href="index.php?page=contact#contact-form">
+                    <i class="fa fa-phone-alt" aria-hidden="true"></i>
+                    Demander un devis
+                </a>
+                <a class="ofl-btn ofl-btn--ghost" href="#reel-bim" data-demo-toggle
+                   aria-controls="reel-bim" aria-expanded="true">
+                    <i class="bi bi-layers" aria-hidden="true"></i>
+                    <span data-demo-label>Voir la démonstration</span>
+                </a>
             </div>
 
+            <ul class="ofl-hero__sectors" aria-label="Secteurs d’intervention">
+                <li>Eau potable &amp; assainissement</li>
+                <li>CVC &amp; hôpitaux</li>
+                <li>Industrie &amp; pharmaceutique</li>
+            </ul>
+
         </div>
-
-        <!-- Contrôles -->
-        <button class="carousel-control-prev"
-                type="button"
-                data-bs-target="#homeHeroCarousel"
-                data-bs-slide="prev"
-                aria-label="Précédent">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next"
-                type="button"
-                data-bs-target="#homeHeroCarousel"
-                data-bs-slide="next"
-                aria-label="Suivant">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-
     </div>
+</section>
 
+<!-- ================= ACCUEIL / COMPARATEUR RÉEL / BIM =================
+     Deux images de même format (1086 × 724) et même cadrage :
+       assets/images/comparateur-reel.png  -> vue réaliste
+       assets/images/comparateur-bim.png   -> vue maquette BIM
+     Les repères sont en % de l'image : à replacer si les images changent.
+     ==================================================================== -->
+<section class="ofl-compare-sec" id="reel-bim" data-demo>
+    <div class="container">
+        <div class="ofl-compare-sec__bar">
+            <button type="button" class="ofl-close" data-demo-close>
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+                Fermer la démonstration
+            </button>
+        </div>
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-5">
+                <div class="ofl-kicker">Du réel au numérique</div>
+                <h2 class="ofl-compare-sec__title">Chaque équipement a sa place dans la maquette</h2>
+                <p class="ofl-compare-sec__intro">
+                    Pompes, réseaux, vannes, armoires : la maquette BIM décrit l’installation telle qu’elle
+                    est ou telle qu’elle sera construite, avec ses informations techniques.
+                </p>
+                <ul class="ofl-gains">
+                    <li>
+                        <i class="bi bi-check-lg" aria-hidden="true"></i>
+                        <div><strong>Moins de surprises en chantier</strong><span>Les conflits entre réseaux sont repérés dans la maquette, pas sur site.</span></div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-lg" aria-hidden="true"></i>
+                        <div><strong>Des plans cohérents</strong><span>Plans d’implantation et de manutention issus d’une seule source.</span></div>
+                    </li>
+                    <li>
+                        <i class="bi bi-check-lg" aria-hidden="true"></i>
+                        <div><strong>Un DOE exploitable</strong><span>L’exploitant retrouve chaque équipement et ses caractéristiques.</span></div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-7">
+                <figure class="ofl-compare">
+                    <div class="ofl-compare__stage" data-comparateur>
+                        <img class="ofl-compare__img" data-photo draggable="false"
+                             src="assets/images/comparateur-reel.png"
+                             alt="Local de pompage : pompes, collecteur bleu, vannes et armoires électriques"
+                             loading="lazy">
+                        <div class="ofl-compare__error" data-photo-error hidden>
+                            Image introuvable : <code>assets/images/comparateur-reel.png</code>
+                        </div>
+
+                        <div class="ofl-compare__img ofl-compare__bim">
+                            <img class="ofl-compare__img" src="assets/images/comparateur-bim.png" draggable="false" data-maquette
+                                 alt="Le même local de pompage dans la maquette BIM" loading="lazy">
+                            <div class="ofl-compare__error ofl-compare__error--bim" data-maquette-error hidden>
+                                <p class="mb-0">Maquette introuvable : vérifiez que le fichier
+                                <code>assets/images/comparateur-bim.png</code> est bien présent.</p>
+                            </div>
+                        </div>
+
+                        <!-- Repères placés sur des éléments présents au même endroit dans les 2 images -->
+                        <span class="ofl-pin" style="left:58.9%;top:20.7%"><i></i><b>Collecteur DN400</b></span>
+                        <span class="ofl-pin ofl-pin--left" style="left:72.1%;top:45.6%"><i></i><b>V-03 · Vanne</b></span>
+                        <span class="ofl-pin" style="left:57.5%;top:76%"><i></i><b>P-03 · Pompe</b></span>
+                        <span class="ofl-pin ofl-pin--hide-sm" style="left:73.7%;top:57%"><i></i><b>Manomètre</b></span>
+
+                        <span class="ofl-tag ofl-tag--real">Réel</span>
+                        <span class="ofl-tag ofl-tag--bim">BIM</span>
+                        <div class="ofl-compare__divider"></div>
+                        <input class="ofl-compare__range" type="range" min="0" max="100" value="50" step="1"
+                               aria-label="Faire glisser pour comparer la vue réelle et la maquette BIM">
+                        <div class="ofl-compare__handle" aria-hidden="true">
+                            <i class="bi bi-arrow-left-right"></i>
+                        </div>
+                    </div>
+
+                    <figcaption class="ofl-compare__caption">
+                        <span class="ofl-compare__how">
+                            <i class="bi bi-arrows-expand-vertical" aria-hidden="true"></i>
+                            Faites glisser la poignée pour passer du réel à la maquette.
+                        </span>
+                    </figcaption>
+                </figure>
+            </div>
+
+        </div>
+    </div>
 </section>
 
 <!-- ================= ACCUEIL / LE BIM ================= -->
@@ -538,6 +550,38 @@ require_once PATH_VIEWS . 'alert.php';
     </div>
 </section>
 
+<!-- ================= ACCUEIL / MÉTHODE (3 étapes) ================= -->
+<section class="ofl-steps-sec">
+    <div class="container">
+        <div class="ofl-steps-head">
+            <div class="ofl-kicker">Notre méthode</div>
+            <h2 class="ofl-steps-head__title">Comment se déroule une mission</h2>
+            <p class="ofl-steps-head__text">De la première analyse à la remise des livrables, un déroulé clair, adapté à chaque prestation.</p>
+        </div>
+
+        <ol class="ofl-steps" data-etapes>
+            <li class="ofl-step">
+                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-search"></i></div>
+                <span class="ofl-step__num"></span>
+                <h3 class="ofl-step__title">Analyse du besoin</h3>
+                <p class="ofl-step__text">Étude du projet, des plans et des données disponibles, puis cadrage de la prestation.</p>
+            </li>
+            <li class="ofl-step">
+                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-boxes"></i></div>
+                <span class="ofl-step__num"></span>
+                <h3 class="ofl-step__title">Études et modélisation</h3>
+                <p class="ofl-step__text">Réalisation des études techniques et de la maquette BIM selon la prestation retenue.</p>
+            </li>
+            <li class="ofl-step">
+                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
+                <span class="ofl-step__num"></span>
+                <h3 class="ofl-step__title">Livraison</h3>
+                <p class="ofl-step__text">Remise des maquettes, plans et documents techniques prévus, dans les formats convenus.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
 <!-- ================= ACCUEIL / LIVRABLES ================= -->
 <section class="home-deliverables py-5">
     <div class="container">
@@ -896,3 +940,116 @@ require_once PATH_VIEWS . 'alert.php';
 
     </div>
 </section>
+
+<!-- Comparateur Réel / BIM, ouverture de la démonstration, fil des étapes -->
+<script>
+(function () {
+    const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const observe = 'IntersectionObserver' in window;
+
+    /* ---------- Comparateur ---------- */
+    document.querySelectorAll('[data-comparateur]').forEach((stage) => {
+        const range = stage.querySelector('input[type="range"]');
+        const photo = stage.querySelector('[data-photo]');
+        const erreur = stage.querySelector('[data-photo-error]');
+        const setPos = (v) => stage.style.setProperty('--pos', v + '%');
+        let touche = false;   // l'utilisateur a pris la main : on arrête l'animation d'invitation
+
+        range.addEventListener('input', () => setPos(range.value));
+
+        // Glisser à la souris ou au doigt (même code pour les deux)
+        let glisse = false;
+        const suivre = (e) => {
+            const r = stage.getBoundingClientRect();
+            const v = Math.min(100, Math.max(0, ((e.clientX - r.left) / r.width) * 100));
+            range.value = v;
+            setPos(v);
+        };
+        stage.addEventListener('pointerdown', (e) => {
+            e.preventDefault();   // pas de sélection de texte ni de glisser-déposer
+            glisse = true;
+            touche = true;
+            stage.setPointerCapture(e.pointerId);
+            suivre(e);
+        });
+        stage.addEventListener('pointermove', (e) => { if (glisse) suivre(e); });
+        ['pointerup', 'pointercancel'].forEach((t) => stage.addEventListener(t, () => { glisse = false; }));
+
+        // Flèches du clavier : 5 % par appui (Maj + flèche : 20 %)
+        range.addEventListener('keydown', (e) => {
+            const pas = { ArrowLeft: -5, ArrowDown: -5, ArrowRight: 5, ArrowUp: 5 }[e.key];
+            if (!pas) return;
+            e.preventDefault();
+            touche = true;
+            range.value = Math.min(100, Math.max(0, +range.value + pas * (e.shiftKey ? 4 : 1)));
+            setPos(range.value);
+        });
+
+        // Image absente ou hors ligne : message clair plutôt qu'une image cassée
+        const surErreur = (img, message, classe) => {
+            if (!img || !message) return;
+            const montrer = () => { img.hidden = true; message.hidden = false; if (classe) stage.classList.add(classe); };
+            img.addEventListener('error', montrer);
+            if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) montrer();
+        };
+        surErreur(photo, erreur);
+        surErreur(stage.querySelector('[data-maquette]'), stage.querySelector('[data-maquette-error]'), 'is-sans-maquette');
+
+        // Une seule invitation à glisser, quand le comparateur devient visible
+        if (calme || !observe) return;
+
+
+        new IntersectionObserver(([entree], obs) => {
+            if (!entree.isIntersecting) return;
+            obs.disconnect();
+
+            let debut = null;
+            const anime = (t) => {
+                if (touche) return;
+                debut = debut ?? t;
+                const p = Math.min((t - debut) / 1800, 1);
+                const v = 50 + Math.sin(p * Math.PI * 2) * 16 * (1 - p * 0.3);
+                setPos(v);
+                range.value = v;
+                if (p < 1) requestAnimationFrame(anime);
+                else { setPos(50); range.value = 50; }
+            };
+            setTimeout(() => requestAnimationFrame(anime), 400);
+        }, { threshold: 0.6 }).observe(stage);
+    });
+
+    /* ---------- Bouton "Voir la démonstration" : ouvre / ferme la section ---------- */
+    const demo = document.querySelector('[data-demo]');
+    const toggle = document.querySelector('[data-demo-toggle]');
+    if (demo && toggle) {
+        const label = toggle.querySelector('[data-demo-label]');
+        const ouvrir = (ouvert, defiler) => {
+            demo.hidden = !ouvert;
+            toggle.setAttribute('aria-expanded', String(ouvert));
+            label.textContent = ouvert ? 'Masquer la démonstration' : 'Voir la démonstration';
+            if (ouvert && defiler) demo.scrollIntoView({ behavior: calme ? 'auto' : 'smooth', block: 'start' });
+            if (!ouvert && defiler) toggle.focus();
+        };
+        ouvrir(false, false);   // fermée au chargement (visible si JavaScript est désactivé)
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            ouvrir(demo.hidden, true);
+        });
+        demo.querySelector('[data-demo-close]').addEventListener('click', () => ouvrir(false, true));
+    }
+
+    /* ---------- Étapes : le fil se trace quand la section apparaît ---------- */
+    document.querySelectorAll('[data-etapes]').forEach((liste) => {
+        if (calme || !observe) {
+            liste.style.setProperty('--progress', 1);
+            return;
+        }
+        new IntersectionObserver(([entree], obs) => {
+            if (entree.isIntersecting) {
+                liste.style.setProperty('--progress', 1);
+                obs.disconnect();
+            }
+        }, { threshold: 0.4 }).observe(liste);
+    });
+})();
+</script>
