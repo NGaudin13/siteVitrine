@@ -39,11 +39,12 @@ $heroImage = '/siteVitrine/assets/images/contactezNous3.jpg';
             <div class="ofl-eyebrow">Contact</div>
 
             <h1 class="ofl-hero__title">
-                Une question, un besoin <em>BIM ou structure ?</em>
+                Parlons <em>de votre projet</em>
             </h1>
 
             <div class="ofl-hero__lead">
-                Décrivez votre projet, on vous répond rapidement.
+                Besoin d’une étude technique, d’une maquette BIM ou de plans d’exécution ?
+                Présentez-nous votre projet et échangeons sur vos besoins.
             </div>
 
             <div class="ofl-actions">

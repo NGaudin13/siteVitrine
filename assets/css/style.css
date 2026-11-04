@@ -186,11 +186,19 @@
 
 .ofl-hero__inner {
   position: relative;
+  display: flex;
+  align-items: center;         /* texte centré verticalement */
+  min-height: 740px;           /* même hauteur sur Accueil, Présentation, Services, Contact */
   padding-top: clamp(56px, 9vw, 120px);
   padding-bottom: clamp(56px, 9vw, 120px);
 }
 
-.ofl-hero__content { max-width: 600px; }
+.ofl-hero__content { width: 100%; max-width: 600px; }
+
+/* Hauteur commune du bandeau selon la taille d'écran */
+@media (max-width: 1199.98px) { .ofl-hero__inner { min-height: 720px; } }
+@media (max-width: 991.98px)  { .ofl-hero__inner { min-height: 560px; } }
+@media (max-width: 767.98px)  { .ofl-hero__inner { min-height: 700px; } }
 
 .ofl-eyebrow {
   display: inline-flex;
