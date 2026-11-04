@@ -1,3 +1,8 @@
+<?php
+// =========================================================
+// FICHIER : siteVitrine/views/404.php
+// =========================================================
+?>
 <section class="container py-5">
     <div class="text-center mx-auto" style="max-width: 720px;">
 
@@ -7,9 +12,9 @@
             L’adresse demandée n’existe pas (ou a été déplacée).
         </p>
 
-        <?php if (!empty($alert)): ?>
+        <?php if (!empty($alert['messageAlert'])): ?>
             <div class="alert alert-warning">
-                <?= $alert ?>
+                <?= htmlspecialchars($alert['messageAlert'], ENT_QUOTES, 'UTF-8') ?>
             </div>
         <?php endif; ?>
 

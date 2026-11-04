@@ -1,3 +1,8 @@
+<?php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/admin404.php
+// =========================================================
+?>
 <section class="container py-5">
     <div class="text-center mx-auto" style="max-width: 720px;">
 
@@ -7,9 +12,9 @@
             La page d’administration demandée n’existe pas ou n’est plus disponible.
         </p>
 
-        <?php if (!empty($alert)): ?>
+        <?php if (!empty($alert['messageAlert'])): ?>
             <div class="alert alert-warning">
-                <?= htmlspecialchars($alert, ENT_QUOTES, 'UTF-8') ?>
+                <?= htmlspecialchars($alert['messageAlert'], ENT_QUOTES, 'UTF-8') ?>
             </div>
         <?php endif; ?>
 

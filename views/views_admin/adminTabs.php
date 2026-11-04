@@ -1,3 +1,8 @@
+<?php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/adminTabs.php
+// =========================================================
+?>
 <section class="admin-shell py-4">
     <div class="container">
 
@@ -36,11 +41,11 @@
                 </a>
             </li>
 
+            <!-- Pas encore développé : onglet visible mais désactivé -->
             <li class="nav-item">
-                <a class="nav-link <?= ($activeTab ?? '') === 'services' ? 'active' : '' ?>"
-                   href="index.php?page=adminServices">
-                    Admin services
-                </a>
+                <span class="nav-link disabled" aria-disabled="true">
+                    Admin services <small class="text-muted">(bientôt)</small>
+                </span>
             </li>
 
             <li class="nav-item">

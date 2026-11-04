@@ -1,7 +1,10 @@
 <?php
-// ===================== CONTROLEUR : controllers/AdminAccueilController.php =====================
+// =========================================================
+// FICHIER : siteVitrine/controllers/adminAccueilController.php
+// =========================================================
 
-session_start();
+
+// session_start() retiré : la session est déjà démarrée dans index.php
 
 require_once PATH_MODELS . 'PageModel.php';
 require_once PATH_MODELS . 'SectionModel.php';
