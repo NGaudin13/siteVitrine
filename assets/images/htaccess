@@ -1,0 +1,17 @@
+# =========================================================
+# FICHIER : siteVitrine/assets/images/.htaccess
+# Dossier des images envoyées depuis l'admin :
+# aucun script ne doit pouvoir s'y exécuter.
+# =========================================================
+Options -Indexes
+
+<FilesMatch "\.(php\d?|phtml|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+<IfModule mod_php7.c>
+    php_flag engine off
+</IfModule>

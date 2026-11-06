@@ -1,385 +1,282 @@
 <!-- FICHIER : siteVitrine/README.md -->
 
-# NBSOLUTIONS -- Site vitrine
+# OFLABIM — Site vitrine
 
-Site vitrine développé en **PHP** avec une architecture **MVC**, une
-base de données **MySQL** et un **back-office d'administration**.
+Site vitrine d'**OFLABIM**, bureau d'études et d'ingénierie BIM
+(installations techniques, eau potable et assainissement, CVC, industrie).
 
-Le projet permet de présenter l'activité et les services de NBSOLUTIONS
-tout en donnant au client la possibilité de modifier plusieurs contenus
-du site depuis une interface d'administration, sans avoir à intervenir
-directement dans le code PHP.
+Développé par **NBsolutions** en PHP (architecture MVC) avec MySQL.
+Le client modifie lui-même une partie des contenus depuis un
+**back-office**, sans toucher au code.
 
-------------------------------------------------------------------------
+---
 
-## Technologies utilisées
+## Sommaire
 
--   PHP
--   MySQL
--   HTML5 / CSS3
--   Bootstrap
--   JavaScript
--   Architecture MVC
--   XAMPP
--   Git
+1. [Fonctionnalités](#fonctionnalités)
+2. [Technologies](#technologies)
+3. [Organisation du code](#organisation-du-code)
+4. [Installation locale (XAMPP)](#installation-locale-xampp)
+5. [Tests automatiques](#tests-automatiques)
+6. [Mise en ligne](#mise-en-ligne)
+7. [Sécurité](#sécurité)
+8. [Travailler avec Git](#travailler-avec-git)
+9. [Modifier le site](#modifier-le-site)
+10. [Reste à faire avant livraison](#reste-à-faire-avant-livraison)
 
-------------------------------------------------------------------------
+---
 
-## Fonctionnalités du site
+## Fonctionnalités
 
-### Partie publique
+### Site public
 
-Le site comprend notamment :
+| Page | Adresse | Contenu |
+|---|---|---|
+| Accueil | `?page=accueil` | Bandeau, démonstration Réel / BIM, BIM, services, à propos, domaines, livrables, témoignages |
+| Présentation | `?page=presentation` | L'entreprise, stratégie BIM (vidéo), parcours, exemples de maquettes |
+| Services | `?page=service` | Carrousel des 4 prestations et leur détail |
+| Contact | `?page=contact` | Coordonnées, formulaire, carte Google Maps |
+| Conditions | `?page=conditions` | Conditions générales d'utilisation |
+| Confidentialité | `?page=confidentialite` | Politique de confidentialité (RGPD) |
+| Mentions légales | `?page=mentions` | Mentions obligatoires (loi LCEN) |
+| 404 | toute page inconnue | Page « introuvable » personnalisée |
 
--   une page d'accueil ;
--   une page de présentation ;
--   une page de services ;
--   une page de contact ;
--   les conditions générales ;
--   la politique de confidentialité ;
--   une page 404 personnalisée ;
--   un header et un footer communs ;
--   une interface responsive adaptée aux ordinateurs, tablettes et
-    mobiles.
+- Les bandeaux d'Accueil, Présentation, Services et Contact partagent le même
+  style (classes `ofl-hero`) et la même hauteur.
+- **Démonstration Réel / BIM** (accueil) : le bouton « Voir la démonstration »
+  ouvre une section où l'on fait glisser une poignée entre une photo et la
+  maquette BIM (souris, doigt ou flèches du clavier).
+- **Formulaire de contact** : protection CSRF, champ anti-robot invisible,
+  messages d'erreur par champ, envoi par `mail()`.
+- Site responsive (ordinateur, tablette, mobile).
+- SEO : titre, description et URL canonique propres à chaque page, un seul
+  `h1` par page, admin interdit aux moteurs de recherche.
 
-------------------------------------------------------------------------
+### Back-office
 
-## Back-office
+Accessible après connexion : `index.php?page=login`.
 
-Le projet possède un **back-office fonctionnel** accessible après
-authentification.
+| Écran | Ce que le client peut modifier |
+|---|---|
+| Tableau de bord | Coordonnées de l'entreprise (téléphone, e-mail, adresse, horaires…) |
+| Accueil | Introduction (`home-intro`), À propos (`home-about`), Domaines d'intervention (`home-domains`) |
+| Présentation | Parcours : réalisations et compétences (`presentation-path`) |
+| Contact | Types de demande du formulaire (`contact-nature-demande`) |
 
-### Connexion
+Les images envoyées depuis l'admin sont vérifiées (vrai fichier image,
+taille, type) puis rangées dans `assets/images/`.
 
-``` text
-http://localhost/siteVitrine/index.php?page=login
-```
+---
 
-### Identifiants administrateur
+## Technologies
 
-Les identifiants ne sont **jamais** écrits dans le dépôt Git.
-Le mot de passe est défini localement avec le script prévu à cet effet
-(voir **Installation locale → 6. Définir le mot de passe admin**).
+- **PHP 8** (sans framework), architecture **MVC**
+- **MySQL / MariaDB** via PDO (requêtes préparées)
+- **Bootstrap 5.3**, Bootstrap Icons, Font Awesome, Swiper (chargés par CDN)
+- **JavaScript** natif (comparateur, ouverture de la démonstration)
+- **pytest** pour les tests automatiques
+- **XAMPP** en local, **Git / GitHub** pour les versions
 
-Une fois connecté, l'administrateur accède à un **tableau de bord**
-permettant de gérer les contenus prévus dans l'interface
-d'administration.
+---
 
-### Administration de la page d'accueil
+## Organisation du code
 
-Le back-office contient une administration dédiée à la page d'accueil
-avec plusieurs sections distinctes :
-
--   **Introduction (`home-intro`)** : gestion du contenu d'introduction
-    de la page d'accueil ;
--   **À propos (`home-about`)** : gestion de la section de présentation
-    / à propos ;
--   **Domaines (`home-domains`)** : gestion des contenus associés aux
-    domaines présentés sur la page d'accueil.
-
-Ces différentes parties sont séparées dans le back-office afin de
-permettre une modification ciblée du contenu.
-
-### Administration de la page Présentation
-
-Une interface spécifique permet d'administrer la page de présentation.
-
-Le projet contient notamment la section :
-
--   **Parcours / `presentation-path`** : gestion du contenu
-    correspondant au parcours présenté sur cette page.
-
-### Administration de la page Contact
-
-Une interface d'administration est également prévue pour la partie
-Contact.
-
-Elle permet notamment de gérer :
-
--   **les natures de demande (`contact-nature-demande`)** proposées dans
-    le formulaire de contact.
-
-Cela permet de faire évoluer les choix disponibles dans le formulaire
-sans modifier directement la vue publique.
-
-### Organisation du back-office
-
-Le back-office est structuré autour de plusieurs contrôleurs dédiés :
-
-``` text
-adminController.php
-adminDashboardController.php
-adminAccueilController.php
-AdminPresentationController.php
-adminContactController.php
-authController.php
-```
-
-Les vues d'administration sont regroupées dans :
-
-``` text
-views/views_admin/
-```
-
-avec notamment :
-
-``` text
-adminDashboard.php
-adminAccueil.php
-adminPresentation.php
-adminContact.php
-adminTabs.php
-```
-
-Les différentes zones administrables sont elles-mêmes séparées en
-composants :
-
-``` text
-views/views_admin/sections/
-├── home-intro.php
-├── home-about.php
-├── home-domains.php
-├── presentation-path.php
-└── contact-nature-demande.php
-```
-
-Cette organisation permet de faire évoluer le back-office section par
-section sans devoir reconstruire toute l'administration.
-
-------------------------------------------------------------------------
-
-## Gestion dynamique des contenus
-
-Le projet utilise une structure générique basée sur quatre objets
-principaux :
-
--   `Page`
--   `Section`
--   `ContentBlock`
--   `User`
-
-Les classes correspondantes sont séparées entre les **entités** et les
-**modèles**.
-
-``` text
-entities/
-├── Page.php
-├── Section.php
-├── ContentBlock.php
-└── User.php
-
-models/
-├── PageModel.php
-├── SectionModel.php
-├── ContentBlockModel.php
-└── UserModel.php
-```
-
-Cette organisation permet de représenter le contenu du site sous la
-forme :
-
-``` text
-Page
-  └── Section
-       └── ContentBlock
-```
-
-Le but est d'éviter de coder en dur tous les contenus dans les pages et
-de permettre leur administration depuis le back-office.
-
-------------------------------------------------------------------------
-
-## Architecture du projet
-
-``` text
+```text
 siteVitrine/
-│
-├── assets/
-│   ├── css/
-│   ├── images/
-│   └── scripts/
+├── index.php                  Point d'entrée unique : choisit la page et le contrôleur
+├── .htaccess                  Sécurité Apache (HTTPS, fichiers interdits)
+├── sitevitrineoflabim.sql     Structure + contenu de la base
 │
 ├── config/
-├── controllers/
-├── entities/
-├── languages/
+│   ├── configuration.php                Réglages + connexion PDO
+│   └── configuration.local.example.php  Modèle des réglages du serveur en ligne
+│
+├── controllers/               Logique de chaque page (public, admin, connexion, contact)
+├── entities/                  Objets métier : Page, Section, ContentBlock, User
+├── models/                    Accès à la base pour chaque entité
 ├── lib/
-├── models/
-│
-├── views/
-│   ├── views_admin/
-│   │   └── sections/
-│   ├── accueil.php
-│   ├── presentation.php
-│   ├── service.php
-│   ├── contact.php
-│   ├── login.php
-│   ├── header.php
-│   └── footer.php
-│
-├── index.php
-└── sitevitrineoflabim.sql
+│   ├── foncBase.php           Fonctions communes (CSRF, URL, chemins d'images)
+│   └── ImageUpload.php        Envoi sécurisé des images de l'admin
+├── languages/                 Textes de l'interface
+├── views/                     Pages publiques, header, footer
+│   └── views_admin/           Écrans du back-office
+│       └── sections/          Un formulaire par section modifiable
+├── assets/
+│   ├── css/style.css          Tout le style du site et de l'admin
+│   ├── images/                Images du site et images envoyées par l'admin
+│   └── scripts/               JavaScript (carrousel des services)
+├── scripts/
+│   └── changer_mot_de_passe.php   Changement du mot de passe admin (terminal)
+└── tests/                     Tests automatiques pytest
 ```
 
-### Controllers
+### Comment le contenu est stocké
 
-Les contrôleurs gèrent les requêtes, la navigation et les interactions
-entre les modèles et les vues.
+Les textes et images modifiables ne sont pas écrits dans les vues :
+ils sont en base, rangés ainsi :
 
-Les contrôleurs publics et les contrôleurs du back-office sont séparés
-afin de conserver une architecture claire.
-
-### Models
-
-Les modèles assurent l'accès et la manipulation des données enregistrées
-dans MySQL.
-
-### Entities
-
-Les entités représentent les principaux objets métier manipulés par
-l'application.
-
-### Views
-
-Les vues contiennent l'affichage des pages publiques et des interfaces
-d'administration.
-
-------------------------------------------------------------------------
-
-## Installation locale
-
-### 1. Installer le projet
-
-Placer le dossier dans :
-
-``` text
-xampp/htdocs/siteVitrine
+```text
+Page (accueil, presentation…)
+ └── Section (home-intro, home-about…)
+      └── ContentBlock (title, text_1, image…)
 ```
 
-### 2. Démarrer XAMPP
+Le contrôleur charge ces blocs dans `$sectionsContent`, et la vue affiche
+`$sectionsContent['home-intro']['title']`, avec un texte par défaut si le
+bloc est vide.
+Les coordonnées de l'entreprise sont celles de l'utilisateur **n° 1**
+(`$siteUser`), disponibles sur toutes les pages.
 
-Démarrer :
+---
 
--   Apache
--   MySQL
+## Installation locale (XAMPP)
 
-### 3. Importer la base de données
+1. **Copier le projet** dans `C:\xampp\htdocs\siteVitrine`.
+2. **Démarrer Apache et MySQL** dans le panneau XAMPP.
+3. **Créer la base** : dans phpMyAdmin, créer `sitevitrineoflabim`
+   (interclassement `utf8mb4_unicode_ci`), puis importer `sitevitrineoflabim.sql`.
+4. **Configuration** : rien à faire. Sans fichier `config/configuration.local.php`,
+   le site utilise les réglages XAMPP (`root` sans mot de passe, mode debug actif).
+5. **Définir le mot de passe admin** (celui du fichier SQL n'est pas à utiliser) :
 
-Depuis **phpMyAdmin**, importer :
+   ```powershell
+   C:\xampp\php\php.exe scripts\changer_mot_de_passe.php
+   ```
 
-``` text
-sitevitrineoflabim.sql
-```
+   Le script demande l'e-mail du compte puis le nouveau mot de passe
+   (12 caractères minimum). Seul son hash est enregistré.
 
-### 4. Configurer la connexion à MySQL
+6. **Ouvrir le site** : <http://localhost/siteVitrine/index.php>
+   et l'admin : <http://localhost/siteVitrine/index.php?page=login>
 
-Vérifier les paramètres présents dans :
-
-``` text
-config/configuration.php
-```
-
-### 5. Accéder au site
-
-``` text
-http://localhost/siteVitrine/index.php?page=accueil
-```
-
-### 6. Définir le mot de passe admin
-
-Le mot de passe fourni dans le dump SQL n'est **pas** à utiliser.
-Depuis la racine du projet, lancer :
-
-``` powershell
-C:\xampp\php\php.exe scripts\changer_mot_de_passe.php
-```
-
-Le script demande l'email du compte admin puis le nouveau mot de passe
-(12 caractères minimum). Seul le hash est enregistré en base.
-
-### 7. Accéder au back-office
-
-``` text
-http://localhost/siteVitrine/index.php?page=login
-```
-
-------------------------------------------------------------------------
+---
 
 ## Tests automatiques
 
-Les tests (dossier `tests/`) vérifient le site comme le ferait un
-navigateur : pages publiques, erreurs 404, back-office, formulaire de
-contact, protection CSRF, SEO et enregistrement réel des contenus.
+Les tests ouvrent le site comme un navigateur et vérifient : les pages
+publiques, les erreurs 404, la connexion et la sécurité du back-office,
+l'enregistrement réel des contenus, le formulaire de contact, la protection
+CSRF, le SEO, les obligations légales et le comparateur Réel / BIM.
 
-**Ils ne touchent jamais la vraie base.** À chaque lancement :
+**Ils ne touchent jamais la vraie base.** À chaque lancement, ils recréent une
+base `sitevitrineoflabim_test` à partir du fichier SQL, démarrent leur propre
+serveur PHP (port 8071), puis l'arrêtent.
 
-1.  la base `sitevitrineoflabim_test` est recréée à partir de
-    `sitevitrineoflabim.sql` ;
-2.  un serveur PHP dédié démarre sur le port 8071 et utilise cette base
-    (variable d'environnement `SITE_DB_NAME`) ;
-3.  il est arrêté à la fin.
+**Première fois :** copier `tests/.env.local.example` en `tests/.env.local`
+et y choisir un mot de passe admin de test (fichier ignoré par Git).
 
-Lancer les tests :
+**Lancer :** démarrer **MySQL** dans XAMPP (Apache inutile), puis :
 
-1.  Démarrer **MySQL** dans XAMPP (Apache n'est pas nécessaire).
-2.  Copier `tests/.env.local.example` en `tests/.env.local` et y mettre
-    un mot de passe admin de test (fichier ignoré par Git).
-3.  Lancer :
-
-``` powershell
+```powershell
+cd C:\xampp\htdocs\siteVitrine
 uv run --with pytest --with requests --with beautifulsoup4 pytest tests
 ```
 
-------------------------------------------------------------------------
+Résultat attendu : tout en `passed`, plus **1 `xfailed`**. Ce test volontaire
+rappelle que les mentions légales ne sont pas encore complétées ; il passera
+en `xpassed` une fois les `[À COMPLÉTER]` remplis.
 
-## État actuel du projet
+---
 
--   [x] Architecture MVC fonctionnelle
--   [x] Base de données MySQL
--   [x] Site vitrine fonctionnel
--   [x] Interface responsive
--   [x] Header et footer communs
--   [x] Authentification administrateur
--   [x] Tableau de bord administrateur
--   [x] Back-office dédié à la page d'accueil
--   [x] Administration de la section Introduction
--   [x] Administration de la section À propos
--   [x] Administration des Domaines
--   [x] Back-office dédié à la page Présentation
--   [x] Administration du Parcours
--   [x] Back-office dédié à la page Contact
--   [x] Administration des natures de demande
--   [x] Gestion structurée en Pages / Sections / ContentBlocks
--   [x] Gestion des utilisateurs
--   [x] Page 404
--   [x] Projet versionné avec Git
--   [x] Architecture prévue pour accueillir de nouvelles fonctionnalités
+## Mise en ligne
 
-------------------------------------------------------------------------
+Prévu pour un **hébergement mutualisé** PHP + MySQL avec Apache
+(OVHcloud, o2switch…). Le compte d'hébergement et le nom de domaine sont
+**au nom du client**.
 
-## Évolutions possibles
+1. **Base de données** : la créer dans le panneau de l'hébergeur, puis y
+   importer un export phpMyAdmin de la base locale.
+2. **Réglages du serveur** : sur le serveur uniquement, copier
+   `config/configuration.local.example.php` en `config/configuration.local.php`
+   et y mettre les accès MySQL de l'hébergeur, avec `DEBUG = false`.
+   Ce fichier est ignoré par Git : les mots de passe ne vont jamais sur GitHub.
+3. **Envoyer les fichiers** dans le dossier web (`www/` ou `public_html/`),
+   par FTP (FileZilla) ou par Git depuis le panneau de l'hébergeur.
+   Ne pas envoyer : `tests/`, `.git/`, `CODE_COMPLET.txt`, `exporter_code.ps1`.
+4. **HTTPS** : activer le certificat gratuit (Let's Encrypt) dans le panneau.
+   Le `.htaccess` redirige ensuite automatiquement `http://` vers `https://`.
+5. **Mot de passe admin** : en définir un nouveau, solide, pour le client.
+6. **Vérifier** : toutes les pages, le formulaire de contact (réception de
+   l'e-mail), la connexion admin et l'envoi d'une image.
 
-L'architecture actuelle permet notamment d'envisager :
+Les chemins d'images s'adaptent seuls (fonction `url_asset()`) : le site marche
+dans `localhost/siteVitrine/` comme à la racine d'un domaine.
 
--   l'ajout de nouvelles sections administrables ;
--   l'administration complète de la page Services ;
--   la gestion avancée des images et médias ;
--   la gestion des messages reçus via le formulaire de contact ;
--   l'ajout de nouveaux comptes administrateurs ;
--   une gestion plus avancée des droits utilisateurs ;
--   l'optimisation SEO ;
--   le renforcement de la sécurité pour la mise en production ;
--   le déploiement sur un serveur distant.
+---
 
-------------------------------------------------------------------------
+## Sécurité
 
-## Objectif du projet
+| Protection | Où |
+|---|---|
+| Mots de passe hachés (bcrypt), jamais dans le code ni dans Git | `scripts/changer_mot_de_passe.php`, `authController.php` |
+| Jeton CSRF sur tous les formulaires | `lib/foncBase.php` (`csrf_field()`, `csrf_verify()`) |
+| Session régénérée à la connexion, cookie `HttpOnly`, `SameSite`, `Secure` en HTTPS | `index.php`, `authController.php` |
+| Requêtes SQL préparées (PDO) | `models/` |
+| Affichage échappé (`htmlspecialchars`) contre le XSS | `views/` |
+| Images vérifiées à l'envoi | `lib/ImageUpload.php` |
+| Erreurs PHP masquées en ligne (`DEBUG = false`) | `config/`, `index.php` |
+| Fichiers et dossiers sensibles inaccessibles (`.sql`, `config/`, `.git/`…) | `.htaccess` |
+| Aucun script exécutable dans le dossier des images | `assets/images/.htaccess` |
+| Anti-robot et anti-injection d'en-têtes sur le formulaire de contact | `contactController.php` |
 
-L'objectif est de disposer d'un **site vitrine professionnel et
-administrable**, tout en conservant une architecture PHP simple et
-maintenable.
+---
 
-Le découpage en **Pages, Sections et ContentBlocks**, associé aux
-contrôleurs et vues spécifiques du back-office, permet de faire évoluer
-progressivement le contenu administrable sans reconstruire
-l'application.
+## Travailler avec Git
+
+| Branche | Rôle |
+|---|---|
+| `develop` | Travail au quotidien : toutes les modifications se font ici |
+| `main` | Version en ligne : ne reçoit que des fusions depuis `develop` |
+
+```powershell
+# Au quotidien, sur develop
+git add -A
+git commit -m "feat: ..."
+git push origin develop
+
+# Publier une version
+git checkout main
+git merge develop --no-ff -m "release: ..."
+git push origin main
+git checkout develop
+```
+
+Jamais dans Git (voir `.gitignore`) : `config/*.local.php`, `tests/.env.local`,
+`.vscode/`, `CODE_COMPLET.txt`, `exporter_code.ps1`.
+
+---
+
+## Modifier le site
+
+- **Textes et images gérés par l'admin** : passer par le back-office.
+- **Image de fond d'un bandeau** : variable `$heroImage` en haut de la vue
+  (`views/accueil.php`, `presentation.php`, `service.php`, `contact.php`).
+- **Images du comparateur Réel / BIM** : remplacer
+  `assets/images/comparateur-reel.png` et `comparateur-bim.png` par deux images
+  **de même taille et même cadrage**. Les repères (`ofl-pin`) sont placés en %
+  de l'image, à replacer si le cadrage change.
+- **Ajouter une page** : créer la vue dans `views/`, ajouter son nom dans
+  `$publicPages` (`index.php`) et son titre / description SEO dans
+  `controllers/homeController.php`.
+- **Style** : tout est dans `assets/css/style.css`. Les blocs de l'accueil
+  sont préfixés `ofl-`, l'admin est limité à `.admin-shell`.
+- Après chaque modification : relancer les tests.
+
+---
+
+## Reste à faire avant livraison
+
+- [ ] Compléter les `[À COMPLÉTER]` de `views/mentions.php` (forme juridique,
+      SIRET, RCS, TVA, directeur de publication, hébergeur).
+- [ ] Remplacer, si possible, les visuels du comparateur par une vraie photo
+      et la vue Revit d'un projet OFLABIM.
+- [ ] Vérifier que les témoignages affichés correspondent à de vrais clients.
+- [ ] Mettre en ligne (voir [Mise en ligne](#mise-en-ligne)) et définir le
+      mot de passe admin du client.
+
+### Évolutions possibles (hors contrat actuel)
+
+- Administration de la page Services
+- Liste des messages reçus par le formulaire de contact dans l'admin
+- Plusieurs comptes administrateurs
+- Envoi des e-mails par SMTP (meilleure délivrabilité que `mail()`)

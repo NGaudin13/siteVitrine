@@ -47,3 +47,18 @@ def test_page_publique_a_un_seul_h1(client, page):
     soup = BeautifulSoup(client.get(url(page), timeout=10).text, "html.parser")
 
     assert len(soup.find_all("h1")) == 1
+
+
+@pytest.mark.parametrize("page", ["accueil", "presentation", "service", "contact"])
+def test_images_des_bandeaux_en_chemin_absolu(client, page):
+    """Dans un style="--x: url(...)", un chemin relatif serait lu depuis assets/css/
+    (image introuvable). Les chemins doivent commencer par / ou https://."""
+    import re
+
+    html = client.get(url(page), timeout=10).text
+    chemins = re.findall(r"url\('([^']+)'\)", html)
+
+    assert chemins, "aucune image de bandeau trouvée"
+    for chemin in chemins:
+        assert chemin.startswith(("/", "http")), f"chemin relatif : {chemin}"
+        assert "/siteVitrine/" not in chemin, f"chemin écrit en dur pour XAMPP : {chemin}"

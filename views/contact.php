@@ -30,9 +30,9 @@ if (!empty($siteUser?->getAddress())) {
      Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Contact.
      ========================================================== -->
 <?php
-$heroImage = '/siteVitrine/assets/images/contactezNous3.jpg';
+$heroImage = 'assets/images/contactezNous3.jpg';
 ?>
-<section class="ofl-hero" style="--ofl-hero-img: url('<?= $e($heroImage) ?>');">
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= $e(url_asset($heroImage)) ?>');">
     <div class="container ofl-hero__inner">
         <div class="ofl-hero__content">
 

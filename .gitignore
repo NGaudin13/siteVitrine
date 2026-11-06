@@ -55,3 +55,5 @@ config/*.local.php
 Thumbs.db
 desktop.ini
 .DS_Store
+# Réglages VS Code (propres à chaque poste)
+.vscode/

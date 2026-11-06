@@ -18,7 +18,7 @@ require_once PATH_VIEWS . 'alert.php';
 $heroImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80';
 // Autre photo possible : 'assets/images/hopitalCVC2.jpg'
 ?>
-<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars(url_asset($heroImage), ENT_QUOTES, 'UTF-8') ?>');">
     <div class="container ofl-hero__inner">
         <div class="ofl-hero__content">
 

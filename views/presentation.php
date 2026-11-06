@@ -14,9 +14,9 @@ require_once PATH_VIEWS . 'alert.php';
      Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Présentation.
      ========================================================== -->
 <?php
-$heroImage = '/siteVitrine/assets/images/presentation2.jpg';
+$heroImage = 'assets/images/presentation2.jpg';
 ?>
-<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars(url_asset($heroImage), ENT_QUOTES, 'UTF-8') ?>');">
     <div class="container ofl-hero__inner">
         <div class="ofl-hero__content">
 
@@ -416,7 +416,7 @@ $heroImage = '/siteVitrine/assets/images/presentation2.jpg';
       <article class="pmtl-item pmtl-item--left">
         <div class="pmtl-card">
           <img
-            src="/siteVitrine/assets/images/presentation_modelCoordination.jpg"
+            src="assets/images/presentation_modelCoordination.jpg"
             alt="Maquette BIM issue de l’existant"
             class="pmtl-img"
             loading="lazy"
@@ -451,7 +451,7 @@ $heroImage = '/siteVitrine/assets/images/presentation2.jpg';
       <article class="pmtl-item pmtl-item--right">
         <div class="pmtl-card">
           <img
-            src="/siteVitrine/assets/images/presentation_modelStructure.jpg"
+            src="assets/images/presentation_modelStructure.jpg"
             alt="Maquette BIM structure"
             class="pmtl-img"
             loading="lazy"
@@ -486,7 +486,7 @@ $heroImage = '/siteVitrine/assets/images/presentation2.jpg';
       <article class="pmtl-item pmtl-item--left">
         <div class="pmtl-card">
           <img
-            src="/siteVitrine/assets/images/presentation_modelExcecution.jpg"
+            src="assets/images/presentation_modelExcecution.jpg"
             alt="Maquette BIM d’exécution"
             class="pmtl-img"
             loading="lazy"
@@ -520,7 +520,7 @@ $heroImage = '/siteVitrine/assets/images/presentation2.jpg';
       <article class="pmtl-item pmtl-item--right">
         <div class="pmtl-card">
           <img
-            src="/siteVitrine/assets/images/presentation_modelDOE.webp"
+            src="assets/images/presentation_modelDOE.webp"
             alt="Maquette BIM DOE et exploitation"
             class="pmtl-img"
             loading="lazy"

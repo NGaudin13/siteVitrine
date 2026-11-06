@@ -10,9 +10,9 @@ require_once PATH_VIEWS . 'alert.php';
      Même bandeau que l'accueil (classes ofl-hero), avec la photo de la page Services.
      ====================================================== -->
 <?php
-$heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
+$heroImage = 'assets/images/stationEpuration.jpg';
 ?>
-<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars($heroImage, ENT_QUOTES, 'UTF-8') ?>');">
+<section class="ofl-hero" style="--ofl-hero-img: url('<?= htmlspecialchars(url_asset($heroImage), ENT_QUOTES, 'UTF-8') ?>');">
     <div class="container ofl-hero__inner">
         <div class="ofl-hero__content">
 
@@ -65,7 +65,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
 
                 <!-- Slide 1 -->
                 <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service1.jpg');">
+                    <div class="services-swiper__card" style="--bg:url('<?= url_asset('assets/images/service1.jpg') ?>');">
                         <div class="services-swiper__icon">
                             <i class="bi bi-boxes"></i>
                         </div>
@@ -91,7 +91,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
 
                 <!-- Slide 2 -->
                 <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service2.jpg');">
+                    <div class="services-swiper__card" style="--bg:url('<?= url_asset('assets/images/service2.jpg') ?>');">
                         <div class="services-swiper__icon">
                             <i class="bi bi-building"></i>
                         </div>
@@ -117,7 +117,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
 
                 <!-- Slide 3 -->
                 <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service3.jpg');">
+                    <div class="services-swiper__card" style="--bg:url('<?= url_asset('assets/images/service3.jpg') ?>');">
                         <div class="services-swiper__icon">
                             <i class="bi bi-wrench-adjustable"></i>
                         </div>
@@ -143,7 +143,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
 
                 <!-- Slide 4 -->
                 <article class="services-swiper__slide swiper-slide">
-                    <div class="services-swiper__card" style="--bg:url('/siteVitrine/assets/images/service4.jpg');">
+                    <div class="services-swiper__card" style="--bg:url('<?= url_asset('assets/images/service4.jpg') ?>');">
                         <div class="services-swiper__icon">
                             <i class="bi bi-gear"></i>
                         </div>
@@ -263,7 +263,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service1.jpg"
+                            src="assets/images/service1.jpg"
                             alt="Modélisation BIM à partir de l’existant"
                             loading="lazy"
                         >
@@ -413,7 +413,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service2.jpg"
+                            src="assets/images/service2.jpg"
                             alt="Plans techniques"
                             loading="lazy"
                         >
@@ -565,7 +565,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service3.jpg"
+                            src="assets/images/service3.jpg"
                             alt="Processus BIM collaboratifs"
                             loading="lazy"
                         >
@@ -721,7 +721,7 @@ $heroImage = '/siteVitrine/assets/images/stationEpuration.jpg';
                 <div class="col-lg-4">
                     <div class="services-details__media">
                         <img
-                            src="/siteVitrine/assets/images/service4.jpg"
+                            src="assets/images/service4.jpg"
                             alt="Optimisation BIM et DOE numériques"
                             loading="lazy"
                         >
