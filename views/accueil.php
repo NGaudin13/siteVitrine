@@ -550,38 +550,6 @@ $heroImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=
     </div>
 </section>
 
-<!-- ================= ACCUEIL / MÉTHODE (3 étapes) ================= -->
-<section class="ofl-steps-sec">
-    <div class="container">
-        <div class="ofl-steps-head">
-            <div class="ofl-kicker">Notre méthode</div>
-            <h2 class="ofl-steps-head__title">Comment se déroule une mission</h2>
-            <p class="ofl-steps-head__text">De la première analyse à la remise des livrables, un déroulé clair, adapté à chaque prestation.</p>
-        </div>
-
-        <ol class="ofl-steps" data-etapes>
-            <li class="ofl-step">
-                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-search"></i></div>
-                <span class="ofl-step__num"></span>
-                <h3 class="ofl-step__title">Analyse du besoin</h3>
-                <p class="ofl-step__text">Étude du projet, des plans et des données disponibles, puis cadrage de la prestation.</p>
-            </li>
-            <li class="ofl-step">
-                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-boxes"></i></div>
-                <span class="ofl-step__num"></span>
-                <h3 class="ofl-step__title">Études et modélisation</h3>
-                <p class="ofl-step__text">Réalisation des études techniques et de la maquette BIM selon la prestation retenue.</p>
-            </li>
-            <li class="ofl-step">
-                <div class="ofl-step__dot" aria-hidden="true"><i class="bi bi-check-lg"></i></div>
-                <span class="ofl-step__num"></span>
-                <h3 class="ofl-step__title">Livraison</h3>
-                <p class="ofl-step__text">Remise des maquettes, plans et documents techniques prévus, dans les formats convenus.</p>
-            </li>
-        </ol>
-    </div>
-</section>
-
 <!-- ================= ACCUEIL / LIVRABLES ================= -->
 <section class="home-deliverables py-5">
     <div class="container">
@@ -941,7 +909,7 @@ $heroImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=
     </div>
 </section>
 
-<!-- Comparateur Réel / BIM, ouverture de la démonstration, fil des étapes -->
+<!-- Comparateur Réel / BIM et ouverture de la démonstration -->
 <script>
 (function () {
     const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1038,18 +1006,5 @@ $heroImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=
         demo.querySelector('[data-demo-close]').addEventListener('click', () => ouvrir(false, true));
     }
 
-    /* ---------- Étapes : le fil se trace quand la section apparaît ---------- */
-    document.querySelectorAll('[data-etapes]').forEach((liste) => {
-        if (calme || !observe) {
-            liste.style.setProperty('--progress', 1);
-            return;
-        }
-        new IntersectionObserver(([entree], obs) => {
-            if (entree.isIntersecting) {
-                liste.style.setProperty('--progress', 1);
-                obs.disconnect();
-            }
-        }, { threshold: 0.4 }).observe(liste);
-    });
 })();
 </script>
