@@ -1,5 +1,6 @@
 {
     "workbench.colorCustomizations": {
+<<<<<<< Updated upstream
         "activityBar.activeBackground": "#fbed80",
         "activityBar.background": "#fbed80",
         "activityBar.foreground": "#15202b",
@@ -29,6 +30,35 @@
         "activityBarTop.activeBorder": "#15202b",
         "activityBar.border": "#ffd43b",
         "focusBorder": "#ffd43b"
+=======
+        "activityBar.activeBackground": "#2f7c47",
+        "activityBar.background": "#2f7c47",
+        "activityBar.foreground": "#e7e7e7",
+        "activityBar.inactiveForeground": "#e7e7e799",
+        "activityBarBadge.background": "#422c74",
+        "activityBarBadge.foreground": "#e7e7e7",
+        "commandCenter.border": "#e7e7e799",
+        "sash.hoverBorder": "#2f7c47",
+        "statusBar.background": "#215732",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#2f7c47",
+        "statusBarItem.remoteBackground": "#1b122e",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "titleBar.activeBackground": "#215732",
+        "titleBar.activeForeground": "#e7e7e7",
+        "titleBar.inactiveBackground": "#21573299",
+        "titleBar.inactiveForeground": "#e7e7e799",
+        "activityBarTop.activeBackground": "#2f7c47",
+        "activityBarTop.background": "#2f7c47",
+        "activityBarTop.foreground": "#e7e7e7",
+        "activityBarTop.inactiveForeground": "#e7e7e799",
+        "commandCenter.foreground": "#e7e7e7",
+        "statusBar.debuggingBackground": "#215732",
+        "statusBar.debuggingForeground": "#e7e7e7",
+        "activityBar.activeBorder": "#e7e7e7",
+        "activityBarTop.activeBorder": "#e7e7e7",
+        "statusBar.inactiveBackground": "#215732"
+>>>>>>> Stashed changes
     },
     "peacock.color": "#f9e64f"
 }
