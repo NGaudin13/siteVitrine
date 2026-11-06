@@ -1,74 +1,81 @@
 <?php
-// controllers/ContactController.php
+// =========================================================
+// FICHIER : siteVitrine/controllers/contactController.php
+// Formulaire de contact : validation, anti-spam, envoi du mail.
+// Inclus par homeController.php (case 'contact').
+// =========================================================
+
+// Variables fournies par index.php / homeController.php.
+/** @var PDO $pdo */
+/** @var User|null $siteUser */
 
 require_once PATH_MODELS . 'PageModel.php';
 require_once PATH_MODELS . 'SectionModel.php';
 require_once PATH_MODELS . 'ContentBlockModel.php';
 
-// Email de réception (client) => dynamique
+// Limites de saisie (protègent contre les abus et les messages géants)
+$limites = [
+    'name'    => 100,
+    'email'   => 190,
+    'phone'   => 20,
+    'message' => 5000,
+];
+
+// Adresse qui reçoit les messages (modifiable dans l'admin)
 $to = $siteUser?->getEmail() ?: 'contact@oflabim.fr';
 
-// Models (pour construire $sectionsContent)
 $pageModel         = new PageModel($pdo);
 $sectionModel      = new SectionModel($pdo);
 $contentBlockModel = new ContentBlockModel($pdo);
 
-// Variables pour la vue
 $errors = [];
-$flashSuccess = null;
 
-// ID pour suivre une requête dans les logs
+// Message de succès transmis par la redirection (voir étape 3.4)
+$flashSuccess = $_SESSION['contactFlash'] ?? null;
+unset($_SESSION['contactFlash']);
+
+// Identifiant court pour suivre une requête dans les logs.
+// RGPD : on ne journalise JAMAIS le contenu saisi par le visiteur.
 $reqId = date('Ymd_His') . '_' . bin2hex(random_bytes(3));
-error_log("[$reqId] CONTACT: controller loaded | method=" . ($_SERVER['REQUEST_METHOD'] ?? 'UNKNOWN'));
 
 // ============================================================
-// 1) Construire sectionsContent (pour le select dynamique)
+// 1) Sujets du formulaire (gérés dans l'admin)
 // ============================================================
 $sectionsContent = [];
+$subjectLabels   = [];   // value technique => libellé affiché
 
-$page = $pageModel->findBySlug('contact');
+$contactPage = $pageModel->findBySlug('contact');
 
-if ($page) {
+if ($contactPage) {
 
-    $sections = $sectionModel->findByPageId((int)$page->getId(), true);
+    $sections = $sectionModel->findByPageId((int) $contactPage->getId(), true);
 
     foreach ($sections as $section) {
 
-        $slug = (string)$section->getSlug();
-        $sid  = (int)$section->getId();
-
-        $blocks = $contentBlockModel->findBySectionIdIndexedBySlot($sid, true);
+        $slug   = (string) $section->getSlug();
+        $blocks = $contentBlockModel->findBySectionIdIndexedBySlot((int) $section->getId(), true);
 
         foreach ($blocks as $slot => $block) {
 
-            // Cas "subjects" (options du select) : slots subject_*
             if (strpos($slot, 'subject_') === 0) {
                 $sectionsContent[$slug][$slot] = [
-                    'text'        => (string)($block->getText() ?? ''),
-                    'order_index' => (int)($block->getOrderIndex() ?? 0),
+                    'text'        => (string) ($block->getText() ?? ''),
+                    'order_index' => (int) ($block->getOrderIndex() ?? 0),
                 ];
+
+                if ($slug === 'contact-nature-demande') {
+                    $subjectLabels[substr($slot, 8)] = (string) ($block->getText() ?? '');
+                }
                 continue;
             }
 
-            // Contenu standard (si tu en as besoin plus tard)
-            $sectionsContent[$slug][$slot] = (string)($block->getText() ?? '');
+            $sectionsContent[$slug][$slot] = (string) ($block->getText() ?? '');
         }
     }
 }
 
-// Préparer la liste des valeurs autorisées pour la validation
-$allowedSubjects = [];
-$rawSubjects = $sectionsContent['contact-nature-demande'] ?? [];
-
-foreach ($rawSubjects as $slot => $val) {
-    if (strpos($slot, 'subject_') !== 0) continue;
-    $allowedSubjects[] = substr($slot, 8); // après "subject_"
-}
-
-error_log("[$reqId] CONTACT: allowedSubjects=" . implode(',', $allowedSubjects));
-
 // ============================================================
-// 2) Pré-remplissage (UX)
+// 2) Valeurs du formulaire (ré-affichées en cas d'erreur)
 // ============================================================
 $old = [
     'name'    => '',
@@ -76,109 +83,124 @@ $old = [
     'phone'   => '',
     'subject' => '',
     'message' => '',
+    'rgpd'    => false,
 ];
 
 // ============================================================
-// 3) POST
+// 3) Traitement de l'envoi
 // ============================================================
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
-    error_log("[$reqId] CONTACT: POST received");
-    error_log("[$reqId] CONTACT: POST payload=" . print_r($_POST, true));
+    $old['name']    = trim((string) ($_POST['name'] ?? ''));
+    $old['email']   = trim((string) ($_POST['email'] ?? ''));
+    $old['phone']   = trim((string) ($_POST['phone'] ?? ''));
+    $old['subject'] = trim((string) ($_POST['subject'] ?? ''));
+    $old['message'] = trim((string) ($_POST['message'] ?? ''));
+    $old['rgpd']    = isset($_POST['rgpd']);
 
-    // 3.1) Récup
-    $old['name']    = trim($_POST['name'] ?? '');
-    $old['email']   = trim($_POST['email'] ?? '');
-    $old['phone']   = trim($_POST['phone'] ?? '');
-    $old['subject'] = trim($_POST['subject'] ?? '');
-    $old['message'] = trim($_POST['message'] ?? '');
-    $rgpdAccepted   = isset($_POST['rgpd']);
+    // --------------------------------------------------------
+    // 3.1) Anti-spam "pot de miel" (honeypot)
+    // Champ invisible pour un humain : seuls les robots le remplissent.
+    // On fait comme si tout allait bien, sans rien envoyer.
+    // --------------------------------------------------------
+    if (trim((string) ($_POST['website'] ?? '')) !== '') {
+        error_log("[$reqId] CONTACT: envoi bloqué (anti-spam)");
+        $_SESSION['contactFlash'] = "Message envoyé ✅ Nous vous répondrons sous 24–48h ouvrées.";
+        header('Location: index.php?page=contact#contact-form');
+        exit;
+    }
 
-    error_log("[$reqId] CONTACT: parsed fields name={$old['name']} email={$old['email']} subject={$old['subject']} rgpd=" . ($rgpdAccepted ? '1' : '0'));
-
+    // --------------------------------------------------------
     // 3.2) Validation
+    // --------------------------------------------------------
+
+    // CSRF : le formulaire doit venir de notre site
+    if (!csrf_verify()) {
+        $errors['global'] = "Le formulaire a expiré. Merci de vérifier vos informations et de le renvoyer.";
+    }
+
     if ($old['name'] === '') {
         $errors['name'] = 'Le nom est obligatoire.';
+    } elseif (preg_match('/[\r\n]/', $old['name'])) {
+        // SÉCURITÉ : un retour à la ligne dans le nom permettrait
+        // d'ajouter des en-têtes au mail (Bcc: ...) => injection.
+        $errors['name'] = 'Le nom contient des caractères non autorisés.';
+    } elseif (mb_strlen($old['name']) > $limites['name']) {
+        $errors['name'] = "Le nom est trop long ({$limites['name']} caractères maximum).";
     }
 
     if ($old['email'] === '' || !filter_var($old['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Email invalide.';
+        $errors['email'] = 'Adresse email invalide.';
+    } elseif (mb_strlen($old['email']) > $limites['email']) {
+        $errors['email'] = 'Adresse email trop longue.';
     }
 
-    // ✅ validation stricte : doit être dans la liste DB
-    if ($old['subject'] === '' || (!empty($allowedSubjects) && !in_array($old['subject'], $allowedSubjects, true))) {
-        $errors['subject'] = 'Veuillez choisir un type de demande valide.';
+    if ($old['phone'] !== '' && !preg_match('/^\+?[0-9\s\-().]{6,20}$/', $old['phone'])) {
+        $errors['phone'] = 'Numéro de téléphone invalide.';
+    }
+
+    if ($old['subject'] === '' || !array_key_exists($old['subject'], $subjectLabels)) {
+        $errors['subject'] = 'Veuillez choisir un type de demande.';
     }
 
     if ($old['message'] === '') {
         $errors['message'] = 'Le message est obligatoire.';
+    } elseif (mb_strlen($old['message']) > $limites['message']) {
+        $errors['message'] = "Le message est trop long ({$limites['message']} caractères maximum).";
     }
 
-    if (!$rgpdAccepted) {
-        $errors['rgpd'] = 'Vous devez accepter la mention RGPD.';
+    if (!$old['rgpd']) {
+        $errors['rgpd'] = 'Vous devez accepter l’utilisation de vos informations pour être recontacté.';
     }
 
-    if (!empty($errors)) {
-        error_log("[$reqId] CONTACT: validation errors=" . print_r($errors, true));
-    }
-
-    // 3.3) Envoi mail
+    // --------------------------------------------------------
+    // 3.3) Envoi du mail
+    // --------------------------------------------------------
     if (empty($errors)) {
 
-        $safeName    = htmlspecialchars($old['name'], ENT_QUOTES, 'UTF-8');
-        $safeEmail   = htmlspecialchars($old['email'], ENT_QUOTES, 'UTF-8');
-        $safeSubject = htmlspecialchars($old['subject'], ENT_QUOTES, 'UTF-8');
+        $subjectLabel = $subjectLabels[$old['subject']];
 
-        // Optionnel : afficher le label plutôt que la value
-        $subjectLabel = $old['subject'];
-        foreach ($rawSubjects as $slot => $val) {
-            if (strpos($slot, 'subject_') !== 0) continue;
-            if (substr($slot, 8) === $old['subject']) {
-                $subjectLabel = is_array($val) ? ($val['text'] ?? $old['subject']) : $old['subject'];
-                break;
-            }
-        }
-
-        $mailSubject = "[OFLABIM] Nouveau message - " . $subjectLabel;
+        // Les en-têtes de mail n'acceptent que l'ASCII :
+        // mb_encode_mimeheader encode proprement les accents.
+        $mailSubject = mb_encode_mimeheader("[OFLABIM] Nouveau message - {$subjectLabel}", 'UTF-8');
+        $replyName   = mb_encode_mimeheader($old['name'], 'UTF-8');
 
         $body  = "Nouveau message depuis le site OFLABIM\n\n";
         $body .= "Nom : {$old['name']}\n";
         $body .= "Email : {$old['email']}\n";
-        $body .= "Téléphone : " . ($old['phone'] ?: 'Non renseigné') . "\n";
+        $body .= "Téléphone : " . ($old['phone'] !== '' ? $old['phone'] : 'Non renseigné') . "\n";
         $body .= "Type de demande : {$subjectLabel}\n\n";
         $body .= "Message :\n{$old['message']}\n\n";
         $body .= "—\nEnvoyé depuis la page Contact.\n";
 
-        $headers = [];
-        $headers[] = "MIME-Version: 1.0";
-        $headers[] = "Content-Type: text/plain; charset=UTF-8";
-        $headers[] = "From: OFLABIM <no-reply@oflabim.fr>";
-        $headers[] = "Reply-To: {$safeName} <{$safeEmail}>";
-
-        error_log("[$reqId] CONTACT: sending mail to={$to} subject={$mailSubject}");
-        error_log("[$reqId] CONTACT: headers=" . implode(" | ", $headers));
+        $headers = [
+            'MIME-Version: 1.0',
+            'Content-Type: text/plain; charset=UTF-8',
+            'Content-Transfer-Encoding: 8bit',
+            'From: OFLABIM <no-reply@oflabim.fr>',
+            "Reply-To: {$replyName} <{$old['email']}>",
+        ];
 
         $ok = @mail($to, $mailSubject, $body, implode("\r\n", $headers));
 
         if ($ok) {
-            $flashSuccess = "Message envoyé ✅ Nous vous répondrons sous 24–48h ouvrées.";
-            error_log("[$reqId] CONTACT: mail() returned TRUE => success flash set");
+            error_log("[$reqId] CONTACT: message envoyé (type={$old['subject']})");
 
-            // vider le formulaire après succès
-            $old = ['name'=>'','email'=>'','phone'=>'','subject'=>'','message'=>''];
-        } else {
-            $errors['global'] = "Impossible d’envoyer le message pour le moment. Réessayez plus tard. Config SMTP requise";
-            error_log("[$reqId] CONTACT: mail() returned FALSE => global error set");
-
-            $lastError = error_get_last();
-            if ($lastError) {
-                error_log("[$reqId] CONTACT: last_error=" . print_r($lastError, true));
-            }
+            // 3.4) Redirection après succès (motif Post/Redirect/Get) :
+            // un F5 ne renverra pas le message une deuxième fois.
+            $_SESSION['contactFlash'] = "Message envoyé ✅ Nous vous répondrons sous 24–48h ouvrées.";
+            header('Location: index.php?page=contact#contact-form');
+            exit;
         }
+
+        // Détail technique pour le développeur uniquement (sans données perso)
+        $lastError = error_get_last();
+        error_log("[$reqId] CONTACT: échec de mail() - " . ($lastError['message'] ?? 'raison inconnue'));
+
+        // Message clair pour le visiteur
+        $errors['global'] = "Votre message n’a pas pu être envoyé pour le moment. "
+                          . "Merci de réessayer plus tard ou de nous appeler.";
     }
 }
 
-error_log("[$reqId] CONTACT: rendering view. flash=" . (!empty($flashSuccess) ? 'YES' : 'NO') . " errors_count=" . count($errors));
-
-// IMPORTANT : cette page controller doit ensuite rendre ta vue contact
-// Ex: require_once(PATH_VIEWS . 'contact.php');
+// La vue views/contact.php est incluse ensuite par homeController.php.

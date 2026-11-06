@@ -1,5 +1,13 @@
 <?php
-// views_admin/sections/home-domains.php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/sections/home-domains.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array<string, ContentBlock> $blocks */
+/** @var string                      $selectedSlug */
+
 // Section slug attendu : home-domains
 // Requiert : $blocks (indexés par slot), $selectedSlug
 
@@ -102,6 +110,8 @@ for ($i = 1; $i <= $MAX; $i++) {
       id="domainsForm">
 
     <input type="hidden" name="section_slug" value="<?= h($selectedSlug) ?>">
+
+    <?= csrf_field() ?>
 
     <!-- Bloc header -->
     <div class="col-12">

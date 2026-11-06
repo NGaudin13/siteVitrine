@@ -1,10 +1,15 @@
 <?php
-// views/conditions.php
+// =========================================================
+// FICHIER : siteVitrine/views/conditions.php
+// =========================================================
+
 ?>
 
 <!-- ================= CONTENU ================= -->
 <section class="py-5">
     <div class="container">
+
+        <h1 class="display-6 fw-bold mb-4">Conditions générales d’utilisation</h1>
 
         <div class="row g-4">
 

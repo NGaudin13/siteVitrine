@@ -1,5 +1,12 @@
 <?php
-// views_admin/sections/home-about.php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/sections/home-about.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array<string, ContentBlock> $blocks */
+/** @var string                      $selectedSlug */
 
 $b = $blocks ?? [];
 
@@ -84,6 +91,8 @@ $stat2Label = "Clients satisfaits";
       class="row g-3">
 
     <input type="hidden" name="section_slug" value="<?= htmlspecialchars($selectedSlug) ?>">
+
+    <?= csrf_field() ?>
 
     <div class="col-12">
         <label class="form-label">Titre (H2)</label>

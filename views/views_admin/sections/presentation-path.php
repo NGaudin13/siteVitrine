@@ -1,5 +1,13 @@
 <?php
-// views_admin/sections/presentation-path.php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/sections/presentation-path.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var array<string, ContentBlock> $blocks */
+/** @var string                      $selectedSlug */
+
 // Section slug attendu : presentation-path
 // Requiert : $blocks (indexés par slot), $selectedSlug
 
@@ -47,6 +55,8 @@ for ($i = 1; $i <= 50; $i++) {
       class="row g-4">
 
     <input type="hidden" name="section_slug" value="<?= htmlspecialchars($selectedSlug) ?>">
+
+    <?= csrf_field() ?>
 
     <!-- ================== Réalisations & expérience ================== -->
     <div class="col-12">

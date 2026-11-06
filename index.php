@@ -1,4 +1,7 @@
 <?php
+// =========================================================
+// FICHIER : siteVitrine/index.php
+// =========================================================
 
 require_once('./config/configuration.php');     // contient $pdo + PATH_*
 require_once('./lib/foncBase.php');
@@ -8,6 +11,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Cookie de session sécurisé (à régler AVANT session_start) :
+// - use_strict_mode : refuse un identifiant de session inventé par un attaquant
+// - cookie_httponly : le cookie n'est pas lisible en JavaScript (vol par XSS)
+// - cookie_samesite : le cookie n'est pas envoyé depuis un autre site (CSRF)
+ini_set('session.use_strict_mode', '1');
+ini_set('session.cookie_httponly', '1');
+ini_set('session.cookie_samesite', 'Lax');
+
+// Session démarrée UNE SEULE FOIS pour tout le site.
+// Les contrôleurs ne doivent PAS rappeler session_start().
 session_start();
 
 /* ============================================================
@@ -27,14 +40,16 @@ $publicPages = [
     'contact',
     'conditions',
     'confidentialite',
-    'login' 
+    'mentions',
+    'login',
 ];
 
+// 'adminServices' retiré : aucun contrôleur ni vue n'existe encore.
+// À remettre quand la page Admin services sera construite.
 $adminPages = [
     'adminDashboard',
     'adminAccueil',
     'adminPresentation',
-    'adminServices',
     'adminContact',
 ];
 
@@ -55,10 +70,6 @@ $siteUser = $userModel->find(1);
 /* ============================================================
    4) CHOIX DU CONTRÔLEUR
    ============================================================ */
-/* ============================================================
-   4) CHOIX DU CONTRÔLEUR
-   ============================================================ */
-
 if ($page === 'login' || $page === 'logout') {
 
     $controllerFile = PATH_CONTROLLERS . 'authController.php';

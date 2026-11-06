@@ -1,4 +1,7 @@
 <?php
+// =========================================================
+// FICHIER : siteVitrine/config/configuration.php
+// =========================================================
 
 const DEBUG = true; // production : false | dev : true
 
@@ -6,7 +9,11 @@ const DEBUG = true; // production : false | dev : true
    BASE DE DONNÉES
    ============================================================ */
 const BD_HOST   = 'localhost';
-const BD_DBNAME = 'sitevitrineoflabim';
+// Base utilisée : 'sitevitrineoflabim' par défaut.
+// Les tests automatiques lancent leur propre serveur PHP avec
+// SITE_DB_NAME=sitevitrineoflabim_test : ils ne touchent jamais la vraie base.
+// (Un visiteur ne peut pas modifier une variable d'environnement du serveur.)
+define('BD_DBNAME', getenv('SITE_DB_NAME') ?: 'sitevitrineoflabim');
 const BD_USER   = 'root';
 const BD_PWD    = '';
 const BD_CHARSET = 'utf8mb4';

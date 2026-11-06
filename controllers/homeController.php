@@ -1,17 +1,17 @@
 <?php
+// =========================================================
+// FICHIER : siteVitrine/controllers/homeController.php
+// Pages publiques : contenu dynamique, SEO, choix de la vue.
+// =========================================================
+
+// Variables fournies par index.php (qui inclut ce fichier).
+/** @var PDO $pdo */
+/** @var string $page */
+/** @var User|null $siteUser */
 
 require_once PATH_MODELS . 'PageModel.php';
 require_once PATH_MODELS . 'SectionModel.php';
 require_once PATH_MODELS . 'ContentBlockModel.php';
-
-/**
- * IMPORTANT :
- * - $pdo est dispo via configuration.php (index.php l'a déjà chargé)
- * - $siteUser est déjà chargé dans index.php (global site config)
- */
-
-$page = $_GET['page'] ?? 'accueil';
-$page = preg_replace('/[^a-zA-Z0-9_]/', '', $page);
 
 /* ======================================================
    1) CONTENU DYNAMIQUE DES PAGES
@@ -50,7 +50,42 @@ if ($pageEntity) {
 }
 
 /* ======================================================
-   2) CHOIX DE LA VUE (PAS D'AFFICHAGE ICI)
+   2) SEO : titre + description de CHAQUE page
+   ------------------------------------------------------
+   Doit être prêt AVANT d'inclure header.php, qui les affiche.
+   Priorité : table `page` (modifiable en base), sinon valeurs ci-dessous.
+   ====================================================== */
+
+$seoParDefaut = [
+    'conditions' => [
+        'Conditions générales d’utilisation | OFLABIM',
+        'Conditions générales d’utilisation du site OFLABIM, bureau d’études & ingénierie BIM.',
+    ],
+    'confidentialite' => [
+        'Politique de confidentialité | OFLABIM',
+        'Comment OFLABIM collecte et protège vos données personnelles.',
+    ],
+    'mentions' => [
+        'Mentions légales | OFLABIM',
+        'Mentions légales du site OFLABIM : éditeur, hébergeur, propriété intellectuelle.',
+    ],
+];
+
+$pageTitle = "OFLABIM | Bureau d'Études & Ingénierie BIM";
+$metaDesc  = "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
+
+if ($pageEntity) {
+    $pageTitle = $pageEntity->getMetaTitle() ?: ($pageEntity->getTitle() . ' | OFLABIM');
+    $metaDesc  = $pageEntity->getMetaDesc() ?: $metaDesc;
+} elseif (isset($seoParDefaut[$page])) {
+    [$pageTitle, $metaDesc] = $seoParDefaut[$page];
+}
+
+// Calculée depuis l'adresse réelle : fonctionne en local ET en ligne
+$canonical = url_page($page);
+
+/* ======================================================
+   3) CHOIX DE LA VUE (PAS D'AFFICHAGE ICI)
    ====================================================== */
 
 $view  = '404.php';
@@ -77,21 +112,25 @@ switch ($page) {
         $view = 'confidentialite.php';
         break;
 
+    case 'mentions':
+        $view = 'mentions.php';
+        break;
+
     case 'contact':
         require PATH_CONTROLLERS . 'contactController.php';
         $view = 'contact.php';
-    break;
+        break;
 
     default:
         http_response_code(404);
-        $alert = choixAlert('url_non_valide');
-        $view  = '404.php';
+        $alert     = choixAlert('url_non_valide');
+        $view      = '404.php';
+        $pageTitle = 'Page introuvable | OFLABIM';
         break;
-
 }
 
 /* ======================================================
-   3) LAYOUT UNIQUE (HEADER + VUE + FOOTER)
+   4) LAYOUT UNIQUE (HEADER + VUE + FOOTER)
    ====================================================== */
 
 require PATH_VIEWS . 'header.php';

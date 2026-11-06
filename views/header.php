@@ -1,4 +1,15 @@
 <?php
+// =========================================================
+// FICHIER : siteVitrine/views/header.php
+// =========================================================
+
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var string    $canonical */
+/** @var string    $metaDesc */
+/** @var string    $pageTitle */
+/** @var User|null $siteUser */
+
     // Variables globales simples (tu pourras les centraliser plus tard)
     $pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
     $metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
@@ -11,7 +22,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?></title>
+    <title><?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?></title>
     <meta name="description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
     <meta name="robots" content="index, follow">
     <meta name="language" content="fr">
@@ -20,13 +31,13 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?>">
     <meta property="og:description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
     <meta property="og:url" content="<?= htmlspecialchars($canonical ?? '') ?>">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? 'NBsolutions') ?>">
+    <meta name="twitter:title" content="<?= htmlspecialchars($pageTitle ?? 'OFLABIM') ?>">
     <meta name="twitter:description" content="<?= htmlspecialchars($metaDesc ?? '') ?>">
 
     <!-- Google Fonts -->
@@ -78,7 +89,6 @@
                 </div>
             <?php endif; ?>
 
-
             <div class="h-100 d-inline-flex align-items-center">
             <i class="fa fa-envelope me-2"></i>
             <a
@@ -96,8 +106,11 @@
                 <a class="text-light me-3" href="index.php?page=conditions">
                     Conditions
                 </a>
-                <a class="text-light" href="index.php?page=confidentialite">
+                <a class="text-light me-3" href="index.php?page=confidentialite">
                     Confidentialité
+                </a>
+                <a class="text-light" href="index.php?page=mentions">
+                    Mentions légales
                 </a>
             </div>
 
@@ -163,7 +176,7 @@
 
             <div class="nav-item dropdown">
                 <a
-                    href="index.php?page=expertise"
+                    href="index.php?page=service"
                     class="nav-link dropdown-toggle"
                     data-bs-toggle="dropdown"
                 >
@@ -177,19 +190,19 @@
 
                     <div class="dropdown-divider"></div>
 
-                    <a href="index.php?page=service#modelisation_bim" class="dropdown-item">
+                    <a href="index.php?page=service#service_1" class="dropdown-item">
                         Modélisation de maquette numérique
                     </a>
 
-                    <a href="index.php?page=service#plan_technique" class="dropdown-item">
-                        Production de piéces graphiques
+                    <a href="index.php?page=service#service_2" class="dropdown-item">
+                        Production de pièces graphiques
                     </a>
 
-                    <a href="index.php?page=service#processus_bim" class="dropdown-item">
+                    <a href="index.php?page=service#service_3" class="dropdown-item">
                         Processus BIM collaboratifs
                     </a>
 
-                    <a href="index.php?page=service#optimisation_bim" class="dropdown-item">
+                    <a href="index.php?page=service#service_4" class="dropdown-item">
                         Optimisation & DOE BIM
                     </a>
                 </div>

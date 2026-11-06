@@ -1,9 +1,17 @@
 <?php
-// views_admin/adminContact.php
+// =========================================================
+// FICHIER : siteVitrine/views/views_admin/adminContact.php
+// =========================================================
 
-$pageTitle = $pageTitle ?? "Admin Contact | OFLABIM";
-$metaDesc  = $metaDesc  ?? "Administration de la page Contact";
-$canonical = $canonical ?? "http://localhost/siteVitrine/index.php?page=adminContact";
+// Variables fournies par le contrôleur qui inclut cette vue
+// (déclarées ici pour VS Code / Intelephense).
+/** @var string|null  $flashError */
+/** @var string|null  $flashSuccess */
+/** @var bool         $isEditable */
+/** @var Section[]    $sections */
+/** @var Section|null $selectedSection */
+/** @var string       $selectedSlug */
+
 ?>
 
 <div class="border rounded-3 p-4 bg-white">

@@ -1,3 +1,5 @@
+<!-- FICHIER : siteVitrine/README.md -->
+
 # NBSOLUTIONS -- Site vitrine
 
 Site vitrine développé en **PHP** avec une architecture **MVC**, une
@@ -55,10 +57,9 @@ http://localhost/siteVitrine/index.php?page=login
 
 ### Identifiants administrateur
 
-``` text
-E-mail : contact@oflabim.fr
-Mot de passe : admin123
-```
+Les identifiants ne sont **jamais** écrits dans le dépôt Git.
+Le mot de passe est défini localement avec le script prévu à cet effet
+(voir **Installation locale → 6. Définir le mot de passe admin**).
 
 Une fois connecté, l'administrateur accède à un **tableau de bord**
 permettant de gérer les contenus prévus dans l'interface
@@ -284,17 +285,49 @@ config/configuration.php
 http://localhost/siteVitrine/index.php?page=accueil
 ```
 
-### 6. Accéder au back-office
+### 6. Définir le mot de passe admin
+
+Le mot de passe fourni dans le dump SQL n'est **pas** à utiliser.
+Depuis la racine du projet, lancer :
+
+``` powershell
+C:\xampp\php\php.exe scripts\changer_mot_de_passe.php
+```
+
+Le script demande l'email du compte admin puis le nouveau mot de passe
+(12 caractères minimum). Seul le hash est enregistré en base.
+
+### 7. Accéder au back-office
 
 ``` text
 http://localhost/siteVitrine/index.php?page=login
 ```
 
-Identifiants :
+------------------------------------------------------------------------
 
-``` text
-contact@oflabim.fr
-admin123
+## Tests automatiques
+
+Les tests (dossier `tests/`) vérifient le site comme le ferait un
+navigateur : pages publiques, erreurs 404, back-office, formulaire de
+contact, protection CSRF, SEO et enregistrement réel des contenus.
+
+**Ils ne touchent jamais la vraie base.** À chaque lancement :
+
+1.  la base `sitevitrineoflabim_test` est recréée à partir de
+    `sitevitrineoflabim.sql` ;
+2.  un serveur PHP dédié démarre sur le port 8071 et utilise cette base
+    (variable d'environnement `SITE_DB_NAME`) ;
+3.  il est arrêté à la fin.
+
+Lancer les tests :
+
+1.  Démarrer **MySQL** dans XAMPP (Apache n'est pas nécessaire).
+2.  Copier `tests/.env.local.example` en `tests/.env.local` et y mettre
+    un mot de passe admin de test (fichier ignoré par Git).
+3.  Lancer :
+
+``` powershell
+uv run --with pytest --with requests --with beautifulsoup4 pytest tests
 ```
 
 ------------------------------------------------------------------------
