@@ -13,7 +13,7 @@
     // Variables globales simples (tu pourras les centraliser plus tard)
     $pageTitle = $pageTitle ?? "OFLABIM | Bureau d'Études & Ingénierie";
     $metaDesc  = $metaDesc  ?? "Bureau d'études et ingénierie – solutions techniques, BIM et accompagnement de projets.";
-    $canonical = $canonical ?? "http://localhost/siteVitrine/index.php";
+    $canonical = $canonical ?? url_page('accueil');
 ?>
 
 <!doctype html>

@@ -3,19 +3,32 @@
 // FICHIER : siteVitrine/config/configuration.php
 // =========================================================
 
-const DEBUG = true; // production : false | dev : true
+/* ============================================================
+   RÉGLAGES DU SERVEUR EN LIGNE
+   ------------------------------------------------------------
+   En ligne : créer config/configuration.local.php (modèle :
+   config/configuration.local.example.php) avec les accès MySQL
+   de l'hébergeur et DEBUG = false.
+   Ce fichier n'est JAMAIS envoyé sur GitHub (.gitignore).
+   En local (XAMPP) : pas de fichier local -> valeurs ci-dessous.
+   ============================================================ */
+$configLocale = __DIR__ . '/configuration.local.php';
+if (is_file($configLocale)) {
+    require $configLocale;
+}
+
+defined('DEBUG') || define('DEBUG', true);   // production : false | dev : true
 
 /* ============================================================
-   BASE DE DONNÉES
+   BASE DE DONNÉES (valeurs XAMPP par défaut)
    ============================================================ */
-const BD_HOST   = 'localhost';
-// Base utilisée : 'sitevitrineoflabim' par défaut.
+defined('BD_HOST') || define('BD_HOST', 'localhost');
 // Les tests automatiques lancent leur propre serveur PHP avec
 // SITE_DB_NAME=sitevitrineoflabim_test : ils ne touchent jamais la vraie base.
 // (Un visiteur ne peut pas modifier une variable d'environnement du serveur.)
-define('BD_DBNAME', getenv('SITE_DB_NAME') ?: 'sitevitrineoflabim');
-const BD_USER   = 'root';
-const BD_PWD    = '';
+defined('BD_DBNAME') || define('BD_DBNAME', getenv('SITE_DB_NAME') ?: 'sitevitrineoflabim');
+defined('BD_USER')   || define('BD_USER', 'root');
+defined('BD_PWD')    || define('BD_PWD', '');
 const BD_CHARSET = 'utf8mb4';
 
 /* ============================================================

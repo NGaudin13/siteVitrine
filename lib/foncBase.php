@@ -72,10 +72,32 @@ function csrf_verify(): bool
 /** URL absolue d'une page du site, ex : https://domaine.fr/index.php?page=contact */
 function url_page(string $page): string
 {
-    $https  = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+    $https  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+           || ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '') === 'https';   // hébergeur derrière un proxy
     $scheme = $https ? 'https' : 'http';
     $host   = $_SERVER['HTTP_HOST'] ?? 'localhost';
     $script = $_SERVER['SCRIPT_NAME'] ?? '/index.php';
 
     return $scheme . '://' . $host . $script . '?page=' . rawurlencode($page);
+}
+
+/* ============================================================
+   CHEMIN D'UNE IMAGE POUR LE CSS (url() dans un style="--...")
+   ============================================================ */
+
+/**
+ * Chemin absolu d'un fichier du site, qui marche en local ET en ligne :
+ *   XAMPP  : assets/images/x.jpg -> /siteVitrine/assets/images/x.jpg
+ *   en ligne : assets/images/x.jpg -> /assets/images/x.jpg
+ * À utiliser dans les url() des attributs style : un chemin relatif y serait
+ * calculé depuis le fichier CSS (assets/css/) et l'image serait introuvable.
+ * Une adresse complète (https://...) est renvoyée telle quelle.
+ */
+function url_asset(string $chemin): string
+{
+    if (preg_match('#^(https?:)?//#i', $chemin)) {
+        return $chemin;
+    }
+    $base = rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/index.php')), '/');
+    return $base . '/' . ltrim($chemin, '/');
 }

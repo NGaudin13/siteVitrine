@@ -7,9 +7,12 @@ require_once('./config/configuration.php');     // contient $pdo + PATH_*
 require_once('./lib/foncBase.php');
 require_once(PATH_TEXTES . LANG . '.php');
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+// Erreurs : affichées en local (DEBUG), jamais aux visiteurs en ligne
+// (elles restent enregistrées dans le journal d'erreurs du serveur).
 error_reporting(E_ALL);
+ini_set('display_errors', DEBUG ? '1' : '0');
+ini_set('display_startup_errors', DEBUG ? '1' : '0');
+ini_set('log_errors', '1');
 
 // Cookie de session sécurisé (à régler AVANT session_start) :
 // - use_strict_mode : refuse un identifiant de session inventé par un attaquant
@@ -18,6 +21,10 @@ error_reporting(E_ALL);
 ini_set('session.use_strict_mode', '1');
 ini_set('session.cookie_httponly', '1');
 ini_set('session.cookie_samesite', 'Lax');
+// En HTTPS : le cookie de session ne circule jamais en clair
+if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+    ini_set('session.cookie_secure', '1');
+}
 
 // Session démarrée UNE SEULE FOIS pour tout le site.
 // Les contrôleurs ne doivent PAS rappeler session_start().
